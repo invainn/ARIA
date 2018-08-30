@@ -14,4 +14,4 @@ COPY package.json /usr/src/client/package.json
 RUN yarn install --silent
 
 # start client
-CMD ["npm", "start"]
+CMD ["yarn", "start"]

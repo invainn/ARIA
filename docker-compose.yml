@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+
+  client:
+    container_name: aria-nnmta
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - './client:/usr/src/client'
+      - '/usr/src/client/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+
+  server:
+    container_name: aria-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    environment:
+      - NODE_ENV=development
