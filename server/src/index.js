@@ -8,7 +8,7 @@ const HOST = '0.0.0.0';
 // Routes should be declared in their separate files
 // This is just an example route
 app.get('/api', (req, res, next) => {
-  res.status(200).send('we did it');
+  res.status(200).send('We did it');
 });
 
 app.listen(PORT, HOST);
