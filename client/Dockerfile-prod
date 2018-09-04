@@ -1,17 +1,17 @@
 # base
 FROM node:8.11.4 as builder
 
-RUN mkdir /usr/src
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir /usr/app
+RUN mkdir /usr/app/client
+WORKDIR /usr/app/client
 
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+ENV PATH /usr/app/client/node_modules/.bin:$PATH
 ENV NODE_ENV production 
 
-COPY ./package.json /usr/src/app/package.json
+COPY ./package.json /usr/app/client/package.json
 RUN yarn install --silent
 
-COPY . /usr/src/app
+COPY . /usr/app/client
 
 RUN yarn build
 
@@ -19,7 +19,7 @@ RUN yarn build
 # production environment
 FROM nginx:1.14.0-alpine
 
-COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+COPY --from=builder /usr/app/client/build /usr/share/nginx/html
 
 EXPOSE 80
 
