@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: aria-ingress 
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: aria-ip 
+spec:
+  rules:
+    - host: api.dev.antbnt.me
+      http:
+        paths:
+          - backend:
+              serviceName: aria-server-backend
+              servicePort: 8080
+    - host: dev.antbnt.me
+      http:
+        paths:
+          - backend:
+              serviceName: aria-client-backend
+              servicePort: 80
