@@ -25,17 +25,17 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
           paths:
-            - /client
-            - /server 
+            - client
+            - server 
 
       # Build client
       - run:
           command: pwd && yarn install
-          working_directory: /client
+          working_directory: client
 
       - run:
           command: pwd && yarn install
-          working_directory: /server
+          working_directory: server
 
       - run: yarn install
 
