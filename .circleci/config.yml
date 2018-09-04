@@ -70,6 +70,9 @@ jobs:
         steps:
             - checkout
             - run:
+                name: Directory
+                command: pwd
+            - run:
                 name: Setup SDK
                 command: |
                     apt-get install -qq -y gettext
@@ -100,8 +103,8 @@ jobs:
                 command: |
                     envsubst < ${HOME}/res/aria-client.yml > ${HOME}/patched_aria-client.yml
                     envsubst < ${HOME}/res/aria-server.yml > ${HOME}/patched_aria-server.yml
-                    kubectl apply -f ${HOME}/res/aria-server.yml
-                    kubectl apply -f ${HOME}/res/aria-client.yml
+                    kubectl apply -f ${HOME}/res/patched_aria-server.yml
+                    kubectl apply -f ${HOME}/res/patched_aria-client.yml
                     kubectl apply -f ${HOME}/res/aria-ingress.yml
                     kubectl rollout status deployment/${PROJECT_NAME}
 workflows:
