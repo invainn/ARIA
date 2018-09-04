@@ -101,11 +101,11 @@ jobs:
             - run:
                 name: Deploy to GKE
                 command: |
-                    envsubst < ${HOME}/res/aria-client.yml > ${HOME}/patched_aria-client.yml
-                    envsubst < ${HOME}/res/aria-server.yml > ${HOME}/patched_aria-server.yml
-                    kubectl apply -f ${HOME}/res/patched_aria-server.yml
-                    kubectl apply -f ${HOME}/res/patched_aria-client.yml
-                    kubectl apply -f ${HOME}/res/aria-ingress.yml
+                    envsubst < ${HOME}/project/res/aria-client.yml > ${HOME}/patched_aria-client.yml
+                    envsubst < ${HOME}/project/res/aria-server.yml > ${HOME}/patched_aria-server.yml
+                    kubectl apply -f ${HOME}/patched_aria-server.yml
+                    kubectl apply -f ${HOME}/patched_aria-client.yml
+                    kubectl apply -f ${HOME}/project/res/aria-ingress.yml
                     kubectl rollout status deployment/${PROJECT_NAME}
 workflows:
     version: 2
