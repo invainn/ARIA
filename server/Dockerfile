@@ -1,5 +1,5 @@
 # base image
-FROM node:8.11.4-alpine
+FROM node:8.11.4
 
 WORKDIR /usr/app
 

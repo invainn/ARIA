@@ -8,8 +8,8 @@ services:
       context: ./client
       dockerfile: Dockerfile
     volumes:
-      - './client:/usr/src/client'
-      - '/usr/src/client/node_modules'
+      - './client:/usr/app/client'
+      - '/usr/app/client/node_modules'
     ports:
       - '3000:3000'
     env_file:
