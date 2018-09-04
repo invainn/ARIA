@@ -30,7 +30,6 @@ jobs:
                 - v1-dependencies-{{ checksum "server/package.json" }}
                 - v1-dependencies-
 
-        # Build client
         - run:
             command: pwd && yarn install
             working_directory: client
@@ -53,10 +52,12 @@ jobs:
             
         # run tests!
         - run: 
+            name: Test aria-client
             command: yarn test
             working_directory: client
 
         - run: 
+            name: Test aria-server
             command: yarn test
             working_directory: server
     
@@ -83,7 +84,7 @@ jobs:
                     gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
             - setup_remote_docker
             - run:
-                name: Docker build client
+                name: Build and push aria-client image 
                 command: |
                     docker build -f Dockerfile-prod -t aria-client .
                     docker tag aria-client gcr.io/${GOOGLE_PROJECT_ID}/aria-client:${CIRCLE_SHA1}
@@ -91,7 +92,7 @@ jobs:
                     docker push gcr.io/${GOOGLE_PROJECT_ID}/aria-client:${CIRCLE_SHA1}
                 working_directory: client
             - run:
-                name: Docker build server 
+                name: Build and push aria-server image 
                 command: |
                     docker build -t aria-server .
                     docker tag aria-server gcr.io/${GOOGLE_PROJECT_ID}/aria-server:${CIRCLE_SHA1}

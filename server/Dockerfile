@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 8080 
 
-CMD ["yarn", "run"] 
+CMD ["yarn", "start"] 
