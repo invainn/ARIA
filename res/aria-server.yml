@@ -29,7 +29,7 @@ spec:
         app: aria-server
     spec:
       containers:
-      - image: gcr.io/aria-nnmta/aria-server:v1 
+      - image: gcr.io/aria-nnmta/aria-server:${CIRCLE_SHA1} 
         imagePullPolicy: Always
         name: aria-server
         ports:
