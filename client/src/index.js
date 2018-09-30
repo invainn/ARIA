@@ -6,7 +6,7 @@ import theme from './theme';
 
 import './index.css';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import App from './containers/App/AppContainer';
+import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 import { CssBaseline } from '@material-ui/core';
 

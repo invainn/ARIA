@@ -9,6 +9,8 @@ const theme = createMuiTheme({
             main: '#006064'
         },
         error: red,
+
+        type: "dark",
         
         contrastThreshold: 3,
 
