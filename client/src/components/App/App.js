@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
 
 class App extends Component {
     componentDidMount() {
@@ -9,9 +10,9 @@ class App extends Component {
         const { result } = this.props.data.FirstAction;
 
         return (
-            <div>
-                {result}
-            </div>
+            <Button variant="contained" color="primary">
+                { result } 
+            </Button>
         );
     }
 }
