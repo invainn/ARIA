@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
+import React, { Component, Fragment } from 'react';
+import Shell from '../Shell/Shell';
+import { CssBaseline } from '@material-ui/core';
 
 class App extends Component {
-    componentDidMount() {
-        this.props.firstAction();
-    }
-
     render() {
-        const { result } = this.props.data.FirstAction;
-
         return (
-            <Button variant="contained" color="primary">
-                { result } 
-            </Button>
+            <Fragment>
+                <CssBaseline />
+                <Shell>
+                </Shell>
+            </Fragment>
         );
     }
 }
