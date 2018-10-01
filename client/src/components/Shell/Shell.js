@@ -1,25 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import { Toolbar, Button, Grid, Typography } from '@material-ui/core';
-import logo from './logo-header.png';
+import ShellHeader from './ShellHeader/ShellHeader';
+import ShellFooter from './ShellFooter/ShellFooter';
 
-const styles = (theme) => ({
-    shellLogo: {
-        maxWidth: 100,
-        margin: 10,
-    },
-
-    logoContainer: {
-        flex: 1,
-    },
-
-    footer: {
-        padding: theme.spacing.unit * 2,
-        width: 'auto',
-        backgroundColor: theme.palette.secondary.dark,
-    },
-
+const styles = () => ({
     main: {
         flex: 1,
     },
@@ -31,50 +15,14 @@ const styles = (theme) => ({
     },
 });
 
-class Shell extends Component {
-    render() {
-
-        const { classes, children } = this.props;
-
-        return (
-            <div className={classes.layout}>
-                <AppBar position="static">
-                    <Toolbar>
-                        <div className={classes.logoContainer}>
-                            <img variant="title" className={classes.shellLogo} src={logo} alt="NNMTA" />
-                        </div>
-                        <Button>Home</Button>
-                        <Button>About</Button>
-                        <Button>Competitions</Button>
-                        <Button>Donate</Button>
-                    </Toolbar>
-                </AppBar>
-                <main className={classes.main}>
-                    {children}
-                </main>
-                <footer className={classes.footer}>
-                    <Grid container justify="space-evenly" direction="row">
-                        <Grid item>
-                            <Typography variant="title" align="center" color="textPrimary" gutterBottom>
-                                Site Map 
-                            </Typography>
-                            <Typography variant="body1" align="center" color="textSecondary" gutterBottom>
-                                Contact Us
-                            </Typography>
-                        </Grid>
-                        <Grid item>
-                            <Typography variant="title" align="center" color="textPrimary" gutterBottom>
-                                Copyright
-                            </Typography>
-                            <Typography variant="body1" align="center" color="textSecondary" gutterBottom>
-                                Copyright © 2018 NNMTA 
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                </footer>
-            </div>
-        );
-    }
-}
+const Shell = (props) => (
+    <div className={props.classes.layout}>
+        <ShellHeader />
+        <main className={props.classes.main}>
+            {props.children}
+        </main>
+        <ShellFooter />
+    </div>
+);
 
 export default withStyles(styles)(Shell);
