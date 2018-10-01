@@ -1,13 +1,18 @@
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
-import teal from '@material-ui/core/colors/teal';
 import red from '@material-ui/core/colors/red';
 
 const theme = createMuiTheme({
     palette: {
-        primary: teal,
-        secondary: {
-            main: '#006064'
+        primary: { 
+            main: '#7F0000', 
+            contrastText: '#ffffff',
         },
+
+        secondary: { 
+            main: '#37474f', 
+            contrastText: '#ffffff',
+        },
+         
         error: red,
 
         type: "dark",
