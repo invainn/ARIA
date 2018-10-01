@@ -11,13 +11,15 @@ import { withStyles,
 const styles = (theme) => ({
     competitionList: {
         width: '100%',
-        backgroundColor: theme.palette.secondary.dark,
+        background: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText,
         maxHeight: '18vh',
         overflow: 'auto',
     },
 
     landingCompetition: {
-        background: theme.palette.primary.dark,
+        background: theme.palette.primary.main,
+        color: theme.palette.secondary.contrastText,
         height: '25vh',
         padding: 20 ,
     },

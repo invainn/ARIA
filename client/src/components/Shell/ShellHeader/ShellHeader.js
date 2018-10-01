@@ -45,7 +45,7 @@ class ShellHeader extends Component {
         const { classes } = this.props;
 
         return (
-            <AppBar position="static">
+            <AppBar color="primary" position="static">
                 <Toolbar>
                     <Hidden mdUp>
                         <IconButton color="inherit" onClick={this.toggleMobile(true)} smDown>
