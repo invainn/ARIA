@@ -15,26 +15,26 @@ const styles = (theme) => ({
     },
 
     footer: {
-        padding: theme.spacing.unit * 6,
-        width: "auto",
+        padding: theme.spacing.unit * 2,
+        width: 'auto',
         backgroundColor: theme.palette.secondary.dark,
     },
 
     main: {
-        flex: 1
+        flex: 1,
     },
 
     layout: {
         display: 'flex',
         minHeight: '100vh',
-        flexDirection: 'column'
-    }
+        flexDirection: 'column',
+    },
 });
 
 class Shell extends Component {
     render() {
 
-        const { classes } = this.props;
+        const { classes, children } = this.props;
 
         return (
             <div className={classes.layout}>
@@ -50,10 +50,11 @@ class Shell extends Component {
                     </Toolbar>
                 </AppBar>
                 <main className={classes.main}>
+                    {children}
                 </main>
                 <footer className={classes.footer}>
                     <Grid container justify="space-evenly" direction="row">
-                        <Grid item xs>
+                        <Grid item>
                             <Typography variant="title" align="center" color="textPrimary" gutterBottom>
                                 Site Map 
                             </Typography>
@@ -61,7 +62,7 @@ class Shell extends Component {
                                 Contact Us
                             </Typography>
                         </Grid>
-                        <Grid item xs>
+                        <Grid item>
                             <Typography variant="title" align="center" color="textPrimary" gutterBottom>
                                 Copyright
                             </Typography>
