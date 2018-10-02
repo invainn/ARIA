@@ -6,13 +6,13 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: aria-ip 
 spec:
   rules:
-    - host: api.dev.antbnt.me
+    - host: api.aria.gishi.tech
       http:
         paths:
           - backend:
               serviceName: aria-server-backend
               servicePort: 8080
-    - host: dev.antbnt.me
+    - host: aria.gishi.tech
       http:
         paths:
           - backend:
