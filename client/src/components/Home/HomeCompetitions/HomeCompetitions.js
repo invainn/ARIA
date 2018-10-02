@@ -43,7 +43,9 @@ const HomeCompetitions = (props) => (
                         for(let i = 1; i < 10; i++) {
                             temp.push (
                                 <ListItem button key={i}>
-                                    Competition {i} 
+                                    <Typography variant="subheading" color="textPrimary">
+                                        Competition {i} 
+                                    </Typography>
                                     <Icon>keyboard_arrow_right</Icon>
                                 </ListItem>
                             );

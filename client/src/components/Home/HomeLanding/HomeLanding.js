@@ -6,12 +6,16 @@ import Logo from '../../Shell/logo-header.png';
 
 const styles = () => ({
     landing: {
-        backgroundImage: `url(${Violin})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'contain', 
-        backgroundRepeat: 'no-repeat',
-        height: '66.7vw',
-        width: '100vw',
+        background: `url(${Violin}) no-repeat center center`,
+        backgroundSize: 'cover', 
+
+        height: '100vh',
+        width: '100%',
+        
+        position: 'relative',
+
+        // Needed to offset the AppBar
+        marginTop: -74
     },
 
     landingContent: {
@@ -40,7 +44,7 @@ const HomeLanding = (props) => (
     <Grid className={props.classes.landing} container justify="center" alignItems="center">
         <Grid className={props.classes.landingContent} container direction="column" justify="center" alignItems="center">
             <img src={Logo} className={props.classes.landingLogo} alt="NNMTA" />
-            <Typography variant="body1" align="center" color="textPrimary" className={props.classes.landingCaption}>
+            <Typography variant="title" align="center" color="textPrimary" className={props.classes.landingCaption}>
                 Northern Nevada Music Teacher Association
             </Typography>
             <Button color="primary" variant="contained" className={props.classes.landingButton}>

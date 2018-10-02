@@ -11,17 +11,22 @@ import { Toolbar,
          ListItem, 
          ListItemIcon, 
          Divider, 
-         Button 
+         Button,
+         Typography, 
 } from '@material-ui/core';
 
 const styles = () => ({
     shellLogo: {
-        maxWidth: 100,
+        maxWidth: 85,
         margin: 10,
     },
 
     logoContainer: {
         flex: 1,
+    },
+
+    mobileNavTitle: {
+        padding: '5px 80px 20px 5px' ,
     },
 });
 
@@ -45,42 +50,52 @@ class ShellHeader extends Component {
         const { classes } = this.props;
 
         return (
-            <AppBar color="primary" position="static">
+            <AppBar color="primary" position="sticky">
                 <Toolbar>
                     <Hidden mdUp>
                         <IconButton color="inherit" onClick={this.toggleMobile(true)} smDown>
                             <Icon>menu</Icon>
                         </IconButton>
-                        <Drawer anchor="top" open={this.state.mobileDrawer} onClose={this.toggleMobile(false)}>
+                        <Drawer anchor="left" open={this.state.mobileDrawer} onClose={this.toggleMobile(false)}>
                             <div role="button" onClick={this.toggleMobile(false)}>
                                 <List>
                                     <ListItem>
-                                        NNMTA
+                                        <Typography variant="title" color="textPrimary" className={classes.mobileNavTitle}>
+                                            NNMTA
+                                        </Typography>
                                     </ListItem>
                                     <Divider />
                                     <ListItem button>
                                         <ListItemIcon>
                                             <Icon>home</Icon>
                                         </ListItemIcon>
-                                        Home
+                                        <Typography variant="body1" color="textPrimary">
+                                            Home
+                                        </Typography>
                                     </ListItem>
                                     <ListItem button>
                                         <ListItemIcon>
                                             <Icon>domain</Icon>
                                         </ListItemIcon>
-                                        About
+                                        <Typography variant="body1" color="textPrimary">
+                                            About
+                                        </Typography>
                                     </ListItem>
                                     <ListItem button>
                                         <ListItemIcon>
-                                            <Icon>home</Icon>
+                                            <Icon>group</Icon>
                                         </ListItemIcon>
-                                        Competitions
+                                        <Typography variant="body1" color="textPrimary">
+                                            Competitions
+                                        </Typography>
                                     </ListItem>
                                     <ListItem button>
                                         <ListItemIcon>
                                             <Icon>favorite</Icon>
                                         </ListItemIcon>
-                                        Donate
+                                        <Typography variant="body1" color="textPrimary">
+                                            Donate
+                                        </Typography>
                                     </ListItem>
                                 </List>
                             </div>
@@ -90,10 +105,26 @@ class ShellHeader extends Component {
                         <img variant="title" className={classes.shellLogo} src={logo} alt="NNMTA" />
                     </div>
                     <Hidden smDown>
-                        <Button>Home</Button>
-                        <Button>About</Button>
-                        <Button>Competitions</Button>
-                        <Button>Donate</Button>
+                        <Button>
+                            <Typography variant="body2" color="textPrimary">
+                                Home
+                            </Typography>
+                        </Button>
+                        <Button>
+                            <Typography variant="body2" color="textPrimary">
+                                About
+                            </Typography>
+                        </Button>
+                        <Button>
+                            <Typography variant="body2" color="textPrimary">
+                                Competitions
+                            </Typography>
+                        </Button>
+                        <Button>
+                            <Typography variant="body2" color="textPrimary">
+                                Donate
+                            </Typography>
+                        </Button>
                     </Hidden>
                 </Toolbar>
             </AppBar>
