@@ -1,0 +1,16 @@
+{
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "rules": {
+        "indent": 0,
+        "linebreak-style": 0,
+        "jsx-a11y/interactive-supports-focus": 0,
+        "react/jsx-indent": 0,
+        "react/jsx-one-expression-per-line": 0,
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    },
+    "env": {
+        "browser": true,
+        "jest": true
+    }
+}

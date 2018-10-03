@@ -1,19 +1,22 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Hidden from '@material-ui/core/Hidden';
-import logo from '../logo-header.png';
-import { Toolbar, 
-         Drawer, 
-         IconButton, 
-         Icon, 
-         List, 
-         ListItem, 
-         ListItemIcon, 
-         Divider, 
-         Button,
-         Typography, 
+import {
+    Toolbar,
+    Drawer,
+    IconButton,
+    Icon,
+    List,
+    ListItem,
+    ListItemIcon,
+    Divider,
+    Button,
+    Typography,
 } from '@material-ui/core';
+
+import logo from '../logo-header.png';
 
 const styles = () => ({
     shellLogo: {
@@ -26,7 +29,7 @@ const styles = () => ({
     },
 
     mobileNavTitle: {
-        padding: '5px 80px 20px 5px' ,
+        padding: '5px 80px 20px 5px',
     },
 });
 
@@ -35,19 +38,19 @@ class ShellHeader extends Component {
         super(props);
 
         this.state = {
-            mobileDrawer: false
+            mobileDrawer: false,
         };
     }
 
-    toggleMobile = (toggle) => () => {
+    toggleMobile = toggle => () => {
         this.setState({
-            mobileDrawer: toggle
+            mobileDrawer: toggle,
         });
-    }
+    };
 
     render() {
-
         const { classes } = this.props;
+        const { mobileDrawer } = this.state;
 
         return (
             <AppBar color="primary" position="sticky">
@@ -56,8 +59,8 @@ class ShellHeader extends Component {
                         <IconButton color="inherit" onClick={this.toggleMobile(true)} smDown>
                             <Icon>menu</Icon>
                         </IconButton>
-                        <Drawer anchor="left" open={this.state.mobileDrawer} onClose={this.toggleMobile(false)}>
-                            <div role="button" onClick={this.toggleMobile(false)}>
+                        <Drawer anchor="left" open={mobileDrawer} onClose={this.toggleMobile(false)}>
+                            <div role="button" onClick={this.toggleMobile(false)} onKeyDown={this.toggleMobile(false)}>
                                 <List>
                                     <ListItem>
                                         <Typography variant="title" color="textPrimary" className={classes.mobileNavTitle}>
@@ -131,5 +134,15 @@ class ShellHeader extends Component {
         );
     }
 }
+
+ShellHeader.propTypes = {
+    classes: PropTypes.objectOf(
+        PropTypes.node,
+    ),
+};
+
+ShellHeader.defaultProps = {
+    classes: {},
+};
 
 export default withStyles(styles)(ShellHeader);

@@ -1,21 +1,21 @@
 import React from 'react';
-import { withStyles } from "@material-ui/core";
-import { Grid, Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import { withStyles, Grid, Typography } from '@material-ui/core';
 
-const styles = (theme) => ({
+const styles = ({ spacing, palette }) => ({
     footer: {
-        padding: theme.spacing.unit * 4,
+        padding: spacing.unit * 4,
         width: 'auto',
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: palette.secondary.main,
     },
 });
 
-const ShellFooter = (props) => (
-    <footer className={props.classes.footer}>
+const ShellFooter = ({ classes }) => (
+    <footer className={classes.footer}>
         <Grid container justify="space-evenly" direction="row">
             <Grid item>
                 <Typography variant="subheading" align="center" color="textPrimary" gutterBottom>
-                    Site Map 
+                    Site Map
                 </Typography>
                 <Typography variant="caption" align="center" color="textSecondary" gutterBottom>
                     Contact Us
@@ -26,11 +26,21 @@ const ShellFooter = (props) => (
                     Copyright
                 </Typography>
                 <Typography variant="caption" align="center" color="textSecondary" gutterBottom>
-                    Copyright © 2018 NNMTA 
+                    Copyright © 2018 NNMTA
                 </Typography>
             </Grid>
         </Grid>
     </footer>
 );
+
+ShellFooter.propTypes = {
+    classes: PropTypes.objectOf(
+        PropTypes.node,
+    ),
+};
+
+ShellFooter.defaultProps = {
+    classes: {},
+};
 
 export default withStyles(styles)(ShellFooter);
