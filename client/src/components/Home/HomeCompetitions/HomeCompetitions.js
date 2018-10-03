@@ -1,56 +1,55 @@
 import React from 'react';
-import { withStyles, 
-         Typography, 
-         Grid, 
-         Icon, 
-         List, 
-         ListItem, 
-         Divider 
+import PropTypes from 'prop-types';
+import {
+    withStyles,
+    Typography,
+    Grid,
+    Icon,
+    List,
+    ListItem,
 } from '@material-ui/core';
 
-const styles = (theme) => ({
+const styles = ({ palette, breakpoints }) => ({
     competitionList: {
         width: '100%',
-        background: theme.palette.secondary.main,
-        color: theme.palette.secondary.contrastText,
+        background: palette.secondary.main,
+        color: palette.secondary.contrastText,
         maxHeight: '18vh',
         overflow: 'auto',
     },
 
     landingCompetition: {
-        background: theme.palette.primary.main,
-        color: theme.palette.secondary.contrastText,
+        background: palette.primary.main,
+        color: palette.secondary.contrastText,
         height: '25vh',
-        padding: 20 ,
+        padding: 20,
     },
 
     competitionHeader: {
         fontSize: '2em',
-        [theme.breakpoints.down('xs')]: {
+        [breakpoints.down('xs')]: {
             fontSize: '1em',
         },
     },
 });
 
-const HomeCompetitions = (props) => (
-    <Grid className={props.classes.landingCompetition} container justify="center" alignItems="center">
+const HomeCompetitions = ({ classes }) => (
+    <Grid className={classes.landingCompetition} container justify="center" alignItems="center">
         <Grid item xs={8} container justify="center" alignItems="center" direction="column">
-            <List className={props.classes.competitionList}>
+            <List className={classes.competitionList}>
                 {
                     (() => {
-                        let temp = [];
+                        const temp = [];
 
-                        for(let i = 1; i < 10; i++) {
-                            temp.push (
+                        for (let i = 1; i < 10; i += 1) {
+                            temp.push(
                                 <ListItem button key={i}>
                                     <Typography variant="subheading" color="textPrimary">
-                                        Competition {i} 
+                                        Competition {i}
                                     </Typography>
                                     <Icon>keyboard_arrow_right</Icon>
-                                </ListItem>
+                                </ListItem>,
                             );
-
-                            temp.push(<Divider />);
                         }
 
                         return temp;
@@ -60,11 +59,21 @@ const HomeCompetitions = (props) => (
         </Grid>
         <Grid item xs={4} container justify="center" alignItems="center">
             <Icon>keyboard_arrow_left</Icon>
-            <Typography variant="display1" align="center" color="textPrimary" className={props.classes.competitionHeader}>
-                Competitions 
+            <Typography variant="display1" align="center" color="textPrimary" className={classes.competitionHeader}>
+                Competitions
             </Typography>
         </Grid>
     </Grid>
 );
+
+HomeCompetitions.propTypes = {
+    classes: PropTypes.objectOf(
+        PropTypes.node,
+    ),
+};
+
+HomeCompetitions.defaultProps = {
+    classes: {},
+};
 
 export default withStyles(styles)(HomeCompetitions);

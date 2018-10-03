@@ -3,20 +3,20 @@ import red from '@material-ui/core/colors/red';
 
 const theme = createMuiTheme({
     palette: {
-        primary: { 
-            main: '#7F0000', 
+        primary: {
+            main: '#7F0000',
             contrastText: '#ffffff',
         },
 
-        secondary: { 
-            main: '#37474f', 
+        secondary: {
+            main: '#37474f',
             contrastText: '#ffffff',
         },
-         
+
         error: red,
 
-        type: "dark",
-        
+        type: 'dark',
+
         contrastThreshold: 3,
 
         tonalOffset: 0.2,

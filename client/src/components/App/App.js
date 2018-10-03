@@ -1,16 +1,13 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { CssBaseline } from '@material-ui/core';
+
 import Home from '../Home/Home';
 
-class App extends Component {
-    render() {
-        return (
-            <Fragment>
-                <CssBaseline />
-                <Home />
-            </Fragment>
-        );
-    }
-}
+const App = () => (
+    <Fragment>
+        <CssBaseline />
+        <Home />
+    </Fragment>
+);
 
 export default App;

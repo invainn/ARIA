@@ -1,25 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Shell from '../Shell/Shell';
 import HomeLanding from './HomeLanding/HomeLanding';
 import HomeCompetitions from './HomeCompetitions/HomeCompetitions';
-import Shell from '../Shell/Shell';
-import { withStyles, 
-       } from '@material-ui/core';
 
-const styles = () => ({
-    image: {
-        maxWidth: '100%',
-    },
-});
+const Home = () => (
+    <Shell>
+        <HomeLanding />
+        <HomeCompetitions />
+    </Shell>
+);
 
-class Home extends Component {
-    render() {
-        return (
-            <Shell>
-                <HomeLanding />
-                <HomeCompetitions />
-            </Shell> 
-        );
-    }
-}
-
-export default withStyles(styles)(Home);
+export default Home;

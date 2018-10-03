@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import configureStore from './store';
-import theme from './theme';
+import { CssBaseline } from '@material-ui/core';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import './index.css';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import theme from './theme';
+import configureStore from './store';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
-import { CssBaseline } from '@material-ui/core';
 
 ReactDOM.render(
     <Provider store={configureStore()}>
@@ -17,5 +17,6 @@ ReactDOM.render(
             <App />
         </MuiThemeProvider>
     </Provider>,
-    document.getElementById('root'));
+    document.getElementById('root'),
+);
 registerServiceWorker();

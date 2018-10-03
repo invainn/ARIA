@@ -1,21 +1,26 @@
 import React from 'react';
-import { Grid, Typography, Button } from "@material-ui/core";
-import { withStyles } from '@material-ui/core';
-import Violin from './violin.jpg'
+import PropTypes from 'prop-types';
+import {
+    withStyles,
+    Grid,
+    Typography,
+    Button,
+} from '@material-ui/core';
+
+import Violin from './violin.jpg';
 import Logo from '../../Shell/logo-header.png';
 
 const styles = () => ({
     landing: {
         background: `url(${Violin}) no-repeat center center`,
-        backgroundSize: 'cover', 
+        backgroundSize: 'cover',
 
         height: '100vh',
         width: '100%',
-        
         position: 'relative',
 
         // Needed to offset the AppBar
-        marginTop: -74
+        marginTop: -74,
     },
 
     landingContent: {
@@ -35,23 +40,33 @@ const styles = () => ({
     },
 
     landingCaption: {
-        marginTop: 15 ,
+        marginTop: 15,
     },
 });
 
 
-const HomeLanding = (props) => (
-    <Grid className={props.classes.landing} container justify="center" alignItems="center">
-        <Grid className={props.classes.landingContent} container direction="column" justify="center" alignItems="center">
-            <img src={Logo} className={props.classes.landingLogo} alt="NNMTA" />
-            <Typography variant="title" align="center" color="textPrimary" className={props.classes.landingCaption}>
+const HomeLanding = ({ classes }) => (
+    <Grid className={classes.landing} container justify="center" alignItems="center">
+        <Grid className={classes.landingContent} container direction="column" justify="center" alignItems="center">
+            <img src={Logo} className={classes.landingLogo} alt="NNMTA" />
+            <Typography variant="title" align="center" color="textPrimary" className={classes.landingCaption}>
                 Northern Nevada Music Teacher Association
             </Typography>
-            <Button color="primary" variant="contained" className={props.classes.landingButton}>
+            <Button color="primary" variant="contained" className={classes.landingButton}>
                 Donate Today!
             </Button>
         </Grid>
     </Grid>
 );
+
+HomeLanding.propTypes = {
+    classes: PropTypes.objectOf(
+        PropTypes.node,
+    ),
+};
+
+HomeLanding.defaultProps = {
+    classes: {},
+};
 
 export default withStyles(styles)(HomeLanding);
