@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { HashLink } from 'react-router-hash-link';
+import { NavLink, Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Hidden from '@material-ui/core/Hidden';
 import {
@@ -18,7 +20,7 @@ import {
 
 import logo from '../logo-header.png';
 
-const styles = () => ({
+const styles = ({ palette }) => ({
     shellLogo: {
         maxWidth: 85,
         margin: 10,
@@ -30,6 +32,13 @@ const styles = () => ({
 
     mobileNavTitle: {
         padding: '5px 80px 20px 5px',
+    },
+
+    selected: {
+        backgroundImage: `linear-gradient(${palette.primary.dark}, #FFF)`,
+        backgroundSize: '100% 2px',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '100% 100%',
     },
 });
 
@@ -59,7 +68,7 @@ class ShellHeader extends Component {
                         <IconButton color="inherit" onClick={this.toggleMobile(true)} smDown>
                             <Icon>menu</Icon>
                         </IconButton>
-                        <Drawer anchor="left" open={mobileDrawer} onClose={this.toggleMobile(false)}>
+                        <Drawer variant="temporary" anchor="left" open={mobileDrawer} onClose={this.toggleMobile(false)} ModalProps={{ disableRestoreFocus: true }}>
                             <div role="button" onClick={this.toggleMobile(false)} onKeyDown={this.toggleMobile(false)}>
                                 <List>
                                     <ListItem>
@@ -68,7 +77,7 @@ class ShellHeader extends Component {
                                         </Typography>
                                     </ListItem>
                                     <Divider />
-                                    <ListItem button>
+                                    <ListItem component={Link} to="/" button>
                                         <ListItemIcon>
                                             <Icon>home</Icon>
                                         </ListItemIcon>
@@ -76,7 +85,7 @@ class ShellHeader extends Component {
                                             Home
                                         </Typography>
                                     </ListItem>
-                                    <ListItem button>
+                                    <ListItem component={HashLink} to="/#about" button>
                                         <ListItemIcon>
                                             <Icon>domain</Icon>
                                         </ListItemIcon>
@@ -84,7 +93,7 @@ class ShellHeader extends Component {
                                             About
                                         </Typography>
                                     </ListItem>
-                                    <ListItem button>
+                                    <ListItem component={HashLink} to="/#competitions" button smooth>
                                         <ListItemIcon>
                                             <Icon>group</Icon>
                                         </ListItemIcon>
@@ -92,7 +101,7 @@ class ShellHeader extends Component {
                                             Competitions
                                         </Typography>
                                     </ListItem>
-                                    <ListItem button>
+                                    <ListItem component={Link} to="/donate" button>
                                         <ListItemIcon>
                                             <Icon>favorite</Icon>
                                         </ListItemIcon>
@@ -108,22 +117,22 @@ class ShellHeader extends Component {
                         <img variant="title" className={classes.shellLogo} src={logo} alt="NNMTA" />
                     </div>
                     <Hidden smDown>
-                        <Button>
+                        <Button component={NavLink} to="/" activeClassName={classes.selected}>
                             <Typography variant="body2" color="textPrimary">
                                 Home
                             </Typography>
                         </Button>
-                        <Button>
+                        <Button component={HashLink} to="/#about" activeClassName={classes.selected}>
                             <Typography variant="body2" color="textPrimary">
                                 About
                             </Typography>
                         </Button>
-                        <Button>
+                        <Button component={HashLink} to="/#competitions" activeClassName={classes.selected} smooth>
                             <Typography variant="body2" color="textPrimary">
                                 Competitions
                             </Typography>
                         </Button>
-                        <Button>
+                        <Button component={NavLink} to="/donate" activeClassName={classes.selected}>
                             <Typography variant="body2" color="textPrimary">
                                 Donate
                             </Typography>

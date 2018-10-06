@@ -34,7 +34,7 @@ const styles = ({ palette, breakpoints }) => ({
 });
 
 const HomeCompetitions = ({ classes }) => (
-    <Grid className={classes.landingCompetition} container justify="center" alignItems="center">
+    <Grid className={classes.landingCompetition} container justify="center" alignItems="center" id="competitions">
         <Grid item xs={8} container justify="center" alignItems="center" direction="column">
             <List className={classes.competitionList}>
                 {
