@@ -19,9 +19,9 @@ const styles = () => ({
 const Shell = ({ classes, children }) => (
     <div className={classes.layout}>
         <ShellHeader />
-        <main className={classes.main}>
-            {children}
-        </main>
+            <main className={classes.main}>
+                {children}
+            </main>
         <ShellFooter />
     </div>
 );
