@@ -35,5 +35,6 @@ These commands will build the image and start the container.
 ## Libraries/Tools
 ---
 Docker <br />
+Kubernetes <br />>
 React.js <br />
 Node.js <br />
