@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/invainn/ARIA/tree/master.svg?style=svg)](https://circleci.com/gh/invainn/ARIA/tree/master)
 
-## Description
+## Project Description
 ---
 ARIA (Administration, Registration, and Information Assistant) is a web application solution for the Northern Nevada Music Teachers Association (NNMTA). Previous versions of ARIA were hosted on WordPress and contained performance issues as well as functional problems with certain features for both customers and adminstrators.
 
@@ -27,13 +27,13 @@ To run ARIA you will need to do the following:
 
 2. From the project directory, start up the application by running the two following commands:
 
-	a) docker-compose build
-	b) docker-compose up
+	a) docker-compose build <br />
+	b) docker-compose up <br />
 
 These commands will build the image and start the container.
 
 ## Libraries/Tools
 ---
-Docker
-React.js
-Node.js
+Docker <br />
+React.js <br />
+Node.js <br />
