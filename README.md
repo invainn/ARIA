@@ -45,7 +45,7 @@ the following sequence of commands:
 Commands (b) and (c) have been explained previously in section 3. The new command 'docker-compose down' (without the single quotes) will stop any running containers, remove the containers, networks, volumes, and images created by 'docker-compose up'. <br />
 
 ## Development Workflow (How development of ARIA works)
---
+---
 ARIA is built with two powerful concepts in mind, microservices and containerization. ARIA uses a microservice architecture to provide modularity to the development process. Using microservices allows our project to be broken down into small, composable modules which can be developed separately, continuously, and independently. Another benefit of this approach are maintainability, testing, scalability, and lifecycle automation. ARIA also uses Docker, a lightweight OS container which provides a VM-like execution environment allowing every aspect of ARIA to be packaged into the container. This approach allows our team to collaborate more easily on project requirements since the Docker image can be pushed to our repository and pulled by any team member allowing each of us to run containers locally for development. Finally, microservices in ARIA are orchestrated through Kubernetes, an open-source tool which allows ARIA to have automated deployment, management, scaling, networking, and availability.
 
 ## Libraries/Tools
