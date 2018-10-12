@@ -4,34 +4,113 @@ import {
     withStyles,
     Button,
 } from '@material-ui/core';
-import './NotFound.css'
 
-const styles = () => ({
-    buttonColor: {
-        color: 'white',
-        backgroundColor: 'brown',
-        textDecorationColor: 'white',       
+
+const buttonStyle = {
+    color: 'white',
+};
+
+const linkStyle = {
+    color: 'white',
+    textDecorationColor: 'white',
+};
+
+const nf = {
+    boxSizing: 'border-box',
+    position: 'absolute',
+    height: '100vh',
+    left: '50%',
+    top: '50%',
+    transform: 'translate(-50%, -50%)',
+};
+
+const notfound = {
+    position: 'relative',
+    left: '50%',
+    top: '50%',
+    transform: 'translate(-50%, -50%)',
+    fontFamily: 'Montserrat \, sans-serif',
+    maxWidth: '620px',
+    width: '100%',
+    lineHeight: 1.4,
+    textAlign: 'center',
+    height: '240px',
+    '@media only screen and (max-width: 767px)': {
+        height: '200px',
+        fontSize: '200px',
     },
-    LinkColor: {
-        color: 'white',
-    }
-});
+    '@media only screen and (max-width: 480px)': {
+        height: '162px',
+    },
+};
 
-const NotFound = ({ classes }) => (
-    <div className="nf">
-        <div className="notfound">
-            <div className="notfound-404">
-                <h3>Oops! Page not found</h3>
-                <h1><span>4</span><span>0</span><span>4</span></h1>
+const notfound404 = {
+    
+};
+
+const h1Style = {
+    fontFamily: 'Montserrat \, sans-serif',
+    fontSize: '252px',
+    fontWeight: '900',
+    margin: '0px',
+    color: '#262626',
+    textTransform: 'uppercase',
+    letterSpacing: '-40px',
+    marginLeft: '-20px',
+    textShadow: '-8px 0px 0px #fff',
+    '@media only screen and (max-width: 767px)': {
+        fontSize: '200px',
+    },
+    '@media only screen and (max-width: 480px)': {
+        fontSize: '162px',
+        height: '150px',
+        lineHeight: '162px',
+        height: '162px',
+    },
+};
+
+const h2Style = {
+    fontFamily: 'Cabin \, sans-serif',
+    fontSize: '20px',
+    fontWeight: '400',
+    textTransform: 'uppercase',
+    color: '#000',
+    marginTop: '0px',
+    marginBottom: '56px',
+    '@media only screen and (max-width: 480px)': {
+        fontSize: '16px',
+    },
+}
+
+const h3Style = {
+    fontFamily: 'Cabin \, sans-serif',
+    position: 'relative',
+    fontSize: '18px',
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    color: '#262626',
+    margin: 'auto',
+    letterSpacing: '3px',
+    verticalAlign: 'middle',
+    textAlign: 'center',
+};
+
+const NotFound = () => (
+    <div style={nf}>
+        <div style={notfound}>
+            <div style={notfound404}>
+                <h3 style={h3Style}>Oops! Page not found</h3>
+                <h1 style={h1Style}><span>4</span><span>0</span><span>4</span></h1>
             </div>
-            <h2>we are sorry, but the page you requested was not found</h2>
+            <h2 style={h2Style}><span>something went wrong, the page you requested was not found</span></h2>
             <center>
-                <Button color="primary" variant="raised" className={classes.buttonColor}>
-                    <Link className={classes.LinkColor} to="/">Return to Home Page</Link>
+                <Button color="primary" variant="raised" style={buttonStyle}>
+                    <Link color="primary" style={linkStyle} to="/">Return to Home Page</Link>
                 </Button>
             </center>
         </div>
     </div>
 );
 
-export default withStyles(styles)(NotFound);
+export default withStyles()(NotFound);
