@@ -73,7 +73,7 @@ import {
     '@media only screen and (max-width: 480px)': {
         fontSize: '16px',
     },
-}
+};
  const h3Style = {
     fontFamily: 'sans-serif',
     position: 'relative',
