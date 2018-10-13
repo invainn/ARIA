@@ -77,38 +77,6 @@ class ShellHeader extends Component {
                                         </Typography>
                                     </ListItem>
                                     <Divider />
-                                    <ListItem component={Link} to="/" button>
-                                        <ListItemIcon>
-                                            <Icon>home</Icon>
-                                        </ListItemIcon>
-                                        <Typography variant="body1" color="textPrimary">
-                                            Home
-                                        </Typography>
-                                    </ListItem>
-                                    <ListItem component={HashLink} to="/#about" button>
-                                        <ListItemIcon>
-                                            <Icon>domain</Icon>
-                                        </ListItemIcon>
-                                        <Typography variant="body1" color="textPrimary">
-                                            About
-                                        </Typography>
-                                    </ListItem>
-                                    <ListItem component={HashLink} to="/#competitions" button smooth>
-                                        <ListItemIcon>
-                                            <Icon>group</Icon>
-                                        </ListItemIcon>
-                                        <Typography variant="body1" color="textPrimary">
-                                            Competitions
-                                        </Typography>
-                                    </ListItem>
-                                    <ListItem component={Link} to="/donate" button>
-                                        <ListItemIcon>
-                                            <Icon>favorite</Icon>
-                                        </ListItemIcon>
-                                        <Typography variant="body1" color="textPrimary">
-                                            Donate
-                                        </Typography>
-                                    </ListItem>
                                 </List>
                             </div>
                         </Drawer>
@@ -116,28 +84,6 @@ class ShellHeader extends Component {
                     <div className={classes.logoContainer}>
                         <img variant="title" className={classes.shellLogo} src={logo} alt="NNMTA" />
                     </div>
-                    <Hidden smDown>
-                        <Button component={NavLink} to="/" activeClassName={classes.selected}>
-                            <Typography variant="body2" color="textPrimary">
-                                Home
-                            </Typography>
-                        </Button>
-                        <Button component={HashLink} to="/#about" activeClassName={classes.selected}>
-                            <Typography variant="body2" color="textPrimary">
-                                About
-                            </Typography>
-                        </Button>
-                        <Button component={HashLink} to="/#competitions" activeClassName={classes.selected} smooth>
-                            <Typography variant="body2" color="textPrimary">
-                                Competitions
-                            </Typography>
-                        </Button>
-                        <Button component={NavLink} to="/donate" activeClassName={classes.selected}>
-                            <Typography variant="body2" color="textPrimary">
-                                Donate
-                            </Typography>
-                        </Button>
-                    </Hidden>
                 </Toolbar>
             </AppBar>
         );
