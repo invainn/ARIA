@@ -6,10 +6,9 @@ import {
     Grid,
     TextField,
     Button,
+    Icon,
 } from '@material-ui/core';
 
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import VpnKey from '@material-ui/icons/VpnKey';
 import Violin from './violin.jpg';
 import Shell from '../Shell/Shell';
 
@@ -47,6 +46,10 @@ const styles = theme => ({
     button: {
         margin: theme.spacing.unit,
     },
+
+    loginIcons: {
+        color: theme.palette.primary.contrastText,
+    },
 });
 
 
@@ -61,7 +64,7 @@ const Login = ({ classes }) => (
                 <div className={classes.margin}>
                     <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>
-                            <AccountCircle />
+                            <Icon className={classes.loginIcons}>account_circle</Icon>
                         </Grid>
                         <Grid item>
                             <TextField id="input-with-icon-grid" label="Username" />
@@ -72,7 +75,7 @@ const Login = ({ classes }) => (
                 <div className={classes.margin}>
                     <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>
-                            <VpnKey />
+                            <Icon className={classes.loginIcons}>vpn_key</Icon>
                         </Grid>
                         <Grid item>
                             <TextField id="input-with-icon-grid" label="Password" />
