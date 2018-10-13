@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { HashLink } from 'react-router-hash-link';
-import { NavLink, Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Hidden from '@material-ui/core/Hidden';
 import {
@@ -12,9 +10,7 @@ import {
     Icon,
     List,
     ListItem,
-    ListItemIcon,
     Divider,
-    Button,
     Typography,
 } from '@material-ui/core';
 
