@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import NotFound from '../common/NotFound/NotFound'
+import NotFound from '../statuscodes/404/NotFound';
 import Home from '../Home/Home';
 
 const styles = () => ({

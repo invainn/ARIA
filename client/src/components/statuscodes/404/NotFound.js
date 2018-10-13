@@ -1,35 +1,31 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
     withStyles,
     Button,
 } from '@material-ui/core';
 
-
-const buttonStyle = {
+ const buttonStyle = {
     color: 'white',
 };
-
-const linkStyle = {
+ const linkStyle = {
     color: 'white',
     textDecorationColor: 'white',
 };
-
-const nf = {
+ const nf = {
     boxSizing: 'border-box',
     position: 'absolute',
     height: '100vh',
     left: '50%',
-    top: '50%',
+    top: '25%',
     transform: 'translate(-50%, -50%)',
 };
-
-const notfound = {
+ const notfound = {
     position: 'relative',
     left: '50%',
     top: '50%',
     transform: 'translate(-50%, -50%)',
-    fontFamily: 'Montserrat \, sans-serif',
+    fontFamily: 'sans-serif',
     maxWidth: '620px',
     width: '100%',
     lineHeight: 1.4,
@@ -43,13 +39,11 @@ const notfound = {
         height: '162px',
     },
 };
+ const notfound404 = {
 
-const notfound404 = {
-    
 };
-
-const h1Style = {
-    fontFamily: 'Montserrat \, sans-serif',
+ const h1Style = {
+    fontFamily: 'sans-serif',
     fontSize: '252px',
     fontWeight: '900',
     margin: '0px',
@@ -60,17 +54,16 @@ const h1Style = {
     textShadow: '-8px 0px 0px #fff',
     '@media only screen and (max-width: 767px)': {
         fontSize: '200px',
+        height: '162px',
     },
     '@media only screen and (max-width: 480px)': {
         fontSize: '162px',
         height: '150px',
         lineHeight: '162px',
-        height: '162px',
     },
 };
-
-const h2Style = {
-    fontFamily: 'Cabin \, sans-serif',
+ const h2Style = {
+    fontFamily: 'sans-serif',
     fontSize: '20px',
     fontWeight: '400',
     textTransform: 'uppercase',
@@ -81,29 +74,28 @@ const h2Style = {
         fontSize: '16px',
     },
 }
-
-const h3Style = {
-    fontFamily: 'Cabin \, sans-serif',
+ const h3Style = {
+    fontFamily: 'sans-serif',
     position: 'relative',
     fontSize: '18px',
     fontWeight: '700',
     textTransform: 'uppercase',
-    fontWeight: 'bold',
     color: '#262626',
     margin: 'auto',
     letterSpacing: '3px',
     verticalAlign: 'middle',
     textAlign: 'center',
 };
-
-const NotFound = () => (
+ const NotFound = () => (
     <div style={nf}>
         <div style={notfound}>
             <div style={notfound404}>
                 <h3 style={h3Style}>Oops! Page not found</h3>
                 <h1 style={h1Style}><span>4</span><span>0</span><span>4</span></h1>
             </div>
-            <h2 style={h2Style}><span>something went wrong, the page you requested was not found</span></h2>
+            <h2 style={h2Style}>
+                <span>something went wrong, the page you requested was not found</span>
+            </h2>
             <center>
                 <Button color="primary" variant="raised" style={buttonStyle}>
                     <Link color="primary" style={linkStyle} to="/">Return to Home Page</Link>
@@ -112,5 +104,4 @@ const NotFound = () => (
         </div>
     </div>
 );
-
-export default withStyles()(NotFound);
+ export default withStyles()(NotFound);
