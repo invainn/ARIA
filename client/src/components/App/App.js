@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from '../Home/Home';
+import Login from '../Login/Login';
 
 const styles = () => ({
     '@global body': {
@@ -16,6 +17,7 @@ const App = () => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/login" component={Login} />
         </Switch>
     </BrowserRouter>
 );
