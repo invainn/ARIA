@@ -1,9 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
     withStyles,
     Button,
 } from '@material-ui/core';
+
  const buttonStyle = {
     color: 'white',
 };
@@ -38,9 +39,6 @@ import {
         height: '162px',
     },
 };
- const notfound404 = {
-    
-};
  const h1Style = {
     fontFamily: 'sans-serif',
     fontSize: '252px',
@@ -72,7 +70,7 @@ import {
     '@media only screen and (max-width: 480px)': {
         fontSize: '16px',
     },
-}
+};
  const h3Style = {
     fontFamily: 'sans-serif',
     position: 'relative',
@@ -88,11 +86,13 @@ import {
  const NotFound = () => (
     <div style={nf}>
         <div style={notfound}>
-            <div style={notfound404}>
+            <div>
                 <h3 style={h3Style}>Oops! Page not found</h3>
                 <h1 style={h1Style}><span>4</span><span>0</span><span>4</span></h1>
             </div>
-            <h2 style={h2Style}><span>something went wrong, the page you requested was not found</span></h2>
+            <h2 style={h2Style}>
+                <span>something went wrong, the page you requested was not found</span>
+            </h2>
             <center>
                 <Button color="primary" variant="raised" style={buttonStyle}>
                     <Link color="primary" style={linkStyle} to="/">Return to Home Page</Link>
