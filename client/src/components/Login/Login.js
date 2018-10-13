@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles,
+import {
+    withStyles,
     Typography,
     Grid,
     TextField,
@@ -10,10 +11,10 @@ import { withStyles,
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import VpnKey from '@material-ui/icons/VpnKey';
 import Violin from './violin.jpg';
-import Shell from '../Shell/Shell.js';
+import Shell from '../Shell/Shell';
 
 
-const styles = (theme) => ({
+const styles = theme => ({
     landing: {
         background: `url(${Violin}) no-repeat center center`,
         backgroundSize: 'cover',
