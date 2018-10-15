@@ -6,11 +6,11 @@ import {
 } from '@material-ui/core';
 
  const buttonStyle = {
-    color: 'white',
+    color: '#FFFFFF',
 };
  const linkStyle = {
-    color: 'white',
-    textDecorationColor: 'white',
+    color: '#FFFFFF',
+    textDecorationColor: '#FFFFFF',
 };
  const nf = {
     boxSizing: 'border-box',
@@ -39,9 +39,7 @@ import {
         height: '162px',
     },
 };
- const notfound404 = {
 
-};
  const h1Style = {
     fontFamily: 'sans-serif',
     fontSize: '252px',
@@ -89,7 +87,7 @@ import {
  const NotFound = () => (
     <div style={nf}>
         <div style={notfound}>
-            <div style={notfound404}>
+            <div>
                 <h3 style={h3Style}>Oops! Page not found</h3>
                 <h1 style={h1Style}><span>4</span><span>0</span><span>4</span></h1>
             </div>
