@@ -88,10 +88,16 @@ const Login = ({ classes }) => (
                         <Button variant="contained" color="primary" className={classes.button}>
                             Sign In
                         </Button>
-                        <Button variant="contained" color="primary" className={classes.button}>
-                            Register
-                        </Button>
                     </Grid>
+                </div>
+                
+                <div>
+                    <Typography>
+                        Dont have a login? 
+                        <Button href="#text-buttons" className={classes.button}>
+                                Click here to register!
+                        </Button>
+                    </Typography>
                 </div>
 
             </Grid>
