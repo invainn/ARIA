@@ -6,11 +6,11 @@ import {
 } from '@material-ui/core';
 
  const buttonStyle = {
-    color: 'white',
+    color: '#FFFFFF',
 };
  const linkStyle = {
-    color: 'white',
-    textDecorationColor: 'white',
+    color: '#FFFFFF',
+    textDecorationColor: '#FFFFFF',
 };
  const nf = {
     boxSizing: 'border-box',
