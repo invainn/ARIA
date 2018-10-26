@@ -12,7 +12,6 @@ import {
 import Violin from './violin.jpg';
 import Shell from '../Shell/Shell';
 
-
 const styles = theme => ({
     landing: {
         background: `url(${Violin}) no-repeat center center`,
