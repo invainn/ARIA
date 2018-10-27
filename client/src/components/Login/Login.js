@@ -89,10 +89,10 @@ const Login = ({ classes }) => (
                         </Button>
                     </Grid>
                 </div>
-                
+
                 <div>
                     <Typography>
-                        Dont have a login? 
+                        Dont have a login?
                         <Button href="#text-buttons" className={classes.button}>
                                 Click here to register!
                         </Button>
