@@ -2,7 +2,6 @@ import React from 'react';
 import { withStyles } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NotFound from '../statuscodes/404/NotFound';
-import Home from '../Home/Home';
 import Login from '../Login/Login';
 
 const styles = () => ({
@@ -16,8 +15,7 @@ const styles = () => ({
 const App = () => (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/login" component={Login} />
+            <Route exact path="/" component={Login} />
             <Route path="*" component={NotFound} />
         </Switch>
     </BrowserRouter>

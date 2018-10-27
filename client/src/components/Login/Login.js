@@ -12,7 +12,6 @@ import {
 import Violin from './violin.jpg';
 import Shell from '../Shell/Shell';
 
-
 const styles = theme => ({
     landing: {
         background: `url(${Violin}) no-repeat center center`,
@@ -88,10 +87,16 @@ const Login = ({ classes }) => (
                         <Button variant="contained" color="primary" className={classes.button}>
                             Sign In
                         </Button>
-                        <Button variant="contained" color="primary" className={classes.button}>
-                            Register
-                        </Button>
                     </Grid>
+                </div>
+
+                <div>
+                    <Typography>
+                        Dont have a login?
+                        <Button href="#text-buttons" className={classes.button}>
+                                Click here to register!
+                        </Button>
+                    </Typography>
                 </div>
 
             </Grid>
