@@ -39,7 +39,6 @@ import {
         height: '162px',
     },
 };
-
  const h1Style = {
     fontFamily: 'sans-serif',
     fontSize: '252px',
