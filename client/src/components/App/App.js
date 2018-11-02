@@ -9,6 +9,8 @@ import Account from '../Shell/CustomerPortal/MenuOptions/Account';
 import RegStudForm from '../Shell/CustomerPortal/MenuOptions/RegisteredStudentsForm/RegStudForm';
 import FAQ from '../Shell/CustomerPortal/MenuOptions/FAQ';
 import AboutUs from '../Shell/CustomerPortal/MenuOptions/AboutUs';
+import EventsCalendar from '../Shell/CustomerPortal/MenuOptions/EventsCalendar';
+import EventRegistration from '../Shell/CustomerPortal/MenuOptions/EventRegistration';
 
 const styles = () => ({
     '@global body': {
@@ -25,11 +27,11 @@ const App = () => (
             <Route exact path="/customer" component={Dashboard} />
             <Route path="/customer/account-info" component={Account} />
             <Route exact path="/customer/registered-students" component={RegStudForm} />
+            <Route exact path="/customer/events-calendar" component={EventsCalendar} />
+            <Route exact path="/customer/register-for-an-event" component={EventRegistration} />
             <Route exact path="/customer/faq" component={FAQ} />
             <Route exact path="/customer/about" component={AboutUs} />
-  {/*       <Route exact path="/customer/events-calendar" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
-            <Route exact path="/customer/register-for-an-event" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
-            <Route exact path="/customer/active-registrations" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
+    {/*        <Route exact path="/customer/active-registrations" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/faq" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/about" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} /> */}

@@ -22,7 +22,7 @@ const styles = theme => ({
     flexGrow: 1,
     zIndex: 1,
     display: 'flex',
-    height: '100%',
+    height: '80%',
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
