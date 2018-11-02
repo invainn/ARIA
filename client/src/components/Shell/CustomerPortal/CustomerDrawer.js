@@ -192,7 +192,7 @@ class CustomerDrawer extends Component {
                     </ListItemIcon>
                     <ListItemText primary="Frequently Asked Questions" />
                   </ListItem>
-                  <ListItem button component={Link} to="/customer/about" onClick={this.switchOptionHandler}>
+                  <ListItem button component={Link} to="/customer/about" onClick={this.switchToAboutUsHandler}>
                     <ListItemIcon>
                       <Icon>music_note</Icon>
                     </ListItemIcon>

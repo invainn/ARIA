@@ -8,6 +8,7 @@ import Dashboard from '../Shell/CustomerPortal/MenuOptions/Dashboard';
 import Account from '../Shell/CustomerPortal/MenuOptions/Account';
 import RegStudForm from '../Shell/CustomerPortal/MenuOptions/RegisteredStudentsForm/RegStudForm';
 import FAQ from '../Shell/CustomerPortal/MenuOptions/FAQ';
+import AboutUs from '../Shell/CustomerPortal/MenuOptions/AboutUs';
 
 const styles = () => ({
     '@global body': {
@@ -24,7 +25,8 @@ const App = () => (
             <Route exact path="/customer" component={Dashboard} />
             <Route path="/customer/account-info" component={Account} />
             <Route exact path="/customer/registered-students" component={RegStudForm} />
-            <Route exact path="/customer/FAQ" component={FAQ} />
+            <Route exact path="/customer/faq" component={FAQ} />
+            <Route exact path="/customer/about" component={AboutUs} />
   {/*       <Route exact path="/customer/events-calendar" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/register-for-an-event" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/active-registrations" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
