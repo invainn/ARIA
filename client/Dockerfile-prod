@@ -20,6 +20,7 @@ RUN yarn build
 FROM nginx:1.14.0-alpine
 
 COPY --from=builder /usr/app/client/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
