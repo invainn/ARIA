@@ -13,11 +13,8 @@ import { Icon } from '@material-ui/core';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Account from './MenuOptions/Account';
-import Dashboard from './MenuOptions/Dashboard';
-import RegStudForm from './MenuOptions/RegisteredStudentsForm/RegStudForm';
 
-
+// Do not do this
 const drawerWidth = 300;
 
 const styles = theme => ({
@@ -107,77 +104,22 @@ const styles = theme => ({
 class CustomerDrawer extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      // aboutOption: false,
-      accountOption: false,
-      // activeRegistrationOption: false,
-      dashboardOption: true,
-      // eventCalendarOption: false,
-      // faqOption: false,
-      // paymentHistoryOption: false,
-      registeredStudentsOption: false,
-      // registerForAnEvent: false,
+      something: '',
     };
   }
 
-  switchToDashboardHandler = () => {
-      this.setState({
-        // aboutOption: false,
-        accountOption: false,
-        // activeRegistrationOption: false,
-        dashboardOption: true,
-        // eventCalendarOption: false,
-        // faqOption: false,
-        // paymentHistoryOption: false,
-        registeredStudentsOption: false,
-        // registerForAnEvent: false,
-    });
-  }
-
-  switchToAccountHandler = () => {
-    this.setState({
-      // aboutOption: false,
-      accountOption: true,
-      // activeRegistrationOption: false,
-      dashboardOption: false,
-      // eventCalendarOption: false,
-      // faqOption: false,
-      // paymentHistoryOption: false,
-      registeredStudentsOption: false,
-      // registerForAnEvent: false,
-  });
-}
-
-switchToRegStudHandler = () => {
-  this.setState({
-    // aboutOption: false,
-    accountOption: false,
-    // activeRegistrationOption: false,
-    dashboardOption: false,
-    // eventCalendarOption: false,
-    // faqOption: false,
-    // paymentHistoryOption: false,
-    registeredStudentsOption: true,
-    // registerForAnEvent: false,
-});
-}
-
   render() {
     const {
-      classes, theme, open, togglePortalDrawer,
+      classes,
+      theme,
+      open,
+      togglePortalDrawer,
+      children,
     } = this.props;
 
-    const {
-      // aboutOption,
-      accountOption,
-      // activeRegistrationOption,
-      dashboardOption,
-      // eventCalendarOption,
-      // faqOption,
-      // paymentHistoryOption,
-      registeredStudentsOption,
-      // registerForAnEvent,
-    } = this.state;
+    const { something } = this.state;
 
     return (
           <div className={classes.portalContent}>
@@ -191,6 +133,7 @@ switchToRegStudHandler = () => {
             <div className={classes.toolbar}>
                 <IconButton onClick={togglePortalDrawer}>
                   {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                  {something}
                 </IconButton>
             </div>
             <Divider />
@@ -261,9 +204,7 @@ switchToRegStudHandler = () => {
             </Drawer>
             <main className={classes.content}>
               <div className={classes.toolbar} />
-              { dashboardOption ? <Dashboard /> : null }
-              { accountOption ? <Account /> : null }
-              { registeredStudentsOption ? <RegStudForm /> : null }
+              { children }
             </main>
           </div>
     );
@@ -273,6 +214,7 @@ switchToRegStudHandler = () => {
 CustomerDrawer.propTypes = {
   classes: PropTypes.shape.isRequired,
   theme: PropTypes.shape.isRequired,
+  children: PropTypes.shape.isRequired,
   open: PropTypes.bool.isRequired,
   togglePortalDrawer: PropTypes.func.isRequired,
 };

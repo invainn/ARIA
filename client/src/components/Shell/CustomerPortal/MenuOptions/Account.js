@@ -10,11 +10,10 @@ import { Icon } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import AccountFields from './AccountFields/AccountFields';
 import AccountPreferences from './AccountFields/AccountPreferences';
+import CustomerPortalContainer from '../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
-function TabContainer(props) {
-    const { children } = props;
-
-    return (
+function TabContainer({ children }) {
+  return (
     <Typography component="div" style={{ padding: 8 * 3 }}>
       { children }
     </Typography>
@@ -53,7 +52,7 @@ class CenteredTabs extends React.Component {
     const { value } = this.state;
 
     return (
-      <div className={classes.root}>
+      <CustomerPortalContainer>
         <Paper className={classes.root}>
           <Tabs
             value={value}
@@ -95,8 +94,7 @@ class CenteredTabs extends React.Component {
         }
 
         {/* Personal Information */}
-        {value === 1
-          && (
+        {value === 1 && (
             <TabContainer>
                 <AccountFields label="First name" placeholder="Customer's first name" />
                 <AccountFields label="Middle Initial" placeholder="Customer's middle initial" />
@@ -114,8 +112,8 @@ class CenteredTabs extends React.Component {
                     Discard Changes
                 </Button>
             </TabContainer>
-            )
-            }
+          )
+        }
 
         {/* Contact Information */}
         {value === 2
@@ -186,7 +184,7 @@ class CenteredTabs extends React.Component {
             </TabContainer>
             )
             }
-      </div>
+      </CustomerPortalContainer>
     );
   }
 }

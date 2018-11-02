@@ -21,16 +21,21 @@ const styles = () => ({
   },
 });
 
-const CustomerPortal = ({ classes, open, togglePortalDrawer }) => (
+const CustomerPortal = ({
+ classes, open, children, togglePortalDrawer,
+}) => (
   <div className={classes.root}>
       <CustomerToolbar open={open} togglePortalDrawer={togglePortalDrawer} />
-      <CustomerDrawer open={open} togglePortalDrawer={togglePortalDrawer} />
+      <CustomerDrawer open={open} togglePortalDrawer={togglePortalDrawer}>
+        { children }
+      </CustomerDrawer>
       <ShellFooter />
   </div>
 );
 
 CustomerPortal.propTypes = {
   classes: PropTypes.shape.isRequired,
+  children: PropTypes.shape.isRequired,
   open: PropTypes.bool.isRequired,
   togglePortalDrawer: PropTypes.func.isRequired,
 };
