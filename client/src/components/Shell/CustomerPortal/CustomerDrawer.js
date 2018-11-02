@@ -186,7 +186,7 @@ class CustomerDrawer extends Component {
             <Divider />
               <List>
                 <div>
-                  <ListItem button component={Link} to="/customer/faq" onClick={this.switchOptionHandler}>
+                  <ListItem button component={Link} to="/customer/faq" onClick={this.switchToFAQHandler}>
                     <ListItemIcon>
                       <Icon>help_outline</Icon>
                     </ListItemIcon>
