@@ -149,13 +149,13 @@ class CustomerDrawer extends Component {
                     <ListItemIcon>
                       <Icon>account_box</Icon>
                     </ListItemIcon>
-                    <ListItemText primary="Your Account" />
+                    <ListItemText primary="My Account" />
                   </ListItem>
-                  <ListItem button component={Link} to="/customer/registered-students" onClick={this.switchToRegStudHandler}>
+                  <ListItem button component={Link} to="/customer/participants" onClick={this.switchToRegStudHandler}>
                     <ListItemIcon>
                       <Icon>group_add</Icon>
                     </ListItemIcon>
-                    <ListItemText primary="Registered Students" />
+                    <ListItemText primary="Participants" />
                   </ListItem>
                   <ListItem button component={Link} to="/customer/events-calendar" onClick={this.switchOptionHandler}>
                     <ListItemIcon>
