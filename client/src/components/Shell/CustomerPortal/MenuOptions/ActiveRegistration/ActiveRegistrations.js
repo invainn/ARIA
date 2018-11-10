@@ -14,6 +14,10 @@ import {
   Checkbox,
   IconButton,
   Tooltip,
+  // Collapse,
+  ExpansionPanel,
+  ExpansionPanelDetails,
+  ExpansionPanelSummary,
 } from '@material-ui/core/';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
@@ -21,7 +25,7 @@ import { lighten } from '@material-ui/core/styles/colorManipulator';
 import EnhancedTableHead from './EnhancedTableHead';
 import CustomerPortalContainer from '../../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
-function createData(firstName, lastName, eventType, date, performanceTime, startTime,
+function createData(firstName, lastName, eventType, date, performanceTime, location, startTime,
     endTime, commandPerformance, song1, song2, song3) {
     return {
         firstName,
@@ -29,6 +33,7 @@ function createData(firstName, lastName, eventType, date, performanceTime, start
         eventType,
         date,
         performanceTime,
+        location,
         startTime,
         endTime,
         commandPerformance,
@@ -160,7 +165,9 @@ class ActiveRegistration extends Component {
     orderBy: 'calories',
     selected: [],
     data: [
-      createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
     ],
     page: 0,
     rowsPerPage: 10,
@@ -204,7 +211,7 @@ class ActiveRegistration extends Component {
     }
 
     this.setState({ selected: newSelected });
-  };
+  }
 
   handleChangePage = (event, page) => {
     this.setState({ page });
@@ -250,19 +257,19 @@ class ActiveRegistration extends Component {
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((n, i) => {
                         const isSelected = this.isSelected(n.id);
-                        return (
-                            <TableRow
-                              hover
-                              onClick={event => this.handleClick(event, n.id)}
-                              role="checkbox"
-                              aria-checked={isSelected}
-                              tabIndex={-1}
-                              key={n.id}
-                              selected={isSelected}
-                              padding="auto"
-                            >
+                        return [
+                          <TableRow
+                            hover
+                            onClick={event => this.handleClick(event, n.id)}
+                            role="checkbox"
+                            aria-checked={isSelected}
+                            tabIndex={-1}
+                            key={n.id}
+                            selected={isSelected}
+                            padding="auto"
+                          >
                               <TableCell padding="checkbox">
-                                  <Checkbox color="primary" checked={isSelected} />
+                                <Checkbox color="primary" checked={isSelected} />
                               </TableCell>
                               <TableCell>{i + 1}</TableCell>
                               <TableCell>{n.firstName}</TableCell>
@@ -270,8 +277,25 @@ class ActiveRegistration extends Component {
                               <TableCell>{n.eventType}</TableCell>
                               <TableCell>{n.date}</TableCell>
                               <TableCell>{n.performanceTime}</TableCell>
-                            </TableRow>
-                        );
+                              <TableCell>{n.location}</TableCell>
+                          </TableRow>,
+                          <TableRow style={{display : isSelected ? undefined : 'none'}}
+                            hover
+                            onClick={event => this.handleClick(event, n.id)}
+                            role="checkbox"
+                            aria-checked={isSelected}
+                            tabIndex={-1}
+                            key={n.id}
+                            selected={isSelected}
+                            padding="auto"
+                          >
+                            <TableCell></TableCell>
+                            <TableCell></TableCell>
+                            <TableCell colSpan={6}>
+                              {n.song1}
+                            </TableCell>
+                          </TableRow>
+                        ];
                         })}
                     {emptyRows > 0 && (
                         <TableRow style={{ height: 49 * emptyRows }}>
