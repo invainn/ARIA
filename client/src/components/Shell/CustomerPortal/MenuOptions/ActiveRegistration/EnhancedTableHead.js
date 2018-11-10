@@ -41,6 +41,9 @@ class EnhancedTableHead extends React.Component {
       {
   id: 'performanceTime', numeric: false, disablepadding: false, label: 'Performance Time',
 },
+      {
+  id: 'location', numeric: false, disablepadding: false, label: 'Location',
+},
    ];
 
     return (
