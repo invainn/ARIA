@@ -17,7 +17,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import EnhancedTableHead from './EnhancedTableHead';
-import CustomerPortalContainer from '../../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+
+import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
 // Do not do this, fix this
 let counter = 0;

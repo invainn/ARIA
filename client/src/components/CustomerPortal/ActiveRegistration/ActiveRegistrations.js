@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import DeleteIcon from '@material-ui/icons/Delete';
+import FilterListIcon from '@material-ui/icons/FilterList';
+import { lighten } from '@material-ui/core/styles/colorManipulator';
+import EnhancedTableHead from './EnhancedTableHead';
 import {
   Table,
   TableBody,
@@ -19,12 +23,37 @@ import {
   ExpansionPanelDetails,
   ExpansionPanelSummary,
 } from '@material-ui/core/';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
-import EnhancedTableHead from './EnhancedTableHead';
-import CustomerPortalContainer from '../../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
+import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+
+const toolbarStyles = theme => ({
+  root: {
+    paddingRight: theme.spacing.unit,
+    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.primary,
+  },
+  highlight:
+    theme.palette.type === 'light'
+      ? {
+          color: theme.palette.primary.main,
+          backgroundColor: lighten(theme.palette.primary, 0.75),
+        }
+      : {
+          color: theme.palette.text.primary,
+          backgroundColor: theme.palette.primary,
+        },
+  spacer: {
+    flex: '1 1 100%',
+  },
+  actions: {
+    color: theme.palette.text.primary,
+  },
+  title: {
+    flex: '0 0 auto',
+  },
+});
+
+// TODO: This shouldn't be done like this and a class should be created.
 function createData(firstName, lastName, eventType, date, performanceTime, location, startTime,
     endTime, commandPerformance, song1, song2, song3) {
     return {
@@ -55,6 +84,7 @@ const desc = (a, b, orderBy) => {
   return 0;
 };
 
+// TODO: Javascript already has a sort, do not do this
 function stableSort(array, cmp) {
   const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
@@ -65,36 +95,9 @@ function stableSort(array, cmp) {
   return stabilizedThis.map(el => el[0]);
 }
 
-function getSorting(order, orderBy) {
+const getSorting = (order, orderBy) => {
   return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
-}
-
-const toolbarStyles = theme => ({
-  root: {
-    paddingRight: theme.spacing.unit,
-    color: theme.palette.text.primary,
-    backgroundColor: theme.palette.primary,
-  },
-  highlight:
-    theme.palette.type === 'light'
-      ? {
-          color: theme.palette.primary.main,
-          backgroundColor: lighten(theme.palette.primary, 0.75),
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.primary,
-        },
-  spacer: {
-    flex: '1 1 100%',
-  },
-  actions: {
-    color: theme.palette.text.primary,
-  },
-  title: {
-    flex: '0 0 auto',
-  },
-});
+};
 
 let EnhancedTableToolbar = (props) => {
   const { numSelected, classes } = props;
@@ -144,7 +147,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
+EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
 
 const styles = theme => ({
   root: {

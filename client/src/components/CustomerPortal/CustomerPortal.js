@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
-import ShellFooter from '../ShellFooter/ShellFooter';
-import CustomerToolbar from './CustomerToolbar';
-import CustomerDrawer from './CustomerDrawer';
-
+import ShellFooter from '../Shell/ShellFooter/ShellFooter';
+import CustomerToolbar from './CustomerToolbar/CustomerToolbar';
+import CustomerDrawer from './CustomerDrawer/CustomerDrawer';
 
 const styles = () => ({
   root: {

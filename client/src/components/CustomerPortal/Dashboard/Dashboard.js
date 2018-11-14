@@ -18,8 +18,8 @@ import {
 } from '@material-ui/core';
 
 // This needs to be described more
-import image from './images/dashboard-music-note.jpg';
-import CustomerPortalContainer from '../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+import MusicNoteImage from './dashboard-music-note.jpg';
+import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
 const styles = theme => ({
   appBar: {
@@ -122,7 +122,7 @@ function Dashboard(props) {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image={image}
+                    image={MusicNoteImage}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
