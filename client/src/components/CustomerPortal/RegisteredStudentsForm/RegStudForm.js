@@ -133,7 +133,7 @@ EnhancedTableToolbar.propTypes = {
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     width: '100%',
   },
@@ -150,6 +150,7 @@ class EnhancedTable extends React.Component {
     order: 'asc',
     orderBy: 'calories',
     selected: [],
+    // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
       createData('Alice', 'P', 'Smith', 2, 'Mr. Jenkins'),
       createData('Mary', 'B', 'Daniels', 11, 'Mr. Matthews'),

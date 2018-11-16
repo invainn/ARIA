@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
-import EnhancedTableHead from './EnhancedTableHead';
 import {
   Table,
   TableBody,
@@ -19,39 +17,42 @@ import {
   IconButton,
   Tooltip,
   // Collapse,
-  ExpansionPanel,
-  ExpansionPanelDetails,
-  ExpansionPanelSummary,
+  // ExpansionPanel,
+  // ExpansionPanelDetails,
+  // ExpansionPanelSummary,
 } from '@material-ui/core/';
+import EnhancedTableHead from './EnhancedTableHead';
 
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
-const toolbarStyles = theme => ({
-  root: {
-    paddingRight: theme.spacing.unit,
-    color: theme.palette.text.primary,
-    backgroundColor: theme.palette.primary,
-  },
-  highlight:
-    theme.palette.type === 'light'
-      ? {
-          color: theme.palette.primary.main,
-          backgroundColor: lighten(theme.palette.primary, 0.75),
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.primary,
-        },
-  spacer: {
-    flex: '1 1 100%',
-  },
-  actions: {
-    color: theme.palette.text.primary,
-  },
-  title: {
-    flex: '0 0 auto',
-  },
-});
+// What is this for?
+
+// const toolbarStyles = theme => ({
+//   root: {
+//     paddingRight: theme.spacing.unit,
+//     color: theme.palette.text.primary,
+//     backgroundColor: theme.palette.primary,
+//   },
+//   highlight:
+//     theme.palette.type === 'light'
+//       ? {
+//           color: theme.palette.primary.main,
+//           backgroundColor: lighten(theme.palette.primary, 0.75),
+//         }
+//       : {
+//           color: theme.palette.text.primary,
+//           backgroundColor: theme.palette.primary,
+//         },
+//   spacer: {
+//     flex: '1 1 100%',
+//   },
+//   actions: {
+//     color: theme.palette.text.primary,
+//   },
+//   title: {
+//     flex: '0 0 auto',
+//   },
+// });
 
 // TODO: This shouldn't be done like this and a class should be created.
 function createData(firstName, lastName, eventType, date, performanceTime, location, startTime,
@@ -85,19 +86,19 @@ const desc = (a, b, orderBy) => {
 };
 
 // TODO: Javascript already has a sort, do not do this
-function stableSort(array, cmp) {
+const stableSort = (array, cmp) => {
   const stabilizedThis = array.map((el, index) => [el, index]);
+
   stabilizedThis.sort((a, b) => {
     const order = cmp(a[0], b[0]);
     if (order !== 0) return order;
     return a[1] - b[1];
   });
-  return stabilizedThis.map(el => el[0]);
-}
 
-const getSorting = (order, orderBy) => {
-  return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
+  return stabilizedThis.map(el => el[0]);
 };
+
+const getSorting = (order, orderBy) => (order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy));
 
 let EnhancedTableToolbar = (props) => {
   const { numSelected, classes } = props;
@@ -147,9 +148,8 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     width: '100%',
   },
@@ -161,11 +161,14 @@ const styles = theme => ({
   },
 });
 
+EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
+
 class ActiveRegistration extends Component {
   state = {
     order: 'asc',
     orderBy: 'calories',
     selected: [],
+    // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
       createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
       createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
@@ -281,7 +284,8 @@ class ActiveRegistration extends Component {
                               <TableCell>{n.performanceTime}</TableCell>
                               <TableCell>{n.location}</TableCell>
                           </TableRow>,
-                          <TableRow style={{display : isSelected ? undefined : 'none'}}
+                          <TableRow
+                            style={{ display: isSelected ? undefined : 'none' }}
                             hover
                             onClick={event => this.handleClick(event, n.id)}
                             role="checkbox"
@@ -291,12 +295,12 @@ class ActiveRegistration extends Component {
                             selected={isSelected}
                             padding="auto"
                           >
-                            <TableCell></TableCell>
-                            <TableCell></TableCell>
+                            <TableCell />
+                            <TableCell />
                             <TableCell colSpan={6}>
                               {n.song1}
                             </TableCell>
-                          </TableRow>
+                          </TableRow>,
                         ];
                         })}
                     {emptyRows > 0 && (

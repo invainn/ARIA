@@ -102,57 +102,58 @@ const styles = theme => ({
   });
 
 const ShellHeader = ({ classes, open, togglePortalDrawer }) => (
-      <AppBar
-        position="absolute"
-        className={classNames(classes.appBar, open && classes.appBarShift)}
-      >
-      <Grid container>
-        <Grid xs={6}>
-            <Toolbar disableGutters={!open}>
-                <IconButton
-                  color="inherit"
-                  aria-label="Open drawer"
-                  onClick={togglePortalDrawer}
-                  className={
-                        classNames(classes.menuButton, open && classes.hide)
-                    }
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Typography
-                  variant="h6"
-                  color="inherit"
-                  className={classes.PortalHeaderContainer}
-                  noWrap
-                >
-                  <span>
-                    <img 
-                        variant="title" 
-                        className={classes.shellLogo} 
-                        src={logo} alt="NNMTA" 
-                    />
-                  </span>
-                  <span className={classes.CustomerPortalWelcomeMessage}>
-                      Welcome, &lt;Customer Name&gt;
-                  </span>
-                </Typography>
-            </Toolbar>
-        </Grid>
-        <Grid
-          xs={6}
-          alignItems="center"
-          alignContent="center"
-          justify="flex-end"
-          container
-        >
-          <Button component={Link} to="/" className={classes.signOutButtonStyles}>
-            <Typography variant="body2" color="textPrimary">
-                Sign Out
-            </Typography>
-          </Button>
-        </Grid>
+  <AppBar
+    position="absolute"
+    className={classNames(classes.appBar, open && classes.appBarShift)}
+  >
+    <Grid container>
+      <Grid xs={6}>
+          <Toolbar disableGutters={!open}>
+              <IconButton
+                color="inherit"
+                aria-label="Open drawer"
+                onClick={togglePortalDrawer}
+                className={
+                      classNames(classes.menuButton, open && classes.hide)
+                  }
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography
+                variant="h6"
+                color="inherit"
+                className={classes.PortalHeaderContainer}
+                noWrap
+              >
+                <span>
+                  <img
+                    variant="title"
+                    className={classes.shellLogo}
+                    src={logo}
+                    alt="NNMTA"
+                  />
+                </span>
+                <span className={classes.CustomerPortalWelcomeMessage}>
+                    Welcome, &lt;Customer Name&gt;
+                </span>
+              </Typography>
+          </Toolbar>
       </Grid>
-      </AppBar>
+      <Grid
+        xs={6}
+        alignItems="center"
+        alignContent="center"
+        justify="flex-end"
+        container
+      >
+        <Button component={Link} to="/" className={classes.signOutButtonStyles}>
+          <Typography variant="body2" color="textPrimary">
+              Sign Out
+          </Typography>
+        </Button>
+      </Grid>
+    </Grid>
+  </AppBar>
 );
 
 ShellHeader.propTypes = {

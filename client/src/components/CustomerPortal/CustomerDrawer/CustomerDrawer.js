@@ -116,7 +116,6 @@ class CustomerDrawer extends Component {
       theme,
       open,
       togglePortalDrawer,
-      children,
     } = this.props;
 
     const { something } = this.state;
@@ -208,7 +207,6 @@ class CustomerDrawer extends Component {
 CustomerDrawer.propTypes = {
   classes: PropTypes.shape.isRequired,
   theme: PropTypes.shape.isRequired,
-  children: PropTypes.shape.isRequired,
   open: PropTypes.bool.isRequired,
   togglePortalDrawer: PropTypes.func.isRequired,
 };
