@@ -52,7 +52,7 @@ class CheckboxesGroup extends Component {
             />
             <FormControlLabel
               control={
-                <Checkbox checked={prefTwo} onChange={this.handleChange('prefTwo')} value="Receive certificates in the mail" color="primary" />
+                <Checkbox checked={prefTwo} onChange={this.handleChange('prefTwo')} value="Receive certificates by e-mail" color="primary" />
               }
               label="Receive certificates in the mail"
             />
