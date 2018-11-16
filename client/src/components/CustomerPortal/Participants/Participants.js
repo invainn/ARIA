@@ -150,8 +150,7 @@ EnhancedTableToolbar.propTypes = {
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
-<<<<<<< Updated upstream:client/src/components/CustomerPortal/RegisteredStudentsForm/RegStudForm.js
-const styles = () => ({
+/* const styles = () => ({
   root: {
     width: '100%',
   },
@@ -161,12 +160,9 @@ const styles = () => ({
   tableWrapper: {
     overflowX: 'auto',
   },
-});
+}); */
 
 class EnhancedTable extends React.Component {
-=======
-class EnhancedTable extends Component {
->>>>>>> Stashed changes:client/src/components/CustomerPortal/Participants/Participants.js
   state = {
     order: 'asc',
     orderBy: 'calories',
