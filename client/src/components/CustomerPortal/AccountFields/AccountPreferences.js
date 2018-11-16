@@ -31,8 +31,12 @@ class CheckboxesGroup extends React.Component {
 
   render() {
     const { classes } = this.props;
+
     const {
-        prefOne, prefTwo, prefThree, prefFour,
+      prefOne,
+      prefTwo,
+      prefThree,
+      prefFour,
     } = this.state;
 
     return (
@@ -53,16 +57,14 @@ class CheckboxesGroup extends React.Component {
               label="Receive certificates in the mail"
             />
             <FormControlLabel
-              control={
-                (
+              control={(
                 <Checkbox
                   checked={prefThree}
                   onChange={this.handleChange('prefThree')}
                   value="Receive notifications about upcoming events"
                   color="primary"
                 />
-                )
-              }
+              )}
               label="A Third Preference"
             />
             <FormControlLabel

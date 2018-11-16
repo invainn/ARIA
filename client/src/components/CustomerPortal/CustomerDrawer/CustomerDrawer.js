@@ -18,7 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 const drawerWidth = 300;
 
 const styles = theme => ({
-  portalContent: {
+  portalDrawer: {
     flexGrow: 1,
     zIndex: 1,
     display: 'flex',
@@ -116,13 +116,11 @@ class CustomerDrawer extends Component {
       theme,
       open,
       togglePortalDrawer,
-      children,
     } = this.props;
 
     const { something } = this.state;
 
     return (
-          <div className={classes.portalContent}>
             <Drawer
               variant="permanent"
               classes={{
@@ -149,13 +147,13 @@ class CustomerDrawer extends Component {
                     <ListItemIcon>
                       <Icon>account_box</Icon>
                     </ListItemIcon>
-                    <ListItemText primary="Your Account" />
+                    <ListItemText primary="My Account" />
                   </ListItem>
-                  <ListItem button component={Link} to="/customer/registered-students" onClick={this.switchToRegStudHandler}>
+                  <ListItem button component={Link} to="/customer/participants" onClick={this.switchToRegStudHandler}>
                     <ListItemIcon>
                       <Icon>group_add</Icon>
                     </ListItemIcon>
-                    <ListItemText primary="Registered Students" />
+                    <ListItemText primary="Participants" />
                   </ListItem>
                   <ListItem button component={Link} to="/customer/events-calendar" onClick={this.switchOptionHandler}>
                     <ListItemIcon>
@@ -202,11 +200,6 @@ class CustomerDrawer extends Component {
               </List>
             <Divider />
             </Drawer>
-            <main className={classes.content}>
-              <div className={classes.toolbar} />
-              { children }
-            </main>
-          </div>
     );
   }
 }
@@ -214,7 +207,6 @@ class CustomerDrawer extends Component {
 CustomerDrawer.propTypes = {
   classes: PropTypes.shape.isRequired,
   theme: PropTypes.shape.isRequired,
-  children: PropTypes.shape.isRequired,
   open: PropTypes.bool.isRequired,
   togglePortalDrawer: PropTypes.func.isRequired,
 };

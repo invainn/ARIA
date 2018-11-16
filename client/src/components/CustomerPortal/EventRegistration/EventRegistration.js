@@ -10,8 +10,8 @@ import {
     Divider,
 } from '@material-ui/core';
 
-import AccountFields from './AccountFields/AccountFields';
-import CustomerPortalContainer from '../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+import AccountFields from '../AccountFields/AccountFields';
+import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
 const styles = {
     eventRegistrationField: {

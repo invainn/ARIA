@@ -8,9 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Icon } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import AccountFields from './AccountFields/AccountFields';
-import AccountPreferences from './AccountFields/AccountPreferences';
-import CustomerPortalContainer from '../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+
+import AccountFields from '../AccountFields/AccountFields';
+import AccountPreferences from '../AccountFields/AccountPreferences';
+import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
 function TabContainer({ children }) {
   return (

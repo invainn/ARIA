@@ -2,7 +2,8 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import { Grid } from '@material-ui/core';
-import CustomerPortalContainer from '../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+
+import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
 const styles = () => ({
     eventsCalendarContainer: {
