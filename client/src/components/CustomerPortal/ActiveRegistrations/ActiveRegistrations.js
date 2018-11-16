@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+<<<<<<< HEAD
+=======
+import { lighten } from '@material-ui/core/styles/colorManipulator';
+>>>>>>> a84b2a55d691a684e43009cdb66fbe019d3a7e81
 import {
   Table,
   TableBody,
@@ -16,6 +20,7 @@ import {
   Checkbox,
   IconButton,
   Tooltip,
+<<<<<<< HEAD
   // Collapse,
   // ExpansionPanel,
   // ExpansionPanelDetails,
@@ -53,6 +58,56 @@ import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/Cu
 //     flex: '0 0 auto',
 //   },
 // });
+=======
+} from '@material-ui/core/';
+import EnhancedTableHead from './EnhancedTableHead';
+import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+
+const styles = () => ({
+  root: {
+    width: '100%',
+  },
+  table: {
+    minWidth: 1020,
+  },
+  tableWrapper: {
+    overflowX: 'auto',
+  },
+  pageTitle: {
+    width: '100%',
+    textDecoration: 'underline',
+    textDecorationColor: '#FFFFFF',
+    paddingBottom: '15px',
+  },
+});
+
+const toolbarStyles = theme => ({
+  root: {
+    paddingRight: theme.spacing.unit,
+    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.primary,
+  },
+  highlight:
+    theme.palette.type === 'light'
+      ? {
+          color: theme.palette.primary.main,
+          backgroundColor: lighten(theme.palette.primary, 0.75),
+        }
+      : {
+          color: theme.palette.text.primary,
+          backgroundColor: theme.palette.primary,
+        },
+  spacer: {
+    flex: '1 1 100%',
+  },
+  actions: {
+    color: theme.palette.text.primary,
+  },
+  title: {
+    flex: '0 0 auto',
+  },
+});
+>>>>>>> a84b2a55d691a684e43009cdb66fbe019d3a7e81
 
 // TODO: This shouldn't be done like this and a class should be created.
 let counter = 0;
@@ -151,6 +206,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
+<<<<<<< HEAD
 
 const styles = () => ({
   root: {
@@ -165,6 +221,9 @@ const styles = () => ({
 });
 
 EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
+=======
+EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
+>>>>>>> a84b2a55d691a684e43009cdb66fbe019d3a7e81
 
 class ActiveRegistration extends Component {
   state = {
@@ -305,11 +364,19 @@ class ActiveRegistration extends Component {
                             selected={isSelected}
                               padding="auto"
                           >
+<<<<<<< HEAD
                             <TableCell />
                             <TableCell />
                             <TableCell colSpan={6}>
                               {n.song1}
                             </TableCell>
+=======
+                          <TableCell />
+                          <TableCell />
+                          <TableCell colSpan={6}>
+                              {n.song1}
+                          </TableCell>
+>>>>>>> a84b2a55d691a684e43009cdb66fbe019d3a7e81
                           </TableRow>,
                         ];
                         })}

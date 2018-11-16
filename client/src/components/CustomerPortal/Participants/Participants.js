@@ -22,7 +22,7 @@ import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/Cu
 // Do not do this, fix this
 let counter = 0;
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     width: '100%',
   },
@@ -150,6 +150,7 @@ EnhancedTableToolbar.propTypes = {
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
+<<<<<<< HEAD
 /* const styles = () => ({
   root: {
     width: '100%',
@@ -163,6 +164,9 @@ EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 }); */
 
 class EnhancedTable extends React.Component {
+=======
+class EnhancedTable extends Component {
+>>>>>>> a84b2a55d691a684e43009cdb66fbe019d3a7e81
   state = {
     order: 'asc',
     orderBy: 'calories',
