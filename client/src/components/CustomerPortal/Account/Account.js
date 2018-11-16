@@ -6,11 +6,12 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { Icon } from '@material-ui/core';
+import {
+  Icon,
+} from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-
-import AccountFields from '../AccountFields/AccountFields';
-import AccountPreferences from '../AccountFields/AccountPreferences';
+import AccountFields from './AccountFields/AccountFields';
+import AccountPreferences from './AccountPreferences/AccountPreferences';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
 function TabContainer({ children }) {
@@ -37,6 +38,12 @@ const styles = theme => ({
   input: {
     display: 'none',
   },
+  pageTitle: {
+    width: '100%',
+    textDecoration: 'underline',
+    textDecorationColor: '#FFFFFF',
+    paddingBottom: '15px',
+  },
 });
 
 class CenteredTabs extends React.Component {
@@ -54,6 +61,11 @@ class CenteredTabs extends React.Component {
 
     return (
       <CustomerPortalContainer>
+        <div className={classes.pageTitle}>
+          <Typography component="h2" variant="h2" gutterBottom align="center">
+              My Account
+          </Typography>
+        </div>
         <Paper className={classes.root}>
           <Tabs
             value={value}

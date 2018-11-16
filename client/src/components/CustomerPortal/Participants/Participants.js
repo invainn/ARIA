@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -17,11 +17,28 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import EnhancedTableHead from './EnhancedTableHead';
-
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
 // Do not do this, fix this
 let counter = 0;
+
+const styles = () => ({
+  root: {
+    width: '100%',
+  },
+  table: {
+    minWidth: 1020,
+  },
+  tableWrapper: {
+    overflowX: 'auto',
+  },
+  pageTitle: {
+    width: '100%',
+    textDecoration: 'underline',
+    textDecorationColor: '#FFFFFF',
+    paddingBottom: '15px',
+  },
+});
 
 const createData = (firstName, middleInitial, lastName, musicLevel, teacher) => {
     counter += 1;
@@ -133,19 +150,7 @@ EnhancedTableToolbar.propTypes = {
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
-const styles = () => ({
-  root: {
-    width: '100%',
-  },
-  table: {
-    minWidth: 1020,
-  },
-  tableWrapper: {
-    overflowX: 'auto',
-  },
-});
-
-class EnhancedTable extends React.Component {
+class EnhancedTable extends Component {
   state = {
     order: 'asc',
     orderBy: 'calories',
@@ -167,7 +172,7 @@ class EnhancedTable extends React.Component {
       createData('Gabriella', 'I', 'Barnett', 6, 'Mr. Ehlers'),
     ],
     page: 0,
-    rowsPerPage: 10,
+    rowsPerPage: 3,
   };
 
   handleRequestSort = (event, property) => {
@@ -237,6 +242,11 @@ class EnhancedTable extends React.Component {
 
     return (
         <CustomerPortalContainer>
+          <div className={classes.pageTitle}>
+            <Typography component="h2" variant="h2" gutterBottom align="center">
+              Participants
+            </Typography>
+          </div>
             <Paper className={classes.root}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <div className={classes.tableWrapper}>

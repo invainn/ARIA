@@ -45,11 +45,11 @@ const ControlledExpansionPanels = (props) => {
       </div>
       <div>
           <div className={classes.subheadingTitle}>
-            <Typography component="h6" variant="h6" gutterBottom align="left">
+            <Typography component="h5" variant="h5" gutterBottom align="left">
                 Our Mission
             </Typography>
           </div>
-          <Typography component="body1" variant="body1" gutterBottom align="left">
+          <Typography component="body2" variant="body2" gutterBottom align="left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Etiam malesuada urna justo, vitae rhoncus enim interdum varius.
             Phasellus a interdum dolor, sit amet commodo sapien.
@@ -67,11 +67,11 @@ const ControlledExpansionPanels = (props) => {
           </Typography>
 
           <div className={classes.subheadingTitle}>
-            <Typography component="h6" variant="h6" gutterBottom align="left">
+            <Typography component="h5" variant="h5" gutterBottom align="left">
                 History of NNMTA
             </Typography>
           </div>
-          <Typography component="body1" variant="body1" gutterBottom align="left">
+          <Typography component="body2" variant="body2" gutterBottom align="left">
             Sed in nunc porttitor, pharetra sapien id, lobortis dui. Aliquam lacinia
             egestas tortor at hendrerit. Sed feugiat justo eu nibh imperdiet, in
             interdum est condimentum. Nam vitae ullamcorper justo. Donec vestibulum
@@ -86,11 +86,11 @@ const ControlledExpansionPanels = (props) => {
           </Typography>
 
           <div className={classes.subheadingTitle}>
-            <Typography component="h6" variant="h6" gutterBottom align="left">
+            <Typography component="h5" variant="h5" gutterBottom align="left">
                 Our Values
             </Typography>
           </div>
-          <Typography component="body1" variant="body1" gutterBottom align="left">
+          <Typography component="body2" variant="body2" gutterBottom align="left">
             Pellentesque in interdum erat, non interdum diam. Pellentesque habitant morbi
             tristique senectus et netus et malesuada fames ac turpis egestas.
             Vivamus mattis semper semper. Sed sagittis ipsum magna, sit amet
