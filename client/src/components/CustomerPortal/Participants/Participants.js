@@ -22,7 +22,7 @@ import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/Cu
 // Do not do this, fix this
 let counter = 0;
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     width: '100%',
   },
@@ -150,23 +150,7 @@ EnhancedTableToolbar.propTypes = {
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
-<<<<<<< Updated upstream:client/src/components/CustomerPortal/RegisteredStudentsForm/RegStudForm.js
-const styles = () => ({
-  root: {
-    width: '100%',
-  },
-  table: {
-    minWidth: 1020,
-  },
-  tableWrapper: {
-    overflowX: 'auto',
-  },
-});
-
-class EnhancedTable extends React.Component {
-=======
 class EnhancedTable extends Component {
->>>>>>> Stashed changes:client/src/components/CustomerPortal/Participants/Participants.js
   state = {
     order: 'asc',
     orderBy: 'calories',

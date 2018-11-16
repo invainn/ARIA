@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
-<<<<<<< Updated upstream:client/src/components/CustomerPortal/ActiveRegistration/ActiveRegistrations.js
-=======
 import { lighten } from '@material-ui/core/styles/colorManipulator';
->>>>>>> Stashed changes:client/src/components/CustomerPortal/ActiveRegistrations/ActiveRegistrations.js
 import {
   Table,
   TableBody,
@@ -20,50 +17,11 @@ import {
   Checkbox,
   IconButton,
   Tooltip,
-<<<<<<< Updated upstream:client/src/components/CustomerPortal/ActiveRegistration/ActiveRegistrations.js
-  // Collapse,
-  // ExpansionPanel,
-  // ExpansionPanelDetails,
-  // ExpansionPanelSummary,
-} from '@material-ui/core/';
-import EnhancedTableHead from './EnhancedTableHead';
-
-import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
-
-// What is this for?
-
-// const toolbarStyles = theme => ({
-//   root: {
-//     paddingRight: theme.spacing.unit,
-//     color: theme.palette.text.primary,
-//     backgroundColor: theme.palette.primary,
-//   },
-//   highlight:
-//     theme.palette.type === 'light'
-//       ? {
-//           color: theme.palette.primary.main,
-//           backgroundColor: lighten(theme.palette.primary, 0.75),
-//         }
-//       : {
-//           color: theme.palette.text.primary,
-//           backgroundColor: theme.palette.primary,
-//         },
-//   spacer: {
-//     flex: '1 1 100%',
-//   },
-//   actions: {
-//     color: theme.palette.text.primary,
-//   },
-//   title: {
-//     flex: '0 0 auto',
-//   },
-// });
-=======
 } from '@material-ui/core/';
 import EnhancedTableHead from './EnhancedTableHead';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     width: '100%',
   },
@@ -107,7 +65,6 @@ const toolbarStyles = theme => ({
     flex: '0 0 auto',
   },
 });
->>>>>>> Stashed changes:client/src/components/CustomerPortal/ActiveRegistrations/ActiveRegistrations.js
 
 // TODO: This shouldn't be done like this and a class should be created.
 function createData(firstName, lastName, eventType, date, performanceTime, location, startTime,
@@ -203,24 +160,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-<<<<<<< Updated upstream:client/src/components/CustomerPortal/ActiveRegistration/ActiveRegistrations.js
-
-const styles = () => ({
-  root: {
-    width: '100%',
-  },
-  table: {
-    minWidth: 1020,
-  },
-  tableWrapper: {
-    overflowX: 'auto',
-  },
-});
-=======
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
->>>>>>> Stashed changes:client/src/components/CustomerPortal/ActiveRegistrations/ActiveRegistrations.js
-
-EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
 
 class ActiveRegistration extends Component {
   state = {
@@ -349,11 +289,7 @@ class ActiveRegistration extends Component {
                               <TableCell>{n.location}</TableCell>
                           </TableRow>,
                           <TableRow
-<<<<<<< Updated upstream:client/src/components/CustomerPortal/ActiveRegistration/ActiveRegistrations.js
                             style={{ display: isSelected ? undefined : 'none' }}
-=======
-                            style={{display: isSelected ? undefined : 'none'}}
->>>>>>> Stashed changes:client/src/components/CustomerPortal/ActiveRegistrations/ActiveRegistrations.js
                             hover
                             onClick={event => this.handleClick(event, n.id)}
                             role="checkbox"
@@ -363,19 +299,11 @@ class ActiveRegistration extends Component {
                             selected={isSelected}
                             padding="auto"
                           >
-<<<<<<< Updated upstream:client/src/components/CustomerPortal/ActiveRegistration/ActiveRegistrations.js
-                            <TableCell />
-                            <TableCell />
-                            <TableCell colSpan={6}>
-                              {n.song1}
-                            </TableCell>
-=======
                           <TableCell />
                           <TableCell />
                           <TableCell colSpan={6}>
                               {n.song1}
                           </TableCell>
->>>>>>> Stashed changes:client/src/components/CustomerPortal/ActiveRegistrations/ActiveRegistrations.js
                           </TableRow>,
                         ];
                         })}
