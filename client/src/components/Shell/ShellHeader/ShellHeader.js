@@ -1,157 +1,164 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { HashLink } from 'react-router-hash-link';
-import { NavLink, Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
-import Hidden from '@material-ui/core/Hidden';
-import {
-    Toolbar,
-    Drawer,
-    IconButton,
-    Icon,
-    List,
-    ListItem,
-    ListItemIcon,
-    Divider,
-    Button,
-    Typography,
-} from '@material-ui/core';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import MenuIcon from '@material-ui/icons/Menu';
+import { Button, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import IconButton from '@material-ui/core/IconButton';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import logo from '../logo-header.png';
 
-const styles = ({ palette }) => ({
+const styles = theme => ({
+    root: {
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    portalContent: {
+      flexGrow: 1,
+      zIndex: 1,
+      display: 'flex',
+      height: '100%',
+    },
+    appBar: {
+      zIndex: theme.zIndex.drawer + 1,
+      transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+    },
+    appBarShift: {
+      marginLeft: 300,
+      width: `calc(100% - ${300}px)`,
+      transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
+    menuButton: {
+      marginLeft: 12,
+      marginRight: 36,
+    },
+    hide: {
+      display: 'none',
+    },
+    drawerPaper: {
+      position: 'relative',
+      whiteSpace: 'nowrap',
+      width: 300,
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
+    drawerPaperClose: {
+      overflowX: 'hidden',
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      width: theme.spacing.unit * 7,
+      [theme.breakpoints.up('sm')]: {
+        width: theme.spacing.unit * 9,
+      },
+    },
+    toolbar: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+      padding: '0 8px',
+      ...theme.mixins.toolbar,
+    },
+    content: {
+      flexGrow: 1,
+      backgroundColor: theme.palette.background.default,
+      padding: theme.spacing.unit * 3,
+    },
     shellLogo: {
-        maxWidth: 85,
-        margin: 10,
+      maxWidth: 85,
+      paddingRight: '25px',
+      margin: 'auto',
+      marginLeft: '20px',
     },
-
-    logoContainer: {
-        flex: 1,
+    portalBar: {
+      margin: 'auto',
+      textAlign: 'center',
     },
-
-    mobileNavTitle: {
-        padding: '5px 80px 20px 5px',
+    CustomerPortalWelcomeMessage: {
+      marginLeft: '20px',
     },
-
-    selected: {
-        backgroundImage: `linear-gradient(${palette.primary.dark}, #FFF)`,
-        backgroundSize: '100% 2px',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '100% 100%',
+    PortalHeaderContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-});
+    signOutButtonStyles: {
+      marginRight: '20px',
+    },
+  });
 
-class ShellHeader extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            mobileDrawer: false,
-        };
-    }
-
-    toggleMobile = toggle => () => {
-        this.setState({
-            mobileDrawer: toggle,
-        });
-    };
-
-    render() {
-        const { classes } = this.props;
-        const { mobileDrawer } = this.state;
-
-        return (
-            <AppBar color="primary" position="sticky">
-                <Toolbar>
-                    <Hidden mdUp>
-                        <IconButton color="inherit" onClick={this.toggleMobile(true)} smDown>
-                            <Icon>menu</Icon>
-                        </IconButton>
-                        <Drawer variant="temporary" anchor="left" open={mobileDrawer} onClose={this.toggleMobile(false)} ModalProps={{ disableRestoreFocus: true }}>
-                            <div role="button" onClick={this.toggleMobile(false)} onKeyDown={this.toggleMobile(false)}>
-                                <List>
-                                    <ListItem>
-                                        <Typography variant="title" color="textPrimary" className={classes.mobileNavTitle}>
-                                            NNMTA
-                                        </Typography>
-                                    </ListItem>
-                                    <Divider />
-                                    <ListItem component={Link} to="/" button>
-                                        <ListItemIcon>
-                                            <Icon>home</Icon>
-                                        </ListItemIcon>
-                                        <Typography variant="body1" color="textPrimary">
-                                            Home
-                                        </Typography>
-                                    </ListItem>
-                                    <ListItem component={HashLink} to="/#about" button>
-                                        <ListItemIcon>
-                                            <Icon>domain</Icon>
-                                        </ListItemIcon>
-                                        <Typography variant="body1" color="textPrimary">
-                                            About
-                                        </Typography>
-                                    </ListItem>
-                                    <ListItem component={HashLink} to="/#competitions" button smooth>
-                                        <ListItemIcon>
-                                            <Icon>group</Icon>
-                                        </ListItemIcon>
-                                        <Typography variant="body1" color="textPrimary">
-                                            Competitions
-                                        </Typography>
-                                    </ListItem>
-                                    <ListItem component={Link} to="/donate" button>
-                                        <ListItemIcon>
-                                            <Icon>favorite</Icon>
-                                        </ListItemIcon>
-                                        <Typography variant="body1" color="textPrimary">
-                                            Donate
-                                        </Typography>
-                                    </ListItem>
-                                </List>
-                            </div>
-                        </Drawer>
-                    </Hidden>
-                    <div className={classes.logoContainer}>
-                        <img variant="title" className={classes.shellLogo} src={logo} alt="NNMTA" />
-                    </div>
-                    <Hidden smDown>
-                        <Button component={NavLink} to="/" activeClassName={classes.selected}>
-                            <Typography variant="body2" color="textPrimary">
-                                Home
-                            </Typography>
-                        </Button>
-                        <Button component={HashLink} to="/#about" activeClassName={classes.selected}>
-                            <Typography variant="body2" color="textPrimary">
-                                About
-                            </Typography>
-                        </Button>
-                        <Button component={HashLink} to="/#competitions" activeClassName={classes.selected} smooth>
-                            <Typography variant="body2" color="textPrimary">
-                                Competitions
-                            </Typography>
-                        </Button>
-                        <Button component={NavLink} to="/donate" activeClassName={classes.selected}>
-                            <Typography variant="body2" color="textPrimary">
-                                Donate
-                            </Typography>
-                        </Button>
-                    </Hidden>
-                </Toolbar>
-            </AppBar>
-        );
-    }
-}
+const ShellHeader = ({ classes, open, togglePortalDrawer }) => (
+      <AppBar
+        position="absolute"
+        className={classNames(classes.appBar, open && classes.appBarShift)}
+      >
+      <Grid container>
+        <Grid xs={6}>
+            <Toolbar disableGutters={!open}>
+                <IconButton
+                  color="inherit"
+                  aria-label="Open drawer"
+                  onClick={togglePortalDrawer}
+                  className={
+                        classNames(classes.menuButton, open && classes.hide)
+                    }
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Typography
+                  variant="h6"
+                  color="inherit"
+                  className={classes.PortalHeaderContainer}
+                  noWrap
+                >
+                  <span>
+                    <img 
+                        variant="title" 
+                        className={classes.shellLogo} 
+                        src={logo} alt="NNMTA" 
+                    />
+                  </span>
+                  <span className={classes.CustomerPortalWelcomeMessage}>
+                      Welcome, &lt;Customer Name&gt;
+                  </span>
+                </Typography>
+            </Toolbar>
+        </Grid>
+        <Grid
+          xs={6}
+          alignItems="center"
+          alignContent="center"
+          justify="flex-end"
+          container
+        >
+          <Button component={Link} to="/" className={classes.signOutButtonStyles}>
+            <Typography variant="body2" color="textPrimary">
+                Sign Out
+            </Typography>
+          </Button>
+        </Grid>
+      </Grid>
+      </AppBar>
+);
 
 ShellHeader.propTypes = {
-    classes: PropTypes.objectOf(
-        PropTypes.node,
-    ),
-};
-
-ShellHeader.defaultProps = {
-    classes: {},
+  classes: PropTypes.shape.isRequired,
+  open: PropTypes.bool.isRequired,
+  togglePortalDrawer: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(ShellHeader);

@@ -18,7 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 const drawerWidth = 300;
 
 const styles = theme => ({
-  portalContent: {
+  portalDrawer: {
     flexGrow: 1,
     zIndex: 1,
     display: 'flex',
@@ -122,7 +122,6 @@ class CustomerDrawer extends Component {
     const { something } = this.state;
 
     return (
-          <div className={classes.portalContent}>
             <Drawer
               variant="permanent"
               classes={{
@@ -202,11 +201,6 @@ class CustomerDrawer extends Component {
               </List>
             <Divider />
             </Drawer>
-            <main className={classes.content}>
-              <div className={classes.toolbar} />
-              { children }
-            </main>
-          </div>
     );
   }
 }
