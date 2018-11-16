@@ -6,7 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { 
+import {
 Icon,
 FormHelperText,
 } from '@material-ui/core';
@@ -75,7 +75,7 @@ class CenteredTabs extends React.Component {
             textColor="primary"
             centered
           >
-            <Tab label="Login &amp; Security" />
+            <Tab label="Change Password" />
             <Tab label="Personal Information" />
             <Tab label="Contact Information" />
             <Tab label="Mailing Information" />
