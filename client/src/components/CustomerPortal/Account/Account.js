@@ -74,7 +74,7 @@ class CenteredTabs extends React.Component {
             textColor="primary"
             centered
           >
-            <Tab label="Login &amp; Security" />
+            <Tab label="Change Password" />
             <Tab label="Personal Information" />
             <Tab label="Contact Information" />
             <Tab label="Mailing Information" />

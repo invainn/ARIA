@@ -37,6 +37,7 @@ class CheckboxesGroup extends Component {
       prefTwo,
       prefThree,
       prefFour,
+      prefFive,
     } = this.state;
 
     return (
@@ -52,33 +53,39 @@ class CheckboxesGroup extends Component {
             />
             <FormControlLabel
               control={
-                <Checkbox checked={prefTwo} onChange={this.handleChange('prefTwo')} value="Receive certificates in the mail" color="primary" />
+                <Checkbox checked={prefTwo} onChange={this.handleChange('prefTwo')} value="Recieve email when registration for an event has opened" color="primary" />
               }
-              label="Receive certificates in the mail"
+              label="Recieve email when registration for an event has opened"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox checked={prefThree} onChange={this.handleChange('prefThree')} value="Receive certificates by e-mail" color="primary" />
+              }
+              label="Receive certificates by e-mail"
             />
             <FormControlLabel
               control={(
                 <Checkbox
-                  checked={prefThree}
-                  onChange={this.handleChange('prefThree')}
+                  checked={prefFour}
+                  onChange={this.handleChange('prefFour')}
                   value="Receive notifications about upcoming events"
                   color="primary"
                 />
               )}
-              label="A Third Preference"
+              label="A Fourth Preference"
             />
             <FormControlLabel
               control={
                 (
                 <Checkbox
-                  checked={prefFour}
-                  onChange={this.handleChange('prefFour')}
+                  checked={prefFive}
+                  onChange={this.handleChange('prefFive')}
                   value="Receive reminders about registrations"
                   color="primary"
                 />
                 )
               }
-              label="A Fourth Preference"
+              label="A Fifth Preference"
             />
           </FormGroup>
           <FormHelperText>*Save your preferences below for them to take effect</FormHelperText>
