@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+<<<<<<< Updated upstream:client/src/components/CustomerPortal/ActiveRegistration/ActiveRegistrations.js
+=======
+import { lighten } from '@material-ui/core/styles/colorManipulator';
+>>>>>>> Stashed changes:client/src/components/CustomerPortal/ActiveRegistrations/ActiveRegistrations.js
 import {
   Table,
   TableBody,
@@ -16,6 +20,7 @@ import {
   Checkbox,
   IconButton,
   Tooltip,
+<<<<<<< Updated upstream:client/src/components/CustomerPortal/ActiveRegistration/ActiveRegistrations.js
   // Collapse,
   // ExpansionPanel,
   // ExpansionPanelDetails,
@@ -53,6 +58,56 @@ import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/Cu
 //     flex: '0 0 auto',
 //   },
 // });
+=======
+} from '@material-ui/core/';
+import EnhancedTableHead from './EnhancedTableHead';
+import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+
+const styles = theme => ({
+  root: {
+    width: '100%',
+  },
+  table: {
+    minWidth: 1020,
+  },
+  tableWrapper: {
+    overflowX: 'auto',
+  },
+  pageTitle: {
+    width: '100%',
+    textDecoration: 'underline',
+    textDecorationColor: '#FFFFFF',
+    paddingBottom: '15px',
+  },
+});
+
+const toolbarStyles = theme => ({
+  root: {
+    paddingRight: theme.spacing.unit,
+    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.primary,
+  },
+  highlight:
+    theme.palette.type === 'light'
+      ? {
+          color: theme.palette.primary.main,
+          backgroundColor: lighten(theme.palette.primary, 0.75),
+        }
+      : {
+          color: theme.palette.text.primary,
+          backgroundColor: theme.palette.primary,
+        },
+  spacer: {
+    flex: '1 1 100%',
+  },
+  actions: {
+    color: theme.palette.text.primary,
+  },
+  title: {
+    flex: '0 0 auto',
+  },
+});
+>>>>>>> Stashed changes:client/src/components/CustomerPortal/ActiveRegistrations/ActiveRegistrations.js
 
 // TODO: This shouldn't be done like this and a class should be created.
 function createData(firstName, lastName, eventType, date, performanceTime, location, startTime,
@@ -148,6 +203,7 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
+<<<<<<< Updated upstream:client/src/components/CustomerPortal/ActiveRegistration/ActiveRegistrations.js
 
 const styles = () => ({
   root: {
@@ -160,6 +216,9 @@ const styles = () => ({
     overflowX: 'auto',
   },
 });
+=======
+EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
+>>>>>>> Stashed changes:client/src/components/CustomerPortal/ActiveRegistrations/ActiveRegistrations.js
 
 EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
 
@@ -171,11 +230,11 @@ class ActiveRegistration extends Component {
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
       createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Bob', 'Honeycomb', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Jack', 'Reynolds', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
     ],
     page: 0,
-    rowsPerPage: 10,
+    rowsPerPage: 3,
   };
 
   handleRequestSort = (event, property) => {
@@ -245,6 +304,11 @@ class ActiveRegistration extends Component {
 
     return (
         <CustomerPortalContainer>
+          <div className={classes.pageTitle}>
+              <Typography component="h2" variant="h2" gutterBottom align="center">
+                Active Registrations
+              </Typography>
+          </div>
             <Paper className={classes.root}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <div className={classes.tableWrapper}>
@@ -285,7 +349,11 @@ class ActiveRegistration extends Component {
                               <TableCell>{n.location}</TableCell>
                           </TableRow>,
                           <TableRow
+<<<<<<< Updated upstream:client/src/components/CustomerPortal/ActiveRegistration/ActiveRegistrations.js
                             style={{ display: isSelected ? undefined : 'none' }}
+=======
+                            style={{display: isSelected ? undefined : 'none'}}
+>>>>>>> Stashed changes:client/src/components/CustomerPortal/ActiveRegistrations/ActiveRegistrations.js
                             hover
                             onClick={event => this.handleClick(event, n.id)}
                             role="checkbox"
@@ -295,11 +363,19 @@ class ActiveRegistration extends Component {
                             selected={isSelected}
                             padding="auto"
                           >
+<<<<<<< Updated upstream:client/src/components/CustomerPortal/ActiveRegistration/ActiveRegistrations.js
                             <TableCell />
                             <TableCell />
                             <TableCell colSpan={6}>
                               {n.song1}
                             </TableCell>
+=======
+                          <TableCell />
+                          <TableCell />
+                          <TableCell colSpan={6}>
+                              {n.song1}
+                          </TableCell>
+>>>>>>> Stashed changes:client/src/components/CustomerPortal/ActiveRegistrations/ActiveRegistrations.js
                           </TableRow>,
                         ];
                         })}

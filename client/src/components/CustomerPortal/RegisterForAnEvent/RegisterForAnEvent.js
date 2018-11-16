@@ -8,9 +8,10 @@ import {
     StepLabel,
     Button,
     Divider,
+    Typography,
 } from '@material-ui/core';
 
-import AccountFields from '../AccountFields/AccountFields';
+import AccountFields from '../Account/AccountFields/AccountFields';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
 const styles = {
@@ -29,6 +30,12 @@ const styles = {
     eventDividerPadding: {
         margin: '5px',
     },
+    pageTitle: {
+        width: '100%',
+        textDecoration: 'underline',
+        textDecorationColor: '#FFFFFF',
+        paddingBottom: '15px',
+      },
 };
 
 class EventRegistration extends Component {
@@ -42,6 +49,11 @@ class EventRegistration extends Component {
 
         return (
             <CustomerPortalContainer>
+                <div className={classes.pageTitle}>
+                    <Typography component="h2" variant="h2" gutterBottom align="center">
+                        Register for an Event
+                    </Typography>
+                </div>
                 <Grid container alignItems="center" justify="center">
                     <Grid item className={classes.eventGridItem}>
                         <Stepper activeStep={activeStep}>

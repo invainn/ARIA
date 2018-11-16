@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -17,7 +17,7 @@ const styles = theme => ({
   },
 });
 
-class CheckboxesGroup extends React.Component {
+class CheckboxesGroup extends Component {
   state = {
     prefOne: true,
     prefTwo: false,
