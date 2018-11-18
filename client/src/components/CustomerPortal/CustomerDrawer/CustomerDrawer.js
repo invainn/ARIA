@@ -7,7 +7,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'; // STOP IT
 import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Icon } from '@material-ui/core';
 import ListItem from '@material-ui/core/ListItem';
@@ -203,12 +202,5 @@ class CustomerDrawer extends Component {
     );
   }
 }
-
-CustomerDrawer.propTypes = {
-  classes: PropTypes.shape.isRequired,
-  theme: PropTypes.shape.isRequired,
-  open: PropTypes.bool.isRequired,
-  togglePortalDrawer: PropTypes.func.isRequired,
-};
 
 export default withStyles(styles, { withTheme: true })(CustomerDrawer);

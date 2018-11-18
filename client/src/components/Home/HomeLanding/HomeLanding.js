@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
     withStyles,
     Grid,
@@ -58,15 +57,5 @@ const HomeLanding = ({ classes }) => (
         </Grid>
     </Grid>
 );
-
-HomeLanding.propTypes = {
-    classes: PropTypes.objectOf(
-        PropTypes.node,
-    ),
-};
-
-HomeLanding.defaultProps = {
-    classes: {},
-};
 
 export default withStyles(styles)(HomeLanding);

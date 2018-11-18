@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 import ShellFooter from '../Shell/ShellFooter/ShellFooter';
@@ -48,12 +47,5 @@ const CustomerPortal = ({
       <ShellFooter />
   </div>
 );
-
-CustomerPortal.propTypes = {
-  classes: PropTypes.shape.isRequired,
-  children: PropTypes.shape.isRequired,
-  open: PropTypes.bool.isRequired,
-  togglePortalDrawer: PropTypes.func.isRequired,
-};
 
 export default withStyles(styles, { withTheme: true })(CustomerPortal);

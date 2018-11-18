@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
     withStyles,
     Typography,
@@ -65,15 +64,5 @@ const HomeCompetitions = ({ classes }) => (
         </Grid>
     </Grid>
 );
-
-HomeCompetitions.propTypes = {
-    classes: PropTypes.objectOf(
-        PropTypes.node,
-    ),
-};
-
-HomeCompetitions.defaultProps = {
-    classes: {},
-};
 
 export default withStyles(styles)(HomeCompetitions);

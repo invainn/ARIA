@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
     withStyles,
     Typography,
@@ -103,15 +102,5 @@ const Login = ({ classes }) => (
         </Grid>
     </Shell>
 );
-
-Login.propTypes = {
-    classes: PropTypes.objectOf(
-        PropTypes.node,
-    ),
-};
-
-Login.defaultProps = {
-    classes: {},
-};
 
 export default withStyles(styles)(Login);

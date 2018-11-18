@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
@@ -107,10 +106,6 @@ const ControlledExpansionPanels = (props) => {
       </div>
     </CustomerPortalContainer>
     );
-};
-
-ControlledExpansionPanels.propTypes = {
-  classes: PropTypes.shape.isRequired,
 };
 
 export default withStyles(styles)(ControlledExpansionPanels);

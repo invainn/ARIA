@@ -1,7 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import PropTypes from 'prop-types';
 import { Grid } from '@material-ui/core';
 
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
@@ -41,9 +40,5 @@ const EventsCalendar = ({ classes }) => (
         </Grid>
     </CustomerPortalContainer>
 );
-
-EventsCalendar.propTypes = {
-    classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(EventsCalendar);

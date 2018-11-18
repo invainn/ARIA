@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
   Typography,
@@ -45,9 +44,5 @@ const PaymentHistory = (props) => {
         </CustomerPortalContainer>
     );
 };
-
-PaymentHistory.propTypes = {
-    classes: PropTypes.shape.isRequired,
-  };
 
 export default withStyles(styles)(PaymentHistory);
