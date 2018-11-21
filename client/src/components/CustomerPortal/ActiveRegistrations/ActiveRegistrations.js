@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
-<<<<<<< HEAD
-=======
-import { lighten } from '@material-ui/core/styles/colorManipulator';
->>>>>>> a84b2a55d691a684e43009cdb66fbe019d3a7e81
 import {
   Table,
   TableBody,
@@ -274,7 +270,7 @@ class ActiveRegistration extends Component {
                     {stableSort(data, getSorting(order, orderBy))
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((n, i) => {
-                        const isSelected = this.isSelected(n. id);
+                        const isSelected = this.isSelected(n.id);
                         console.log(n);
                         return [
                           <TableRow
@@ -311,9 +307,12 @@ class ActiveRegistration extends Component {
                           >
                             <TableCell />
                             <TableCell />
-                            <TableCell colSpan={6}>
-                              {n.song1}
-                            </TableCell>
+                            <TableCell>Song1: {n.song1}</TableCell>
+                            <TableCell>Song2: {n.song2}</TableCell>
+                            <TableCell>Song3: {n.song3}</TableCell>
+                            <TableCell>CommandPerformance: {n.commandPerformance}</TableCell>
+                            <TableCell>Start Time: {n.startTime}</TableCell>
+                            <TableCell>End Time: {n.endTime}</TableCell>
                           </TableRow>,
                         ];
                         })}
