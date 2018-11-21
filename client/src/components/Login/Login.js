@@ -98,6 +98,14 @@ const Login = ({ classes }) => (
                     </Typography>
                 </div>
 
+                <div>
+                    <Button>
+                        <Typography variant="caption">
+                            Forgot your password?
+                        </Typography>
+                    </Button>
+                </div>
+
             </Grid>
         </Grid>
     </Shell>
