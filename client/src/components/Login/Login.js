@@ -7,6 +7,7 @@ import {
     Button,
     Icon,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import Violin from './violin.jpg';
 import Shell from '../Shell/Shell';
@@ -99,7 +100,7 @@ const Login = ({ classes }) => (
                 </div>
 
                 <div>
-                    <Button>
+                    <Button component={Link} to="/forgot-password">
                         <Typography variant="caption">
                             Forgot your password?
                         </Typography>
