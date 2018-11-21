@@ -13,6 +13,7 @@ import {
   Paper,
   Checkbox,
   IconButton,
+  Tooltip,
 } from '@material-ui/core';
 
 import DeleteIcon from '@material-ui/icons/Delete';
