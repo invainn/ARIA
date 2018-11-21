@@ -7,6 +7,7 @@ import {
     Button,
     Icon,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import Violin from './violin.jpg';
 import Shell from '../Shell/Shell';
@@ -92,7 +93,7 @@ const Login = ({ classes }) => (
                 <div>
                     <Typography>
                         Dont have a login?
-                        <Button href="#text-buttons" className={classes.button}>
+                        <Button component={Link} to="/create-an-account" className={classes.button}>
                                 Click here to register!
                         </Button>
                     </Typography>
