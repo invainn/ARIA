@@ -69,14 +69,14 @@ const ForgotPassword = ({ classes }) => (
                 <Grid container justify="space-evenly" direction="row">
                     <Grid xs={8}>
                         <TextField
-                            id="outlined-email-input"
-                            label="Enter your Email"
-                            className={classes.textField}
-                            type="email"
-                            name="email"
-                            autoComplete="email"
-                            margin="normal"
-                            variant="outlined"
+                          id="outlined-email-input"
+                          label="Enter your Email"
+                          className={classes.textField}
+                          type="email"
+                          name="email"
+                          autoComplete="email"
+                          margin="normal"
+                          variant="outlined"
                         />
                     </Grid>
                     <Grid xs={4} alignItems="center">
