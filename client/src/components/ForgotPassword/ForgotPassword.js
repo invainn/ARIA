@@ -62,7 +62,8 @@ const ForgotPassword = ({ classes }) => (
                 </Typography>
 
                 <Typography variant="body1" align="center">
-                    Please enter your e-mail address and we will send a password for you to login with!
+                    Please enter your e-mail address and we will send a password
+                    for you to login with!
                 </Typography>
 
                 <Grid container justify="space-evenly" direction="row">
