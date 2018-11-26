@@ -271,6 +271,7 @@ class ActiveRegistration extends Component {
                             selected={isSelected}
                             padding="auto"
                           >
+                          {/* Stuff was broken new branch */}
                             <TableCell />
                             <TableCell />
                             <TableCell>Song1: {n.song1}</TableCell>
