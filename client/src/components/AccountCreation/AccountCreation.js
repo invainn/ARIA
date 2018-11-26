@@ -31,4 +31,4 @@ const AccountCreation = ({ classes }) => (
     </Shell>
 );
 
-export default withStyles(styles)(AccountCreation)
+export default withStyles(styles)(AccountCreation);
