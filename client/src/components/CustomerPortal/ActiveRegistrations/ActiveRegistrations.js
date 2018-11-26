@@ -237,6 +237,7 @@ class ActiveRegistration extends Component {
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((n, i) => {
                         const isSelected = this.isSelected(n.id);
+
                         return [
                           <TableRow
                             hover
