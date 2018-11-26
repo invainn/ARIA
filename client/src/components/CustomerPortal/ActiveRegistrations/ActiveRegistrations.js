@@ -170,7 +170,6 @@ class ActiveRegistration extends Component {
   handleClick = (event, id) => {
     const { selected } = this.state;
     const selectedIndex = selected.indexOf(id);
-    console.log(id);
     let newSelected = [];
 
     if (selectedIndex === -1) {
@@ -238,7 +237,6 @@ class ActiveRegistration extends Component {
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((n, i) => {
                         const isSelected = this.isSelected(n.id);
-                        console.log(n);
                         return [
                           <TableRow
                             hover
@@ -270,7 +268,7 @@ class ActiveRegistration extends Component {
                             tabIndex={-1}
                             key={n.id}
                             selected={isSelected}
-                              padding="auto"
+                            padding="auto"
                           >
                             <TableCell />
                             <TableCell />
