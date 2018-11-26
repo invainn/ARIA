@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
@@ -113,25 +112,7 @@ let EnhancedTableToolbar = (props) => {
   );
 };
 
-EnhancedTableToolbar.propTypes = {
-  classes: PropTypes.shape.isRequired,
-  numSelected: PropTypes.number.isRequired,
-};
-
-
-const styles = () => ({
-  root: {
-    width: '100%',
-  },
-  table: {
-    minWidth: 1020,
-  },
-  tableWrapper: {
-    overflowX: 'auto',
-  },
-});
-
-EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
+EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
 class ActiveRegistration extends Component {
   state = {
@@ -310,9 +291,5 @@ class ActiveRegistration extends Component {
     );
   }
 }
-
-ActiveRegistration.propTypes = {
-  classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(ActiveRegistration);

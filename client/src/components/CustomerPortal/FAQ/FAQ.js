@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 
 import {
@@ -261,9 +260,5 @@ class ControlledExpansionPanels extends Component {
     );
   }
 }
-
-ControlledExpansionPanels.propTypes = {
-  classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(ControlledExpansionPanels);

@@ -8,7 +8,6 @@ import { Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import logo from '../logo-header.png';
 
 const drawerWidth = 300;
@@ -151,11 +150,5 @@ const CustomerToolbar = ({ classes, open, togglePortalDrawer }) => (
       </AppBar>
   </div>
 );
-
-CustomerToolbar.propTypes = {
-  classes: PropTypes.shape.isRequired,
-  open: PropTypes.bool.isRequired,
-  togglePortalDrawer: PropTypes.func.isRequired,
-};
 
 export default withStyles(styles)(CustomerToolbar);
