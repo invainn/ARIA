@@ -16,43 +16,10 @@ import {
   Checkbox,
   IconButton,
   Tooltip,
-  // Collapse,
-  // ExpansionPanel,
-  // ExpansionPanelDetails,
-  // ExpansionPanelSummary,
 } from '@material-ui/core/';
 import EnhancedTableHead from './EnhancedTableHead';
 
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
-
-// What is this for?
-
-// const toolbarStyles = theme => ({
-//   root: {
-//     paddingRight: theme.spacing.unit,
-//     color: theme.palette.text.primary,
-//     backgroundColor: theme.palette.primary,
-//   },
-//   highlight:
-//     theme.palette.type === 'light'
-//       ? {
-//           color: theme.palette.primary.main,
-//           backgroundColor: lighten(theme.palette.primary, 0.75),
-//         }
-//       : {
-//           color: theme.palette.text.primary,
-//           backgroundColor: theme.palette.primary,
-//         },
-//   spacer: {
-//     flex: '1 1 100%',
-//   },
-//   actions: {
-//     color: theme.palette.text.primary,
-//   },
-//   title: {
-//     flex: '0 0 auto',
-//   },
-// });
 
 // TODO: This shouldn't be done like this and a class should be created.
 let counter = 0;
