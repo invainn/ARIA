@@ -172,7 +172,8 @@ class CustomerDrawer extends Component {
                     </ListItemIcon>
                     <ListItemText primary="Active Registrations" />
                   </ListItem>
-                {/*  <ListItem button component={Link} to="/customer/payment-history" onClick={this.switchOptionHandler}>
+                {/*  <ListItem button component={Link} to="/customer/payment-history"
+                          onClick={this.switchOptionHandler}>
                     <ListItemIcon>
                       <Icon>payment</Icon>
                     </ListItemIcon>
