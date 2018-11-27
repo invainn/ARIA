@@ -34,8 +34,8 @@ const App = () => (
             <Route exact path="/customer/faq" component={FAQ} />
             <Route exact path="/customer/about" component={AboutUs} />
             <Route exact path="/customer/active-registrations" component={ActiveRegistrations} />
-            <Route exact path="/customer/payment-history" component={PaymentHistory} />
-    {/*     <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
+    {/*     <Route exact path="/customer/payment-history" component={PaymentHistory} />
+            <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/faq" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/about" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} /> */}
             <Route path="*" component={NotFound} />
