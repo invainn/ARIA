@@ -33,6 +33,9 @@ class EnhancedTableHead extends React.Component {
  id: 'lastName', numeric: false, disablePadding: false, label: 'Last Name',
 },
       {
+ id: 'suffix', numeric: false, disablePadding: false, label: 'Suffix',
+},
+      {
  id: 'eventType', numeric: false, disablePadding: false, label: 'Event',
 },
       {
