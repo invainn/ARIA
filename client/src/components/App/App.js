@@ -13,7 +13,7 @@ import RegisterForAnEvent from '../CustomerPortal/RegisterForAnEvent/RegisterFor
 import ActiveRegistrations from '../CustomerPortal/ActiveRegistrations/ActiveRegistrations';
 import Login from '../Login/Login';
 import Participants from '../CustomerPortal/Participants/Participants';
-import PaymentHistory from '../CustomerPortal/PaymentHistory/PaymentHistory';
+// import PaymentHistory from '../CustomerPortal/PaymentHistory/PaymentHistory';
 
 const styles = () => ({
     '@global body': {
