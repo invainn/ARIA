@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -22,7 +21,7 @@ import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/Cu
 // Do not do this, fix this
 let counter = 0;
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     width: '100%',
   },
@@ -143,30 +142,9 @@ let EnhancedTableToolbar = (props) => {
   );
 };
 
-EnhancedTableToolbar.propTypes = {
-  classes: PropTypes.shape.isRequired,
-  numSelected: PropTypes.number.isRequired,
-};
-
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
-<<<<<<< Updated upstream:client/src/components/CustomerPortal/RegisteredStudentsForm/RegStudForm.js
-const styles = () => ({
-  root: {
-    width: '100%',
-  },
-  table: {
-    minWidth: 1020,
-  },
-  tableWrapper: {
-    overflowX: 'auto',
-  },
-});
-
-class EnhancedTable extends React.Component {
-=======
 class EnhancedTable extends Component {
->>>>>>> Stashed changes:client/src/components/CustomerPortal/Participants/Participants.js
   state = {
     order: 'asc',
     orderBy: 'calories',
@@ -330,9 +308,5 @@ class EnhancedTable extends Component {
     );
   }
 }
-
-EnhancedTable.propTypes = {
-  classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(EnhancedTable);

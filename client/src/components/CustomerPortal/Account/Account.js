@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -7,8 +6,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import {
-Icon,
-FormHelperText,
+  Icon,
 } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import AccountFields from './AccountFields/AccountFields';
@@ -22,10 +20,6 @@ function TabContainer({ children }) {
     </Typography>
   );
 }
-
-TabContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 const styles = theme => ({
   root: {
@@ -202,9 +196,5 @@ class CenteredTabs extends React.Component {
     );
   }
 }
-
-CenteredTabs.propTypes = {
-  classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(CenteredTabs);

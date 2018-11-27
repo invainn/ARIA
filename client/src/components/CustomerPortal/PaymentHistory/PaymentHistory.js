@@ -1,11 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
-    ListItemIcon,
-    Icon,
-    Typography,
-  } from '@material-ui/core';
+  Typography,
+} from '@material-ui/core';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
 const styles = theme => ({
@@ -47,9 +44,5 @@ const PaymentHistory = (props) => {
         </CustomerPortalContainer>
     );
 };
-
-PaymentHistory.propTypes = {
-    classes: PropTypes.shape.isRequired,
-  };
 
 export default withStyles(styles)(PaymentHistory);

@@ -101,4 +101,5 @@ import {
         </div>
     </div>
 );
- export default withStyles()(NotFound);
+
+export default withStyles()(NotFound);
