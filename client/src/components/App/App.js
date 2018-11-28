@@ -13,7 +13,7 @@ import RegisterForAnEvent from '../CustomerPortal/RegisterForAnEvent/RegisterFor
 import ActiveRegistrations from '../CustomerPortal/ActiveRegistrations/ActiveRegistrations';
 import Login from '../Login/Login';
 import Participants from '../CustomerPortal/Participants/Participants';
-import PaymentHistory from '../CustomerPortal/PaymentHistory/PaymentHistory';
+// import PaymentHistory from '../CustomerPortal/PaymentHistory/PaymentHistory';
 
 const styles = () => ({
     '@global body': {
@@ -36,8 +36,8 @@ const App = () => (
             <Route exact path="/customer/faq" component={FAQ} />
             <Route exact path="/customer/about" component={AboutUs} />
             <Route exact path="/customer/active-registrations" component={ActiveRegistrations} />
-            <Route exact path="/customer/payment-history" component={PaymentHistory} />
-    {/*     <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
+    {/*     <Route exact path="/customer/payment-history" component={PaymentHistory} />
+            <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/faq" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/about" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} /> */}
             <Route path="*" component={NotFound} />
