@@ -1,5 +1,9 @@
 import React from 'react';
-import { withStyles, Grid, Typography } from '@material-ui/core';
+import {
+withStyles,
+Grid,
+Typography,
+} from '@material-ui/core';
 
 const styles = ({ spacing, palette }) => ({
     footer: {

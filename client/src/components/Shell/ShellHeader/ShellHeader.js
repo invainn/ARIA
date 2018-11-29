@@ -1,14 +1,16 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import {
+AppBar,
+Button,
+Grid,
+IconButton,
+Toolbar,
+Typography,
+withStyles,
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
-
 import logo from '../logo-header.png';
 
 const styles = theme => ({

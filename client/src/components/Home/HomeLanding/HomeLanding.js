@@ -5,7 +5,6 @@ import {
     Typography,
     Button,
 } from '@material-ui/core';
-
 import Violin from './violin.jpg';
 import Logo from '../../Shell/logo-header.png';
 

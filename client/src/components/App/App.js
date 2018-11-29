@@ -2,7 +2,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import NotFound from '../statuscodes/404/NotFound';
+import NotFound from '../statuscodes/404/404';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import Dashboard from '../CustomerPortal/Dashboard/Dashboard';
 import Account from '../CustomerPortal/Account/Account';
