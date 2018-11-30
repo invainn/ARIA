@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {
@@ -47,14 +48,13 @@ const styles = theme => ({
 
 // TODO: This shouldn't be done like this and a class should be created.
 let counter = 0;
-function createData(firstName, lastName, suffix, eventType, date, performanceTime, location,
-  startTime, endTime, commandPerformance, song1, song2, song3) {
+function createData(firstName, lastName, eventType, date, performanceTime, location, startTime,
+    endTime, commandPerformance, song1, song2, song3) {
       counter += 1;
     return {
         id: counter,
         firstName,
         lastName,
-        suffix,
         eventType,
         date,
         performanceTime,
@@ -132,6 +132,27 @@ let EnhancedTableToolbar = (props) => {
   );
 };
 
+<<<<<<< HEAD
+=======
+EnhancedTableToolbar.propTypes = {
+  classes: PropTypes.shape.isRequired,
+  numSelected: PropTypes.number.isRequired,
+};
+
+
+const styles = () => ({
+  root: {
+    width: '100%',
+  },
+  table: {
+    minWidth: 1020,
+  },
+  tableWrapper: {
+    overflowX: 'auto',
+  },
+});
+
+>>>>>>> f7bfa7887677d24c79dbc06185863d567ae56fd8
 EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
 
 class ActiveRegistration extends Component {
@@ -141,9 +162,9 @@ class ActiveRegistration extends Component {
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'Smith', 'Jr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Bob', 'Honeycomb', '', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Jack', 'Reynolds', 'Sr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Bob', 'Honeycomb', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Jack', 'Reynolds', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
     ],
     page: 0,
     rowsPerPage: 5,
@@ -256,7 +277,6 @@ class ActiveRegistration extends Component {
                               <TableCell>{i + 1}</TableCell>
                               <TableCell>{n.firstName}</TableCell>
                               <TableCell>{n.lastName}</TableCell>
-                              <TableCell>{n.suffix}</TableCell>
                               <TableCell>{n.eventType}</TableCell>
                               <TableCell>{n.date}</TableCell>
                               <TableCell>{n.performanceTime}</TableCell>
@@ -325,5 +345,9 @@ class ActiveRegistration extends Component {
     );
   }
 }
+
+ActiveRegistration.propTypes = {
+  classes: PropTypes.shape.isRequired,
+};
 
 export default withStyles(styles)(ActiveRegistration);
