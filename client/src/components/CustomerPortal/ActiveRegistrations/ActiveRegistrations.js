@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import {
   Table,
@@ -66,11 +65,13 @@ const toolbarStyles = theme => ({
 });
 
 // TODO: This shouldn't be done like this and a class should be created.
-function createData(firstName, lastName, eventType, date, performanceTime, location, startTime,
+function createData(prefix, firstName, lastName, suffix, eventType, date, performanceTime, location, startTime,
     endTime, commandPerformance, song1, song2, song3) {
     return {
+        prefix,
         firstName,
         lastName,
+        suffix,
         eventType,
         date,
         performanceTime,
@@ -133,19 +134,13 @@ let EnhancedTableToolbar = (props) => {
       </div>
       <div className={classes.spacer} />
       <div className={classes.actions}>
-        {numSelected > 0 ? (
+        {numSelected > 0 && (
           <Tooltip title="Delete">
             <IconButton aria-label="Delete">
               <Typography variant="h6" id="tableTitle">
                 Delete
               </Typography>
               <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title="Filter list">
-            <IconButton aria-label="Filter list">
-              <FilterListIcon />
             </IconButton>
           </Tooltip>
         )}
@@ -163,9 +158,9 @@ class ActiveRegistration extends Component {
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Bob', 'Honeycomb', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Jack', 'Reynolds', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('N/A', 'Alice', 'Smith', 'Jr.', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Mr.', 'Bob', 'Honeycomb', 'Jr.', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Mr.', 'Jack', 'Reynolds', 'Jr.', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
     ],
     page: 0,
     rowsPerPage: 3,
@@ -275,8 +270,10 @@ class ActiveRegistration extends Component {
                                 <Checkbox color="primary" checked={isSelected} />
                               </TableCell>
                               <TableCell>{i + 1}</TableCell>
+                              <TableCell>{n.prefix}</TableCell>
                               <TableCell>{n.firstName}</TableCell>
                               <TableCell>{n.lastName}</TableCell>
+                              <TableCell>{n.suffix}</TableCell>
                               <TableCell>{n.eventType}</TableCell>
                               <TableCell>{n.date}</TableCell>
                               <TableCell>{n.performanceTime}</TableCell>
