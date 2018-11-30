@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NotFound from '../statuscodes/404/NotFound';
 import AccountCreation from '../AccountCreation/AccountCreation';
+import AddInfo from '../AccountCreation/AddInfo';
 import Dashboard from '../CustomerPortal/Dashboard/Dashboard';
 import Account from '../CustomerPortal/Account/Account';
 import FAQ from '../CustomerPortal/FAQ/FAQ';
@@ -28,6 +29,7 @@ const App = () => (
         <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/create-an-account" component={AccountCreation} />
+            <Route exact path="/add-participant-info" component={AddInfo} />
             <Route exact path="/customer" component={Dashboard} />
             <Route path="/customer/account-info" component={Account} />
             <Route exact path="/customer/participants" component={Participants} />
