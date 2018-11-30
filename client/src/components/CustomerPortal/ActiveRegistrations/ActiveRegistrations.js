@@ -254,7 +254,6 @@ class ActiveRegistration extends Component {
                                 <Checkbox color="primary" checked={isSelected} />
                               </TableCell>
                               <TableCell>{i + 1}</TableCell>
-                              <TableCell>{n.prefix}</TableCell>
                               <TableCell>{n.firstName}</TableCell>
                               <TableCell>{n.lastName}</TableCell>
                               <TableCell>{n.suffix}</TableCell>
@@ -283,6 +282,7 @@ class ActiveRegistration extends Component {
                             <TableCell>CommandPerformance: {n.commandPerformance}</TableCell>
                             <TableCell>Start Time: {n.startTime}</TableCell>
                             <TableCell>End Time: {n.endTime}</TableCell>
+                            <TableCell />
                           </TableRow>,
                         ];
                         })}
