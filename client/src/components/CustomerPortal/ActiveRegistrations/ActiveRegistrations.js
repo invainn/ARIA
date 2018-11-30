@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {
@@ -132,27 +131,7 @@ let EnhancedTableToolbar = (props) => {
   );
 };
 
-<<<<<<< HEAD
-=======
-EnhancedTableToolbar.propTypes = {
-  classes: PropTypes.shape.isRequired,
-  numSelected: PropTypes.number.isRequired,
-};
 
-
-const styles = () => ({
-  root: {
-    width: '100%',
-  },
-  table: {
-    minWidth: 1020,
-  },
-  tableWrapper: {
-    overflowX: 'auto',
-  },
-});
-
->>>>>>> f7bfa7887677d24c79dbc06185863d567ae56fd8
 EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
 
 class ActiveRegistration extends Component {
@@ -277,6 +256,7 @@ class ActiveRegistration extends Component {
                               <TableCell>{i + 1}</TableCell>
                               <TableCell>{n.firstName}</TableCell>
                               <TableCell>{n.lastName}</TableCell>
+                              <TableCell>{n.suffix}</TableCell>
                               <TableCell>{n.eventType}</TableCell>
                               <TableCell>{n.date}</TableCell>
                               <TableCell>{n.performanceTime}</TableCell>
@@ -346,8 +326,5 @@ class ActiveRegistration extends Component {
   }
 }
 
-ActiveRegistration.propTypes = {
-  classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(ActiveRegistration);
