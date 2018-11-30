@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -13,14 +14,18 @@ import {
   Toolbar,
   Typography,
   Paper,
+  Button,
   Checkbox,
+  ListItemIcon,
   IconButton,
   Tooltip,
+  Icon,
 } from '@material-ui/core/';
+
 import EnhancedTableHead from './EnhancedTableHead';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
-const styles = () => ({
+const styles = theme => ({
   root: {
     width: '100%',
   },
@@ -35,6 +40,9 @@ const styles = () => ({
     textDecoration: 'underline',
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
+  },
+  button: {
+    margin: theme.spacing.unit,
   },
 });
 
@@ -129,7 +137,7 @@ let EnhancedTableToolbar = (props) => {
           </Typography>
         ) : (
           <Typography variant="h6" id="tableTitle">
-            Active Registration
+            Active Registrations
           </Typography>
         )}
       </div>
@@ -164,7 +172,7 @@ class ActiveRegistration extends Component {
       createData('Mr.', 'Jack', 'Reynolds', 'Jr.', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
     ],
     page: 0,
-    rowsPerPage: 3,
+    rowsPerPage: 5,
   };
 
   handleRequestSort = (event, property) => {
@@ -321,6 +329,18 @@ class ActiveRegistration extends Component {
                   onChangePage={this.handleChangePage}
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                 />
+              <Button
+                variant="contained"
+                className={classes.button}
+                color="primary"
+                component={Link}
+                to="/customer/register-for-an-event"
+              >
+                <ListItemIcon>
+                  <Icon>add</Icon>
+                </ListItemIcon>
+                  Register for Another Event
+              </Button>
             </Paper>
         </CustomerPortalContainer>
     );
