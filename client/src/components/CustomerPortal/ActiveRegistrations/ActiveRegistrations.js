@@ -17,6 +17,7 @@ import {
   Tooltip,
 } from '@material-ui/core/';
 import EnhancedTableHead from './EnhancedTableHead';
+import PropTypes from 'prop-types';
 
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
