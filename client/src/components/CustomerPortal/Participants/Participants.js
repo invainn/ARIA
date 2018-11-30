@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
   Table,
@@ -144,11 +143,6 @@ let EnhancedTableToolbar = (props) => {
       </div>
     </Toolbar>
   );
-};
-
-EnhancedTableToolbar.propTypes = {
-  classes: PropTypes.shape.isRequired,
-  numSelected: PropTypes.number.isRequired,
 };
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
@@ -329,9 +323,5 @@ class EnhancedTable extends React.Component {
     );
   }
 }
-
-EnhancedTable.propTypes = {
-  classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(EnhancedTable);

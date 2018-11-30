@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -155,9 +154,5 @@ function Dashboard(props) {
     </CustomerPortalContainer>
   );
 }
-
-Dashboard.propTypes = {
-  classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(Dashboard);

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
     withStyles,
     Typography,
@@ -8,6 +7,7 @@ import {
     Button,
     Icon,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import Violin from './violin.jpg';
 import Shell from '../Shell/Shell';
@@ -99,19 +99,17 @@ const Login = ({ classes }) => (
                     </Typography>
                 </div>
 
+                <div>
+                    <Button component={Link} to="/forgot-password">
+                        <Typography variant="caption">
+                            Forgot your password?
+                        </Typography>
+                    </Button>
+                </div>
+
             </Grid>
         </Grid>
     </Shell>
 );
-
-Login.propTypes = {
-    classes: PropTypes.objectOf(
-        PropTypes.node,
-    ),
-};
-
-Login.defaultProps = {
-    classes: {},
-};
 
 export default withStyles(styles)(Login);

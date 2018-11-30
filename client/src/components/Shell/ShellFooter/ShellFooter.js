@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles, Grid, Typography } from '@material-ui/core';
 
 const styles = ({ spacing, palette }) => ({
@@ -32,15 +31,5 @@ const ShellFooter = ({ classes }) => (
         </Grid>
     </footer>
 );
-
-ShellFooter.propTypes = {
-    classes: PropTypes.objectOf(
-        PropTypes.node,
-    ),
-};
-
-ShellFooter.defaultProps = {
-    classes: {},
-};
 
 export default withStyles(styles)(ShellFooter);

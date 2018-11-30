@@ -54,7 +54,7 @@ jobs:
         - run: 
             name: Test aria-client
             command: |
-                yarn test
+                # yarn test
                 yarn test:lint 
             working_directory: client
 
