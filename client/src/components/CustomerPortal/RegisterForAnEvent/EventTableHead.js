@@ -3,10 +3,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Tooltip from '@material-ui/core/Tooltip';
 
-class EnhancedTableHead extends React.Component {
+class EventTableHead extends React.Component {
   createSortHandler = property => (event) => {
     const { onRequestSort } = this.props;
     onRequestSort(event, property);
@@ -14,54 +13,38 @@ class EnhancedTableHead extends React.Component {
 
   render() {
     const {
-        onSelectAllClick,
         order,
         orderBy,
-        numSelected,
-        rowCount,
     } = this.props;
 
     const rows = [
       {
- id: 'idNum', numeric: false, disablePadding: false, label: 'ID #',
+ id: 'eventName', numeric: false, disablePadding: false, label: 'Event Name',
 },
       {
- id: 'prefix', numeric: false, disablePadding: false, label: 'Prefix',
+ id: 'eventDate', numeric: false, disablePadding: false, label: 'Event Date',
 },
       {
- id: 'firstName', numeric: false, disablePadding: false, label: 'First Name',
+ id: 'eventDeadline', numeric: false, disablePadding: false, label: 'Event Deadline',
 },
       {
- id: 'lastName', numeric: false, disablePadding: false, label: 'Last Name',
+ id: 'eventStartTime', numeric: false, disablePadding: false, label: 'Event Start Time',
 },
       {
- id: 'eventType', numeric: false, disablePadding: false, label: 'Event',
+ id: 'eventEndTime', numeric: false, disablePadding: false, label: 'Event End Time',
 },
       {
- id: 'suffix', numeric: false, disablePadding: false, label: 'Suffix',
+ id: 'eventAddress', numeric: false, disablePadding: false, label: 'Event Address',
 },
       {
- id: 'date', numeric: false, disablePadding: false, label: 'Date',
-},
-      {
-  id: 'performanceTime', numeric: false, disablepadding: false, label: 'Performance Time',
-},
-      {
-  id: 'location', numeric: false, disablepadding: false, label: 'Location',
+ id: 'email', numeric: false, disablePadding: false, label: 'Facilitator Email',
 },
    ];
 
     return (
       <TableHead>
         <TableRow>
-          <TableCell padding="checkbox">
-            <Checkbox
-              indeterminate={numSelected > 0 && numSelected < rowCount}
-              checked={numSelected === rowCount}
-              onChange={onSelectAllClick}
-              color="primary"
-            />
-          </TableCell>
+          <TableCell />
           {rows.map(row => (
               <TableCell
                 key={row.id}
@@ -90,4 +73,4 @@ class EnhancedTableHead extends React.Component {
   }
 }
 
-export default EnhancedTableHead;
+export default EventTableHead;
