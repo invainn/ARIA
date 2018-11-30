@@ -1,24 +1,24 @@
-/* eslint-disable max-len */
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TablePagination from '@material-ui/core/TablePagination';
+import TableRow from '@material-ui/core/TableRow';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
+import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TablePagination,
-  TableRow,
-  Toolbar,
-  Typography,
-  Paper,
-  Checkbox,
-  IconButton,
-  Tooltip,
-} from '@material-ui/core/';
-import EnhancedTableHead from './EnhancedTableHead';
-import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+import ParticipantTableHead from './ParticipantTableHead';
+
+// Do not do this, fix this
+let counter = 0;
 
 const styles = () => ({
   root: {
@@ -37,6 +37,39 @@ const styles = () => ({
     paddingBottom: '15px',
   },
 });
+
+const createData = (firstName, middleInitial, lastName, musicLevel, teacher) => {
+    counter += 1;
+    return {
+        id: counter, firstName, middleInitial, lastName, musicLevel, teacher,
+    };
+};
+
+const desc = (a, b, orderBy) => {
+  if (b[orderBy] < a[orderBy]) {
+    return -1;
+  }
+
+  if (b[orderBy] > a[orderBy]) {
+    return 1;
+  }
+
+  return 0;
+};
+
+function stableSort(array, cmp) {
+  const stabilizedThis = array.map((el, index) => [el, index]);
+  stabilizedThis.sort((a, b) => {
+    const order = cmp(a[0], b[0]);
+    if (order !== 0) return order;
+    return a[1] - b[1];
+  });
+  return stabilizedThis.map(el => el[0]);
+}
+
+function getSorting(order, orderBy) {
+  return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
+}
 
 const toolbarStyles = theme => ({
   root: {
@@ -65,54 +98,6 @@ const toolbarStyles = theme => ({
   },
 });
 
-// TODO: This shouldn't be done like this and a class should be created.
-function createData(prefix, firstName, lastName, suffix, eventType, date, performanceTime, location, startTime,
-    endTime, commandPerformance, song1, song2, song3) {
-    return {
-        prefix,
-        firstName,
-        lastName,
-        suffix,
-        eventType,
-        date,
-        performanceTime,
-        location,
-        startTime,
-        endTime,
-        commandPerformance,
-        song1,
-        song2,
-        song3,
-    };
-}
-
-const desc = (a, b, orderBy) => {
-  if (b[orderBy] < a[orderBy]) {
-    return -1;
-  }
-
-  if (b[orderBy] > a[orderBy]) {
-    return 1;
-  }
-
-  return 0;
-};
-
-// TODO: Javascript already has a sort, do not do this
-const stableSort = (array, cmp) => {
-  const stabilizedThis = array.map((el, index) => [el, index]);
-
-  stabilizedThis.sort((a, b) => {
-    const order = cmp(a[0], b[0]);
-    if (order !== 0) return order;
-    return a[1] - b[1];
-  });
-
-  return stabilizedThis.map(el => el[0]);
-};
-
-const getSorting = (order, orderBy) => (order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy));
-
 let EnhancedTableToolbar = (props) => {
   const { numSelected, classes } = props;
 
@@ -129,19 +114,25 @@ let EnhancedTableToolbar = (props) => {
           </Typography>
         ) : (
           <Typography variant="h6" id="tableTitle">
-            Active Registration
+            Participants
           </Typography>
         )}
       </div>
       <div className={classes.spacer} />
       <div className={classes.actions}>
-        {numSelected > 0 && (
+        {numSelected > 0 ? (
           <Tooltip title="Delete">
             <IconButton aria-label="Delete">
               <Typography variant="h6" id="tableTitle">
                 Delete
               </Typography>
               <DeleteIcon />
+            </IconButton>
+          </Tooltip>
+        ) : (
+          <Tooltip title="Filter list">
+            <IconButton aria-label="Filter list">
+              <FilterListIcon />
             </IconButton>
           </Tooltip>
         )}
@@ -152,19 +143,29 @@ let EnhancedTableToolbar = (props) => {
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
-class ActiveRegistration extends Component {
+class EnhancedTable extends Component {
   state = {
     order: 'asc',
     orderBy: 'calories',
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('N/A', 'Alice', 'Smith', 'Jr.', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Mr.', 'Bob', 'Honeycomb', 'Jr.', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Mr.', 'Jack', 'Reynolds', 'Jr.', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Alice', 'P', 'Smith', 2, 'Mr. Jenkins'),
+      createData('Mary', 'B', 'Daniels', 11, 'Mr. Matthews'),
+      createData('Ronald', 'E', 'Davidson', 4, 'Mrs. Charles'),
+      createData('Scott', 'K', 'Brown', 6, 'Ms. Anderson'),
+      createData('Raymond', 'I', 'McMann', 1, 'Mrs. Stevenson'),
+      createData('Kenneth', 'B', 'Honeycomb', 8, 'Mr. Franklin'),
+      createData('Gary', 'N', 'Peters', 3, 'Mr. Jackson'),
+      createData('Joshua', 'S', 'Holyfield', 9, 'Ms. Sparks'),
+      createData('Heather', 'D', 'Howard', 6, 'Mrs. Cilliza'),
+      createData('Lou', 'V', 'York', 8, 'Mrs. Thomas'),
+      createData('Jack', 'S', 'Ybarra', 1, 'Mrs. Banks'),
+      createData('Steve', 'A', 'Noack', 10, 'Mr. Cummings'),
+      createData('Gabriella', 'I', 'Barnett', 6, 'Mr. Ehlers'),
     ],
     page: 0,
-    rowsPerPage: 3,
+    rowsPerPage: 5,
   };
 
   handleRequestSort = (event, property) => {
@@ -205,7 +206,7 @@ class ActiveRegistration extends Component {
     }
 
     this.setState({ selected: newSelected });
-  }
+  };
 
   handleChangePage = (event, page) => {
     this.setState({ page });
@@ -233,17 +234,11 @@ class ActiveRegistration extends Component {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-        <CustomerPortalContainer>
-          <div className={classes.pageTitle}>
-              <Typography component="h2" variant="h2" gutterBottom align="center">
-                Active Registrations
-              </Typography>
-          </div>
             <Paper className={classes.root}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <div className={classes.tableWrapper}>
                 <Table className={classes.table} aria-labelledby="tableTitle">
-                    <EnhancedTableHead
+                    <ParticipantTableHead
                       numSelected={selected.length}
                       order={order}
                       orderBy={orderBy}
@@ -254,50 +249,30 @@ class ActiveRegistration extends Component {
                     <TableBody>
                     {stableSort(data, getSorting(order, orderBy))
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((n, i) => {
+                        .map((n) => {
                         const isSelected = this.isSelected(n.id);
-                        return [
-                          <TableRow
-                            hover
-                            onClick={event => this.handleClick(event, n.id)}
-                            role="checkbox"
-                            aria-checked={isSelected}
-                            tabIndex={-1}
-                            key={n.id}
-                            selected={isSelected}
-                            padding="auto"
-                          >
-                              <TableCell padding="checkbox">
+                        return (
+                            <TableRow
+                              hover
+                              onClick={event => this.handleClick(event, n.id)}
+                              role="checkbox"
+                              aria-checked={isSelected}
+                              tabIndex={-1}
+                              key={n.id}
+                              selected={isSelected}
+                            >
+                            <TableCell padding="checkbox">
                                 <Checkbox color="primary" checked={isSelected} />
-                              </TableCell>
-                              <TableCell>{i + 1}</TableCell>
-                              <TableCell>{n.prefix}</TableCell>
-                              <TableCell>{n.firstName}</TableCell>
-                              <TableCell>{n.lastName}</TableCell>
-                              <TableCell>{n.suffix}</TableCell>
-                              <TableCell>{n.eventType}</TableCell>
-                              <TableCell>{n.date}</TableCell>
-                              <TableCell>{n.performanceTime}</TableCell>
-                              <TableCell>{n.location}</TableCell>
-                          </TableRow>,
-                          <TableRow
-                            style={{ display: isSelected ? undefined : 'none' }}
-                            hover
-                            onClick={event => this.handleClick(event, n.id)}
-                            role="checkbox"
-                            aria-checked={isSelected}
-                            tabIndex={-1}
-                            key={n.id}
-                            selected={isSelected}
-                            padding="auto"
-                          >
-                          <TableCell />
-                          <TableCell />
-                          <TableCell colSpan={6}>
-                              {n.song1}
-                          </TableCell>
-                          </TableRow>,
-                        ];
+                            </TableCell>
+                            <TableCell component="th" scope="row" padding="none">
+                                {n.firstName}
+                            </TableCell>
+                            <TableCell>{n.middleInitial}</TableCell>
+                            <TableCell>{n.lastName}</TableCell>
+                            <TableCell>{n.musicLevel}</TableCell>
+                            <TableCell>{n.teacher}</TableCell>
+                            </TableRow>
+                        );
                         })}
                     {emptyRows > 0 && (
                         <TableRow style={{ height: 49 * emptyRows }}>
@@ -322,9 +297,8 @@ class ActiveRegistration extends Component {
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                 />
             </Paper>
-        </CustomerPortalContainer>
     );
   }
 }
 
-export default withStyles(styles)(ActiveRegistration);
+export default withStyles(styles)(EnhancedTable);
