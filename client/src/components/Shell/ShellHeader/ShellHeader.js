@@ -1,14 +1,19 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import MenuIcon from '@material-ui/icons/Menu';
-import { Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import { Menu as MenuIcon } from '@material-ui/icons';
+import { withStyles } from '@material-ui/core/styles';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  FormControlLabel,
+  Switch,
+  Button,
+  Grid,
+} from '@material-ui/core';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'; // STOP IT
 
 import logo from '../logo-header.png';
 
@@ -101,7 +106,9 @@ const styles = theme => ({
     },
   });
 
-const ShellHeader = ({ classes, open, togglePortalDrawer }) => (
+const ShellHeader = ({
+ classes, open, togglePortalDrawer, toggleTheme, themeChoice, portal = false,
+}) => (
   <AppBar
     position="absolute"
     className={classNames(classes.appBar, open && classes.appBarShift)}
@@ -109,34 +116,43 @@ const ShellHeader = ({ classes, open, togglePortalDrawer }) => (
     <Grid container>
       <Grid xs={6}>
           <Toolbar disableGutters={!open}>
-              <IconButton
-                color="inherit"
-                aria-label="Open drawer"
-                onClick={togglePortalDrawer}
-                className={
-                      classNames(classes.menuButton, open && classes.hide)
+              { portal
+                && (
+                <IconButton
+                  color="inherit"
+                  aria-label="Open drawer"
+                  onClick={togglePortalDrawer}
+                  className={
+                        classNames(classes.menuButton, open && classes.hide)
                   }
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography
-                variant="h6"
-                color="inherit"
-                className={classes.PortalHeaderContainer}
-                noWrap
-              >
-                <span>
+                >
+                  <MenuIcon />
+                  <ChevronRightIcon />
+                </IconButton>
+              )}
+              <Button>
+                <a href="https://nnmta.org">
                   <img
                     variant="title"
                     className={classes.shellLogo}
                     src={logo}
                     alt="NNMTA"
                   />
-                </span>
-                <span className={classes.CustomerPortalWelcomeMessage}>
-                    Welcome, &lt;Customer Name&gt;
-                </span>
-              </Typography>
+                </a>
+              </Button>
+              { portal
+              && (<Typography
+                variant="h6"
+                color="inherit"
+                className={classes.PortalHeaderContainer}
+                noWrap
+              >
+                    <span className={classes.CustomerPortalWelcomeMessage}>
+                        Welcome, &lt;Customer Name&gt;
+                    </span>
+                  </Typography>
+                  )
+              }
           </Toolbar>
       </Grid>
       <Grid
@@ -146,20 +162,31 @@ const ShellHeader = ({ classes, open, togglePortalDrawer }) => (
         justify="flex-end"
         container
       >
-        <Button component={Link} to="/" className={classes.signOutButtonStyles}>
-          <Typography variant="body2" color="textPrimary">
-              Sign Out
-          </Typography>
-        </Button>
+        { portal && (
+          <Button component={Link} to="/" className={classes.signOutButtonStyles}>
+            <Typography variant="body2" style={{ color: '#FFFFFF' }}>
+                Sign Out
+            </Typography>
+          </Button>
+        ) && (
+        <FormControlLabel
+          label={(
+            <Typography variant="body2" style={{ color: '#FFFFFF' }}>
+              Light/Dark
+            </Typography>
+          )}
+          control={(
+            <Switch
+              onChange={toggleTheme}
+              checked={themeChoice === 'dark'}
+            />
+          )}
+        />
+        )
+        }
       </Grid>
     </Grid>
   </AppBar>
 );
-
-ShellHeader.propTypes = {
-  classes: PropTypes.shape.isRequired,
-  open: PropTypes.bool.isRequired,
-  togglePortalDrawer: PropTypes.func.isRequired,
-};
 
 export default withStyles(styles)(ShellHeader);

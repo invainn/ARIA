@@ -1,8 +1,6 @@
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import red from '@material-ui/core/colors/red';
 
-const theme = createMuiTheme({
-    palette: {
+const getTheme = theme => ({
         primary: {
             main: '#7F0000',
             contrastText: '#ffffff',
@@ -10,17 +8,20 @@ const theme = createMuiTheme({
 
         secondary: {
             main: '#37474f',
+            light: '#FFBA54',
             contrastText: '#ffffff',
+        },
+
+        background: {
+            default: (theme === 'dark') ? '#303030' : '#DAE0E6',
+            paper: (theme === 'dark') ? '#424242' : '#FFFFFF',
         },
 
         error: red,
 
-        type: 'dark',
-
         contrastThreshold: 3,
 
         tonalOffset: 0.2,
-    },
-});
+    });
 
-export default theme;
+export default getTheme;

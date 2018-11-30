@@ -1,7 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import PropTypes from 'prop-types';
 import { Grid } from '@material-ui/core';
 
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
@@ -12,8 +11,8 @@ const styles = () => ({
         height: '85%',
     },
     eventsCalendar: {
-        width: '100%',
-        height: '100%',
+        width: '75%',
+        height: '75%',
     },
     pageTitle: {
         width: '100%',
@@ -30,7 +29,7 @@ const EventsCalendar = ({ classes }) => (
               Events Calendar
           </Typography>
         </div>
-        <Grid container justify="center" alignItems="center" className={classes.eventsCalendarContainer}>
+        <Grid container justify="center" alignItems="flex-start" className={classes.eventsCalendarContainer}>
             <iframe
               src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FLos_Angeles"
               frameBorder="0"
@@ -41,9 +40,5 @@ const EventsCalendar = ({ classes }) => (
         </Grid>
     </CustomerPortalContainer>
 );
-
-EventsCalendar.propTypes = {
-    classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(EventsCalendar);

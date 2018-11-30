@@ -1,23 +1,24 @@
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable max-len */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
     Stepper,
     Grid,
     Step,
     StepLabel,
-    Button,
-    Divider,
     Typography,
+    Button,
 } from '@material-ui/core';
 
-import AccountFields from '../Account/AccountFields/AccountFields';
+import SelectEvent from './SelectEvent';
+import SelectParticipants from './SelectParticipants';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
-const styles = {
+const styles = ({ palette }) => ({
     eventRegistrationField: {
         padding: '10px',
-        width: '80%',
+        width: '90%',
     },
     eventRegistrationButton: {
         margin: '8px',
@@ -33,15 +34,26 @@ const styles = {
     pageTitle: {
         width: '100%',
         textDecoration: 'underline',
-        textDecorationColor: '#FFFFFF',
+        textDecorationColor: (palette.type === 'light') ? '#000000' : '#FFFFFF',
         paddingBottom: '15px',
-      },
-};
+    },
+    registerStepper: {
+        borderRadius: '5px',
+    },
+});
 
 class EventRegistration extends Component {
     state = {
         activeStep: 0,
     };
+
+    walkStep() {
+        this.setState(({ activeStep }) => ({ activeStep: activeStep + 1 }));
+    }
+
+    walkBackStep() {
+        this.setState(({ activeStep }) => ({ activeStep: activeStep - 1 }));
+    }
 
     render() {
         const { classes } = this.props;
@@ -56,12 +68,13 @@ class EventRegistration extends Component {
                 </div>
                 <Grid container alignItems="center" justify="center">
                     <Grid item className={classes.eventGridItem}>
-                        <Stepper activeStep={activeStep}>
+                        <Stepper activeStep={activeStep} className={classes.registerStepper}>
                         {[
-                            'Register Student',
-                            'Additional Information',
-                            'Payment Information',
-                            'Confirmation',
+                            'Select Event',
+                            'Select Participants',
+                            'Review/Edit Order',
+                            'Payment',
+                            'Order Details',
                         ].map(item => (
                                 <Step>
                                     <StepLabel>{item}</StepLabel>
@@ -70,13 +83,21 @@ class EventRegistration extends Component {
                         </Stepper>
                     </Grid>
                     <Grid item className={classes.eventRegistrationField}>
-                        <AccountFields label="First Name" placeholder="Student's First Name" />
+                        { activeStep === 0 && <SelectEvent /> }
+                        { activeStep === 1 && <SelectParticipants />}
+                        {/* <AccountFields label="First Name" placeholder="Student's First Name" />
                         <AccountFields label="Last Name" placeholder="Student's Last Name" />
                         <Divider className={classes.eventDividerPadding} />
                         <AccountFields label="City" placeholder="Enter your city here" />
                         <AccountFields label="State/Province/Region" placeholder="Enter your state/province/region here" />
                         <AccountFields label="Zip Code" placeholder="Enter your zip code here" />
-                        <Button variant="contained" className={classes.eventRegistrationButton} color="primary">
+                        */}
+                        { activeStep > 0 && (
+                            <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkBackStep.bind(this)}>
+                                Go Back
+                            </Button>
+                        )}
+                        <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkStep.bind(this)}>
                             Next
                         </Button>
                     </Grid>
@@ -85,9 +106,5 @@ class EventRegistration extends Component {
         );
     }
 }
-
-EventRegistration.propTypes = {
-  classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(EventRegistration);

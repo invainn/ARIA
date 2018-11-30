@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 import ShellFooter from '../Shell/ShellFooter/ShellFooter';
-import ShellHeader from '../Shell/ShellHeader/ShellHeader';
+import ShellHeader from '../../containers/Shell/ShellHeader/ShellHeader';
 import CustomerDrawer from './CustomerDrawer/CustomerDrawer';
 
 const styles = theme => ({
@@ -37,7 +36,7 @@ const CustomerPortal = ({
  classes, open, children, togglePortalDrawer,
 }) => (
   <div className={classes.root}>
-      <ShellHeader open={open} togglePortalDrawer={togglePortalDrawer} />
+      <ShellHeader open={open} togglePortalDrawer={togglePortalDrawer} portal="true" />
       <div className={classes.portalContent}>
         <CustomerDrawer open={open} togglePortalDrawer={togglePortalDrawer} />
         <main className={classes.content}>
@@ -48,12 +47,5 @@ const CustomerPortal = ({
       <ShellFooter />
   </div>
 );
-
-CustomerPortal.propTypes = {
-  classes: PropTypes.shape.isRequired,
-  children: PropTypes.shape.isRequired,
-  open: PropTypes.bool.isRequired,
-  togglePortalDrawer: PropTypes.func.isRequired,
-};
 
 export default withStyles(styles, { withTheme: true })(CustomerPortal);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
@@ -6,7 +6,7 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Tooltip from '@material-ui/core/Tooltip';
 
-class EnhancedTableHead extends React.Component {
+class ParticipantTableHead extends Component {
   createSortHandler = property => (event) => {
     const { onRequestSort } = this.props;
     onRequestSort(event, property);
@@ -22,34 +22,22 @@ class EnhancedTableHead extends React.Component {
     } = this.props;
 
     const rows = [
-      {
- id: 'idNum', numeric: false, disablePadding: false, label: 'ID #',
-},
-      {
- id: 'firstName', numeric: false, disablePadding: false, label: 'First Name',
-},
-      {
- id: 'lastName', numeric: false, disablePadding: false, label: 'Last Name',
-},
-      {
- id: 'suffix', numeric: false, disablePadding: false, label: 'Suffix',
-},
-      {
- id: 'eventType', numeric: false, disablePadding: false, label: 'Event',
-},
-      {
- id: 'suffix', numeric: false, disablePadding: false, label: 'Suffix',
-},
-      {
- id: 'date', numeric: false, disablePadding: false, label: 'Date',
-},
-      {
-  id: 'performanceTime', numeric: false, disablepadding: false, label: 'Performance Time',
-},
-      {
-  id: 'location', numeric: false, disablepadding: false, label: 'Location',
-},
-   ];
+        {
+        id: 'firstName', numeric: false, disablePadding: true, label: 'First Name',
+        },
+        {
+        id: 'middleInitial', numeric: false, disablePadding: false, label: 'Middle Initial',
+        },
+        {
+        id: 'lastName', numeric: false, disablePadding: false, label: 'Last Name',
+        },
+        {
+        id: 'musicLevel', numeric: false, disablePadding: false, label: 'Music Level',
+        },
+        {
+        id: 'teacher', numeric: false, disablePadding: false, label: 'Teacher',
+        },
+    ];
 
     return (
       <TableHead>
@@ -66,7 +54,7 @@ class EnhancedTableHead extends React.Component {
               <TableCell
                 key={row.id}
                 numeric={row.numeric}
-                padding="auto"
+                padding={row.disablePadding ? 'none' : 'default'}
                 sortDirection={orderBy === row.id ? order : false}
               >
                 <Tooltip
@@ -90,4 +78,4 @@ class EnhancedTableHead extends React.Component {
   }
 }
 
-export default EnhancedTableHead;
+export default ParticipantTableHead;

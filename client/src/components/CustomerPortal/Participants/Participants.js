@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
   Table,
@@ -146,11 +145,6 @@ let EnhancedTableToolbar = (props) => {
   );
 };
 
-EnhancedTableToolbar.propTypes = {
-  classes: PropTypes.shape.isRequired,
-  numSelected: PropTypes.number.isRequired,
-};
-
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
 /* const styles = () => ({
@@ -187,7 +181,7 @@ class EnhancedTable extends React.Component {
       createData('Gabriella', 'I', 'Barnett', 6, 'Mr. Ehlers'),
     ],
     page: 0,
-    rowsPerPage: 3,
+    rowsPerPage: 5,
   };
 
   handleRequestSort = (event, property) => {
@@ -329,9 +323,5 @@ class EnhancedTable extends React.Component {
     );
   }
 }
-
-EnhancedTable.propTypes = {
-  classes: PropTypes.shape.isRequired,
-};
 
 export default withStyles(styles)(EnhancedTable);
