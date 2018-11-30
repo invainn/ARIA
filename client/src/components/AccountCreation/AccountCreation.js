@@ -7,6 +7,7 @@ import {
     Icon,
     Button,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import Violin from '../Login/violin.jpg';
 import Shell from '../Shell/Shell';
@@ -136,14 +137,14 @@ const AccountCreation = ({ classes }) => (
                 </div>
 
                 <div>
-                    <Grid container spacing={12} alignItems="flex-end">
+                    <Grid container spacing={24} alignItems="flex-end">
                         <Grid item xs={6}>
-                            <Button>
+                            <Button component={Link} to="/add-participant-info" variant="outlined">
                                 Submit
                             </Button>
                         </Grid>
                         <Grid item xs={6}>
-                            <Button>
+                            <Button variant="outlined">
                                 Cancel
                             </Button>
                         </Grid>
