@@ -99,6 +99,14 @@ const Login = ({ classes }) => (
                     </Typography>
                 </div>
 
+                <div>
+                    <Button component={Link} to="/forgot-password">
+                        <Typography variant="caption">
+                            Forgot your password?
+                        </Typography>
+                    </Button>
+                </div>
+
             </Grid>
         </Grid>
     </Shell>

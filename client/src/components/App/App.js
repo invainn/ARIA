@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NotFound from '../statuscodes/404/NotFound';
 import AccountCreation from '../AccountCreation/AccountCreation';
+import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import Dashboard from '../CustomerPortal/Dashboard/Dashboard';
 import Account from '../CustomerPortal/Account/Account';
 import FAQ from '../CustomerPortal/FAQ/FAQ';
@@ -13,7 +14,7 @@ import RegisterForAnEvent from '../CustomerPortal/RegisterForAnEvent/RegisterFor
 import ActiveRegistrations from '../CustomerPortal/ActiveRegistrations/ActiveRegistrations';
 import Login from '../Login/Login';
 import Participants from '../CustomerPortal/Participants/Participants';
-import PaymentHistory from '../CustomerPortal/PaymentHistory/PaymentHistory';
+// import PaymentHistory from '../CustomerPortal/PaymentHistory/PaymentHistory';
 
 const styles = () => ({
     '@global body': {
@@ -28,6 +29,7 @@ const App = () => (
         <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/create-an-account" component={AccountCreation} />
+            <Route exact path="/forgot-password" component={ForgotPassword} />
             <Route exact path="/customer" component={Dashboard} />
             <Route path="/customer/account-info" component={Account} />
             <Route exact path="/customer/participants" component={Participants} />
@@ -36,8 +38,8 @@ const App = () => (
             <Route exact path="/customer/faq" component={FAQ} />
             <Route exact path="/customer/about" component={AboutUs} />
             <Route exact path="/customer/active-registrations" component={ActiveRegistrations} />
-            <Route exact path="/customer/payment-history" component={PaymentHistory} />
-    {/*     <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
+    {/*     <Route exact path="/customer/payment-history" component={PaymentHistory} />
+            <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/faq" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
             <Route exact path="/customer/about" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} /> */}
             <Route path="*" component={NotFound} />
