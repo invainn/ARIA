@@ -1,14 +1,15 @@
 import React from 'react';
 import {
-Paper,
-Tabs,
-Tab,
-Typography,
-Button,
-ListItemIcon,
-Icon,
-withStyles,
+  Paper,
+  Tabs,
+  Tab,
+  Typography,
+  Button,
+  ListItemIcon,
+  Icon,
+  withStyles,
 } from '@material-ui/core';
+
 import AccountFields from './AccountFields/AccountFields';
 import AccountPreferences from './AccountPreferences/AccountPreferences';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';

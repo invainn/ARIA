@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-withStyles,
-Typography,
- } from '@material-ui/core';
+  withStyles,
+  Typography,
+} from '@material-ui/core';
+
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
 const styles = theme => ({

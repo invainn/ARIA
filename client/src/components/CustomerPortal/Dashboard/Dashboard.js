@@ -1,9 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-
-// Stop individually importing components
-// Do it like this
 import {
   ListItemIcon,
   Icon,
@@ -13,10 +9,10 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  withStyles,
   Typography,
 } from '@material-ui/core';
 
-// This needs to be described more
 import MusicNoteImage from './dashboard-music-note.jpg';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 

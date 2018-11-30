@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     withStyles,
     Typography,
@@ -7,7 +8,7 @@ import {
     Button,
     Icon,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+
 import Violin from './violin.jpg';
 import Shell from '../Shell/Shell';
 

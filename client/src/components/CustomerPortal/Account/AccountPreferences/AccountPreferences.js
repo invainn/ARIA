@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {
-withStyles,
-FormLabel,
-FormControl,
-FormGroup,
-FormControlLabel,
-FormHelperText,
-Checkbox,
+  withStyles,
+  FormLabel,
+  FormControl,
+  FormGroup,
+  FormControlLabel,
+  FormHelperText,
+  Checkbox,
 } from '@material-ui/core';
 
 const styles = theme => ({

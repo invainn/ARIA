@@ -1,10 +1,12 @@
 import React from 'react';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Tooltip from '@material-ui/core/Tooltip';
+import {
+  TableCell,
+  TableHead,
+  TableRow,
+  TableSortLabel,
+  Checkbox,
+  Tooltip,
+} from '@material-ui/core';
 
 class EnhancedTableHead extends React.Component {
   createSortHandler = property => (event) => {

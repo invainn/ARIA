@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import {
     Stepper,
     Grid,
@@ -8,6 +7,7 @@ import {
     Button,
     Divider,
     Typography,
+    withStyles,
 } from '@material-ui/core';
 
 import AccountFields from '../Account/AccountFields/AccountFields';

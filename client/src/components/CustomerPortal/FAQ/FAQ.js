@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
-
 import {
   withStyles,
   Typography,

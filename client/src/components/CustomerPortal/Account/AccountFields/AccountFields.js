@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-withStyles,
-TextField,
+  withStyles,
+  TextField,
 } from '@material-ui/core';
 
 const styles = () => ({

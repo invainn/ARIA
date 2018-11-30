@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
+import { DeleteIcon, FilterListIcon } from '@material-ui/icons';
 import {
+  lighten,
   Table,
   TableBody,
   TableCell,
@@ -16,7 +14,9 @@ import {
   Checkbox,
   IconButton,
   Tooltip,
+  withStyles,
 } from '@material-ui/core/';
+
 import EnhancedTableHead from './EnhancedTableHead';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 

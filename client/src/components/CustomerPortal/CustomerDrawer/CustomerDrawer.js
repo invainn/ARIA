@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'; // STOP IT
-import IconButton from '@material-ui/core/IconButton';
-import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { Icon } from '@material-ui/core';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import {
+  Icon,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Drawer,
+  IconButton,
+  List,
+  Divider,
+  withStyles,
+} from '@material-ui/core';
+import { ChevronLeftIcon, ChevronRightIcon } from '@material-ui/icons';
+import classNames from 'classnames';
 
 // Do not do this
 const drawerWidth = 300;
