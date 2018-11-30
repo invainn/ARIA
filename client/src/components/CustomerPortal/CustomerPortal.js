@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 import ShellFooter from '../Shell/ShellFooter/ShellFooter';
-import ShellHeader from '../Shell/ShellHeader/ShellHeader';
+import ShellHeader from '../../containers/Shell/ShellHeader/ShellHeader';
 import CustomerDrawer from './CustomerDrawer/CustomerDrawer';
 
 const styles = theme => ({
@@ -36,7 +36,7 @@ const CustomerPortal = ({
  classes, open, children, togglePortalDrawer,
 }) => (
   <div className={classes.root}>
-      <ShellHeader open={open} togglePortalDrawer={togglePortalDrawer} />
+      <ShellHeader open={open} togglePortalDrawer={togglePortalDrawer} portal="true" />
       <div className={classes.portalContent}>
         <CustomerDrawer open={open} togglePortalDrawer={togglePortalDrawer} />
         <main className={classes.content}>

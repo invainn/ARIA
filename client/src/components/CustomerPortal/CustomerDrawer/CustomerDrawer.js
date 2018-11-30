@@ -53,6 +53,7 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    overflow: 'hidden',
   },
   drawerPaperClose: {
     overflowX: 'hidden',
