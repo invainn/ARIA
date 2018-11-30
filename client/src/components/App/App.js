@@ -3,6 +3,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NotFound from '../statuscodes/404/NotFound';
+import AccountCreation from '../AccountCreation/AccountCreation';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import Dashboard from '../CustomerPortal/Dashboard/Dashboard';
 import Account from '../CustomerPortal/Account/Account';
@@ -27,6 +28,7 @@ const App = () => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={Login} />
+            <Route exact path="/create-an-account" component={AccountCreation} />
             <Route exact path="/forgot-password" component={ForgotPassword} />
             <Route exact path="/customer" component={Dashboard} />
             <Route path="/customer/account-info" component={Account} />
