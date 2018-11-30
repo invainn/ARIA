@@ -166,7 +166,7 @@ class EnhancedTable extends Component {
       createData('Gabriella', 'I', 'Barnett', 'Jr', 6, 'Mr. Ehlers'),
     ],
     page: 0,
-    rowsPerPage: 3,
+    rowsPerPage: 5,
   };
 
   handleRequestSort = (event, property) => {
