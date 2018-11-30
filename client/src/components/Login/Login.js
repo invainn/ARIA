@@ -93,7 +93,7 @@ const Login = ({ classes }) => (
                 <div>
                     <Typography>
                         Dont have a login?
-                        <Button href="#text-buttons" className={classes.button}>
+                        <Button component={Link} to="/create-an-account" className={classes.button}>
                                 Click here to register!
                         </Button>
                     </Typography>
