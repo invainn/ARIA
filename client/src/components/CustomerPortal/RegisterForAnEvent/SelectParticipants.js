@@ -15,8 +15,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
-import EnhancedTableHead from './EnhancedTableHead';
-import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+import ParticipantTableHead from './ParticipantTableHead';
 
 // Do not do this, fix this
 let counter = 0;
@@ -235,17 +234,11 @@ class EnhancedTable extends Component {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-        <CustomerPortalContainer>
-          <div className={classes.pageTitle}>
-            <Typography component="h2" variant="h2" gutterBottom align="center">
-              Participants
-            </Typography>
-          </div>
             <Paper className={classes.root}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <div className={classes.tableWrapper}>
                 <Table className={classes.table} aria-labelledby="tableTitle">
-                    <EnhancedTableHead
+                    <ParticipantTableHead
                       numSelected={selected.length}
                       order={order}
                       orderBy={orderBy}
@@ -304,7 +297,6 @@ class EnhancedTable extends Component {
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                 />
             </Paper>
-        </CustomerPortalContainer>
     );
   }
 }

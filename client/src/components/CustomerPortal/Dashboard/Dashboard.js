@@ -95,7 +95,7 @@ function Dashboard(props) {
                 <Grid item>
                   <Button variant="contained" color="primary">
                     <ListItemIcon>
-                      <Icon>notifications_active</Icon>
+                      <Icon style={{ color: '#FFFFFF' }}>notifications_active</Icon>
                     </ListItemIcon>
                     NNMTA Notifications
                   </Button>
@@ -103,7 +103,7 @@ function Dashboard(props) {
                 <Grid item>
                   <Button variant="contained" color="primary">
                   <ListItemIcon>
-                      <Icon>view_headline</Icon>
+                      <Icon style={{ color: '#FFFFFF' }}>view_headline</Icon>
                   </ListItemIcon>
                     NNMTA News
                   </Button>
@@ -134,13 +134,13 @@ function Dashboard(props) {
                   <CardActions>
                     <Button variant="contained" size="medium" color="primary">
                     <ListItemIcon>
-                      <Icon>pageview</Icon>
+                      <Icon style={{ color: '#FFFFFF' }}>pageview</Icon>
                     </ListItemIcon>
                       View
                     </Button>
                     <Button variant="contained" size="medium" color="primary">
                     <ListItemIcon>
-                      <Icon>close</Icon>
+                      <Icon style={{ color: '#FFFFFF' }}>close</Icon>
                     </ListItemIcon>
                       Hide
                     </Button>
