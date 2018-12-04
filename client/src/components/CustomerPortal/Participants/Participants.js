@@ -75,9 +75,7 @@ function getSorting(order, orderBy) {
   return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
 }
 
-const toolbarStyles = theme => {
-  console.log(theme.palette.primary);
-  return {
+const toolbarStyles = theme => ({
   root: {
     paddingRight: theme.spacing.unit,
     color: theme.palette.text.primary,
@@ -102,10 +100,7 @@ const toolbarStyles = theme => {
   title: {
     flex: '0 0 auto',
   },
-};
-
-}
-  
+});
 
 let EnhancedTableToolbar = (props) => {
   const { numSelected, classes } = props;
