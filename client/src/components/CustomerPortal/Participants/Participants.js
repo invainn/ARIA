@@ -75,7 +75,9 @@ function getSorting(order, orderBy) {
   return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
 }
 
-const toolbarStyles = theme => ({
+const toolbarStyles = theme => {
+  console.log(theme.palette.primary);
+  return {
   root: {
     paddingRight: theme.spacing.unit,
     color: theme.palette.text.primary,
@@ -85,7 +87,7 @@ const toolbarStyles = theme => ({
     theme.palette.type === 'light'
       ? {
           color: theme.palette.primary.main,
-          backgroundColor: lighten(theme.palette.primary, 0.75),
+          backgroundColor: lighten(theme.palette.primary.main, 0.75),
         }
       : {
           color: theme.palette.text.primary,
@@ -100,7 +102,10 @@ const toolbarStyles = theme => ({
   title: {
     flex: '0 0 auto',
   },
-});
+};
+
+}
+  
 
 let EnhancedTableToolbar = (props) => {
   const { numSelected, classes } = props;
