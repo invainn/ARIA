@@ -1,9 +1,9 @@
+/* eslint-disable max-len */
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
 import {
   Table,
   TableBody,
@@ -13,14 +13,18 @@ import {
   Toolbar,
   Typography,
   Paper,
+  Button,
   Checkbox,
+  ListItemIcon,
   IconButton,
   Tooltip,
+  Icon,
 } from '@material-ui/core/';
+
 import EnhancedTableHead from './EnhancedTableHead';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
-const styles = () => ({
+const styles = theme => ({
   root: {
     width: '100%',
   },
@@ -36,41 +40,21 @@ const styles = () => ({
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
   },
-});
-
-const toolbarStyles = theme => ({
-  root: {
-    paddingRight: theme.spacing.unit,
-    color: theme.palette.text.primary,
-    backgroundColor: theme.palette.primary,
-  },
-  highlight:
-    theme.palette.type === 'light'
-      ? {
-          color: theme.palette.primary.main,
-          backgroundColor: lighten(theme.palette.primary, 0.75),
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.primary,
-        },
-  spacer: {
-    flex: '1 1 100%',
-  },
-  actions: {
-    color: theme.palette.text.primary,
-  },
-  title: {
-    flex: '0 0 auto',
+  button: {
+    margin: theme.spacing.unit,
   },
 });
 
 // TODO: This shouldn't be done like this and a class should be created.
-function createData(firstName, lastName, eventType, date, performanceTime, location, startTime,
+let counter = 0;
+function createData(firstName, lastName, suffix, eventType, date, performanceTime, location, startTime,
     endTime, commandPerformance, song1, song2, song3) {
+      counter += 1;
     return {
+        id: counter,
         firstName,
         lastName,
+        suffix,
         eventType,
         date,
         performanceTime,
@@ -127,13 +111,13 @@ let EnhancedTableToolbar = (props) => {
           </Typography>
         ) : (
           <Typography variant="h6" id="tableTitle">
-            Active Registration
+            Active Registrations
           </Typography>
         )}
       </div>
       <div className={classes.spacer} />
       <div className={classes.actions}>
-        {numSelected > 0 ? (
+        {numSelected > 0 && (
           <Tooltip title="Delete">
             <IconButton aria-label="Delete">
               <Typography variant="h6" id="tableTitle">
@@ -142,33 +126,28 @@ let EnhancedTableToolbar = (props) => {
               <DeleteIcon />
             </IconButton>
           </Tooltip>
-        ) : (
-          <Tooltip title="Filter list">
-            <IconButton aria-label="Filter list">
-              <FilterListIcon />
-            </IconButton>
-          </Tooltip>
         )}
       </div>
     </Toolbar>
   );
 };
 
-EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
+
+EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
 
 class ActiveRegistration extends Component {
   state = {
     order: 'asc',
-    orderBy: 'calories',
+    orderBy: 'firstName',
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'Smith', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Bob', 'Honeycomb', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Jack', 'Reynolds', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Alice', 'Smith', 'Halloween Recital', 'Jr', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Bob', 'Honeycomb', 'Halloween Recital', 'Sr', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Jack', 'Reynolds', 'Halloween Recital', '', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
     ],
     page: 0,
-    rowsPerPage: 3,
+    rowsPerPage: 5,
   };
 
   handleRequestSort = (event, property) => {
@@ -260,6 +239,7 @@ class ActiveRegistration extends Component {
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((n, i) => {
                         const isSelected = this.isSelected(n.id);
+
                         return [
                           <TableRow
                             hover
@@ -277,6 +257,7 @@ class ActiveRegistration extends Component {
                               <TableCell>{i + 1}</TableCell>
                               <TableCell>{n.firstName}</TableCell>
                               <TableCell>{n.lastName}</TableCell>
+                              <TableCell>{n.suffix}</TableCell>
                               <TableCell>{n.eventType}</TableCell>
                               <TableCell>{n.date}</TableCell>
                               <TableCell>{n.performanceTime}</TableCell>
@@ -293,11 +274,16 @@ class ActiveRegistration extends Component {
                             selected={isSelected}
                             padding="auto"
                           >
-                          <TableCell />
-                          <TableCell />
-                          <TableCell colSpan={6}>
-                              {n.song1}
-                          </TableCell>
+                          {/* Stuff was broken new branch */}
+                            <TableCell />
+                            <TableCell />
+                            <TableCell>Song1: {n.song1}</TableCell>
+                            <TableCell>Song2: {n.song2}</TableCell>
+                            <TableCell>Song3: {n.song3}</TableCell>
+                            <TableCell>CommandPerformance: {n.commandPerformance}</TableCell>
+                            <TableCell>Start Time: {n.startTime}</TableCell>
+                            <TableCell>End Time: {n.endTime}</TableCell>
+                            <TableCell />
                           </TableRow>,
                         ];
                         })}
@@ -323,10 +309,23 @@ class ActiveRegistration extends Component {
                   onChangePage={this.handleChangePage}
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                 />
+              <Button
+                variant="contained"
+                className={classes.button}
+                color="primary"
+                component={Link}
+                to="/customer/register-for-an-event"
+              >
+                <ListItemIcon>
+                  <Icon>add</Icon>
+                </ListItemIcon>
+                  Register for Another Event
+              </Button>
             </Paper>
         </CustomerPortalContainer>
     );
   }
 }
+
 
 export default withStyles(styles)(ActiveRegistration);

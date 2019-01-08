@@ -1,25 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TablePagination,
-  TableRow,
-  Toolbar,
-  Typography,
-  Paper,
-  Checkbox,
-  IconButton,
-  Tooltip,
-} from '@material-ui/core';
-
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TablePagination from '@material-ui/core/TablePagination';
+import TableRow from '@material-ui/core/TableRow';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
-import EnhancedTableHead from './EnhancedTableHead';
-import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+import ParticipantTableHead from './ParticipantTableHead';
 
 // Do not do this, fix this
 let counter = 0;
@@ -42,10 +38,10 @@ const styles = () => ({
   },
 });
 
-const createData = (firstName, middleInitial, lastName, suffix, musicLevel, teacher) => {
+const createData = (firstName, middleInitial, lastName, musicLevel, teacher) => {
     counter += 1;
     return {
-        id: counter, firstName, middleInitial, lastName, suffix, musicLevel, teacher,
+        id: counter, firstName, middleInitial, lastName, musicLevel, teacher,
     };
 };
 
@@ -147,38 +143,26 @@ let EnhancedTableToolbar = (props) => {
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
-/* const styles = () => ({
-  root: {
-    width: '100%',
-  },
-  table: {
-    minWidth: 1020,
-  },
-  tableWrapper: {
-    overflowX: 'auto',
-  },
-}); */
-
-class EnhancedTable extends React.Component {
+class EnhancedTable extends Component {
   state = {
     order: 'asc',
     orderBy: 'calories',
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'P', 'Smith', 'Jr', 2, 'Mr. Jenkins'),
-      createData('Mary', 'B', 'Daniels', 'Sr', 11, 'Mr. Matthews'),
-      createData('Ronald', 'E', 'Davidson', '', 4, 'Mrs. Charles'),
-      createData('Scott', 'K', 'Brown', '', 6, 'Ms. Anderson'),
-      createData('Raymond', 'I', 'McMann', 'Jr', 1, 'Mrs. Stevenson'),
-      createData('Kenneth', 'B', 'Honeycomb', '', 8, 'Mr. Franklin'),
-      createData('Gary', 'N', 'Peters', 'Sr', 3, 'Mr. Jackson'),
-      createData('Joshua', 'S', 'Holyfield', '', 9, 'Ms. Sparks'),
-      createData('Heather', 'D', 'Howard', '', 6, 'Mrs. Cilliza'),
-      createData('Lou', 'V', 'York', '', 8, 'Mrs. Thomas'),
-      createData('Jack', 'S', 'Ybarra', '', 1, 'Mrs. Banks'),
-      createData('Steve', 'A', 'Noack', 'Jr', 10, 'Mr. Cummings'),
-      createData('Gabriella', 'I', 'Barnett', 'Jr', 6, 'Mr. Ehlers'),
+      createData('Alice', 'P', 'Smith', 2, 'Mr. Jenkins'),
+      createData('Mary', 'B', 'Daniels', 11, 'Mr. Matthews'),
+      createData('Ronald', 'E', 'Davidson', 4, 'Mrs. Charles'),
+      createData('Scott', 'K', 'Brown', 6, 'Ms. Anderson'),
+      createData('Raymond', 'I', 'McMann', 1, 'Mrs. Stevenson'),
+      createData('Kenneth', 'B', 'Honeycomb', 8, 'Mr. Franklin'),
+      createData('Gary', 'N', 'Peters', 3, 'Mr. Jackson'),
+      createData('Joshua', 'S', 'Holyfield', 9, 'Ms. Sparks'),
+      createData('Heather', 'D', 'Howard', 6, 'Mrs. Cilliza'),
+      createData('Lou', 'V', 'York', 8, 'Mrs. Thomas'),
+      createData('Jack', 'S', 'Ybarra', 1, 'Mrs. Banks'),
+      createData('Steve', 'A', 'Noack', 10, 'Mr. Cummings'),
+      createData('Gabriella', 'I', 'Barnett', 6, 'Mr. Ehlers'),
     ],
     page: 0,
     rowsPerPage: 5,
@@ -250,17 +234,11 @@ class EnhancedTable extends React.Component {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-        <CustomerPortalContainer>
-          <div className={classes.pageTitle}>
-            <Typography component="h2" variant="h2" gutterBottom align="center">
-              Participants
-            </Typography>
-          </div>
             <Paper className={classes.root}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <div className={classes.tableWrapper}>
                 <Table className={classes.table} aria-labelledby="tableTitle">
-                    <EnhancedTableHead
+                    <ParticipantTableHead
                       numSelected={selected.length}
                       order={order}
                       orderBy={orderBy}
@@ -291,7 +269,6 @@ class EnhancedTable extends React.Component {
                             </TableCell>
                             <TableCell>{n.middleInitial}</TableCell>
                             <TableCell>{n.lastName}</TableCell>
-                            <TableCell>{n.suffix}</TableCell>
                             <TableCell>{n.musicLevel}</TableCell>
                             <TableCell>{n.teacher}</TableCell>
                             </TableRow>
@@ -320,7 +297,6 @@ class EnhancedTable extends React.Component {
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                 />
             </Paper>
-        </CustomerPortalContainer>
     );
   }
 }
