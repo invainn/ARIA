@@ -42,10 +42,10 @@ const styles = () => ({
   },
 });
 
-const createData = (firstName, middleInitial, lastName, musicLevel, teacher) => {
+const createData = (firstName, middleInitial, lastName, suffix, musicLevel, teacher) => {
     counter += 1;
     return {
-        id: counter, firstName, middleInitial, lastName, musicLevel, teacher,
+        id: counter, firstName, middleInitial, lastName, suffix, musicLevel, teacher,
     };
 };
 
@@ -166,19 +166,19 @@ class EnhancedTable extends React.Component {
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'P', 'Smith', 2, 'Mr. Jenkins'),
-      createData('Mary', 'B', 'Daniels', 11, 'Mr. Matthews'),
-      createData('Ronald', 'E', 'Davidson', 4, 'Mrs. Charles'),
-      createData('Scott', 'K', 'Brown', 6, 'Ms. Anderson'),
-      createData('Raymond', 'I', 'McMann', 1, 'Mrs. Stevenson'),
-      createData('Kenneth', 'B', 'Honeycomb', 8, 'Mr. Franklin'),
-      createData('Gary', 'N', 'Peters', 3, 'Mr. Jackson'),
-      createData('Joshua', 'S', 'Holyfield', 9, 'Ms. Sparks'),
-      createData('Heather', 'D', 'Howard', 6, 'Mrs. Cilliza'),
-      createData('Lou', 'V', 'York', 8, 'Mrs. Thomas'),
-      createData('Jack', 'S', 'Ybarra', 1, 'Mrs. Banks'),
-      createData('Steve', 'A', 'Noack', 10, 'Mr. Cummings'),
-      createData('Gabriella', 'I', 'Barnett', 6, 'Mr. Ehlers'),
+      createData('Alice', 'P', 'Smith', 'Jr', 2, 'Mr. Jenkins'),
+      createData('Mary', 'B', 'Daniels', 'Sr', 11, 'Mr. Matthews'),
+      createData('Ronald', 'E', 'Davidson', '', 4, 'Mrs. Charles'),
+      createData('Scott', 'K', 'Brown', '', 6, 'Ms. Anderson'),
+      createData('Raymond', 'I', 'McMann', 'Jr', 1, 'Mrs. Stevenson'),
+      createData('Kenneth', 'B', 'Honeycomb', '', 8, 'Mr. Franklin'),
+      createData('Gary', 'N', 'Peters', 'Sr', 3, 'Mr. Jackson'),
+      createData('Joshua', 'S', 'Holyfield', '', 9, 'Ms. Sparks'),
+      createData('Heather', 'D', 'Howard', '', 6, 'Mrs. Cilliza'),
+      createData('Lou', 'V', 'York', '', 8, 'Mrs. Thomas'),
+      createData('Jack', 'S', 'Ybarra', '', 1, 'Mrs. Banks'),
+      createData('Steve', 'A', 'Noack', 'Jr', 10, 'Mr. Cummings'),
+      createData('Gabriella', 'I', 'Barnett', 'Jr', 6, 'Mr. Ehlers'),
     ],
     page: 0,
     rowsPerPage: 5,
@@ -291,6 +291,7 @@ class EnhancedTable extends React.Component {
                             </TableCell>
                             <TableCell>{n.middleInitial}</TableCell>
                             <TableCell>{n.lastName}</TableCell>
+                            <TableCell>{n.suffix}</TableCell>
                             <TableCell>{n.musicLevel}</TableCell>
                             <TableCell>{n.teacher}</TableCell>
                             </TableRow>
