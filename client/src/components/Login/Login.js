@@ -44,6 +44,7 @@ const styles = theme => ({
 
     button: {
         margin: theme.spacing.unit,
+        color: '#FFFFFF',
     },
 
     loginIcons: {
@@ -56,7 +57,7 @@ const Login = ({ classes }) => (
     <Shell>
         <Grid className={classes.landing} container justify="center" alignItems="center">
             <Grid className={classes.landingContent} container direction="column" justify="center" alignItems="center">
-                <Typography variant="title" align="center" color="textPrimary" className={classes.landingCaption}>
+                <Typography variant="title" align="center" style={{ color: '#FFFFFF' }} className={classes.landingCaption}>
                     Northern Nevada Music Teacher Association
                 </Typography>
 
@@ -66,7 +67,7 @@ const Login = ({ classes }) => (
                             <Icon className={classes.loginIcons}>account_circle</Icon>
                         </Grid>
                         <Grid item>
-                            <TextField id="input-with-icon-grid" label="Username" />
+                            <TextField id="input-with-icon-grid" label="Username" style={{ color: '#FFFFFF' }} />
                         </Grid>
                     </Grid>
                 </div>
@@ -77,7 +78,7 @@ const Login = ({ classes }) => (
                             <Icon className={classes.loginIcons}>vpn_key</Icon>
                         </Grid>
                         <Grid item>
-                            <TextField id="input-with-icon-grid" label="Password" />
+                            <TextField id="input-with-icon-grid" label="Password" style={{ color: '#FFFFFF' }} />
                         </Grid>
                     </Grid>
                 </div>
@@ -91,9 +92,9 @@ const Login = ({ classes }) => (
                 </div>
 
                 <div>
-                    <Typography>
+                    <Typography style={{ color: '#FFFFFF' }}>
                         Dont have a login?
-                        <Button href="#text-buttons" className={classes.button}>
+                        <Button component={Link} to="/create-an-account" className={classes.button}>
                                 Click here to register!
                         </Button>
                     </Typography>
@@ -101,7 +102,7 @@ const Login = ({ classes }) => (
 
                 <div>
                     <Button component={Link} to="/forgot-password">
-                        <Typography variant="caption">
+                        <Typography variant="caption" style={{ color: '#FFFFFF' }}>
                             Forgot your password?
                         </Typography>
                     </Button>

@@ -21,9 +21,10 @@ const styles = theme => ({
 class CheckboxesGroup extends Component {
   state = {
     prefOne: true,
-    prefTwo: false,
-    prefThree: false,
-    prefFour: false,
+    prefTwo: true,
+    prefThree: true,
+    prefFour: true,
+    prefFive: true,
   };
 
   handleChange = name => (event) => {
@@ -47,46 +48,59 @@ class CheckboxesGroup extends Component {
           <FormLabel component="legend">Preferences</FormLabel>
           <FormGroup>
             <FormControlLabel
-              control={
-                <Checkbox checked={prefOne} onChange={this.handleChange('prefOne')} value="Receive email communication from NNMTA" color="primary" />
-              }
-              label="Receive email communication from NNMTA"
+              control={(
+                <Checkbox
+                  checked={prefOne}
+                  onChange={this.handleChange('prefOne')}
+                  value="Receive communication from NNMTA by registered email address"
+                  color="primary"
+                />
+              )}
+              label="Allow NNMTA to send e-mails to &lt;customer's email address&gt;"
             />
             <FormControlLabel
-              control={
-                <Checkbox checked={prefTwo} onChange={this.handleChange('prefTwo')} value="Recieve email when registration for an event has opened" color="primary" />
-              }
-              label="Recieve email when registration for an event has opened"
+              control={(
+                <Checkbox
+                  checked={prefTwo}
+                  onChange={this.handleChange('prefTwo')}
+                  value="Receive notifications about upcoming events"
+                  color="primary"
+                />
+              )}
+              label="Receive NNMTA newsletters (hear about exciting things going on with NNMTA)"
             />
             <FormControlLabel
-              control={
-                <Checkbox checked={prefThree} onChange={this.handleChange('prefThree')} value="Receive certificates by e-mail" color="primary" />
-              }
-              label="Receive certificates by e-mail"
+              control={(
+                <Checkbox
+                  checked={prefThree}
+                  onChange={this.handleChange('prefThree')}
+                  value="Receive reminders about registrations"
+                  color="primary"
+                />
+              )}
+              label="Receive NNMTA notifications (new events, event registration deadline reminders, upcoming event reminders)"
             />
             <FormControlLabel
               control={(
                 <Checkbox
                   checked={prefFour}
                   onChange={this.handleChange('prefFour')}
-                  value="Receive notifications about upcoming events"
-                  color="primary"
-                />
-              )}
-              label="A Fourth Preference"
-            />
-            <FormControlLabel
-              control={
-                (
-                <Checkbox
-                  checked={prefFive}
-                  onChange={this.handleChange('prefFive')}
                   value="Receive reminders about registrations"
                   color="primary"
                 />
-                )
-              }
-              label="A Fifth Preference"
+              )}
+              label="Receive payment receipts by e-mail"
+            />
+            <FormControlLabel
+              control={(
+                <Checkbox
+                  checked={prefFive}
+                  onChange={this.handleChange('prefFive')}
+                  value="Receive certificates by e-mail"
+                  color="primary"
+                />
+              )}
+              label="Receive event certificates by e-mail"
             />
           </FormGroup>
           <FormHelperText>*Save your preferences below for them to take effect</FormHelperText>

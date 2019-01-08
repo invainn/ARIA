@@ -2,8 +2,7 @@ import React from 'react';
 import {
 withStyles,
 Grid,
-Typography,
-} from '@material-ui/core';
+Typography } from '@material-ui/core';
 
 const styles = ({ spacing, palette }) => ({
     footer: {
@@ -17,18 +16,18 @@ const ShellFooter = ({ classes }) => (
     <footer className={classes.footer}>
         <Grid container justify="space-evenly" direction="row">
             <Grid item>
-                <Typography variant="subheading" align="center" color="textPrimary" gutterBottom>
+                <Typography variant="subheading" style={{ color: '#FFFFFF' }} align="center" gutterBottom>
                     Site Map
                 </Typography>
-                <Typography variant="caption" align="center" color="textSecondary" gutterBottom>
+                <Typography variant="caption" style={{ color: '#FFFFFF' }} align="center" gutterBottom>
                     Contact Us
                 </Typography>
             </Grid>
             <Grid item>
-                <Typography variant="subheading" align="center" color="textPrimary" gutterBottom>
+                <Typography variant="subheading" style={{ color: '#FFFFFF' }} align="center" gutterBottom>
                     Copyright
                 </Typography>
-                <Typography variant="caption" align="center" color="textSecondary" gutterBottom>
+                <Typography variant="caption" style={{ color: '#FFFFFF' }} align="center" gutterBottom>
                     Copyright © 2018 NNMTA
                 </Typography>
             </Grid>

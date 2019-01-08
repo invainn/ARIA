@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
 import {
-  lighten,
   Table,
-  TableCell,
   TableBody,
+  TableCell,
   TablePagination,
   TableRow,
   Toolbar,
-  Paper,
   Typography,
-  IconButton,
+  Paper,
   Checkbox,
+  IconButton,
   Tooltip,
-  withStyles,
 } from '@material-ui/core';
-import { DeleteIcon, FilterListIcon } from '@material-ui/icons';
-
+import DeleteIcon from '@material-ui/icons/Delete';
+import FilterListIcon from '@material-ui/icons/FilterList';
+import { lighten } from '@material-ui/core/styles/colorManipulator';
 import EnhancedTableHead from './EnhancedTableHead';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
@@ -41,10 +41,10 @@ const styles = () => ({
   },
 });
 
-const createData = (firstName, middleInitial, lastName, musicLevel, teacher) => {
+const createData = (firstName, middleInitial, lastName, suffix, musicLevel, teacher) => {
     counter += 1;
     return {
-        id: counter, firstName, middleInitial, lastName, musicLevel, teacher,
+        id: counter, firstName, middleInitial, lastName, suffix, musicLevel, teacher,
     };
 };
 
@@ -84,7 +84,7 @@ const toolbarStyles = theme => ({
     theme.palette.type === 'light'
       ? {
           color: theme.palette.primary.main,
-          backgroundColor: lighten(theme.palette.primary, 0.75),
+          backgroundColor: lighten(theme.palette.primary.main, 0.75),
         }
       : {
           color: theme.palette.text.primary,
@@ -146,29 +146,41 @@ let EnhancedTableToolbar = (props) => {
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
-class EnhancedTable extends Component {
+/* const styles = () => ({
+  root: {
+    width: '100%',
+  },
+  table: {
+    minWidth: 1020,
+  },
+  tableWrapper: {
+    overflowX: 'auto',
+  },
+}); */
+
+class EnhancedTable extends React.Component {
   state = {
     order: 'asc',
     orderBy: 'calories',
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'P', 'Smith', 2, 'Mr. Jenkins'),
-      createData('Mary', 'B', 'Daniels', 11, 'Mr. Matthews'),
-      createData('Ronald', 'E', 'Davidson', 4, 'Mrs. Charles'),
-      createData('Scott', 'K', 'Brown', 6, 'Ms. Anderson'),
-      createData('Raymond', 'I', 'McMann', 1, 'Mrs. Stevenson'),
-      createData('Kenneth', 'B', 'Honeycomb', 8, 'Mr. Franklin'),
-      createData('Gary', 'N', 'Peters', 3, 'Mr. Jackson'),
-      createData('Joshua', 'S', 'Holyfield', 9, 'Ms. Sparks'),
-      createData('Heather', 'D', 'Howard', 6, 'Mrs. Cilliza'),
-      createData('Lou', 'V', 'York', 8, 'Mrs. Thomas'),
-      createData('Jack', 'S', 'Ybarra', 1, 'Mrs. Banks'),
-      createData('Steve', 'A', 'Noack', 10, 'Mr. Cummings'),
-      createData('Gabriella', 'I', 'Barnett', 6, 'Mr. Ehlers'),
+      createData('Alice', 'P', 'Smith', 'Jr', 2, 'Mr. Jenkins'),
+      createData('Mary', 'B', 'Daniels', 'Sr', 11, 'Mr. Matthews'),
+      createData('Ronald', 'E', 'Davidson', '', 4, 'Mrs. Charles'),
+      createData('Scott', 'K', 'Brown', '', 6, 'Ms. Anderson'),
+      createData('Raymond', 'I', 'McMann', 'Jr', 1, 'Mrs. Stevenson'),
+      createData('Kenneth', 'B', 'Honeycomb', '', 8, 'Mr. Franklin'),
+      createData('Gary', 'N', 'Peters', 'Sr', 3, 'Mr. Jackson'),
+      createData('Joshua', 'S', 'Holyfield', '', 9, 'Ms. Sparks'),
+      createData('Heather', 'D', 'Howard', '', 6, 'Mrs. Cilliza'),
+      createData('Lou', 'V', 'York', '', 8, 'Mrs. Thomas'),
+      createData('Jack', 'S', 'Ybarra', '', 1, 'Mrs. Banks'),
+      createData('Steve', 'A', 'Noack', 'Jr', 10, 'Mr. Cummings'),
+      createData('Gabriella', 'I', 'Barnett', 'Jr', 6, 'Mr. Ehlers'),
     ],
     page: 0,
-    rowsPerPage: 3,
+    rowsPerPage: 5,
   };
 
   handleRequestSort = (event, property) => {
@@ -278,6 +290,7 @@ class EnhancedTable extends Component {
                             </TableCell>
                             <TableCell>{n.middleInitial}</TableCell>
                             <TableCell>{n.lastName}</TableCell>
+                            <TableCell>{n.suffix}</TableCell>
                             <TableCell>{n.musicLevel}</TableCell>
                             <TableCell>{n.teacher}</TableCell>
                             </TableRow>

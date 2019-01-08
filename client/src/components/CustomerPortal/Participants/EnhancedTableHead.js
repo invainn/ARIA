@@ -34,6 +34,9 @@ class EnhancedTableHead extends Component {
         id: 'lastName', numeric: false, disablePadding: false, label: 'Last Name',
         },
         {
+        id: 'suffix', numeric: false, disablePadding: false, label: 'Suffix',
+        },
+        {
         id: 'musicLevel', numeric: false, disablePadding: false, label: 'Music Level',
         },
         {
