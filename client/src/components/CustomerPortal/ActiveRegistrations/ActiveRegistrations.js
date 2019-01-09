@@ -142,9 +142,9 @@ class ActiveRegistration extends Component {
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'Smith', 'Halloween Recital', 'Jr', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Bob', 'Honeycomb', 'Halloween Recital', 'Sr', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Jack', 'Reynolds', 'Halloween Recital', '', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Alice', 'Smith', 'Jr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Bob', 'Honeycomb', 'Sr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Jack', 'Reynolds', '', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
     ],
     page: 0,
     rowsPerPage: 5,
