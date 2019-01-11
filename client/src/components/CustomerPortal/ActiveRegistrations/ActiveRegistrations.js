@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
 import {
   Table,
   TableBody,
@@ -16,8 +15,6 @@ import {
   Button,
   Checkbox,
   ListItemIcon,
-  IconButton,
-  Tooltip,
   Icon,
 } from '@material-ui/core/';
 
@@ -116,18 +113,7 @@ let EnhancedTableToolbar = (props) => {
         )}
       </div>
       <div className={classes.spacer} />
-      <div className={classes.actions}>
-        {numSelected > 0 && (
-          <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
-              <Typography variant="h6" id="tableTitle">
-                Delete
-              </Typography>
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        )}
-      </div>
+      <div className={classes.actions} />
     </Toolbar>
   );
 };
@@ -213,7 +199,6 @@ class ActiveRegistration extends Component {
         rowsPerPage,
         page,
     } = this.state;
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
         <CustomerPortalContainer>
@@ -287,11 +272,6 @@ class ActiveRegistration extends Component {
                           </TableRow>,
                         ];
                         })}
-                    {emptyRows > 0 && (
-                        <TableRow style={{ height: 49 * emptyRows }}>
-                        <TableCell colSpan={6} />
-                        </TableRow>
-                    )}
                     </TableBody>
                 </Table>
                 </div>
