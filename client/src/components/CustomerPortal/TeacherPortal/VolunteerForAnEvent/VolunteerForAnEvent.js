@@ -1,6 +1,8 @@
-import React from 'react';
+/* eslint-disable max-len */
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 import {
   Table,
   TableBody,
@@ -10,21 +12,16 @@ import {
   Toolbar,
   Typography,
   Paper,
+  Button,
   Checkbox,
-  IconButton,
-  Tooltip,
-} from '@material-ui/core';
+  ListItemIcon,
+  Icon,
+} from '@material-ui/core/';
 
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
 import EnhancedTableHead from './EnhancedTableHead';
-import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+import CustomerPortalContainer from '../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
-// Do not do this, fix this
-let counter = 0;
-
-const styles = () => ({
+const styles = theme => ({
   root: {
     width: '100%',
   },
@@ -40,14 +37,24 @@ const styles = () => ({
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
   },
+  button: {
+    margin: theme.spacing.unit,
+  },
 });
 
-const createData = (firstName, middleInitial, lastName, suffix, musicLevel, teacher) => {
-    counter += 1;
+// TODO: This shouldn't be done like this and a class should be created.
+let counter = 0;
+function createData(eventName, date, startTime, endTime, location) {
+      counter += 1;
     return {
-        id: counter, firstName, middleInitial, lastName, suffix, musicLevel, teacher,
+        id: counter,
+        eventName,
+        date,
+        startTime,
+        endTime,
+        location,
     };
-};
+}
 
 const desc = (a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) {
@@ -61,46 +68,20 @@ const desc = (a, b, orderBy) => {
   return 0;
 };
 
-function stableSort(array, cmp) {
+// TODO: Javascript already has a sort, do not do this
+const stableSort = (array, cmp) => {
   const stabilizedThis = array.map((el, index) => [el, index]);
+
   stabilizedThis.sort((a, b) => {
     const order = cmp(a[0], b[0]);
     if (order !== 0) return order;
     return a[1] - b[1];
   });
+
   return stabilizedThis.map(el => el[0]);
-}
+};
 
-function getSorting(order, orderBy) {
-  return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
-}
-
-const toolbarStyles = theme => ({
-  root: {
-    paddingRight: theme.spacing.unit,
-    color: theme.palette.text.primary,
-    backgroundColor: theme.palette.primary,
-  },
-  highlight:
-    theme.palette.type === 'light'
-      ? {
-          color: theme.palette.primary.main,
-          backgroundColor: lighten(theme.palette.primary.main, 0.75),
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.primary,
-        },
-  spacer: {
-    flex: '1 1 100%',
-  },
-  actions: {
-    color: theme.palette.text.primary,
-  },
-  title: {
-    flex: '0 0 auto',
-  },
-});
+const getSorting = (order, orderBy) => (order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy));
 
 let EnhancedTableToolbar = (props) => {
   const { numSelected, classes } = props;
@@ -118,67 +99,29 @@ let EnhancedTableToolbar = (props) => {
           </Typography>
         ) : (
           <Typography variant="h6" id="tableTitle">
-            Participants
+            Select Events from the List Below
           </Typography>
         )}
       </div>
       <div className={classes.spacer} />
-      <div className={classes.actions}>
-        {numSelected > 0 ? (
-          <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
-              <Typography variant="h6" id="tableTitle">
-                Delete
-              </Typography>
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title="Filter list">
-            <IconButton aria-label="Filter list">
-              <FilterListIcon />
-            </IconButton>
-          </Tooltip>
-        )}
-      </div>
     </Toolbar>
   );
 };
 
-EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
-/* const styles = () => ({
-  root: {
-    width: '100%',
-  },
-  table: {
-    minWidth: 1020,
-  },
-  tableWrapper: {
-    overflowX: 'auto',
-  },
-}); */
+EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
 
-class EnhancedTable extends React.Component {
+class VolunteerForAnEvent extends Component {
   state = {
     order: 'asc',
-    orderBy: 'calories',
+    orderBy: 'firstName',
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'P', 'Smith', 'Jr', 2, 'Mr. Jenkins'),
-      createData('Mary', 'B', 'Daniels', 'Sr', 11, 'Mr. Matthews'),
-      createData('Ronald', 'E', 'Davidson', '-', 4, 'Mrs. Charles'),
-      createData('Scott', 'K', 'Brown', '-', 6, 'Ms. Anderson'),
-      createData('Raymond', 'I', 'McMann', 'Jr', 1, 'Mrs. Stevenson'),
-      createData('Kenneth', 'B', 'Honeycomb', '-', 8, 'Mr. Franklin'),
-      createData('Gary', 'N', 'Peters', 'Sr', 3, 'Mr. Jackson'),
-      createData('Joshua', 'S', 'Holyfield', '-', 9, 'Ms. Sparks'),
-      createData('Heather', 'D', 'Howard', '-', 6, 'Mrs. Cilliza'),
-      createData('Lou', 'V', 'York', '-', 8, 'Mrs. Thomas'),
-      createData('Jack', 'S', 'Ybarra', '-', 1, 'Mrs. Banks'),
-      createData('Steve', 'A', 'Noack', 'Jr', 10, 'Mr. Cummings'),
-      createData('Gabriella', 'I', 'Barnett', 'Jr', 6, 'Mr. Ehlers'),
+      createData('Halloween Recital', '10/21/19', '8:00 AM', '2:00 PM', 'DMS 103'),
+      createData('Film Festival', '11/30/19', '9:00 AM', '11:00 AM', 'DMS 103'),
+      createData('Christmas Eve Event', '3/15/19', '3:00 PM', '7:00 PM', 'DMS 103'),
+      createData('Silver State Competition', '4/6/19', '1:00 PM', '4:00 PM', 'DMS 103'),
     ],
     page: 0,
     rowsPerPage: 5,
@@ -222,7 +165,7 @@ class EnhancedTable extends React.Component {
     }
 
     this.setState({ selected: newSelected });
-  };
+  }
 
   handleChangePage = (event, page) => {
     this.setState({ page });
@@ -252,9 +195,9 @@ class EnhancedTable extends React.Component {
     return (
         <CustomerPortalContainer>
           <div className={classes.pageTitle}>
-            <Typography component="h2" variant="h2" gutterBottom align="center">
-              Participants
-            </Typography>
+              <Typography component="h2" variant="h2" gutterBottom align="center">
+                Volunteer for an Event
+              </Typography>
           </div>
             <Paper className={classes.root}>
                 <EnhancedTableToolbar numSelected={selected.length} />
@@ -271,31 +214,31 @@ class EnhancedTable extends React.Component {
                     <TableBody>
                     {stableSort(data, getSorting(order, orderBy))
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((n) => {
+                        .map((n, i) => {
                         const isSelected = this.isSelected(n.id);
-                        return (
-                            <TableRow
-                              hover
-                              onClick={event => this.handleClick(event, n.id)}
-                              role="checkbox"
-                              aria-checked={isSelected}
-                              tabIndex={-1}
-                              key={n.id}
-                              selected={isSelected}
-                            >
-                            <TableCell padding="checkbox">
+
+                        return [
+                          <TableRow
+                            hover
+                            onClick={event => this.handleClick(event, n.id)}
+                            role="checkbox"
+                            aria-checked={isSelected}
+                            tabIndex={-1}
+                            key={n.id}
+                            selected={isSelected}
+                            padding="auto"
+                          >
+                              <TableCell padding="checkbox">
                                 <Checkbox color="primary" checked={isSelected} />
-                            </TableCell>
-                            <TableCell component="th" scope="row" padding="none">
-                                {n.firstName}
-                            </TableCell>
-                            <TableCell>{n.middleInitial}</TableCell>
-                            <TableCell>{n.lastName}</TableCell>
-                            <TableCell>{n.suffix}</TableCell>
-                            <TableCell>{n.musicLevel}</TableCell>
-                            <TableCell>{n.teacher}</TableCell>
-                            </TableRow>
-                        );
+                              </TableCell>
+                              <TableCell>{i + 1}</TableCell>
+                              <TableCell>{n.eventName}</TableCell>
+                              <TableCell>{n.date}</TableCell>
+                              <TableCell>{n.startTime}</TableCell>
+                              <TableCell>{n.endTime}</TableCell>
+                              <TableCell>{n.location}</TableCell>
+                          </TableRow>,
+                        ];
                         })}
                     {emptyRows > 0 && (
                         <TableRow style={{ height: 49 * emptyRows }}>
@@ -319,10 +262,23 @@ class EnhancedTable extends React.Component {
                   onChangePage={this.handleChangePage}
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                 />
+              <Button
+                variant="contained"
+                className={classes.button}
+                color="primary"
+                component={Link}
+                to="/teacher-portal/volunteer-success"
+              >
+                <ListItemIcon>
+                  <Icon>add</Icon>
+                </ListItemIcon>
+                  Volunteer for Selected Events!
+              </Button>
             </Paper>
         </CustomerPortalContainer>
     );
   }
 }
 
-export default withStyles(styles)(EnhancedTable);
+
+export default withStyles(styles)(VolunteerForAnEvent);

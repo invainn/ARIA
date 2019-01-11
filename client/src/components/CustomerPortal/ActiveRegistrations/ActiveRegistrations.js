@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
 import {
   Table,
   TableBody,
@@ -16,8 +15,6 @@ import {
   Button,
   Checkbox,
   ListItemIcon,
-  IconButton,
-  Tooltip,
   Icon,
 } from '@material-ui/core/';
 
@@ -116,18 +113,7 @@ let EnhancedTableToolbar = (props) => {
         )}
       </div>
       <div className={classes.spacer} />
-      <div className={classes.actions}>
-        {numSelected > 0 && (
-          <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
-              <Typography variant="h6" id="tableTitle">
-                Delete
-              </Typography>
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        )}
-      </div>
+      <div className={classes.actions} />
     </Toolbar>
   );
 };
@@ -142,9 +128,9 @@ class ActiveRegistration extends Component {
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'Smith', 'Halloween Recital', 'Jr', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Bob', 'Honeycomb', 'Halloween Recital', 'Sr', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Jack', 'Reynolds', 'Halloween Recital', '', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Alice', 'Smith', 'Jr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Bob', 'Honeycomb', 'Sr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Jack', 'Reynolds', '-', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
     ],
     page: 0,
     rowsPerPage: 5,
@@ -213,7 +199,6 @@ class ActiveRegistration extends Component {
         rowsPerPage,
         page,
     } = this.state;
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
         <CustomerPortalContainer>
@@ -287,11 +272,6 @@ class ActiveRegistration extends Component {
                           </TableRow>,
                         ];
                         })}
-                    {emptyRows > 0 && (
-                        <TableRow style={{ height: 49 * emptyRows }}>
-                        <TableCell colSpan={6} />
-                        </TableRow>
-                    )}
                     </TableBody>
                 </Table>
                 </div>
