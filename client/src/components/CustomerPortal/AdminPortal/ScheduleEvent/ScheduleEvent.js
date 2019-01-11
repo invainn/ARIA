@@ -106,22 +106,22 @@ class ScheduleEvent extends React.Component {
         <Grid>
             <div>
                 <Grid>
-                    <TextField 
-                        required
-                        label="Timeblock Minutes"
+                    <TextField
+                      required
+                      label="Timeblock Minutes"
                     />
                 </Grid>
             </div>
             <div>
                 <TextField
-                    required
-                    label="Saturday timeblock #" 
+                      required
+                      label="Saturday timeblock #" 
                 />
             </div>
             <div>
                 <TextField
-                    required
-                    label="Sunday timeblock #" 
+                      required
+                      label="Sunday timeblock #"
                 />
             </div>
             <div>
@@ -130,19 +130,19 @@ class ScheduleEvent extends React.Component {
                 </Typography>
                 <InputLabel htmlFor="select-multiple">Times</InputLabel>
                 <Select
-                    multiple
-                    value={this.state.times}
-                    onChange={this.handleChange}
-                    input={<Input id="select-multiple" />}
-                    MenuProps={MenuProps}
+                  multiple
+                  value={this.state.times}
+                  onChange={this.handleChange}
+                  input={<Input id="select-multiple" />}
+                  MenuProps={MenuProps}
                 >
                     {time.map(times => (
                         <MenuItem
-                            key={times}
-                            value={times}
-                    >
+                          key={times}
+                          value={times}
+                        >
                         {times}
-                    </MenuItem>
+                        </MenuItem>
                     ))}
                 </Select>
             </div>

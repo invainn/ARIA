@@ -59,7 +59,6 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
                 <Route exact path="/customer/faq" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
                 <Route exact path="/customer/about" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} /> */}
-               
                 {/* ADMIN PORTAL */}
                 <Route exat path="/admin/portal" component={Dashboard} />
                 <Route exact path="/admin/create-an-event" component={CreateEvent} />
