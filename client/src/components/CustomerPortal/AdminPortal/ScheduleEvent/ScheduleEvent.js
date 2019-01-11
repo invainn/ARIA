@@ -73,7 +73,7 @@ class ScheduleEvent extends React.Component {
     times: [],
   };
 
-  handleChange = (event) => {
+  handleChange = ({event: {target}}) => {
     this.setState({ times: event });
   };
 
