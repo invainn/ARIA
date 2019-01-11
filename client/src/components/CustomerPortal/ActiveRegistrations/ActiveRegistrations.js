@@ -116,18 +116,7 @@ let EnhancedTableToolbar = (props) => {
         )}
       </div>
       <div className={classes.spacer} />
-      <div className={classes.actions}>
-        {numSelected > 0 && (
-          <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
-              <Typography variant="h6" id="tableTitle">
-                Delete
-              </Typography>
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        )}
-      </div>
+      <div className={classes.actions} />
     </Toolbar>
   );
 };
@@ -287,11 +276,6 @@ class ActiveRegistration extends Component {
                           </TableRow>,
                         ];
                         })}
-                    {emptyRows > 0 && (
-                        <TableRow style={{ height: 49 * emptyRows }}>
-                        <TableCell colSpan={6} />
-                        </TableRow>
-                    )}
                     </TableBody>
                 </Table>
                 </div>
