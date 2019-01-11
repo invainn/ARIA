@@ -20,7 +20,6 @@ import Participants from '../CustomerPortal/Participants/Participants';
 // import PaymentHistory from '../CustomerPortal/PaymentHistory/PaymentHistory';
 
 // TEACHER PORTAL
-import TeacherDashboard from '../CustomerPortal/TeacherPortal/TeacherDashboard/TeacherDashboard';
 import TeacherAccount from '../CustomerPortal/TeacherPortal/TeacherAccount/TeacherAccount';
 import MyStudents from '../CustomerPortal/TeacherPortal/MyStudents/MyStudents';
 import StudentRegistrations from '../CustomerPortal/TeacherPortal/StudentRegistrations/StudentRegistrations';
@@ -58,7 +57,7 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/customer/about" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} /> */}
 
                 { /* TEACHER PORTAL */ }
-                <Route exact path="/teacher-portal" component={TeacherDashboard} />
+                <Route exact path="/teacher-portal" component={Dashboard} />
                 <Route exact path="/teacher-portal/teacher-account" component={TeacherAccount} />
                 <Route exact path="/teacher-portal/my-students" component={MyStudents} />
                 <Route exact path="teacher-portal/student-registrations" component={StudentRegistrations} />
