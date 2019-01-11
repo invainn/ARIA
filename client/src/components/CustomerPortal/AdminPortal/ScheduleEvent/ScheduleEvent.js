@@ -74,7 +74,7 @@ class ScheduleEvent extends React.Component {
   };
 
   handleChange = (event) => {
-    this.setState({ times: event.target.value });
+    this.setState({ times: event });
   };
 
   render() {
@@ -114,14 +114,14 @@ class ScheduleEvent extends React.Component {
             </div>
             <div>
                 <TextField
-                      required
-                      label="Saturday timeblock #" 
+                  required
+                  label="Saturday timeblock #"
                 />
             </div>
             <div>
                 <TextField
-                      required
-                      label="Sunday timeblock #"
+                  required
+                  label="Sunday timeblock #"
                 />
             </div>
             <div>
