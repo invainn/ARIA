@@ -17,8 +17,11 @@ import RegisterForAnEvent from '../CustomerPortal/RegisterForAnEvent/RegisterFor
 import ActiveRegistrations from '../CustomerPortal/ActiveRegistrations/ActiveRegistrations';
 import Login from '../Login/Login';
 import Participants from '../CustomerPortal/Participants/Participants';
-import CreateEvent from '../CustomerPortal/AdminPortal/CreateEvent/CreateEvent'
 // import PaymentHistory from '../CustomerPortal/PaymentHistory/PaymentHistory';
+
+//ADMIN PORTAL
+import CreateEvent from '../CustomerPortal/AdminPortal/CreateEvent/CreateEvent'
+import ScheduleEvent from '../CustomerPortal/AdminPortal/ScheduleEvent/ScheduleEvent'
 
 // TEACHER PORTAL
 import TeacherAccount from '../CustomerPortal/TeacherPortal/TeacherAccount/TeacherAccount';
@@ -56,10 +59,11 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
                 <Route exact path="/customer/faq" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
                 <Route exact path="/customer/about" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} /> */}
-<<<<<<< HEAD
+                
+                {/* ADMIN PORTAL */}
                 <Route exat path="/admin/portal" component={Dashboard} />
                 <Route exact path="/admin/create-an-event" component={CreateEvent} />
-=======
+                <Route exact path="/admin/schedule-an-event" component={ScheduleEvent} />
 
                 { /* TEACHER PORTAL */ }
                 <Route exact path="/teacher-portal" component={Dashboard} />
@@ -72,7 +76,6 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/teacher-portal/faq" component={FAQ} />
                 <Route exact path="/teacher-portal/about" component={AboutUs} />
 
->>>>>>> master
                 <Route path="*" component={NotFound} />
             </Switch>
         </BrowserRouter>
