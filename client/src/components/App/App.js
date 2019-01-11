@@ -17,7 +17,7 @@ import RegisterForAnEvent from '../CustomerPortal/RegisterForAnEvent/RegisterFor
 import ActiveRegistrations from '../CustomerPortal/ActiveRegistrations/ActiveRegistrations';
 import Login from '../Login/Login';
 import Participants from '../CustomerPortal/Participants/Participants';
-import AdminDashboard from '../AdminPortal/Dashboard/Dashboard';
+import CreateEvent from '../CustomerPortal/AdminPortal/CreateEvent/CreateEvent'
 // import PaymentHistory from '../CustomerPortal/PaymentHistory/PaymentHistory';
 
 import getTheme from '../../theme';
@@ -49,7 +49,8 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
                 <Route exact path="/customer/faq" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
                 <Route exact path="/customer/about" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} /> */}
-                <Route exact path="/admin" component={AdminDashboard} />
+                <Route exat path="/admin/portal" component={Dashboard} />
+                <Route exact path="/admin/create-an-event" component={CreateEvent} />
                 <Route path="*" component={NotFound} />
             </Switch>
         </BrowserRouter>
