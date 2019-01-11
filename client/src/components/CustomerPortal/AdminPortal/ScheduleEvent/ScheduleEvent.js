@@ -73,8 +73,8 @@ class ScheduleEvent extends React.Component {
     times: [],
   };
 
-  handleChange = ({event: {target}}) => {
-    this.setState({ times: event });
+  handleChange = ({ event: { target } }) => {
+    this.setState({ times: event.target.value });
   };
 
   render() {
@@ -131,7 +131,7 @@ class ScheduleEvent extends React.Component {
                 <InputLabel htmlFor="select-multiple">Times</InputLabel>
                 <Select
                   multiple
-                  value={this.state.times}
+                  value={(this.state.times)}
                   onChange={this.handleChange}
                   input={<Input id="select-multiple" />}
                   MenuProps={MenuProps}
