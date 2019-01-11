@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable max-len */
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import {
@@ -11,20 +12,12 @@ import {
   Typography,
   Paper,
   Checkbox,
-  IconButton,
-  Tooltip,
-} from '@material-ui/core';
-
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
+} from '@material-ui/core/';
+import SchoolIcon from '@material-ui/icons/School';
 import EnhancedTableHead from './EnhancedTableHead';
-import CustomerPortalContainer from '../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
+import CustomerPortalContainer from '../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
-// Do not do this, fix this
-let counter = 0;
-
-const styles = () => ({
+const styles = theme => ({
   root: {
     width: '100%',
   },
@@ -40,14 +33,29 @@ const styles = () => ({
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
   },
+  button: {
+    margin: theme.spacing.unit,
+  },
 });
 
-const createData = (firstName, middleInitial, lastName, suffix, musicLevel, teacher) => {
-    counter += 1;
+function createData(firstName, lastName, suffix, eventType, date, performanceTime, location, startTime,
+    endTime, commandPerformance, song1, song2, song3) {
     return {
-        id: counter, firstName, middleInitial, lastName, suffix, musicLevel, teacher,
+        firstName,
+        lastName,
+        suffix,
+        eventType,
+        date,
+        performanceTime,
+        location,
+        startTime,
+        endTime,
+        commandPerformance,
+        song1,
+        song2,
+        song3,
     };
-};
+}
 
 const desc = (a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) {
@@ -61,46 +69,20 @@ const desc = (a, b, orderBy) => {
   return 0;
 };
 
-function stableSort(array, cmp) {
+// TODO: Javascript already has a sort, do not do this
+const stableSort = (array, cmp) => {
   const stabilizedThis = array.map((el, index) => [el, index]);
+
   stabilizedThis.sort((a, b) => {
     const order = cmp(a[0], b[0]);
     if (order !== 0) return order;
     return a[1] - b[1];
   });
+
   return stabilizedThis.map(el => el[0]);
-}
+};
 
-function getSorting(order, orderBy) {
-  return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
-}
-
-const toolbarStyles = theme => ({
-  root: {
-    paddingRight: theme.spacing.unit,
-    color: theme.palette.text.primary,
-    backgroundColor: theme.palette.primary,
-  },
-  highlight:
-    theme.palette.type === 'light'
-      ? {
-          color: theme.palette.primary.main,
-          backgroundColor: lighten(theme.palette.primary.main, 0.75),
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.primary,
-        },
-  spacer: {
-    flex: '1 1 100%',
-  },
-  actions: {
-    color: theme.palette.text.primary,
-  },
-  title: {
-    flex: '0 0 auto',
-  },
-});
+const getSorting = (order, orderBy) => (order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy));
 
 let EnhancedTableToolbar = (props) => {
   const { numSelected, classes } = props;
@@ -117,68 +99,27 @@ let EnhancedTableToolbar = (props) => {
             {numSelected} selected
           </Typography>
         ) : (
-          <Typography variant="h6" id="tableTitle">
-            Participants
-          </Typography>
+          <SchoolIcon />
         )}
       </div>
       <div className={classes.spacer} />
-      <div className={classes.actions}>
-        {numSelected > 0 ? (
-          <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
-              <Typography variant="h6" id="tableTitle">
-                Delete
-              </Typography>
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title="Filter list">
-            <IconButton aria-label="Filter list">
-              <FilterListIcon />
-            </IconButton>
-          </Tooltip>
-        )}
-      </div>
     </Toolbar>
   );
 };
 
-EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
-/* const styles = () => ({
-  root: {
-    width: '100%',
-  },
-  table: {
-    minWidth: 1020,
-  },
-  tableWrapper: {
-    overflowX: 'auto',
-  },
-}); */
+EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
 
-class EnhancedTable extends React.Component {
+class StudentRegistrations extends Component {
   state = {
     order: 'asc',
-    orderBy: 'calories',
+    orderBy: 'firstName',
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'P', 'Smith', 'Jr', 2, 'Mr. Jenkins'),
-      createData('Mary', 'B', 'Daniels', 'Sr', 11, 'Mr. Matthews'),
-      createData('Ronald', 'E', 'Davidson', '-', 4, 'Mrs. Charles'),
-      createData('Scott', 'K', 'Brown', '-', 6, 'Ms. Anderson'),
-      createData('Raymond', 'I', 'McMann', 'Jr', 1, 'Mrs. Stevenson'),
-      createData('Kenneth', 'B', 'Honeycomb', '-', 8, 'Mr. Franklin'),
-      createData('Gary', 'N', 'Peters', 'Sr', 3, 'Mr. Jackson'),
-      createData('Joshua', 'S', 'Holyfield', '-', 9, 'Ms. Sparks'),
-      createData('Heather', 'D', 'Howard', '-', 6, 'Mrs. Cilliza'),
-      createData('Lou', 'V', 'York', '-', 8, 'Mrs. Thomas'),
-      createData('Jack', 'S', 'Ybarra', '-', 1, 'Mrs. Banks'),
-      createData('Steve', 'A', 'Noack', 'Jr', 10, 'Mr. Cummings'),
-      createData('Gabriella', 'I', 'Barnett', 'Jr', 6, 'Mr. Ehlers'),
+      createData('Alice', 'Smith', 'Jr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Bob', 'Honeycomb', 'Sr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Jack', 'Reynolds', '-', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
     ],
     page: 0,
     rowsPerPage: 5,
@@ -222,7 +163,7 @@ class EnhancedTable extends React.Component {
     }
 
     this.setState({ selected: newSelected });
-  };
+  }
 
   handleChangePage = (event, page) => {
     this.setState({ page });
@@ -252,9 +193,9 @@ class EnhancedTable extends React.Component {
     return (
         <CustomerPortalContainer>
           <div className={classes.pageTitle}>
-            <Typography component="h2" variant="h2" gutterBottom align="center">
-              Participants
-            </Typography>
+              <Typography component="h2" variant="h2" gutterBottom align="center">
+                Student Registrations
+              </Typography>
           </div>
             <Paper className={classes.root}>
                 <EnhancedTableToolbar numSelected={selected.length} />
@@ -273,33 +214,56 @@ class EnhancedTable extends React.Component {
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((n) => {
                         const isSelected = this.isSelected(n.id);
-                        return (
-                            <TableRow
-                              hover
-                              onClick={event => this.handleClick(event, n.id)}
-                              role="checkbox"
-                              aria-checked={isSelected}
-                              tabIndex={-1}
-                              key={n.id}
-                              selected={isSelected}
-                            >
-                            <TableCell padding="checkbox">
+
+                        return [
+                          <TableRow
+                            hover
+                            onClick={event => this.handleClick(event, n.id)}
+                            role="checkbox"
+                            aria-checked={isSelected}
+                            tabIndex={-1}
+                            key={n.id}
+                            selected={isSelected}
+                            padding="auto"
+                          >
+                              <TableCell padding="checkbox">
                                 <Checkbox color="primary" checked={isSelected} />
-                            </TableCell>
-                            <TableCell component="th" scope="row" padding="none">
-                                {n.firstName}
-                            </TableCell>
-                            <TableCell>{n.middleInitial}</TableCell>
-                            <TableCell>{n.lastName}</TableCell>
-                            <TableCell>{n.suffix}</TableCell>
-                            <TableCell>{n.musicLevel}</TableCell>
-                            <TableCell>{n.teacher}</TableCell>
-                            </TableRow>
-                        );
+                              </TableCell>
+                              <TableCell>{n.firstName}</TableCell>
+                              <TableCell>{n.lastName}</TableCell>
+                              <TableCell>{n.suffix}</TableCell>
+                              <TableCell>{n.eventType}</TableCell>
+                              <TableCell>{n.date}</TableCell>
+                              <TableCell>{n.performanceTime}</TableCell>
+                              <TableCell>{n.location}</TableCell>
+                          </TableRow>,
+                          <TableRow
+                            style={{ display: isSelected ? undefined : 'none' }}
+                            hover
+                            onClick={event => this.handleClick(event, n.id)}
+                            role="checkbox"
+                            aria-checked={isSelected}
+                            tabIndex={-1}
+                            key={n.id}
+                            selected={isSelected}
+                            padding="auto"
+                          >
+                          {/* Stuff was broken new branch */}
+                            <TableCell />
+                            <TableCell />
+                            <TableCell>Song1: {n.song1}</TableCell>
+                            <TableCell>Song2: {n.song2}</TableCell>
+                            <TableCell>Song3: {n.song3}</TableCell>
+                            <TableCell>CommandPerformance: {n.commandPerformance}</TableCell>
+                            <TableCell>Start Time: {n.startTime}</TableCell>
+                            <TableCell>End Time: {n.endTime}</TableCell>
+                            <TableCell />
+                          </TableRow>,
+                        ];
                         })}
                     {emptyRows > 0 && (
                         <TableRow style={{ height: 49 * emptyRows }}>
-                        <TableCell colSpan={6} />
+                        <TableCell colSpan={7} />
                         </TableRow>
                     )}
                     </TableBody>
@@ -325,4 +289,5 @@ class EnhancedTable extends React.Component {
   }
 }
 
-export default withStyles(styles)(EnhancedTable);
+
+export default withStyles(styles)(StudentRegistrations);
