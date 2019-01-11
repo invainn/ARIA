@@ -73,8 +73,8 @@ class ScheduleEvent extends React.Component {
     times: [],
   };
 
-  handleChange = ({ event: { target } }) => {
-    this.setState({ times: event.target.value });
+  handleChange = ({ event }) => { // eslint-disable-line no-use-before-define
+    this.setState({ times: event.target.value }); // eslint-disable-line no-use-before-define
   };
 
   render() {
@@ -131,7 +131,7 @@ class ScheduleEvent extends React.Component {
                 <InputLabel htmlFor="select-multiple">Times</InputLabel>
                 <Select
                   multiple
-                  value={(this.state.times)}
+                  value={(this.state.times)} // eslint-disable-line no-use-before-define
                   onChange={this.handleChange}
                   input={<Input id="select-multiple" />}
                   MenuProps={MenuProps}
