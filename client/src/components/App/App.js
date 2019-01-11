@@ -19,9 +19,9 @@ import Login from '../Login/Login';
 import Participants from '../CustomerPortal/Participants/Participants';
 // import PaymentHistory from '../CustomerPortal/PaymentHistory/PaymentHistory';
 
-//ADMIN PORTAL
-import CreateEvent from '../CustomerPortal/AdminPortal/CreateEvent/CreateEvent'
-import ScheduleEvent from '../CustomerPortal/AdminPortal/ScheduleEvent/ScheduleEvent'
+// ADMIN PORTAL
+import CreateEvent from '../CustomerPortal/AdminPortal/CreateEvent/CreateEvent';
+import ScheduleEvent from '../CustomerPortal/AdminPortal/ScheduleEvent/ScheduleEvent';
 
 // TEACHER PORTAL
 import TeacherAccount from '../CustomerPortal/TeacherPortal/TeacherAccount/TeacherAccount';
@@ -59,7 +59,7 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/customer/payment-history" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
                 <Route exact path="/customer/faq" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
                 <Route exact path="/customer/about" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} /> */}
-                
+               
                 {/* ADMIN PORTAL */}
                 <Route exat path="/admin/portal" component={Dashboard} />
                 <Route exact path="/admin/create-an-event" component={CreateEvent} />

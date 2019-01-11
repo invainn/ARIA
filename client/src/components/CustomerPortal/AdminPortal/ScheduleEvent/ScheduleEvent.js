@@ -35,7 +35,7 @@ const styles = theme => ({
   },
 });
 
-//Bad i know
+// Bad i know
 const time = [
     '9:00 a.m.',
     '9:30 a.m.',
@@ -74,11 +74,11 @@ class ScheduleEvent extends React.Component {
   };
 
   handleChange = (event) => {
-    this.setState({ time: event.target.value });
+    this.setState({ times: event.target.value });
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
 
 
     return (
@@ -92,11 +92,13 @@ class ScheduleEvent extends React.Component {
           <Typography variant="h6" align="center">
               Timeblock Minutes: <br />
               <Typography>
-              NOTE: This should include time for students to perform, for judges to take notes after each student
-              performs, for proctors to introduce the judge(s), and for any other section-related events to take place. 
-              For traditional sections, 70% of the time entered will be reserved for performances, e.g. 60 minutes entered
-              results in 42 minutes of performance time. The remaining time is alotted for judging, transitioning performers, etc.
-              For masterclass sections, 90% will be alotted for performances.
+              NOTE: This should include time for students to perform, for judges to take notes
+              after each student performs, for proctors to introduce the judge(s), and for
+              any other section-related events to take place. For traditional sections, 70% of
+              the time entered will be reserved for performances, e.g. 60 minutes entered
+              results in 42 minutes of performance time. The remaining time is alotted for
+              judging, transitioning performers, etc. For masterclass sections, 90% will be
+              alotted for performances.
               </Typography>
           </Typography>
         </Paper>

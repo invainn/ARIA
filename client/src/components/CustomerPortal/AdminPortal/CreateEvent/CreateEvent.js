@@ -45,11 +45,10 @@ const styles = theme => ({
 
 class CreateEvent extends React.Component {
   state = {
-    value: 0,
   };
 
-  handleChange = (event, value) => {
-    this.setState({ value });
+  handleChange = (event ) => {
+    this.setState({  });
   };
 
   render() {
@@ -64,21 +63,22 @@ class CreateEvent extends React.Component {
         </div>
         <Paper className={classes.root}>
           <Typography variant="h6" align="center">
-              Welcome! Please submit information for all of the fields in the form below in order to create a new NNMTA music event.
+              Welcome! Please submit information for all of the fields in the form below in 
+              order to create a new NNMTA music event.
           </Typography>
         </Paper>
 
         <TabContainer>
           <AccountFields label="Event Name*" placeholder="Desired event name" />
-          <TextField label="Event Start Date" type="date" InputLabelProps={{ shrink: true, }} />
-          <TextField label="Event End Date" type="date" InputLabelProps={{ shrink: true, }} />
+          <TextField label="Event Start Date" type="date" InputLabelProps={{ shrink: true }} />
+          <TextField label="Event End Date" type="date" InputLabelProps={{ shrink: true }} />
           <AccountFields label="Event Location" placeholder="Event Address" />
           <div>
-          <TextField label="Student Registration Start Date" type="date" InputLabelProps={{ shrink: true, }} />
-          <TextField label="Student Registration End Date" type="date" InputLabelProps={{ shrink: true, }} />
+          <TextField label="Student Registration Start Date" type="date" InputLabelProps={{ shrink: true }} />
+          <TextField label="Student Registration End Date" type="date" InputLabelProps={{ shrink: true }} />
           </div>
-          <TextField label="Teacher Registration Start Date" type="date" InputLabelProps={{ shrink: true, }} />
-          <TextField label="Teacher Registration End Date" type="date" InputLabelProps={{ shrink: true, }} />
+          <TextField label="Teacher Registration Start Date" type="date" InputLabelProps={{ shrink: true }} />
+          <TextField label="Teacher Registration End Date" type="date" InputLabelProps={{ shrink: true }} />
 
           <FormHelperText>*Save your preferences below for them to take effect</FormHelperText>
             <Button variant="contained" className={classes.button} color="primary">
