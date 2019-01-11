@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
 import {
   Table,
   TableBody,
@@ -16,8 +15,6 @@ import {
   Button,
   Checkbox,
   ListItemIcon,
-  IconButton,
-  Tooltip,
   Icon,
 } from '@material-ui/core/';
 
@@ -202,7 +199,6 @@ class ActiveRegistration extends Component {
         rowsPerPage,
         page,
     } = this.state;
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
         <CustomerPortalContainer>
