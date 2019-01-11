@@ -1,3 +1,4 @@
+/*eslint eqeqeq:0*/
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import {
