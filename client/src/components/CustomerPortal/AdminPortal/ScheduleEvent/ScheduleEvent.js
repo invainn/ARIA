@@ -34,6 +34,9 @@ const styles = theme => ({
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
   },
+  test: {
+    flexGrow: 2,
+  },
 });
 
 // Bad i know
@@ -104,52 +107,58 @@ class ScheduleEvent extends React.Component {
           </Typography>
         </Paper>
 
-        <Grid>
-            <div>
-                <Grid>
-                    <TextField
-                      required
-                      label="Timeblock Minutes"
-                    />
-                </Grid>
-            </div>
-            <div>
-                <TextField
-                  required
-                  label="Saturday timeblock #"
-                />
-            </div>
-            <div>
-                <TextField
-                  required
-                  label="Sunday timeblock #"
-                />
-            </div>
-            <div>
-                <Typography>
-                    Select timeblock starting times:
-                </Typography>
-                <InputLabel htmlFor="select-multiple">Times</InputLabel>
-                <Select
-                  multiple
-                  // eslint-disable-next-line no-use-before-define
-                  value={(this.state.times)}
-                  onChange={this.handleChange}
-                  input={<Input id="select-multiple" />}
-                  MenuProps={MenuProps}
-                >
-                    {time.map(times => (
-                        <MenuItem
-                          key={times}
-                          value={times}
-                        >
-                        {times}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </div>
-
-        </Grid>
+        <div className={classes.test}>
+          <Grid
+            container
+            direction="column"
+            justify="space-evenly"
+            alignItems="flex-start"
+          >
+            <Grid item xs={2}>
+              <TextField
+                required
+                label="Timeblock Minutes"
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                required
+                label="Saturday timeblock #"
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                required
+                label="Sunday timeblock #"
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <Typography>
+                  Select timeblock starting times:
+              </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <InputLabel htmlFor="select-multiple">Times</InputLabel>
+              <Select
+                multiple
+                // eslint-disable-next-line no-use-before-define
+                value={(this.state.times)}
+                onChange={this.handleChange}
+                input={<Input id="select-multiple" />}
+                MenuProps={MenuProps}
+              >
+                  {time.map(times => (
+                      <MenuItem
+                        key={times}
+                        value={times}
+                      >
+                      {times}
+                      </MenuItem>
+                  ))}
+              </Select>
+            </Grid>
+          </Grid>
+        </div>
       </CustomerPortalContainer>
     );
   }
