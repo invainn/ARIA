@@ -31,13 +31,13 @@ const styles = theme => ({
     paddingBottom: '15px',
   },
   group: {
-    margin: `$(theme.spacing.unit)px 0`,
+    margin: '$(theme.spacing.unit)px 0',
   },
 });
 
 class GenerateDocuments extends React.Component {
   state = {
-    value: 'Adjudication Forms'
+    value: 'Adjudication Forms',
   };
 
   handleChange = ({ event }) => {
@@ -66,77 +66,77 @@ class GenerateDocuments extends React.Component {
                 Select All
                 </Button>
                 <RadioGroup
-                    aria-label="documents"
-                    name="documents"
-                    className={classes.group}
-                    value={this.state.value}
-                    onChange={this.handleChange}
+                  aria-label="documents"
+                  name="documents"
+                  className={classes.group}
+                  value={this.state.value}
+                  onChange={this.handleChange}
                 >
-                    <FormControlLabel 
-                        value="Adjudication Forms"
-                        control={<Radio color="primary" />}
-                        label="Adjudication Forms"
-                        labelPlacement="start"
+                    <FormControlLabel
+                      value="Adjudication Forms"
+                      control={<Radio color="primary" />}
+                      label="Adjudication Forms"
+                      labelPlacement="start"
                     />
                     <FormControlLabel 
-                        value="Results Sheets"
-                        control={<Radio color="primary" />}
-                        label="Results Sheets"
-                        labelPlacement="start"
+                      value="Results Sheets"
+                      control={<Radio color="primary" />}
+                      label="Results Sheets"
+                      labelPlacement="start"
                     />
                     <FormControlLabel 
-                        value="Announcing Sheets"
-                        control={<Radio color="primary" />}
-                        label="Announcing Sheets"
-                        labelPlacement="start"
+                      value="Announcing Sheets"
+                      control={<Radio color="primary" />}
+                      label="Announcing Sheets"
+                      labelPlacement="start"
                     />
                     <FormControlLabel 
-                        value="Teacher Master"
-                        control={<Radio color="primary" />}
-                        label="Teacher Master"
-                        labelPlacement="start"
+                      value="Teacher Master"
+                      control={<Radio color="primary" />}
+                      label="Teacher Master"
+                      labelPlacement="start"
                     />
                     <FormControlLabel 
-                        value="Session Assignments"
-                        control={<Radio color="primary" />}
-                        label="Session Assignments"
-                        labelPlacement="start"
+                      value="Session Assignments"
+                      control={<Radio color="primary" />}
+                      label="Session Assignments"
+                      labelPlacement="start"
                     />
                     <FormControlLabel 
-                        value="Room Schedules"
-                        control={<Radio color="primary" />}
-                        label="Room Schedules"
-                        labelPlacement="start"
+                      value="Room Schedules"
+                      control={<Radio color="primary" />}
+                      label="Room Schedules"
+                      labelPlacement="start"
                     />
                     <FormControlLabel 
-                        value="Master Schedule"
-                        control={<Radio color="primary" />}
-                        label="Master Schedule"
-                        labelPlacement="start"
+                      value="Master Schedule"
+                      control={<Radio color="primary" />}
+                      label="Master Schedule"
+                      labelPlacement="start"
                     />
                     <FormControlLabel 
-                        value="Simplified Schedule"
-                        control={<Radio color="primary" />}
-                        label="Simplified Schedule"
-                        labelPlacement="start"
+                      value="Simplified Schedule"
+                      control={<Radio color="primary" />}
+                      label="Simplified Schedule"
+                      labelPlacement="start"
                     />
                     <FormControlLabel 
-                        value="Teacher List"
-                        control={<Radio color="primary" />}
-                        label="Teacher List"
-                        labelPlacement="start"
+                      value="Teacher List"
+                      control={<Radio color="primary" />}
+                      label="Teacher List"
+                      labelPlacement="start"
                     />
                     <FormControlLabel 
-                        value="Theory Scores"
-                        control={<Radio color="primary" />}
-                        label="Theory Scores"
-                        labelPlacement="start"
+                      value="Theory Scores"
+                      control={<Radio color="primary" />}
+                      label="Theory Scores"
+                      labelPlacement="start"
                     />
                     <FormControlLabel 
-                        value="Session Files"
-                        control={<Radio color="primary" />}
-                        label="Session Files"
-                        labelPlacement="start"
+                      value="Session Files"
+                      control={<Radio color="primary" />}
+                      label="Session Files"
+                      labelPlacement="start"
                     />
                 </RadioGroup>
             </FormControl>

@@ -30,17 +30,13 @@ const styles = theme => ({
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
   },
-  group: {
-    margin: `$(theme.spacing.unit)px 0`,
-  },
 });
 
 class UploadMusic extends React.Component {
   state = {
-    value: 'Adjudication Forms'
   };
 
-  handleChange = ({}) => {
+  handleChange = () => {
     this.setState({});
   };
 
