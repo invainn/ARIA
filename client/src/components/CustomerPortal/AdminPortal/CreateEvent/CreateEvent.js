@@ -13,16 +13,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import AccountFields from './AccountFields';
 import CustomerPortalContainer from '../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
-{/*
-function TabContainer({ children }) {
-  return (
-    <Typography component="div" style={{ padding: 8 * 5 }}>
-      { children }
-    </Typography>
-  );
-} 
-*/}
-
 const styles = theme => ({
   root: {
     flexGrow: 2,
