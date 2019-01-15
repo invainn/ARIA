@@ -22,6 +22,8 @@ import Participants from '../CustomerPortal/Participants/Participants';
 // ADMIN PORTAL
 import CreateEvent from '../CustomerPortal/AdminPortal/CreateEvent/CreateEvent';
 import ScheduleEvent from '../CustomerPortal/AdminPortal/ScheduleEvent/ScheduleEvent';
+import ModifyEvent from '../CustomerPortal/AdminPortal/ModifyEvent/ModifyEvent';
+import GenerateDocuments from '../CustomerPortal/AdminPortal/GenerateDocuments/GenerateDocuments';
 
 // TEACHER PORTAL
 import TeacherAccount from '../CustomerPortal/TeacherPortal/TeacherAccount/TeacherAccount';
@@ -63,7 +65,8 @@ const App = ({ themeChoice }) => (
                 <Route exat path="/admin/portal" component={Dashboard} />
                 <Route exact path="/admin/create-an-event" component={CreateEvent} />
                 <Route exact path="/admin/schedule-an-event" component={ScheduleEvent} />
-                <Route exact path="admin/modify-event" component={ModifyEvent} />
+                <Route exact path="/admin/modify-event" component={ModifyEvent} />
+                <Route exact path="admin/generate-documents" component={GenerateDocuments} />
 
                 { /* TEACHER PORTAL */ }
                 <Route exact path="/teacher-portal" component={Dashboard} />
