@@ -63,6 +63,7 @@ const App = ({ themeChoice }) => (
                 <Route exat path="/admin/portal" component={Dashboard} />
                 <Route exact path="/admin/create-an-event" component={CreateEvent} />
                 <Route exact path="/admin/schedule-an-event" component={ScheduleEvent} />
+                <Route exact path="admin/modify-event" component={ModifyEvent} />
 
                 { /* TEACHER PORTAL */ }
                 <Route exact path="/teacher-portal" component={Dashboard} />
