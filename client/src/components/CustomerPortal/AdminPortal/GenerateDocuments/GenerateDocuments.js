@@ -78,61 +78,61 @@ class GenerateDocuments extends React.Component {
                       label="Adjudication Forms"
                       labelPlacement="start"
                     />
-                    <FormControlLabel 
+                    <FormControlLabel
                       value="Results Sheets"
                       control={<Radio color="primary" />}
                       label="Results Sheets"
                       labelPlacement="start"
                     />
-                    <FormControlLabel 
+                    <FormControlLabel
                       value="Announcing Sheets"
                       control={<Radio color="primary" />}
                       label="Announcing Sheets"
                       labelPlacement="start"
                     />
-                    <FormControlLabel 
+                    <FormControlLabel
                       value="Teacher Master"
                       control={<Radio color="primary" />}
                       label="Teacher Master"
                       labelPlacement="start"
                     />
-                    <FormControlLabel 
+                    <FormControlLabel
                       value="Session Assignments"
                       control={<Radio color="primary" />}
                       label="Session Assignments"
                       labelPlacement="start"
                     />
-                    <FormControlLabel 
+                    <FormControlLabel
                       value="Room Schedules"
                       control={<Radio color="primary" />}
                       label="Room Schedules"
                       labelPlacement="start"
                     />
-                    <FormControlLabel 
+                    <FormControlLabel
                       value="Master Schedule"
                       control={<Radio color="primary" />}
                       label="Master Schedule"
                       labelPlacement="start"
                     />
-                    <FormControlLabel 
+                    <FormControlLabel
                       value="Simplified Schedule"
                       control={<Radio color="primary" />}
                       label="Simplified Schedule"
                       labelPlacement="start"
                     />
-                    <FormControlLabel 
+                    <FormControlLabel
                       value="Teacher List"
                       control={<Radio color="primary" />}
                       label="Teacher List"
                       labelPlacement="start"
                     />
-                    <FormControlLabel 
+                    <FormControlLabel
                       value="Theory Scores"
                       control={<Radio color="primary" />}
                       label="Theory Scores"
                       labelPlacement="start"
                     />
-                    <FormControlLabel 
+                    <FormControlLabel
                       value="Session Files"
                       control={<Radio color="primary" />}
                       label="Session Files"

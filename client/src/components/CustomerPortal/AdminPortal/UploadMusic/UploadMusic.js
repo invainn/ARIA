@@ -61,7 +61,7 @@ class UploadMusic extends React.Component {
                 CSV Music File*
             </Typography>
             <Typography variant="body6" align="left">
-                The CSV file should be in the following format:<br/>
+                The CSV file should be in the following format: <br />
                 Level(1-11), Period(1-4), Composer, Title, Opus/Catalog Number
             </Typography>
         </div>
