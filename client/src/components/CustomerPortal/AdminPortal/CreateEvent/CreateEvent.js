@@ -6,19 +6,22 @@ import {
   Button,
   Paper,
   Typography,
+  Grid,
 } from '@material-ui/core';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import AccountFields from './AccountFields';
 import CustomerPortalContainer from '../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
+{/*
 function TabContainer({ children }) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
+    <Typography component="div" style={{ padding: 8 * 5 }}>
       { children }
     </Typography>
   );
-}
+} 
+*/}
 
 const styles = theme => ({
   root: {
@@ -68,19 +71,41 @@ class CreateEvent extends React.Component {
           </Typography>
         </Paper>
 
-        <TabContainer>
-          <AccountFields label="Event Name*" placeholder="Desired event name" />
-          <TextField label="Event Start Date" type="date" InputLabelProps={{ shrink: true }} />
-          <TextField label="Event End Date" type="date" InputLabelProps={{ shrink: true }} />
-          <AccountFields label="Event Location" placeholder="Event Address" />
-          <div>
-          <TextField label="Student Registration Start Date" type="date" InputLabelProps={{ shrink: true }} />
-          <TextField label="Student Registration End Date" type="date" InputLabelProps={{ shrink: true }} />
-          </div>
-          <TextField label="Teacher Registration Start Date" type="date" InputLabelProps={{ shrink: true }} />
-          <TextField label="Teacher Registration End Date" type="date" InputLabelProps={{ shrink: true }} />
+    {/* <TabContainer> */}
+        <Grid
+          container
+          direction="row"
+          justify="flex-start"
+          alignItems="center"
+        >
+          <Grid xs={12}>
+            <AccountFields label="Event Name*" placeholder="Desired event name" />
+          </Grid>
+          <Grid xs={2}>
+            <TextField label="Event Start Date" type="date" InputLabelProps={{ shrink: true }} />
+          </Grid>
+          <Grid xs={10}>
+            <TextField label="Event End Date" type="date" InputLabelProps={{ shrink: true }} />
+          </Grid>
+          <Grid xs={12}>
+            <AccountFields label="Event Location" placeholder="Event Address" />
+          </Grid>
+          <Grid xs={2}>
+            <TextField label="Student Registration Start Date" type="date" InputLabelProps={{ shrink: true }} />
+          </Grid>
+          <Grid xs={10}>
+            <TextField label="Student Registration End Date" type="date" InputLabelProps={{ shrink: true }} />
+          </Grid>
+          <Grid xs={2}>
+            <TextField label="Teacher Registration Start Date" type="date" InputLabelProps={{ shrink: true }} />
+          </Grid>
+          <Grid xs={10}>
+            <TextField label="Teacher Registration End Date" type="date" InputLabelProps={{ shrink: true }} />
+          </Grid>
 
-          <FormHelperText>*Save your preferences below for them to take effect</FormHelperText>
+          <Grid xs={12}>
+            <FormHelperText>*Save your preferences below for them to take effect</FormHelperText>
+          </Grid>
             <Button variant="contained" className={classes.button} color="primary">
             <ListItemIcon>
               <Icon>save</Icon>
@@ -93,7 +118,8 @@ class CreateEvent extends React.Component {
             </ListItemIcon>
                 Discard Changes
             </Button>
-        </TabContainer>
+        </Grid>
+        {/* </TabContainer> */}
       </CustomerPortalContainer>
     );
   }
