@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import {
+  Button,
   Paper,
   Typography,
   Radio,
@@ -8,6 +9,8 @@ import {
   FormControlLabel,
   FormControl,
   FormLabel,
+  ListItemIcon,
+  Icon,
 } from '@material-ui/core';
 import CustomerPortalContainer from '../../../../containers/Shell/CustomerPortal/CustomerPortalContainer';
 
@@ -34,7 +37,7 @@ const styles = theme => ({
 
 class GenerateDocuments extends React.Component {
   state = {
-    value
+    value: 'Adjudication Forms'
   };
 
   handleChange = ({ event }) => {
@@ -42,7 +45,7 @@ class GenerateDocuments extends React.Component {
   };
 
   render() {
-    const { classes, value } = this.props;
+    const { classes } = this.props;
 
     return (
       <CustomerPortalContainer>
@@ -56,30 +59,96 @@ class GenerateDocuments extends React.Component {
               Please select which documents to download:
           </Typography>
         </Paper>
-        <FormControl component="fieldset" className={classes.documentPaper}>
-            <FormLabel component="legend">Documents</FormLabel>
-            <RadioGroup
-                aria-label="documents"
-                name="documents"
-                className={classes.group}
-                value={value}
-                onChange={handleChange}
-            >
-                <FormControlLabel 
-                    value="Adjudication Forms"
-                    control={<Radio color="primary" />}
-                    label="Adjudication Forms"
-                    labelPlacement="start"
-                />
-                <FormControlLabel 
-                    value="Results Sheets"
-                    control={<Radio color="primary" />}
-                    label="Results Sheets"
-                    labelPlacement="start"
-                />
-            </RadioGroup>
-        </FormControl>
-
+        <div>
+            <FormControl component="fieldset" className={classes.documentPaper}>
+                <FormLabel component="legend">Documents</FormLabel>
+                <Button size="small">
+                Select All
+                </Button>
+                <RadioGroup
+                    aria-label="documents"
+                    name="documents"
+                    className={classes.group}
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                >
+                    <FormControlLabel 
+                        value="Adjudication Forms"
+                        control={<Radio color="primary" />}
+                        label="Adjudication Forms"
+                        labelPlacement="start"
+                    />
+                    <FormControlLabel 
+                        value="Results Sheets"
+                        control={<Radio color="primary" />}
+                        label="Results Sheets"
+                        labelPlacement="start"
+                    />
+                    <FormControlLabel 
+                        value="Announcing Sheets"
+                        control={<Radio color="primary" />}
+                        label="Announcing Sheets"
+                        labelPlacement="start"
+                    />
+                    <FormControlLabel 
+                        value="Teacher Master"
+                        control={<Radio color="primary" />}
+                        label="Teacher Master"
+                        labelPlacement="start"
+                    />
+                    <FormControlLabel 
+                        value="Session Assignments"
+                        control={<Radio color="primary" />}
+                        label="Session Assignments"
+                        labelPlacement="start"
+                    />
+                    <FormControlLabel 
+                        value="Room Schedules"
+                        control={<Radio color="primary" />}
+                        label="Room Schedules"
+                        labelPlacement="start"
+                    />
+                    <FormControlLabel 
+                        value="Master Schedule"
+                        control={<Radio color="primary" />}
+                        label="Master Schedule"
+                        labelPlacement="start"
+                    />
+                    <FormControlLabel 
+                        value="Simplified Schedule"
+                        control={<Radio color="primary" />}
+                        label="Simplified Schedule"
+                        labelPlacement="start"
+                    />
+                    <FormControlLabel 
+                        value="Teacher List"
+                        control={<Radio color="primary" />}
+                        label="Teacher List"
+                        labelPlacement="start"
+                    />
+                    <FormControlLabel 
+                        value="Theory Scores"
+                        control={<Radio color="primary" />}
+                        label="Theory Scores"
+                        labelPlacement="start"
+                    />
+                    <FormControlLabel 
+                        value="Session Files"
+                        control={<Radio color="primary" />}
+                        label="Session Files"
+                        labelPlacement="start"
+                    />
+                </RadioGroup>
+            </FormControl>
+        </div>
+        <div>
+            <Button variant="contained" className={classes.button} color="primary">
+                <ListItemIcon>
+                    <Icon>save</Icon>
+                </ListItemIcon>
+                    Save Changes
+            </Button>
+        </div>
       </CustomerPortalContainer>
     );
   }
