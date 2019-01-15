@@ -56,8 +56,8 @@ class CreateEvent extends React.Component {
         </div>
         <Paper className={classes.root}>
           <Typography variant="h6" align="center">
-              Welcome! Please submit information for all of the fields in the form below in
-              order to create a new NNMTA music event.
+              Welcome! Please enter the information required below to create a
+              new NNMTA event!
           </Typography>
         </Paper>
 
