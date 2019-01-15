@@ -141,7 +141,7 @@ class ScheduleEvent extends React.Component {
               <InputLabel htmlFor="select-multiple">Times</InputLabel>
               <Select
                 multiple
-                // eslint-disable-next-line no-use-before-define
+                // eslint-disable-next-line react/destructuring-assignment
                 value={(this.state.times)}
                 onChange={this.handleChange}
                 input={<Input id="select-multiple" />}

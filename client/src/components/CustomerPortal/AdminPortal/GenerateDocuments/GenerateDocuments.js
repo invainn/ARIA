@@ -69,6 +69,7 @@ class GenerateDocuments extends React.Component {
                   aria-label="documents"
                   name="documents"
                   className={classes.group}
+                  // eslint-disable-next-line react/destructuring-assignment
                   value={this.state.value}
                   onChange={this.handleChange}
                 >
