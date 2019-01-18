@@ -78,7 +78,7 @@ function AdminDashboard(props) {
   ];
 
   return (
-    <CustomerPortalContainer>
+    <CustomerPortalContainer userType="0">
       <main>
         {/* Hero unit */}
         <div className={classes.heroUnit}>
