@@ -63,7 +63,7 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/customer/faq" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} />
                 <Route exact path="/customer/about" render={props => <CustomerPortalContainer {...props} pathname={props.location} />} /> */}
                 {/* ADMIN PORTAL */}
-                <Route exat path="/admin/portal" component={Dashboard} />
+                <Route exact path="/admin/portal" render={props => <Dashboard {...props} userType={0} />} />
                 <Route exact path="/admin/create-an-event" component={CreateEvent} />
                 <Route exact path="/admin/schedule-an-event" component={ScheduleEvent} />
                 <Route exact path="/admin/modify-event" component={ModifyEvent} />
@@ -71,15 +71,14 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/admin/upload-music" component={UploadMusic} />
 
                 { /* TEACHER PORTAL */ }
+                <Route exact path="/teacher-portal" render={props => <Dashboard {...props} userType={2} />} />
                 <Route exact path="/teacher-portal" component={Dashboard} />
                 <Route exact path="/teacher-portal/teacher-account" component={TeacherAccount} />
                 <Route exact path="/teacher-portal/my-students" component={MyStudents} />
-                <Route exact path="teacher-portal/student-registrations" component={StudentRegistrations} />
-                <Route exact path="/teacher-portal/events-calendar" component={EventsCalendar} />
+                <Route exact path="/teacher-portal/student-registrations" component={StudentRegistrations} />
+                <Route exact path="/teacher-portalevents-calendar" component={EventsCalendar} />
                 <Route exact path="/teacher-portal/volunteer-for-an-event" component={VolunteerForAnEvent} />
                 <Route exact path="/teacher-portal/volunteer-success" component={VolunteerSuccess} />
-                <Route exact path="/teacher-portal/faq" component={FAQ} />
-                <Route exact path="/teacher-portal/about" component={AboutUs} />
 
                 <Route path="*" component={NotFound} />
             </Switch>

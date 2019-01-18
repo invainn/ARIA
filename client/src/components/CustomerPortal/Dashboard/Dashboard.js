@@ -66,7 +66,7 @@ const styles = theme => ({
 
 
 function Dashboard(props) {
-  const { classes } = props;
+  const { classes, userType = 1 } = props;
 
   // Stop doing global variables
   // Everything should be in a function or import
@@ -78,7 +78,7 @@ function Dashboard(props) {
   ];
 
   return (
-    <CustomerPortalContainer>
+    <CustomerPortalContainer userType={userType}>
       <main>
         {/* Hero unit */}
         <div className={classes.heroUnit}>

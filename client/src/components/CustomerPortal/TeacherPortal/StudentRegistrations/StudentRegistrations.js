@@ -191,7 +191,7 @@ class StudentRegistrations extends Component {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-        <CustomerPortalContainer>
+        <CustomerPortalContainer userType={2}>
           <div className={classes.pageTitle}>
               <Typography component="h2" variant="h2" gutterBottom align="center">
                 Student Registrations

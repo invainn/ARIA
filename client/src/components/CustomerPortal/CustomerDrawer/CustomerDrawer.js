@@ -110,12 +110,136 @@ class CustomerDrawer extends Component {
     };
   }
 
+  renderList(userType) {
+    if (userType === 0) {
+      return (
+        <div>
+          <ListItem button component={Link} to="/admin/portal" onClick={this.switchToDashboardHandler}>
+            <ListItemIcon>
+              <Icon>dashboard</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Dashboard" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/create-an-event" onClick={this.switchToAccountHandler}>
+            <ListItemIcon>
+              <Icon>account_box</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Create an Event" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/modify-event" onClick={this.switchToRegStudHandler}>
+            <ListItemIcon>
+              <Icon>group_add</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Modify Events" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/generate-documents" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>calendar_today</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Generate Documents" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/upload-music" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>event_available</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Upload Music" />
+          </ListItem>
+        </div>
+      );
+    }
+
+    if (userType === 2) {
+      return (
+        <div>
+          <ListItem button component={Link} to="/teacher-portal" onClick={this.switchToDashboardHandler}>
+            <ListItemIcon>
+              <Icon>dashboard</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Dashboard" />
+          </ListItem>
+          <ListItem button component={Link} to="/teacher-portal/teacher-account" onClick={this.switchToAccountHandler}>
+            <ListItemIcon>
+              <Icon>account_box</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Account Settings" />
+          </ListItem>
+          <ListItem button component={Link} to="/teacher-portal/my-students" onClick={this.switchToRegStudHandler}>
+            <ListItemIcon>
+              <Icon>group_add</Icon>
+            </ListItemIcon>
+            <ListItemText primary="My Students" />
+          </ListItem>
+          <ListItem button component={Link} to="/teacher-portal/student-registrations" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>calendar_today</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Student Registrations" />
+          </ListItem>
+          <ListItem button component={Link} to="/teacher-portal/events-calendar" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>event_available</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Events Calendar" />
+          </ListItem>
+          <ListItem button component={Link} to="/teacher-portal/volunteer-for-an-event" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>event</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Volunteer for an Event" />
+          </ListItem>
+        </div>
+      );
+      }
+
+        return (
+          <div>
+            <ListItem button component={Link} to="/customer" onClick={this.switchToDashboardHandler}>
+              <ListItemIcon>
+                <Icon>dashboard</Icon>
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItem>
+            <ListItem button component={Link} to="/customer/account-info" onClick={this.switchToAccountHandler}>
+              <ListItemIcon>
+                <Icon>account_box</Icon>
+              </ListItemIcon>
+              <ListItemText primary="My Account" />
+            </ListItem>
+            <ListItem button component={Link} to="/customer/participants" onClick={this.switchToRegStudHandler}>
+              <ListItemIcon>
+                <Icon>group_add</Icon>
+              </ListItemIcon>
+              <ListItemText primary="Participants" />
+            </ListItem>
+            <ListItem button component={Link} to="/customer/events-calendar" onClick={this.switchOptionHandler}>
+              <ListItemIcon>
+                <Icon>calendar_today</Icon>
+              </ListItemIcon>
+              <ListItemText primary="Events Calendar" />
+            </ListItem>
+            <ListItem button component={Link} to="/customer/register-for-an-event" onClick={this.switchOptionHandler}>
+              <ListItemIcon>
+                <Icon>event_available</Icon>
+              </ListItemIcon>
+              <ListItemText primary="Register for an Event" />
+            </ListItem>
+            <ListItem button component={Link} to="/customer/active-registrations" onClick={this.switchOptionHandler}>
+              <ListItemIcon>
+                <Icon>event</Icon>
+              </ListItemIcon>
+              <ListItemText primary="Active Registrations" />
+            </ListItem>
+          </div>
+        );
+  }
+
   render() {
     const {
       classes,
       theme,
       open,
       togglePortalDrawer,
+      userType = 1,
     } = this.props;
 
     const { something } = this.state;
@@ -136,51 +260,7 @@ class CustomerDrawer extends Component {
             </div>
             <Divider />
               <List>
-                <div>
-                  <ListItem button component={Link} to="/customer" onClick={this.switchToDashboardHandler}>
-                    <ListItemIcon>
-                      <Icon>dashboard</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="Dashboard" />
-                  </ListItem>
-                  <ListItem button component={Link} to="/customer/account-info" onClick={this.switchToAccountHandler}>
-                    <ListItemIcon>
-                      <Icon>account_box</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="My Account" />
-                  </ListItem>
-                  <ListItem button component={Link} to="/customer/participants" onClick={this.switchToRegStudHandler}>
-                    <ListItemIcon>
-                      <Icon>group_add</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="Participants" />
-                  </ListItem>
-                  <ListItem button component={Link} to="/customer/events-calendar" onClick={this.switchOptionHandler}>
-                    <ListItemIcon>
-                      <Icon>calendar_today</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="Events Calendar" />
-                  </ListItem>
-                  <ListItem button component={Link} to="/customer/register-for-an-event" onClick={this.switchOptionHandler}>
-                    <ListItemIcon>
-                      <Icon>event_available</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="Register for an Event" />
-                  </ListItem>
-                  <ListItem button component={Link} to="/customer/active-registrations" onClick={this.switchOptionHandler}>
-                    <ListItemIcon>
-                      <Icon>event</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="Active Registrations" />
-                  </ListItem>
-                {/*  <ListItem button component={Link} to="/customer/payment-history"
-                          onClick={this.switchOptionHandler}>
-                    <ListItemIcon>
-                      <Icon>payment</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="Payment History" />
-                  </ListItem> */}
-                </div>
+                {this.renderList(userType)}
               </List>
             <Divider />
               <List>

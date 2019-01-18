@@ -33,12 +33,12 @@ const styles = theme => ({
 });
 
 const CustomerPortal = ({
- classes, open, children, togglePortalDrawer,
+ classes, open, children, togglePortalDrawer, userType,
 }) => (
   <div className={classes.root}>
       <ShellHeader open={open} togglePortalDrawer={togglePortalDrawer} portal="true" />
       <div className={classes.portalContent}>
-        <CustomerDrawer open={open} togglePortalDrawer={togglePortalDrawer} />
+        <CustomerDrawer open={open} togglePortalDrawer={togglePortalDrawer} userType={userType} />
         <main className={classes.content}>
           <div className={classes.toolbar} />
           { children }

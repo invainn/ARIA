@@ -44,7 +44,7 @@ class UploadMusic extends React.Component {
     const { classes } = this.props;
 
     return (
-      <CustomerPortalContainer>
+      <CustomerPortalContainer userType={0}>
         <div className={classes.pageTitle}>
           <Typography component="h2" variant="h2" gutterBottom align="center">
               Upload Music
