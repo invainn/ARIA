@@ -10,7 +10,11 @@ import Shell from '../Shell/Shell';
 
 
 const styles = ({
-  bigAvatar: {
+    pageTitle: {
+        paddingBottom: '15px',
+    },
+
+    bigAvatar: {
     margin: 10,
     width: 100,
     height: 100,
@@ -21,9 +25,9 @@ const styles = ({
 function Website() {
     return (
         <Shell>
-            <Grid container justify="center" alignItems="center">
-                <Typography>
-                    test
+            <Grid justify="center" alignItems="center">
+                <Typography variant="h1">
+                    Project ARIA
                 </Typography>
             </Grid>
         </Shell>
