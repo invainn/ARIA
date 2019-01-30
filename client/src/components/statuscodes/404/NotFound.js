@@ -93,18 +93,18 @@ const styles = () => ({
 });
 
  const NotFound = ({ classes }) => (
-    <div style={classes.nf}>
-        <div style={classes.notfound}>
+    <div className={classes.nf}>
+        <div className={classes.notfound}>
             <div>
-                <h3 style={classes.h3Style}>Oops! Page not found</h3>
-                <h1 style={classes.h1Style}><span>4</span><span>0</span><span>4</span></h1>
+                <h3 className={classes.h3Style}>Oops! Page not found</h3>
+                <h1 className={classes.h1Style}><span>4</span><span>0</span><span>4</span></h1>
             </div>
-            <h2 style={classes.h2Style}>
+            <h2 className={classes.h3Style}>
                 <span>something went wrong, the page you requested was not found</span>
             </h2>
             <center>
-                <Button color="primary" variant="raised" style={classes.buttonStyle}>
-                    <Link color="primary" style={classes.linkStyle} to="/">Return to Home Page</Link>
+                <Button color="primary" variant="raised" className={classes.buttonStyle}>
+                    <Link color="primary" className={classes.linkStyle} to="/">Return to Home Page</Link>
                 </Button>
             </center>
         </div>
