@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import NotFound from '../statuscodes/404/NotFound';
+import Website from '../Website/Website';
 import AccountCreation from '../AccountCreation/AccountCreation';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import Dashboard from '../CustomerPortal/Dashboard/Dashboard';
@@ -50,6 +51,7 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/" component={Login} />
                 <Route exact path="/create-an-account" component={AccountCreation} />
                 <Route exact path="/forgot-password" component={ForgotPassword} />
+                <Route exact path="/project-website" component={Website} />
                 <Route exact path="/customer" component={Dashboard} />
                 <Route path="/customer/account-info" component={Account} />
                 <Route exact path="/customer/participants" component={Participants} />
