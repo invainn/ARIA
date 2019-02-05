@@ -101,7 +101,9 @@ class CreateEvent extends React.Component {
             </Grid>
 
             <Grid xs={12}>
-              <FormHelperText className={classes.forms}>*Save your preferences below for them to take effect</FormHelperText>
+              <FormHelperText className={classes.forms}>
+                *Save your preferences below for them to take effect
+              </FormHelperText>
             </Grid>
               <Button variant="contained" className={classes.button} color="primary">
               <ListItemIcon>
