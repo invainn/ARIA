@@ -13,6 +13,7 @@ import {
   Checkbox,
   IconButton,
   Tooltip,
+  Button,
 } from '@material-ui/core';
 
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -39,6 +40,9 @@ const styles = () => ({
     textDecoration: 'underline',
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
+  },
+  participationButton: {
+    margin: '8px',
   },
 });
 
@@ -319,6 +323,9 @@ class MyParticipants extends Component {
                   onChangePage={this.handleChangePage}
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                 />
+                <Button variant="contained" color="primary" className={classes.participationButton}>
+                  Add New Participant
+                </Button>
             </Paper>
         </CustomerPortalContainer>
     );
