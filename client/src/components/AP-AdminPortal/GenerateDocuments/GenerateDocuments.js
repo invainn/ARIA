@@ -11,6 +11,7 @@ import {
   Step,
   StepLabel,
   Paper,
+  FormControl,
 } from '@material-ui/core';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
@@ -25,9 +26,8 @@ const styles = theme => ({
   },
   documentPaper: {
     marginTop: 5,
+    textAlign: 'center',
     width: '70%',
-    height: '45%',
-    marginRight: 30,
   },
   pageTitle: {
     width: '100%',
@@ -40,6 +40,9 @@ const styles = theme => ({
   },
   documentStepper: {
     borderRadius: '5px',
+  },
+  gridItems: {
+    marginLeft: 7,
   },
 });
 
@@ -106,96 +109,56 @@ class GenerateDocuments extends Component {
           </Step>
         ))}
         </Stepper>
-        <Grid container direction="column" justify="center" alignItems="flex-end">
-          <Paper className={classes.documentPaper}>
-              <FormGroup>
-                <Grid xs={7}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={adjudication} onChange={this.handleChange('adjudication')} value="adjudication" />
-                    }
-                    label="Adjudication Forms"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={results} onChange={this.handleChange('results')} value="results" />
-                    }
-                    label="Results Sheets"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={announcing} onChange={this.handleChange('announcing')} value="announcing" />
-                    }
-                    label="Announcing Sheets"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={teacherMaster} onChange={this.handleChange('teacherMaster')} value="teacherMaster" />
-                    }
-                    label="Teacher Master"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={sessionAssignments} onChange={this.handleChange('sessionAssignments')} value="sessionAssignments" />
-                    }
-                    label="Session Assignments"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={room} onChange={this.handleChange('room')} value="room" />
-                    }
-                    label="Room Schedules"
-                  />
+
+        <div>
+          <Grid
+            container
+            direction="row"
+            justify="space-evenly"
+            alignItems="center"
+          >
+            <Paper className={classes.documentPaper}>
+              <Grid
+                container
+                spacing={24}
+                justify="space-evenly"
+                alignItems="center"
+                direction="row"
+              >
+                <Grid item xs={3} className={classes.gridItems}>
+                  <FormGroup>
+                    <FormControlLabel
+                      control={
+                        <Checkbox checked={adjudication} onChange={this.handleChange('adjudication')} value="adjudication" />
+                      }
+                      label="Adjudication Forms"
+                    />
+                  </FormGroup>
                 </Grid>
-                <Grid item xs={7}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={master} onChange={this.handleChange('master')} value="master" />
-                    }
-                    label="Master Schedule"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={simplified} onChange={this.handleChange('simplified')} value="simplified" />
-                    }
-                    label="Simplified Schedule"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={teacherList} onChange={this.handleChange('teacherList')} value="teacherList" />
-                    }
-                    label="Teacher List"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={theory} onChange={this.handleChange('theory')} value="theory" />
-                    }
-                    label="Theory Scores"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox checked={sessionFiles} onChange={this.handleChange('sessionFiles')} value="sessionFiles" />
-                    }
-                    label="Session Files"
-                  />
+                <Grid item xs={3}>
+                  <FormGroup>
+                    <FormControlLabel
+                      control={
+                        <Checkbox checked={results} onChange={this.handleChange('results')} value="results" />
+                      }
+                      label="Results Sheets"
+                    />
+                  </FormGroup>
                 </Grid>
-              </FormGroup>
-            <Grid container direction="row" justify="flex-end" alignItems="center">
-                <Grid xs={4}>
-                { activeStep === 1 && <SelectFile /> }
-                { /* { activeStep === 1 && <DownloadFiles /> } */}
-                { activeStep > 0 && (
-                  <Button variant="contained" className={classes.button} color="primary" onClick={this.walkBackStep}>
-                    Go Back
-                  </Button>
-                )}
-                <Button variant="contained" className={classes.button} onClick={this.walkStep}>
-                  Next
-                </Button>
+                <Grid item xs={3}>
+                  <FormGroup>
+                    <FormControlLabel
+                      control={
+                        <Checkbox checked={announcing} onChange={this.handleChange('announcing')} value="announcing" />
+                      }
+                      label="Announcing Sheets"
+                    />
+                  </FormGroup>
                 </Grid>
-            </Grid>
-          </Paper>
-        </Grid>
+              </Grid>
+            </Paper>
+          </Grid>
+        </div>
       </CustomerPortalContainer>
     );
   }
