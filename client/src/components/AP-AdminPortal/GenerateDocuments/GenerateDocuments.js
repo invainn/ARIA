@@ -271,9 +271,8 @@ class GenerateDocuments extends Component {
                 alignItems="center"
                 direction="row"
               >
-                <Grid item xs={3} />
-                <Grid item xs={3} />
-                <Grid item xs={3}>
+                <Grid item xs={10} />
+                <Grid item xs={1}>
                   { activeStep === 1 && <SelectFile /> }
                   { /* { activeStep === 1 &&& <DownloadFiles /> } */ }
                   { activeStep > 0 && (
