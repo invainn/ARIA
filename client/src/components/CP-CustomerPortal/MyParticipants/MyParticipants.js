@@ -14,6 +14,12 @@ import {
   IconButton,
   Tooltip,
   Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  TextField,
 } from '@material-ui/core';
 
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -186,6 +192,7 @@ class MyParticipants extends Component {
     ],
     page: 0,
     rowsPerPage: 5,
+    open: false,
   };
 
   handleRequestSort = (event, property) => {
@@ -239,6 +246,14 @@ class MyParticipants extends Component {
   isSelected = (id) => {
     const { selected } = this.state;
     return selected.indexOf(id) !== -1;
+  };
+
+  handleDialogOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleDialogClose = () => {
+    this.setState({ open: false });
   };
 
   render() {
@@ -323,9 +338,76 @@ class MyParticipants extends Component {
                   onChangePage={this.handleChangePage}
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                 />
-                <Button variant="contained" color="primary" className={classes.participationButton}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.participationButton}
+                  onClick={this.handleDialogOpen}
+                >
                   Add New Participant
                 </Button>
+                <Dialog
+                  // eslint-disable-next-line react/destructuring-assignment
+                  open={this.state.open}
+                  onClose={this.handleDialoglose}
+                  aria-labelledby="form-dialog-title"
+                >
+                  <DialogTitle id="form-dialog-title">Add New Participant</DialogTitle>
+                  <DialogContent>
+                    <DialogContentText>
+                      Please enter all required information to add a new participant!
+                    </DialogContentText>
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="first-name"
+                      label="First Name"
+                      required
+                      fullWidth
+                    />
+                    <TextField
+                      margin="dense"
+                      id="last-name"
+                      label="Last Name"
+                      required
+                      fullWidth
+                    />
+                    <TextField
+                      margin="dense"
+                      id="middle-initial"
+                      label="Middle Initial"
+                      required
+                      fullWidth
+                    />
+                    <TextField
+                      margin="dense"
+                      id="suffix"
+                      label="Suffix"
+                    />
+                    <TextField
+                      margin="dense"
+                      id="music-level"
+                      label="Music Level"
+                      required
+                      fullWidth
+                    />
+                    <TextField
+                      margin="dense"
+                      id="teacher"
+                      label="Teacher"
+                      required
+                      fullWidth
+                    />
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={this.handleDialogClose} color="primary">
+                      Cancel
+                    </Button>
+                    <Button onClick={this.handleDialogClose} color="primary">
+                      Add
+                    </Button>
+                  </DialogActions>
+                </Dialog>
             </Paper>
         </CustomerPortalContainer>
     );
