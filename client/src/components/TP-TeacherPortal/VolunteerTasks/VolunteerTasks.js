@@ -57,7 +57,7 @@ const createData = (name, calories, fat, carbs, protein) => {
         carbs,
         protein,
     };
-}
+};
 
   const rows = [
     createData('Student Recital', 'mm/dd/yyyy', 'Door Monitor', '9:00 AM', '3:00 PM'),
@@ -68,45 +68,45 @@ const createData = (name, calories, fat, carbs, protein) => {
     createData('Christmas Play-A-Thon', 'mm/dd/yyyy', 'Cleanup', '5:30 PM', '8:0 PM'),
   ];
 
-function CustomizedTable(props) {
-const { classes } = props;
+const CustomizedTable = (props) => {
+  const { classes } = props;
 
-return (
-    <CustomerPortalContainer>
-        <div className={classes.pageTitle}>
-            <Typography component="h2" variant="h2" gutterBottom align="center">
-                Tasks
-            </Typography>
-        </div>
-        <Paper className={classes.root}>
-        <Table className={classes.table}>
-            <TableHead>
-            <TableRow>
-                <CustomTableCell>Event Name</CustomTableCell>
-                <CustomTableCell align="center">Date</CustomTableCell>
-                <CustomTableCell align="center">Assigned Task</CustomTableCell>
-                <CustomTableCell align="center">Start Time</CustomTableCell>
-                <CustomTableCell align="center">End Time</CustomTableCell>
-            </TableRow>
-            </TableHead>
-            <TableBody>
-            {rows.map(row => (
-                <TableRow className={classes.row} key={row.id}>
-                <CustomTableCell component="th" scope="row">
-                    {row.name}
-                </CustomTableCell>
-                <CustomTableCell align="center">{row.calories}</CustomTableCell>
-                <CustomTableCell align="center">{row.fat}</CustomTableCell>
-                <CustomTableCell align="center">{row.carbs}</CustomTableCell>
-                <CustomTableCell align="center">{row.protein}</CustomTableCell>
-                </TableRow>
-            ))}
-            </TableBody>
-        </Table>
-        </Paper>
-    </CustomerPortalContainer>
-);
-}
+  return (
+      <CustomerPortalContainer>
+          <div className={classes.pageTitle}>
+              <Typography component="h2" variant="h2" gutterBottom align="center">
+                  Tasks
+              </Typography>
+          </div>
+          <Paper className={classes.root}>
+          <Table className={classes.table}>
+              <TableHead>
+              <TableRow>
+                  <CustomTableCell>Event Name</CustomTableCell>
+                  <CustomTableCell align="center">Date</CustomTableCell>
+                  <CustomTableCell align="center">Assigned Task</CustomTableCell>
+                  <CustomTableCell align="center">Start Time</CustomTableCell>
+                  <CustomTableCell align="center">End Time</CustomTableCell>
+              </TableRow>
+              </TableHead>
+              <TableBody>
+              {rows.map(row => (
+                  <TableRow className={classes.row} key={row.id}>
+                  <CustomTableCell component="th" scope="row">
+                      {row.name}
+                  </CustomTableCell>
+                  <CustomTableCell align="center">{row.calories}</CustomTableCell>
+                  <CustomTableCell align="center">{row.fat}</CustomTableCell>
+                  <CustomTableCell align="center">{row.carbs}</CustomTableCell>
+                  <CustomTableCell align="center">{row.protein}</CustomTableCell>
+                  </TableRow>
+              ))}
+              </TableBody>
+          </Table>
+          </Paper>
+      </CustomerPortalContainer>
+  );
+};
 
 
 export default withStyles(styles)(CustomizedTable);
