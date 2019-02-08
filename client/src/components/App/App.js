@@ -73,17 +73,19 @@ const App = ({ themeChoice }) => (
 
                 { /* SHARED-PORTAL */ }
                 { /* ADMIN */ }
-                <Route exact path="/admin/dashboard" component={Dashboard} />
+                <Route exact path="/admin/dashboard" render={props => <Dashboard {...props} userType={0} />} />
                 <Route exact path="/admin/events-calendar" component={EventsCalendar} />
                 <Route exact path="/admin/faq" component={FAQ} />
                 <Route exact path="/admin/about" component={AboutNNMTA} />
+
                 { /* CUSTOMER */ }
                 <Route exact path="/customer/dashboard" component={Dashboard} />
                 <Route exact path="/customer/events-calendar" component={EventsCalendar} />
                 <Route exact path="/customer/faq" component={FAQ} />
                 <Route exact path="/customer/about" component={AboutNNMTA} />
+
                 { /* TEACHER */ }
-                <Route exact path="/teacher/dashboard" component={Dashboard} />
+                <Route exact path="/teacher/dashboard" render={props => <Dashboard {...props} userType={2} />} />
                 <Route exact path="/teacher/events-calendar" component={EventsCalendar} />
                 <Route exact path="/teacher/faq" component={FAQ} />
                 <Route exact path="/teacher/about" component={AboutNNMTA} />

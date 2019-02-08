@@ -151,12 +151,6 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Upload Music" />
           </ListItem>
-          <ListItem button component={Link} to="/admin/events-calendar" onClick={this.switchOptionHandler}>
-            <ListItemIcon>
-              <Icon>event_available</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Events Calendar" />
-          </ListItem>
         </div>
       );
     }
@@ -189,17 +183,11 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Student Registrations" />
           </ListItem>
-          <ListItem button component={Link} to="/teacher/volunteer-for-an-event" onClick={this.switchOptionHandler}>
+          <ListItem button component={Link} to="/teacher/volunteer-tasks" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>event</Icon>
             </ListItemIcon>
             <ListItemText primary="Volunteer for an Event" />
-          </ListItem>
-          <ListItem button component={Link} to="/teacher/events-calendar" onClick={this.switchOptionHandler}>
-            <ListItemIcon>
-              <Icon>event_available</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Events Calendar" />
           </ListItem>
         </div>
       );

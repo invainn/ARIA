@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 import {
     withStyles,
@@ -59,64 +60,80 @@ const styles = theme => ({
 });
 
 
-const Login = ({ classes }) => (
-    <Shell>
-        <Grid className={classes.landing} container justify="center" alignItems="center">
-            <Grid className={classes.landingContent} container direction="column" justify="center" alignItems="center">
-                <Typography variant="title" align="center" className={classes.landingCaption}>
-                    Northern Nevada Music Teacher Association
-                </Typography>
+class Login extends React.Component {
+    state = {
+        username: '',
+        password: '',
+    };
 
-                <div className={classes.margin}>
-                    <Grid container spacing={8} alignItems="flex-end">
-                        <Grid item>
-                            <Icon className={classes.loginIcons}>account_circle</Icon>
-                        </Grid>
-                        <Grid item className={classes.fieldText}>
-                            <TextField id="input-with-icon-grid" label="Username" className={classes.fieldText} />
-                        </Grid>
-                    </Grid>
-                </div>
+    handleChange = name => (event) => {
+        this.setState({ [name]: event.target.value });
+    };
 
-                <div className={classes.margin}>
-                    <Grid container spacing={8} alignItems="flex-end">
-                        <Grid item>
-                            <Icon className={classes.loginIcons}>vpn_key</Icon>
-                        </Grid>
-                        <Grid item>
-                            <TextField id="input-with-icon-grid" label="Password" InputProps={{ classes: { input: classes.fieldText } }} /> {/* TODO: wont change */}
-                        </Grid>
-                    </Grid>
-                </div>
+    render() {
+        const { classes } = this.props;
 
-                <div className={classes.margin}>
-                    <Grid container spacing={8} alignItems="flex-end">
-                        <Button variant="contained" color="primary" className={classes.button}>
-                            Sign In
-                        </Button>
-                    </Grid>
-                </div>
-
-                <div>
-                    <Typography className={classes.fieldText}>
-                        New User?
-                        <Button component={Link} to="/create-an-account" className={classes.button}>
-                                Click here to register!
-                        </Button>
-                    </Typography>
-                </div>
-
-                <div>
-                    <Button component={Link} to="/forgot-password">
-                        <Typography variant="caption" className={classes.fieldText}>
-                            Forgot your password?
+        return (
+            <Shell>
+                <Grid className={classes.landing} container justify="center" alignItems="center">
+                    <Grid className={classes.landingContent} container direction="column" justify="center" alignItems="center">
+                        <Typography variant="title" align="center" className={classes.landingCaption}>
+                            Northern Nevada Music Teacher Association
                         </Typography>
-                    </Button>
-                </div>
 
-            </Grid>
-        </Grid>
-    </Shell>
-);
+                        <form autoComplete="off">
+                            <div className={classes.margin}>
+                                <Grid container spacing={8} alignItems="flex-end">
+                                    <Grid item>
+                                        <Icon className={classes.loginIcons}>account_circle</Icon>
+                                    </Grid>
+                                    <Grid item className={classes.fieldText}>
+                                        <TextField id="input-with-icon-grid" label="Username" className={classes.fieldText} onChange={this.handleChange('username')} required />
+                                    </Grid>
+                                </Grid>
+                            </div>
+
+                            <div className={classes.margin}>
+                                <Grid container spacing={8} alignItems="flex-end">
+                                    <Grid item>
+                                        <Icon className={classes.loginIcons}>vpn_key</Icon>
+                                    </Grid>
+                                    <Grid item>
+                                        <TextField id="input-with-icon-grid" type="password" label="Password" onChange={this.handleChange('password')} InputProps={{ classes: { input: classes.fieldText } }} required /> {/* TODO: wont change */}
+                                    </Grid>
+                                </Grid>
+                            </div>
+
+                            <div className={classes.margin}>
+                                <Grid container spacing={8} alignItems="flex-end">
+                                    <Button variant="contained" color="primary" className={classes.button}>
+                                        Sign In
+                                    </Button>
+                                </Grid>
+                            </div>
+
+                            <div>
+                                <Typography className={classes.fieldText}>
+                                    New User?
+                                    <Button component={Link} to="/create-an-account" className={classes.button}>
+                                            Click here to register!
+                                    </Button>
+                                </Typography>
+                            </div>
+
+                            <div>
+                                <Button component={Link} to="/forgot-password">
+                                    <Typography variant="caption" className={classes.fieldText}>
+                                        Forgot your password?
+                                    </Typography>
+                                </Button>
+                            </div>
+                        </form>
+                    </Grid>
+                </Grid>
+            </Shell>
+        );
+    }
+}
 
 export default withStyles(styles)(Login);
