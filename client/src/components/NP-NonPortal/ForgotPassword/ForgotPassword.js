@@ -7,12 +7,12 @@ import {
     Button,
 } from '@material-ui/core';
 
-import Violin from '../Home/HomeLanding/violin.jpg';
+import Keyboard from './keyboard.jpg';
 import Shell from '../Shell/Shell';
 
 const styles = theme => ({
     landing: {
-        background: `url(${Violin}) no-repeat center center`,
+        background: `url(${Keyboard}) no-repeat center center`,
         backgroundSize: 'cover',
 
         height: '100vh',
@@ -21,7 +21,7 @@ const styles = theme => ({
     },
 
     landingContent: {
-        background: 'rgba(55, 71, 79, 0.3)',
+        background: 'rgba(55, 71, 79)',
         border: '3px solid brown',
         backgroundSize: 'contain',
         transition: 'all 1s',
@@ -34,20 +34,19 @@ const styles = theme => ({
 
     landingCaption: {
         marginTop: 15,
+        color: theme.palette.primary.contrastText,
     },
 
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
+        color: theme.palette.primary.contrastText,
         width: '100%',
     },
 
     button: {
         marginTop: 25,
         marginLeft: 20,
-    },
-
-    loginIcons: {
         color: theme.palette.primary.contrastText,
     },
 });
@@ -61,7 +60,7 @@ const ForgotPassword = ({ classes }) => (
                     Northern Nevada Music Teacher Association
                 </Typography>
 
-                <Typography variant="body1" align="center">
+                <Typography variant="body1" align="center" className={classes.landingCaption}>
                     Please enter your e-mail address and we will send a password
                     for you to login with!
                 </Typography>

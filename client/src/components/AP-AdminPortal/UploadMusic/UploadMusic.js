@@ -20,6 +20,9 @@ const styles = theme => ({
   },
   button: {
     margin: theme.spacing.unit,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: '43%',
   },
   rightIcon: {
     marginLeft: theme.spacing.unit,
@@ -29,6 +32,10 @@ const styles = theme => ({
     textDecoration: 'underline',
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
+  },
+  document: {
+    marginLeft: 7,
+    marginTop: 5,
   },
 });
 
@@ -56,31 +63,33 @@ class UploadMusic extends Component {
           </Typography>
         </Paper>
 
-        <div>
-            <Typography variant="h5" align="left">
-                CSV Music File*
-            </Typography>
-            <Typography variant="body6" align="left">
-                The CSV file should be in the following format: <br />
-                Level(1-11), Period(1-4), Composer, Title, Opus/Catalog Number
-            </Typography>
-        </div>
+        <Paper className={classes.document}>
+          <div>
+              <Typography variant="h5" align="center">
+                  CSV Music File*
+              </Typography>
+              <Typography variant="body6" align="center">
+                  The CSV file should be in the following format: <br />
+                  Level(1-11), Period(1-4), Composer, Title, Opus/Catalog Number
+              </Typography>
+          </div>
 
-        <div>
-            <Button variant="contained" color="default" className={classes.button}>
-                Upload
-                <CloudUploadIcon className={classes.rightIcon} />
-            </Button>
-        </div>
+          <div className={classes.button}>
+              <Button variant="contained" color="default">
+                  Upload
+                  <CloudUploadIcon className={classes.rightIcon} />
+              </Button>
+          </div>
 
-        <div>
-            <Button variant="contained" className={classes.button} color="primary">
-                <ListItemIcon>
-                <Icon>save</Icon>
-                </ListItemIcon>
-                    Save Changes
-            </Button>
-        </div>
+          <div>
+              <Button variant="contained" className={classes.button} color="primary">
+                  <ListItemIcon>
+                  <Icon>save</Icon>
+                  </ListItemIcon>
+                      Save Changes
+              </Button>
+          </div>
+        </Paper>
 
       </CustomerPortalContainer>
     );

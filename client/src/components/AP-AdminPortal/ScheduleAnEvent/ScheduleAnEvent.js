@@ -37,6 +37,15 @@ const styles = theme => ({
   test: {
     flexGrow: 2,
   },
+  document: {
+    marginTop: 5,
+    height: '100%',
+  },
+  margin: {
+    marginLeft: 7,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 // Bad i know
@@ -108,56 +117,58 @@ class ScheduleAnEvent extends Component {
         </Paper>
 
         <div className={classes.test}>
-          <Grid
-            container
-            direction="column"
-            justify="space-evenly"
-            alignItems="flex-start"
-          >
-            <Grid item xs={2}>
-              <TextField
-                required
-                label="Timeblock Minutes"
-              />
+          <Paper className={classes.document}>
+            <Grid
+              container
+              direction="column"
+              justify="space-evenly"
+              alignItems="flex-start"
+            >
+              <Grid item xs={2} className={classes.margin}>
+                <TextField
+                  required
+                  label="Timeblock Minutes"
+                />
+              </Grid>
+              <Grid item xs={2} className={classes.margin}>
+                <TextField
+                  required
+                  label="Saturday timeblock #"
+                />
+              </Grid>
+              <Grid item xs={2} className={classes.margin}>
+                <TextField
+                  required
+                  label="Sunday timeblock #"
+                />
+              </Grid>
+              <Grid item xs={2} className={classes.margin}>
+                <Typography>
+                    Select timeblock starting times:
+                </Typography>
+              </Grid>
+              <Grid item xs={2} className={classes.margin}>
+                <InputLabel htmlFor="select-multiple">Times</InputLabel>
+                <Select
+                  multiple
+                  // eslint-disable-next-line react/destructuring-assignment
+                  value={(this.state.times)}
+                  onChange={this.handleChange}
+                  input={<Input id="select-multiple" />}
+                  MenuProps={MenuProps}
+                >
+                    {time.map(times => (
+                        <MenuItem
+                          key={times}
+                          value={times}
+                        >
+                        {times}
+                        </MenuItem>
+                    ))}
+                </Select>
+              </Grid>
             </Grid>
-            <Grid item xs={2}>
-              <TextField
-                required
-                label="Saturday timeblock #"
-              />
-            </Grid>
-            <Grid item xs={2}>
-              <TextField
-                required
-                label="Sunday timeblock #"
-              />
-            </Grid>
-            <Grid item xs={2}>
-              <Typography>
-                  Select timeblock starting times:
-              </Typography>
-            </Grid>
-            <Grid item xs={2}>
-              <InputLabel htmlFor="select-multiple">Times</InputLabel>
-              <Select
-                multiple
-                // eslint-disable-next-line react/destructuring-assignment
-                value={(this.state.times)}
-                onChange={this.handleChange}
-                input={<Input id="select-multiple" />}
-                MenuProps={MenuProps}
-              >
-                  {time.map(times => (
-                      <MenuItem
-                        key={times}
-                        value={times}
-                      >
-                      {times}
-                      </MenuItem>
-                  ))}
-              </Select>
-            </Grid>
-          </Grid>
+          </Paper>
         </div>
       </CustomerPortalContainer>
     );

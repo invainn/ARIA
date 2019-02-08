@@ -9,12 +9,12 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-import Violin from './violin.jpg';
+import Music from './music.jpg';
 import Shell from '../Shell/Shell';
 
 const styles = theme => ({
     landing: {
-        background: `url(${Violin}) no-repeat center center`,
+        background: `url(${Music}) no-repeat center center`,
         backgroundSize: 'cover',
 
         height: '100vh',
@@ -26,7 +26,7 @@ const styles = theme => ({
     },
 
     landingContent: {
-        background: 'rgba(55, 71, 79, 0.3)',
+        background: 'rgba(55, 71, 79)',
         border: '3px solid brown',
         backgroundSize: 'contain',
         transition: 'all 1s',
@@ -36,10 +36,12 @@ const styles = theme => ({
 
     landingCaption: {
         marginTop: 15,
+        color: '#FFFFFF',
     },
 
     margin: {
         margin: theme.spacing.unit,
+        color: theme.palette.primary.contrastText,
     },
 
     button: {
@@ -50,6 +52,10 @@ const styles = theme => ({
     loginIcons: {
         color: theme.palette.primary.contrastText,
     },
+
+    fieldText: {
+        color: theme.palette.primary.contrastText,
+    },
 });
 
 
@@ -57,7 +63,7 @@ const Login = ({ classes }) => (
     <Shell>
         <Grid className={classes.landing} container justify="center" alignItems="center">
             <Grid className={classes.landingContent} container direction="column" justify="center" alignItems="center">
-                <Typography variant="title" align="center" style={{ color: '#FFFFFF' }} className={classes.landingCaption}>
+                <Typography variant="title" align="center" className={classes.landingCaption}>
                     Northern Nevada Music Teacher Association
                 </Typography>
 
@@ -66,8 +72,8 @@ const Login = ({ classes }) => (
                         <Grid item>
                             <Icon className={classes.loginIcons}>account_circle</Icon>
                         </Grid>
-                        <Grid item>
-                            <TextField id="input-with-icon-grid" label="Username" style={{ color: '#FFFFFF' }} />
+                        <Grid item className={classes.fieldText}>
+                            <TextField id="input-with-icon-grid" label="Username" className={classes.fieldText} />
                         </Grid>
                     </Grid>
                 </div>
@@ -78,7 +84,7 @@ const Login = ({ classes }) => (
                             <Icon className={classes.loginIcons}>vpn_key</Icon>
                         </Grid>
                         <Grid item>
-                            <TextField id="input-with-icon-grid" label="Password" style={{ color: '#FFFFFF' }} />
+                            <TextField id="input-with-icon-grid" label="Password" InputProps={{ classes: { input: classes.fieldText } }} /> {/* TODO: wont change */}
                         </Grid>
                     </Grid>
                 </div>
@@ -92,8 +98,8 @@ const Login = ({ classes }) => (
                 </div>
 
                 <div>
-                    <Typography style={{ color: '#FFFFFF' }}>
-                        Dont have a login?
+                    <Typography className={classes.fieldText}>
+                        New User?
                         <Button component={Link} to="/create-an-account" className={classes.button}>
                                 Click here to register!
                         </Button>
@@ -102,7 +108,7 @@ const Login = ({ classes }) => (
 
                 <div>
                     <Button component={Link} to="/forgot-password">
-                        <Typography variant="caption" style={{ color: '#FFFFFF' }}>
+                        <Typography variant="caption" className={classes.fieldText}>
                             Forgot your password?
                         </Typography>
                     </Button>

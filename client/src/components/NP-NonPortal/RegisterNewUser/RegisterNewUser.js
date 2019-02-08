@@ -8,12 +8,12 @@ import {
     Button,
 } from '@material-ui/core';
 
-import Violin from '../Home/HomeLanding/violin.jpg';
+import Bow from './bow.jpg';
 import Shell from '../Shell/Shell';
 
 const styles = theme => ({
     landing: {
-        background: `url(${Violin}) no-repeat center center`,
+        background: `url(${Bow}) no-repeat center center`,
         backgroundSize: 'cover',
 
         height: '100vh',
@@ -22,7 +22,7 @@ const styles = theme => ({
     },
 
     landingContent: {
-        background: 'rgba(55, 71, 79, 0.3)',
+        background: 'rgba(55, 71, 79)',
         border: '3px solid brown',
         backgroundSize: 'contain',
         transition: 'all 1s',
@@ -35,17 +35,20 @@ const styles = theme => ({
 
     landingCaption: {
         marginTop: 15,
+        color: theme.palette.primary.contrastText,
     },
 
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
+        color: theme.palette.primary.contrastText,
         width: '100%',
     },
 
     button: {
         marginTop: 25,
         marginLeft: 20,
+        color: theme.palette.primary.contrastText,
     },
 
     loginIcons: {
@@ -69,7 +72,7 @@ const RegisterNewUser = ({ classes }) => (
                         Northern Nevada Music Teacher Association
                     </Typography>
 
-                    <Typography variant="body1" align="center" color="textPrimary">
+                    <Typography variant="body1" align="center" className={classes.landingCaption}>
                         Welcome to Account Registration!
                     </Typography>
                 </div>
@@ -80,12 +83,14 @@ const RegisterNewUser = ({ classes }) => (
                             <TextField
                               label="First Name"
                               variant="outlined"
+                              className={classes.textField}
                             />
                         </Grid>
                         <Grid item xs={5}>
                             <TextField
                               label="Last Name"
                               variant="outlined"
+                              className={classes.textField}
                             />
                         </Grid>
                     </Grid>
@@ -104,6 +109,7 @@ const RegisterNewUser = ({ classes }) => (
                               type="email"
                               variant="outlined"
                               helperText="Required *"
+                              className={classes.textField}
                             />
                         </Grid>
                     </Grid>
@@ -117,6 +123,7 @@ const RegisterNewUser = ({ classes }) => (
                         <Grid item xs={6}>
                             <TextField
                               id="input-with-icon-grid"
+                              className={classes.textField}
                               label="Password"
                               type="password"
                               variant="outlined"
@@ -126,6 +133,7 @@ const RegisterNewUser = ({ classes }) => (
                         <Grid item xs={5}>
                             <TextField
                               id="input-with-icon-grid"
+                              className={classes.textField}
                               label="Verify Password"
                               type="password"
                               variant="outlined"
@@ -138,12 +146,12 @@ const RegisterNewUser = ({ classes }) => (
                 <div>
                     <Grid container spacing={12} alignItems="flex-end">
                         <Grid item xs={6}>
-                            <Button>
+                            <Button className={classes.button}>
                                 Submit
                             </Button>
                         </Grid>
                         <Grid item xs={6}>
-                            <Button>
+                            <Button className={classes.button}>
                                 Cancel
                             </Button>
                         </Grid>
