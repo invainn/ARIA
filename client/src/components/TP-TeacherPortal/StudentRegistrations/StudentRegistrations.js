@@ -251,10 +251,10 @@ class StudentRegistrations extends Component {
                           {/* Stuff was broken new branch */}
                             <TableCell />
                             <TableCell />
-                            <TableCell>Song1: {n.song1}</TableCell>
-                            <TableCell>Song2: {n.song2}</TableCell>
-                            <TableCell>Song3: {n.song3}</TableCell>
-                            <TableCell>CommandPerformance: {n.commandPerformance}</TableCell>
+                            <TableCell>Song 1: {n.song1}</TableCell>
+                            <TableCell>Song 2: {n.song2}</TableCell>
+                            <TableCell>Song 3: {n.song3}</TableCell>
+                            <TableCell>Command Performance: {n.commandPerformance}</TableCell>
                             <TableCell>Start Time: {n.startTime}</TableCell>
                             <TableCell>End Time: {n.endTime}</TableCell>
                             <TableCell />
