@@ -37,6 +37,9 @@ const styles = theme => ({
   document: {
     marginTop: 5,
   },
+  spacing: {
+    marginBottom: '10px',
+  },
   forms: {
     marginLeft: 7,
   },
@@ -75,28 +78,28 @@ class CreateAnEvent extends Component {
             justify="flex-start"
             alignItems="center"
           >
-            <Grid xs={12}>
+            <Grid xs={12} className={classes.spacing}>
               <AccountFields label="Event Name*" placeholder="Desired event name" />
             </Grid>
-            <Grid xs={2}>
+            <Grid xs={2} className={classes.spacing}>
               <TextField label="Event Start Date" type="date" InputLabelProps={{ shrink: true }} className={classes.forms} />
             </Grid>
-            <Grid xs={10}>
+            <Grid xs={10} className={classes.spacing}>
               <TextField label="Event End Date" type="date" InputLabelProps={{ shrink: true }} />
             </Grid>
-            <Grid xs={12}>
+            <Grid xs={12} className={classes.spacing}>
               <AccountFields label="Event Location" placeholder="Event Address" />
             </Grid>
-            <Grid xs={2}>
+            <Grid xs={2} className={classes.spacing}>
               <TextField label="Student Registration Start Date" type="date" InputLabelProps={{ shrink: true }} className={classes.forms} />
             </Grid>
-            <Grid xs={10}>
+            <Grid xs={10} className={classes.spacing}>
               <TextField label="Student Registration End Date" type="date" InputLabelProps={{ shrink: true }} />
             </Grid>
-            <Grid xs={2}>
+            <Grid xs={2} className={classes.spacing}>
               <TextField label="Teacher Registration Start Date" type="date" InputLabelProps={{ shrink: true }} className={classes.forms} />
             </Grid>
-            <Grid xs={10}>
+            <Grid xs={10} className={classes.spacing}>
               <TextField label="Teacher Registration End Date" type="date" InputLabelProps={{ shrink: true }} />
             </Grid>
 
