@@ -70,7 +70,7 @@ class RegisterForAnEvent extends Component {
                     <Grid item className={classes.eventGridItem}>
                         <Stepper activeStep={activeStep} className={classes.registerStepper}>
                         {[
-                            'Select Event',
+                            'Select An Event',
                             'Select Participants',
                             'Review/Edit Order',
                             'Payment',

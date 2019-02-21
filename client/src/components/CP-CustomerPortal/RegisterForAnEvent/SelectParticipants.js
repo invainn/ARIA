@@ -15,12 +15,18 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
+import {
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+} from '@material-ui/core/';
 import ParticipantTableHead from './ParticipantTableHead';
 
 // Do not do this, fix this
 let counter = 0;
 
-const styles = () => ({
+const styles = theme => ({
   root: {
     width: '100%',
   },
@@ -36,12 +42,24 @@ const styles = () => ({
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
   },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  button: {
+    display: 'block',
+    marginTop: theme.spacing.unit * 2,
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120,
+  },
 });
 
-const createData = (firstName, middleInitial, lastName, musicLevel, teacher) => {
+const createData = (firstName, middleInitial, lastName, Age, teacher) => {
     counter += 1;
     return {
-        id: counter, firstName, middleInitial, lastName, musicLevel, teacher,
+        id: counter, firstName, middleInitial, lastName, Age, teacher,
     };
 };
 
@@ -148,21 +166,24 @@ class SelectParticipants extends Component {
     order: 'asc',
     orderBy: 'calories',
     selected: [],
+    musicLevel: '',
+    open: false,
+    previousLevel: '',
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'P', 'Smith', 2, 'Mr. Jenkins'),
-      createData('Mary', 'B', 'Daniels', 11, 'Mr. Matthews'),
-      createData('Ronald', 'E', 'Davidson', 4, 'Mrs. Charles'),
-      createData('Scott', 'K', 'Brown', 6, 'Ms. Anderson'),
-      createData('Raymond', 'I', 'McMann', 1, 'Mrs. Stevenson'),
-      createData('Kenneth', 'B', 'Honeycomb', 8, 'Mr. Franklin'),
-      createData('Gary', 'N', 'Peters', 3, 'Mr. Jackson'),
-      createData('Joshua', 'S', 'Holyfield', 9, 'Ms. Sparks'),
-      createData('Heather', 'D', 'Howard', 6, 'Mrs. Cilliza'),
-      createData('Lou', 'V', 'York', 8, 'Mrs. Thomas'),
-      createData('Jack', 'S', 'Ybarra', 1, 'Mrs. Banks'),
+      createData('Alice', 'P', 'Smith', 9, 'Mr. Jenkins'),
+      createData('Mary', 'B', 'Daniels', 8, 'Mr. Matthews'),
+      createData('Ronald', 'E', 'Davidson', 16, 'Mrs. Charles'),
+      createData('Scott', 'K', 'Brown', 13, 'Ms. Anderson'),
+      createData('Raymond', 'I', 'McMann', 18, 'Mrs. Stevenson'),
+      createData('Kenneth', 'B', 'Honeycomb', 13, 'Mr. Franklin'),
+      createData('Gary', 'N', 'Peters', 16, 'Mr. Jackson'),
+      createData('Joshua', 'S', 'Holyfield', 12, 'Ms. Sparks'),
+      createData('Heather', 'D', 'Howard', 14, 'Mrs. Cilliza'),
+      createData('Lou', 'V', 'York', 12, 'Mrs. Thomas'),
+      createData('Jack', 'S', 'Ybarra', 13, 'Mrs. Banks'),
       createData('Steve', 'A', 'Noack', 10, 'Mr. Cummings'),
-      createData('Gabriella', 'I', 'Barnett', 6, 'Mr. Ehlers'),
+      createData('Gabriella', 'I', 'Barnett', 11, 'Mr. Ehlers'),
     ],
     page: 0,
     rowsPerPage: 5,
@@ -188,7 +209,7 @@ class SelectParticipants extends Component {
   };
 
   handleClick = (event, id) => {
-    const { selected } = this.state;
+    const { selected, previousLevel } = this.state;
     const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
@@ -205,7 +226,13 @@ class SelectParticipants extends Component {
       );
     }
 
-    this.setState({ selected: newSelected });
+    if (event.target.value >= 1 && previousLevel <= 0) {
+      this.setState({ selected: newSelected });
+      this.setState({ previousLevel: event.target.value });
+    } else if (event.target.value === 0) {
+      this.setState({ selected: newSelected });
+      this.setState({ previousLevel: event.target.value });
+    }
   };
 
   handleChangePage = (event, page) => {
@@ -221,6 +248,18 @@ class SelectParticipants extends Component {
     return selected.indexOf(id) !== -1;
   };
 
+  handleChangeMusicLevel = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  handleOpen = () => {
+    this.setState({ open: true });
+  };
+
   render() {
     const { classes } = this.props;
     const {
@@ -230,7 +269,10 @@ class SelectParticipants extends Component {
         selected,
         rowsPerPage,
         page,
+        open,
+        musicLevel,
     } = this.state;
+
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
@@ -252,25 +294,57 @@ class SelectParticipants extends Component {
                         .map((n) => {
                         const isSelected = this.isSelected(n.id);
                         return (
-                            <TableRow
-                              hover
-                              onClick={event => this.handleClick(event, n.id)}
-                              role="checkbox"
-                              aria-checked={isSelected}
-                              tabIndex={-1}
-                              key={n.id}
-                              selected={isSelected}
-                            >
-                            <TableCell padding="checkbox">
-                                <Checkbox color="primary" checked={isSelected} />
-                            </TableCell>
-                            <TableCell component="th" scope="row" padding="none">
-                                {n.firstName}
-                            </TableCell>
-                            <TableCell>{n.middleInitial}</TableCell>
-                            <TableCell>{n.lastName}</TableCell>
-                            <TableCell>{n.musicLevel}</TableCell>
-                            <TableCell>{n.teacher}</TableCell>
+                            <TableRow>
+                              <TableCell padding="checkbox">
+                                  <Checkbox color="primary" checked={isSelected} />
+                              </TableCell>
+                              <TableCell component="th" scope="row" padding="none">
+                                  {n.firstName}
+                              </TableCell>
+                              <TableCell>{n.middleInitial}</TableCell>
+                              <TableCell>{n.lastName}</TableCell>
+                              <TableCell>{n.Age}</TableCell>
+                              <TableCell>{n.teacher}</TableCell>
+                              <TableCell>
+                                <form autoComplete="off">
+                                  <FormControl className={classes.formControl}>
+                                        <InputLabel>Select A Level</InputLabel>
+                                    <Select
+                                      padding="checkbox"
+                                      hover
+                                      onClick={this.handleClick}
+                                      onChange={this.handleChangeMusicLevel}
+                                      role="checkbox"
+                                      tabIndex={-1}
+                                      key={n.id}
+                                      aria-checked={isSelected}
+                                      selected={isSelected}
+                                      open={open}
+                                      onClose={this.handleClose}
+                                      onOpen={this.handleOpen}
+                                      value={musicLevel}
+                                      inputProps={{
+                                        name: 'musicLevel',
+                                        id: 'levelChoice',
+                                      }}
+                                    >
+                                      <MenuItem value={0}>Select A Level</MenuItem>
+                                      <MenuItem value={1}>1</MenuItem>
+                                      <MenuItem value={2}>2</MenuItem>
+                                      <MenuItem value={3}>3</MenuItem>
+                                      <MenuItem value={4}>4</MenuItem>
+                                      <MenuItem value={5}>5</MenuItem>
+                                      <MenuItem value={6}>6</MenuItem>
+                                      <MenuItem value={7}>7</MenuItem>
+                                      <MenuItem value={8}>8</MenuItem>
+                                      <MenuItem value={9}>9</MenuItem>
+                                      <MenuItem value={10}>10</MenuItem>
+                                      <MenuItem value={11}>11</MenuItem>
+                                      <MenuItem value={12}>12</MenuItem>
+                                    </Select>
+                                  </FormControl>
+                                </form>
+                              </TableCell>
                             </TableRow>
                         );
                         })}
