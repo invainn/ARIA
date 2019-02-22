@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 import ShellFooter from '../NP-NonPortal/Shell/ShellFooter/ShellFooter';
-import ShellHeader from '../NP-NonPortal/Shell/ShellHeader/ShellHeader';
+import ShellHeader from '../../containers/Shell/ShellHeader/ShellHeader';
 import CustomerDrawer from '../SP-SharedPortal/PortalDrawer/PortalDrawer';
 
 const styles = theme => ({
