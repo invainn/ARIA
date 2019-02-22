@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import ShellHeader from './ShellHeader/ShellHeader';
+import ShellHeader from '../../../containers/Shell/ShellHeader/ShellHeader';
 import ShellFooter from './ShellFooter/ShellFooter';
 
 const styles = () => ({
