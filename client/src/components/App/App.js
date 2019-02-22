@@ -14,6 +14,7 @@ import ScheduleAnEvent from '../AP-AdminPortal/ScheduleAnEvent/ScheduleAnEvent';
 import ModifyAnEvent from '../AP-AdminPortal/ModifyAnEvent/ModifyAnEvent';
 import GenerateDocuments from '../AP-AdminPortal/GenerateDocuments/GenerateDocuments';
 import UploadMusic from '../AP-AdminPortal/UploadMusic/UploadMusic';
+import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
 
 // CUSTOMER-PORTAL COMPONENTS
 import CustomerAccount from '../CP-CustomerPortal/CustomerAccount/CustomerAccount';
@@ -56,15 +57,36 @@ const App = ({ themeChoice }) => (
                 {/* ADMIN-PORTAL */}
                 <Route exact path="/admin/create-an-event" component={CreateAnEvent} />
                 <Route exact path="/admin/schedule-an-event" component={ScheduleAnEvent} />
-                <Route exact path="/admin/modify-an-event" component={ModifyAnEvent} />
+                <Route exact path="/admin/edit-an-event" component={ModifyAnEvent} />
+                {/* <Route exact path="/admin/schedule-command-performance" component={ScheduleCommandPerformance} /> */}
+                {/* <Route exact path="/admin/edit-command-performance" component={ViewModifiyCommandPerformance} /> */}
+                <Route exact path="/admin/add-a-teacher" component={AddATeacher} />
                 <Route exact path="/admin/generate-documents" component={GenerateDocuments} />
+                {/* <Route exact path="/admin/print-documents" component={PrintDocuments} /> */}
+                {/* <Route exact path="/admin/upload-documents" component={UploadDocuments} /> */}
                 <Route exact path="/admin/upload-music" component={UploadMusic} />
+                {/* <Route exact path="/admin/events" component={Events} /> */}
+                {/* <Route exact path="/admin/teachers" component={Teachers} /> */}
+                {/* <Route exact path="/admin/students" component={Students} /> */}
+                {/* <Route exact path="/admin/publish-schedule" component={PublishSchedule} /> */}
+                {/* <Route exact path="/admin/publish-command-performance-schedule" component={PublishCommandPerformanceSchedule} /> */}
+                {/* <Route exact path="/admin/print-documents" component={ViewModifiyEventsCalender} /> */}
+                {/* <Route exact path="/admin/edit-faq" component={ViewModifyFAQ} /> */}
+                {/* <Route exact path="/admin/edit-about-us" component={ViewModifiyAboutUs} /> */}
+                {/* <Route exact path="/admin/notifications" component={CreateSendNotification} /> */}
+                {/* <Route exact path="/admin/news" component={ViewModifyNNMTANews} /> */}
 
                 { /* CUSTOMER-PORTAL */ }
                 <Route exact path="/customer/account" component={CustomerAccount} />
                 <Route exact path="/customer/participants" component={MyParticipants} />
                 <Route exact path="/customer/register-for-an-event" component={RegisterForAnEvent} />
                 <Route exact path="/customer/active-registrations" component={ActiveRegistrations} />
+
+                { /* TEACHER-PORTAL */ }
+                <Route exact path="/teacher/account" component={TeacherAccount} />
+                <Route exact path="/teacher/my-students" component={MyStudents} />
+                <Route exact path="/teacher/student-registrations" component={StudentRegistrations} />
+                <Route exact path="/teacher/volunteer-tasks" component={VolunteerTasks} />
 
                 { /* NON-PORTAL */ }
                 <Route exact path="/register" component={RegisterNewUser} />
@@ -89,12 +111,6 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/teacher/events-calendar" component={EventsCalendar} />
                 <Route exact path="/teacher/faq" component={FAQ} />
                 <Route exact path="/teacher/about" component={AboutNNMTA} />
-
-                { /* TEACHER-PORTAL */ }
-                <Route exact path="/teacher/account" component={TeacherAccount} />
-                <Route exact path="/teacher/my-students" component={MyStudents} />
-                <Route exact path="/teacher/student-registrations" component={StudentRegistrations} />
-                <Route exact path="/teacher/volunteer-tasks" component={VolunteerTasks} />
 
 
                 { /* ALTERNATE DASHBOARDS -- NEEDS TO BE IMPLEMENTED AFTER APPLICATION RESTRUCTURING
