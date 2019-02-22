@@ -73,8 +73,8 @@ class CustomerAccount extends Component {
             textColor="primary"
             centered
           >
-            <Tab label="Account" />
-            <Tab label="Profile" />
+            <Tab label="Password" />
+            <Tab label="Name" />
             <Tab label="Preferences" />
           </Tabs>
         </Paper>
