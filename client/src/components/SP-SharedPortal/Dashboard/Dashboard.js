@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 // Stop individually importing components
 // Do it like this
@@ -11,21 +12,21 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardMedia,
   Grid,
   Typography,
 } from '@material-ui/core';
 
-// This needs to be described more
-import MusicNoteImage from './dashboard-music-note.jpg';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
+import adminCards from './adminCards';
+import customerCards from './customerCards';
+import teacherCards from './teacherCards';
 
 const styles = theme => ({
   heroUnit: {
     backgroundColor: theme.palette.background.paper,
   },
   heroContent: {
-    maxWidth: 600,
+    maxWidth: 900,
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
@@ -36,8 +37,8 @@ const styles = theme => ({
     width: 'auto',
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-      width: 1100,
+    [theme.breakpoints.up(1920 + theme.spacing.unit * 3 * 2)]: {
+      width: 1920,
       marginLeft: 'auto',
       marginRight: 'auto',
     },
@@ -46,21 +47,45 @@ const styles = theme => ({
     padding: `${theme.spacing.unit * 10}px 0`,
   },
   card: {
+    minHeight: '275px',
+    minWidth: '300px',
     height: '100%',
     display: 'flex',
+    alignContent: 'center',
+    justifyContent: 'center',
     flexDirection: 'column',
-  },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
+    '&:hover': {
+      transform: 'scale(1.10);',
+      transition: 'all 1s',
+    },
+    padding: '20px 20px 20px 20px',
   },
   cardContent: {
     flexGrow: 1,
+    textAlign: 'center',
+    justifyContent: 'left',
+    padding: '20px 0px 0px 0px',
+    marginBottom: '0px',
   },
   buttonStyle: {
     justifyContent: 'center',
+    textAlign: 'center',
+    margin: '0 auto',
+    width: '100%',
+    minHeight: '68px',
+    padding: '0px auto',
+    marginBottom: '0px',
   },
   dashboardTitle: {
     textDecoration: 'underline',
+  },
+  cardTitle: {
+    textDecoration: 'underline',
+    minHeight: '62px',
+  },
+  descriptionStyles: {
+    minHeight: '200px',
+    height: '100%',
   },
 });
 
@@ -70,13 +95,162 @@ function Dashboard(props) {
 
   // Stop doing global variables
   // Everything should be in a function or import
-  const cards = [
-    1,
-    2,
-    3,
-    4,
-  ];
 
+  /* ADMIN-PORTAL */
+  if (userType === 0) {
+    return (
+      <CustomerPortalContainer userType={userType}>
+        <main>
+          {/* Hero unit */}
+          <div className={classes.heroUnit}>
+            <div className={classes.heroContent}>
+              <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom className={classes.dashboardTitle}>
+              Welcome &lt;Admin&apos;s Name&gt;
+              </Typography>
+              <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                Something short and leading about NNMTA. Brief but interesting
+                so folks don&apos;t simply skip over it entirely.
+              </Typography>
+              <div className={classes.heroButtons}>
+                <Grid container spacing={16} justify="center">
+                  <Grid item>
+                    <Button variant="contained" color="primary">
+                      <ListItemIcon>
+                        <Icon style={{ color: '#FFFFFF' }}>notifications_active</Icon>
+                      </ListItemIcon>
+                      NNMTA Notifications
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button variant="contained" color="primary">
+                    <ListItemIcon>
+                        <Icon style={{ color: '#FFFFFF' }}>view_headline</Icon>
+                    </ListItemIcon>
+                      NNMTA News
+                    </Button>
+                  </Grid>
+                </Grid>
+              </div>
+            </div>
+          </div>
+          <div className={classNames(classes.layout, classes.cardGrid)}>
+            {/* End hero unit */}
+            <Grid container spacing={40} alignItems="center">
+              {adminCards.map(adminCard => (
+                <Grid item key={adminCard.id} sm={12} md={6} lg={4} xl={3}>
+                  <Card className={classes.card}>
+                    <CardContent className={classes.cardContent}>
+                      <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
+                        {adminCard.title}
+                      </Typography>
+                      <br />
+                      <Typography className={classes.descriptionStyles}>
+                      {adminCard.description}
+                      </Typography>
+                    </CardContent>
+                    <CardActions className={classes.cardContent}>
+                      <Button
+                        variant="contained"
+                        size="large"
+                        color="primary"
+                        className={classes.buttonStyle}
+                        component={Link}
+                        to={adminCard.link}
+                      >
+                      <ListItemIcon>
+                        <Icon style={{ color: '#FFFFFF' }}>{adminCard.icon}</Icon>
+                      </ListItemIcon>
+                        {adminCard.buttonName}
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </div>
+        </main>
+      </CustomerPortalContainer>
+    );
+  }
+
+  /*  TEACHER-PORTAL */
+  if (userType === 2) {
+    return (
+      <CustomerPortalContainer userType={userType}>
+        <main>
+          {/* Hero unit */}
+          <div className={classes.heroUnit}>
+            <div className={classes.heroContent}>
+              <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom className={classes.dashboardTitle}>
+              Welcome &lt;Teacher&apos;s Name&gt;
+              </Typography>
+              <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                Something short and leading about NNMTA. Brief but interesting
+                so folks don&apos;t simply skip over it entirely.
+              </Typography>
+              <div className={classes.heroButtons}>
+                <Grid container spacing={16} justify="center">
+                  <Grid item>
+                    <Button variant="contained" color="primary">
+                      <ListItemIcon>
+                        <Icon style={{ color: '#FFFFFF' }}>notifications_active</Icon>
+                      </ListItemIcon>
+                      NNMTA Notifications
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button variant="contained" color="primary">
+                    <ListItemIcon>
+                        <Icon style={{ color: '#FFFFFF' }}>view_headline</Icon>
+                    </ListItemIcon>
+                      NNMTA News
+                    </Button>
+                  </Grid>
+                </Grid>
+              </div>
+            </div>
+          </div>
+          <div className={classNames(classes.layout, classes.cardGrid)}>
+            {/* End hero unit */}
+            <Grid container spacing={40} alignItems="center">
+              {teacherCards.map(teacherCard => (
+                <Grid item key={teacherCard.id} sm={12} md={6} lg={4} xl={3}>
+                  <Card className={classes.card}>
+                    <CardContent className={classes.cardContent}>
+                      <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
+                        {teacherCard.title}
+                      </Typography>
+                      <br />
+                      <Typography>
+                      {teacherCard.description}
+                      </Typography>
+                    </CardContent>
+                    <CardActions className={classes.cardContent}>
+                      <Button
+                        variant="contained"
+                        size="large"
+                        color="primary"
+                        className={classes.buttonStyle}
+                        component={Link}
+                        to={teacherCard.link}
+                      >
+                      <ListItemIcon>
+                        <Icon style={{ color: '#FFFFFF' }}>{teacherCard.icon}</Icon>
+                      </ListItemIcon>
+                        {teacherCard.buttonName}
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </div>
+        </main>
+      </CustomerPortalContainer>
+    );
+  }
+
+  /* CUSTOMER-PORTAL */
   return (
     <CustomerPortalContainer userType={userType}>
       <main>
@@ -84,7 +258,7 @@ function Dashboard(props) {
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom className={classes.dashboardTitle}>
-              Dashboard Layout
+              Welcome &lt;Customer&apos;s Name&gt;
             </Typography>
             <Typography variant="h6" align="center" color="textSecondary" paragraph>
               Something short and leading about NNMTA. Brief but interesting
@@ -114,35 +288,32 @@ function Dashboard(props) {
         </div>
         <div className={classNames(classes.layout, classes.cardGrid)}>
           {/* End hero unit */}
-          <Grid container spacing={40}>
-            {cards.map(card => (
-              <Grid item key={card} sm={6} md={4} lg={3}>
+          <Grid container spacing={40} alignItems="center">
+            {customerCards.map(customerCard => (
+              <Grid item key={customerCard.id} sm={12} md={6} lg={4} xl={3}>
                 <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={MusicNoteImage}
-                    title="Image title"
-                  />
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      NNMTA Customer Dashboard Action
+                    <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
+                      {customerCard.title}
                     </Typography>
+                    <br />
                     <Typography>
-                      This section describes the content for something customer-related.
+                    {customerCard.description}
                     </Typography>
                   </CardContent>
-                  <CardActions>
-                    <Button variant="contained" size="medium" color="primary">
+                  <CardActions className={classes.cardContent}>
+                    <Button
+                      variant="contained"
+                      size="large"
+                      color="primary"
+                      className={classes.buttonStyle}
+                      component={Link}
+                      to={customerCard.link}
+                    >
                     <ListItemIcon>
-                      <Icon style={{ color: '#FFFFFF' }}>pageview</Icon>
+                      <Icon style={{ color: '#FFFFFF' }}>{customerCard.icon}</Icon>
                     </ListItemIcon>
-                      View
-                    </Button>
-                    <Button variant="contained" size="medium" color="primary">
-                    <ListItemIcon>
-                      <Icon style={{ color: '#FFFFFF' }}>close</Icon>
-                    </ListItemIcon>
-                      Hide
+                      {customerCard.buttonName}
                     </Button>
                   </CardActions>
                 </Card>
