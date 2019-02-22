@@ -16,6 +16,7 @@ import {
   Checkbox,
   ListItemIcon,
   Icon,
+  Divider,
 } from '@material-ui/core/';
 
 import EnhancedTableHead from './EnhancedTableHead';
@@ -39,6 +40,9 @@ const styles = theme => ({
   },
   button: {
     margin: theme.spacing.unit,
+  },
+  dividerColor: {
+    color: '#000000',
   },
 });
 
@@ -128,9 +132,9 @@ class MyEnrollments extends Component {
     selected: [],
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
-      createData('Alice', 'Smith', 'Jr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Bob', 'Honeycomb', 'Sr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
-      createData('Jack', 'Reynolds', '-', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Ludwig Van Beethoven', 'Chopin', 'Help'),
+      createData('Alice', 'Smith', 'Jr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Piano Sonata No. 32', 'Revolutionary Etude', 'Weigenlied'),
+      createData('Bob', 'Honeycomb', 'Sr', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Piano Sonata No. 32', 'Revolutionary Etude', 'Weigenlied'),
+      createData('Jack', 'Reynolds', '-', 'Halloween Recital', '10/15/18', '6:00 PM', 'DMS 103', '5:00 AM', '9:00 PM', true, 'Piano Sonata No. 32', 'Revolutionary Etude', 'Weigenlied'),
     ],
     page: 0,
     rowsPerPage: 5,
@@ -259,12 +263,35 @@ class MyEnrollments extends Component {
                             selected={isSelected}
                             padding="auto"
                           >
-                          {/* Stuff was broken new branch */}
                             <TableCell />
-                            <TableCell />
-                            <TableCell>Song 1: {n.song1}</TableCell>
-                            <TableCell>Song 2: {n.song2}</TableCell>
-                            <TableCell>Song 3: {n.song3}</TableCell>
+                            <TableCell>
+                              Period: <br />
+                              <Divider />
+                              Composer: <br />
+                              <Divider />
+                              Song:
+                            </TableCell>
+                            <TableCell>
+                              Romantic <br />
+                              <Divider />
+                              Beethoven <br />
+                              <Divider />
+                              {n.song1}
+                            </TableCell>
+                            <TableCell>
+                              Romantic <br />
+                              <Divider />
+                              Chopin <br />
+                              <Divider />
+                              {n.song2}
+                            </TableCell>
+                            <TableCell>
+                              Romantic <br />
+                              <Divider />
+                              Brahms <br />
+                              <Divider />
+                              {n.song3}
+                            </TableCell>
                             <TableCell>Command Performance: {n.commandPerformance}</TableCell>
                             <TableCell>Start Time: {n.startTime}</TableCell>
                             <TableCell>End Time: {n.endTime}</TableCell>
