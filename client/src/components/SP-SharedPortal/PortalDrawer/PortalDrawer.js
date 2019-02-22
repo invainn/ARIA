@@ -310,11 +310,11 @@ class PortalDrawer extends Component {
               </ListItemIcon>
               <ListItemText primary="Register for an Event" />
             </ListItem>
-            <ListItem button component={Link} to="/customer/active-registrations" onClick={this.switchOptionHandler}>
+            <ListItem button component={Link} to="/customer/my-enrollments" onClick={this.switchOptionHandler}>
               <ListItemIcon>
                 <Icon>event</Icon>
               </ListItemIcon>
-              <ListItemText primary="Active Registrations" />
+              <ListItemText primary="My Enrollments" />
             </ListItem>
             <ListItem button component={Link} to="/customer/events-calendar" onClick={this.switchOptionHandler}>
               <ListItemIcon>

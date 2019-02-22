@@ -121,7 +121,7 @@ let EnhancedTableToolbar = (props) => {
 
 EnhancedTableToolbar = withStyles(styles)(EnhancedTableToolbar);
 
-class ActiveRegistrations extends Component {
+class MyEnrollments extends Component {
   state = {
     order: 'asc',
     orderBy: 'firstName',
@@ -204,7 +204,7 @@ class ActiveRegistrations extends Component {
         <CustomerPortalContainer>
           <div className={classes.pageTitle}>
               <Typography component="h2" variant="h2" gutterBottom align="center">
-                Active Registrations
+                My Enrollments
               </Typography>
           </div>
             <Paper className={classes.root}>
@@ -308,4 +308,4 @@ class ActiveRegistrations extends Component {
 }
 
 
-export default withStyles(styles)(ActiveRegistrations);
+export default withStyles(styles)(MyEnrollments);
