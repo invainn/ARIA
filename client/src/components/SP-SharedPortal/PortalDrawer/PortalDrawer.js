@@ -14,7 +14,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 // Do not do this
-const drawerWidth = 300;
+const drawerWidth = 301;
 
 const styles = theme => ({
   portalDrawer: {
@@ -133,23 +133,113 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Schedule an Event" />
           </ListItem>
-          <ListItem button component={Link} to="/admin/modify-an-event" onClick={this.switchOptionHandler}>
+          <ListItem button component={Link} to="/admin/edit-an-event" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>group_add</Icon>
+              <Icon>assignment</Icon>
             </ListItemIcon>
             <ListItemText primary="Modify an Event" />
           </ListItem>
+          <ListItem button component={Link} to="/admin/schedule-command-performance" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>av_timer</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Schedule Command Performance" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/edit-command-performance" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>event_note</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Modify Command Performance" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/add-a-teacher" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>person_add</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Add A Teacher" />
+          </ListItem>
           <ListItem button component={Link} to="/admin/generate-documents" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>calendar_today</Icon>
+              <Icon>note_add</Icon>
             </ListItemIcon>
             <ListItemText primary="Generate Documents" />
           </ListItem>
+          <ListItem button component={Link} to="/admin/print-documents" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>print</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Print Documents" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/upload-documents" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>cloud_upload</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Upload Documents" />
+          </ListItem>
           <ListItem button component={Link} to="/admin/upload-music" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>event_available</Icon>
+              <Icon>library_music</Icon>
             </ListItemIcon>
             <ListItemText primary="Upload Music" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/events" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>event</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Events" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/teachers" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>school</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Teachers" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/students" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>people</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Students" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/publish-schedule" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>date_range</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Publish Schedule" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/publish-command-performance-schedule" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>publish</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Publish Command Performance" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/edit-event-calender" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>calendar_today</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Modify Events Calender" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/edit-faq" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>help_outline</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Modify FAQ Page" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/edit-about-us" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>music_note</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Modify About Us Page" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/notifications" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>notification_important</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Create & Send A Notification" />
+          </ListItem>
+          <ListItem button component={Link} to="/admin/news" onClick={this.switchOptionHandler}>
+            <ListItemIcon>
+              <Icon>subtitles</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Modify NNMTA News Page" />
           </ListItem>
         </div>
       );
@@ -226,11 +316,11 @@ class PortalDrawer extends Component {
               </ListItemIcon>
               <ListItemText primary="Register for an Event" />
             </ListItem>
-            <ListItem button component={Link} to="/customer/active-registrations" onClick={this.switchOptionHandler}>
+            <ListItem button component={Link} to="/customer/my-enrollments" onClick={this.switchOptionHandler}>
               <ListItemIcon>
                 <Icon>event</Icon>
               </ListItemIcon>
-              <ListItemText primary="Active Registrations" />
+              <ListItemText primary="My Enrollments" />
             </ListItem>
             <ListItem button component={Link} to="/customer/events-calendar" onClick={this.switchOptionHandler}>
               <ListItemIcon>

@@ -98,7 +98,7 @@ class GenerateDocuments extends Component {
       <CustomerPortalContainer userType={0}>
         <div className={classes.pageTitle}>
           <Typography component="h2" variant="h2" gutterBottom align="center">
-              Document Generation Configurations
+              Generate Documents
           </Typography>
         </div>
         <Stepper activeStep={activeStep} className={classes.documentStepper}>

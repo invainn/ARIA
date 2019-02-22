@@ -272,7 +272,7 @@ class MyParticipants extends Component {
         <CustomerPortalContainer>
           <div className={classes.pageTitle}>
             <Typography component="h2" variant="h2" gutterBottom align="center">
-              Participants
+              My Participants
             </Typography>
           </div>
             <Paper className={classes.root}>
@@ -367,15 +367,15 @@ class MyParticipants extends Component {
                     />
                     <TextField
                       margin="dense"
-                      id="last-name"
-                      label="Last Name"
+                      id="middle-initial"
+                      label="Middle Initial"
                       required
                       fullWidth
                     />
                     <TextField
                       margin="dense"
-                      id="middle-initial"
-                      label="Middle Initial"
+                      id="last-name"
+                      label="Last Name"
                       required
                       fullWidth
                     />
@@ -388,8 +388,8 @@ class MyParticipants extends Component {
                       margin="dense"
                       id="age"
                       label="Age"
-                      required
                       fullWidth
+                      required
                     />
                     <TextField
                       margin="dense"

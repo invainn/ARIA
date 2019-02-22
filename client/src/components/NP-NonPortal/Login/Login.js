@@ -48,6 +48,7 @@ const styles = theme => ({
     button: {
         margin: theme.spacing.unit,
         color: '#FFFFFF',
+        textAlign: 'center',
     },
 
     loginIcons: {
@@ -115,7 +116,7 @@ class Login extends React.Component {
                             <div>
                                 <Typography className={classes.fieldText}>
                                     New User?
-                                    <Button component={Link} to="/create-an-account" className={classes.button}>
+                                    <Button component={Link} to="/register" className={classes.button}>
                                             Click here to register!
                                     </Button>
                                 </Typography>
