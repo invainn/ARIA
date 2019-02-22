@@ -19,7 +19,7 @@ import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
 // CUSTOMER-PORTAL COMPONENTS
 import CustomerAccount from '../CP-CustomerPortal/CustomerAccount/CustomerAccount';
 import MyParticipants from '../CP-CustomerPortal/MyParticipants/MyParticipants';
-import ActiveRegistrations from '../CP-CustomerPortal/ActiveRegistrations/ActiveRegistrations';
+import MyEnrollments from '../CP-CustomerPortal/MyEnrollments/MyEnrollments';
 import RegisterForAnEvent from '../CP-CustomerPortal/RegisterForAnEvent/RegisterForAnEvent';
 // import PaymentHistory from '../CP-CustomerPortal/PaymentHistory/PaymentHistory';
 
@@ -80,7 +80,7 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/customer/account" component={CustomerAccount} />
                 <Route exact path="/customer/participants" component={MyParticipants} />
                 <Route exact path="/customer/register-for-an-event" component={RegisterForAnEvent} />
-                <Route exact path="/customer/active-registrations" component={ActiveRegistrations} />
+                <Route exact path="/customer/my-enrollments" component={MyEnrollments} />
 
                 { /* TEACHER-PORTAL */ }
                 <Route exact path="/teacher/account" component={TeacherAccount} />
