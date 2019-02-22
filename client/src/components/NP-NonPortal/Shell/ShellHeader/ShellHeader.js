@@ -16,6 +16,7 @@ import {
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'; // STOP IT
 
 import logo from '../logo-header.png';
+import ShellHeaderOptions from './ShellHeaderOptions/ShellHeaderOptions';
 
 const styles = theme => ({
     root: {
@@ -93,9 +94,6 @@ const styles = theme => ({
       margin: 'auto',
       textAlign: 'center',
     },
-    CustomerPortalWelcomeMessage: {
-      marginLeft: '20px',
-    },
     PortalHeaderContainer: {
       display: 'flex',
       justifyContent: 'center',
@@ -103,6 +101,10 @@ const styles = theme => ({
     },
     signOutButtonStyles: {
       marginRight: '20px',
+    },
+    optionsButtonStyles: {
+      margin: '0px 20px 0px 20px auto',
+      padding: '0px 0px 20px 0px',
     },
   });
 
@@ -143,33 +145,40 @@ const ShellHeader = ({
           </Toolbar>
       </Grid>
       <Grid
+        direction="row"
         xs={6}
         alignItems="center"
         alignContent="center"
         justify="flex-end"
         container
+        spacing={40}
       >
+        { portal && (
+          <span className={classes.optionsButtonStyles}>
+            <ShellHeaderOptions />
+          </span>
+        )}
         { portal && (
           <Button component={Link} to="/" className={classes.signOutButtonStyles}>
             <Typography variant="body2" style={{ color: '#FFFFFF' }}>
                 Sign Out
             </Typography>
           </Button>
-        ) && (
-        <FormControlLabel
-          label={(
-            <Typography variant="body2" style={{ color: '#FFFFFF' }}>
-              Light/Dark
-            </Typography>
-          )}
-          control={(
-            <Switch
-              onChange={toggleTheme}
-              checked={themeChoice === 'dark'}
-            />
-          )}
-        />
-        )
+          ) && (
+              <FormControlLabel
+                label={(
+                  <Typography variant="body2" style={{ color: '#FFFFFF' }}>
+                    Light/Dark
+                  </Typography>
+                )}
+                control={(
+                  <Switch
+                    onChange={toggleTheme}
+                    checked={themeChoice === 'dark'}
+                  />
+                )}
+              />
+          )
         }
       </Grid>
     </Grid>
