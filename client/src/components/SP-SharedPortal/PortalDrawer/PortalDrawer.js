@@ -14,7 +14,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 // Do not do this
-const drawerWidth = 315;
+const drawerWidth = 300;
 
 const styles = theme => ({
   portalDrawer: {
@@ -135,13 +135,13 @@ class PortalDrawer extends Component {
           </ListItem>
           <ListItem button component={Link} to="/admin/edit-an-event" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>group_add</Icon>
+              <Icon>assignment</Icon>
             </ListItemIcon>
             <ListItemText primary="Modify an Event" />
           </ListItem>
           <ListItem button component={Link} to="/admin/schedule-command-performance" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>schedule</Icon>
+              <Icon>av_timer</Icon>
             </ListItemIcon>
             <ListItemText primary="Schedule Command Performance" />
           </ListItem>
@@ -177,7 +177,7 @@ class PortalDrawer extends Component {
           </ListItem>
           <ListItem button component={Link} to="/admin/upload-music" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>event_available</Icon>
+              <Icon>library_music</Icon>
             </ListItemIcon>
             <ListItemText primary="Upload Music" />
           </ListItem>
@@ -207,7 +207,7 @@ class PortalDrawer extends Component {
           </ListItem>
           <ListItem button component={Link} to="/admin/publish-command-performance-schedule" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>event</Icon>
+              <Icon>publish</Icon>
             </ListItemIcon>
             <ListItemText primary="Publish Command Performance" />
           </ListItem>
