@@ -173,7 +173,7 @@ class PortalDrawer extends Component {
           </ListItem>
           <ListItem button component={Link} to="/teacher/my-students" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>group_add</Icon>
+              <Icon>group</Icon>
             </ListItemIcon>
             <ListItemText primary="My Students" />
           </ListItem>
@@ -188,6 +188,12 @@ class PortalDrawer extends Component {
               <Icon>event</Icon>
             </ListItemIcon>
             <ListItemText primary="Volunteer for an Event" />
+          </ListItem>
+          <ListItem button component={Link} to="/teacher/events-calendar" onClick={this.switchOptionHandler}>
+              <ListItemIcon>
+                <Icon>calendar_today</Icon>
+              </ListItemIcon>
+              <ListItemText primary="Events Calendar" />
           </ListItem>
         </div>
       );

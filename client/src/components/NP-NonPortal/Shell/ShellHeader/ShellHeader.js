@@ -140,19 +140,6 @@ const ShellHeader = ({
                   />
                 </a>
               </Button>
-              { portal
-              && (<Typography
-                variant="h6"
-                color="inherit"
-                className={classes.PortalHeaderContainer}
-                noWrap
-              >
-                    <span className={classes.CustomerPortalWelcomeMessage}>
-                        Welcome, &lt;Customer Name&gt;
-                    </span>
-                  </Typography>
-                  )
-              }
           </Toolbar>
       </Grid>
       <Grid
