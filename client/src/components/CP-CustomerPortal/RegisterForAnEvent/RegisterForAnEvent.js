@@ -13,6 +13,7 @@ import {
 
 import SelectEvent from './SelectAnEvent';
 import SelectParticipants from './SelectParticipants';
+import CommandPerformance from './CommandPerformance';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
 const styles = ({ palette }) => ({
@@ -72,6 +73,7 @@ class RegisterForAnEvent extends Component {
                         {[
                             'Select Event',
                             'Select Participants',
+                            'Command Performance Options',
                             'Review/Edit Order',
                             'Payment',
                             'Order Details',
@@ -84,7 +86,8 @@ class RegisterForAnEvent extends Component {
                     </Grid>
                     <Grid item className={classes.eventRegistrationField}>
                         { activeStep === 0 && <SelectEvent /> }
-                        { activeStep === 1 && <SelectParticipants />}
+                        { activeStep === 1 && <SelectParticipants /> }
+                        { activeStep === 2 && <CommandPerformance /> }
                         {/* <AccountFields label="First Name" placeholder="Student's First Name" />
                         <AccountFields label="Last Name" placeholder="Student's Last Name" />
                         <Divider className={classes.eventDividerPadding} />
