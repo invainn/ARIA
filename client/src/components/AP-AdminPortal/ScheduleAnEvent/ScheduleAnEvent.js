@@ -98,7 +98,7 @@ class ScheduleAnEvent extends Component {
       <CustomerPortalContainer userType={0}>
         <div className={classes.pageTitle}>
           <Typography component="h2" variant="h2" gutterBottom align="center">
-              Create Schedule
+              Schedule An Event
           </Typography>
         </div>
         <Paper className={classes.root}>
