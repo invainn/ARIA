@@ -136,7 +136,7 @@ function Dashboard(props) {
             {/* End hero unit */}
             <Grid container spacing={40} alignItems="center">
               {adminCards.map(adminCard => (
-                <Grid item key={adminCard.id} sm={12} md={6} lg={3} xl={3}>
+                <Grid item key={adminCard.id} sm={12} md={6} lg={4} xl={3}>
                   <Card className={classes.card}>
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
