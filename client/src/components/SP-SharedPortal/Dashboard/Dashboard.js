@@ -47,9 +47,8 @@ const styles = theme => ({
     padding: `${theme.spacing.unit * 10}px 0`,
   },
   card: {
-    minHeight: '275px',
-    minWidth: '300px',
-    height: '100%',
+    maxHeight: '500px',
+    maxWidth: '350px',
     display: 'flex',
     alignContent: 'center',
     justifyContent: 'center',
@@ -58,13 +57,13 @@ const styles = theme => ({
       transform: 'scale(1.10);',
       transition: 'all 1s',
     },
-    padding: '20px 20px 20px 20px',
+    padding: '10px 10px 10px 10px',
   },
   cardContent: {
     flexGrow: 1,
     textAlign: 'center',
     justifyContent: 'left',
-    padding: '20px 0px 0px 0px',
+    padding: '10px 0px 0px 0px',
     marginBottom: '0px',
   },
   buttonStyle: {
@@ -72,7 +71,7 @@ const styles = theme => ({
     textAlign: 'center',
     margin: '0 auto',
     width: '100%',
-    minHeight: '68px',
+    minHeight: '85px',
     padding: '0px auto',
     marginBottom: '0px',
   },
@@ -81,10 +80,10 @@ const styles = theme => ({
   },
   cardTitle: {
     textDecoration: 'underline',
-    minHeight: '62px',
+    minHeight: '85px',
   },
   descriptionStyles: {
-    minHeight: '200px',
+    minHeight: '110px',
     height: '100%',
   },
 });
@@ -137,7 +136,7 @@ function Dashboard(props) {
             {/* End hero unit */}
             <Grid container spacing={40} alignItems="center">
               {adminCards.map(adminCard => (
-                <Grid item key={adminCard.id} sm={12} md={6} lg={4} xl={3}>
+                <Grid item key={adminCard.id} sm={12} md={6} lg={3} xl={3}>
                   <Card className={classes.card}>
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
