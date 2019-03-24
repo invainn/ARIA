@@ -51,15 +51,33 @@ const styles = () => ({
 
 class StudentInfo extends Component {
   state = {
-      value: 'no',
+      value: 'true',
+      value2: 'true',
+      value3: 'false',
   };
 
-  handleRadioChange = (event) => {
+  handleRadioChange1 = (event) => {
     this.setState({ value: event.target.value });
   };
 
+  handleRadioChange2 = (event) => {
+    this.setState({ value2: event.target.value });
+  };
+
+  handleRadioChange3 = (event) => {
+    this.setState({ value3: event.target.value });
+  };
+
   render() {
-    const { classes } = this.props;
+    const {
+      classes,
+    } = this.props;
+
+    const {
+      value,
+      value2,
+      value3,
+    } = this.state;
 
     return (
             <Paper className={classes.root}>
@@ -95,8 +113,8 @@ class StudentInfo extends Component {
                         </Grid>
 
                         { /*
-                            ! TODO: Add the option to name the command performance
-                            ! Destructuring state assignments
+                            ? Someone help
+                             TODO: Add the option to name the command performance
                         */ }
                         <Grid xs={12} className={classes.spacing} style={{ marginLeft: '7px' }}>
                           <Typography>
@@ -106,14 +124,14 @@ class StudentInfo extends Component {
                         <Grid xs={12} className={classes.spacing} />
                             <FormControl component="fieldset" className={classes.buttons}>
                                 <RadioGroup
-                                  aria-label="performance-answer"
-                                  name="answer"
+                                  aria-label="performance-answer1"
+                                  name="answer1"
                                   className={classes.forms}
-                                  value={this.state.value}
-                                  onChange={this.handleChange}
+                                  value={value}
+                                  onChange={this.handleRadioChange1}
                                 >
-                                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                                    <FormControlLabel value="true" control={<Radio />} label="Yes" />
+                                    <FormControlLabel value="false" control={<Radio />} label="No" />
                                 </RadioGroup>
                             </FormControl>
 
@@ -125,14 +143,14 @@ class StudentInfo extends Component {
                         <Grid xs={12} className={classes.spacing} />
                             <FormControl component="fieldset" className={classes.buttons}>
                                 <RadioGroup
-                                  aria-label="performance-answer"
-                                  name="answer"
+                                  aria-label="performance-answer2"
+                                  name="answer2"
                                   className={classes.forms}
-                                  value={this.state.value}
-                                  onChange={this.handleChange}
+                                  value={value2}
+                                  onChange={this.handleRadioChange2}
                                 >
-                                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                                    <FormControlLabel value="true" control={<Radio />} label="Yes" />
+                                    <FormControlLabel value="false" control={<Radio />} label="No" />
                                 </RadioGroup>
                             </FormControl>
 
@@ -144,14 +162,14 @@ class StudentInfo extends Component {
                         <Grid xs={12} className={classes.spacing} />
                             <FormControl component="fieldset" className={classes.buttons}>
                                 <RadioGroup
-                                  aria-label="performance-answer"
-                                  name="answer"
+                                  aria-label="performance-answer3"
+                                  name="answer3"
                                   className={classes.forms}
-                                  value={this.state.value}
-                                  onChange={this.handleChange}
+                                  value={value3}
+                                  onChange={this.handleRadioChange3}
                                 >
-                                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                                    <FormControlLabel value="true" control={<Radio />} label="Yes" />
+                                    <FormControlLabel value="false" control={<Radio />} label="No" />
                                 </RadioGroup>
                             </FormControl>
 

@@ -112,12 +112,12 @@ class StudentInfo extends Component {
                             >
                             <Typography>
                                 Enter a time range below for volunteer options
-                                for both Saturday and Sunday
+                                for both Saturday and Sunday.
                             </Typography>
                             </Grid>
                             <Grid xs={2} className={classes.spacing}>
                             <TextField
-                              label="Saturday #1"
+                              label="Saturday Begin Time"
                               type="time"
                               defaultValue="15:00"
                               className={classes.forms}
@@ -131,7 +131,7 @@ class StudentInfo extends Component {
                             </Grid>
                             <Grid xs={10} className={classes.spacing}>
                             <TextField
-                              label="Saturday #2"
+                              label="Saturday End Time"
                               type="time"
                               defaultValue="19:00"
                               className={classes.forms}
@@ -145,7 +145,7 @@ class StudentInfo extends Component {
                             </Grid>
                             <Grid xs={2} className={classes.spacing}>
                             <TextField
-                              label="Sunday #1"
+                              label="Sunday Begin Time"
                               type="time"
                               defaultValue="16:00"
                               className={classes.forms}
@@ -159,7 +159,7 @@ class StudentInfo extends Component {
                             </Grid>
                             <Grid xs={10} className={classes.spacing}>
                             <TextField
-                              label="Sunday #2"
+                              label="Sunday End Time"
                               type="time"
                               defaultValue="20:00"
                               className={classes.forms}
