@@ -9,6 +9,7 @@ import {
   // TableCell,
   // TableRow,
   // Toolbar,
+  Divider,
   Typography,
   Paper,
   TextField,
@@ -25,16 +26,17 @@ import {
 const styles = () => ({
   root: {
     width: '100%',
+    maxWidth: '790px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '20px 20px 20px 20px',
   },
   text: {
-    paddingTop: '7px',
-    paddingLeft: '10px',
-    paddingBottom: '7px',
+
   },
   forms: {
-    paddingTop: '4px',
-    marginLeft: '7px',
-    paddingBottom: '15px',
+    display: 'block',
+    margin: '15px 15px 15px 0px',
   },
   pageTitle: {
     width: '100%',
@@ -45,6 +47,11 @@ const styles = () => ({
   spacing: {
       marginBottom: '5px',
   },
+  // buttonStyle: {
+  //   display: 'block',
+  //   margin: '15px 15px 15px 0px',
+  //   paddingBottom: '0px',
+  // },
 });
 
 class EventInfo extends Component {
@@ -69,6 +76,9 @@ class EventInfo extends Component {
                         Please enter the information about general event information.
                         All fields are required.
                     </Typography>
+                    <Grid xs={12}>
+                      <Divider />
+                    </Grid>
 
                     {/* Begin fields here */}
                     <Grid
@@ -88,7 +98,7 @@ class EventInfo extends Component {
                             />
                         </Grid>
 
-                        <Grid xs={2} className={classes.spacing}>
+                        <Grid xs={4} className={classes.spacing}>
                             <TextField
                               label="Event Start Date"
                               type="date"
@@ -96,7 +106,7 @@ class EventInfo extends Component {
                               className={classes.forms}
                             />
                         </Grid>
-                        <Grid xs={10} className={classes.spacing}>
+                        <Grid xs={8} className={classes.spacing}>
                             <TextField
                               label="Event End Date"
                               type="date"
@@ -105,12 +115,12 @@ class EventInfo extends Component {
                             />
                         </Grid>
 
-                        <Grid xs={12} className={classes.spacing} style={{ marginLeft: '7px' }}>
+                        <Grid xs={12} className={classes.spacing}>
                           <Typography>
                             Click the button to enter event location details.
                           </Typography>
                         </Grid>
-                        <Grid xs={12} className={classes.spacing}>
+                        <Grid xs={12}>
                             <Button
                               variant="contained"
                               color="primary"

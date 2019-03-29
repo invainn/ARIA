@@ -92,14 +92,22 @@ class CreateAnEvent extends Component {
                         <AccountFields label="State/Province/Region" placeholder="Enter your state/province/region here" />
                         <AccountFields label="Zip Code" placeholder="Enter your zip code here" />
                         */}
+                        <Grid container>
                         { activeStep > 0 && (
                             <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkBackStep.bind(this)}>
                                 Go Back
                             </Button>
                         )}
-                        <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkStep.bind(this)}>
-                            Next
-                        </Button>
+                        {
+
+                        }
+                            <Grid item xs={9} />
+                            <Grid item xs={3}>
+                                <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkStep.bind(this)}>
+                                    Next
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </CustomerPortalContainer>
