@@ -1,17 +1,25 @@
+/**
+ * TODO: This page requires the scheduler to be implemented so we can pull it and modify
+ */
+
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import {
   Paper,
   Typography,
+  Divider,
 } from '@material-ui/core';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
 const styles = theme => ({
   root: {
-    flexGrow: 2,
-    width: '75%%',
-    backgroundColor: theme.palette.background.paper,
-    borderRadius: '5px',
+    width: '100%',
+    height: '100%',
+    maxWidth: '1300px',
+    maxHeight: '900px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '20px 20px 20px 20px',
   },
   button: {
     margin: theme.spacing.unit,
@@ -50,6 +58,12 @@ class ModifyAnEvent extends Component {
         <Paper className={classes.root}>
           <Typography variant="h6" align="center">
               Edit changes as necessary to an existing schedule.
+          </Typography>
+
+          <Divider />
+
+          <Typography variant="h4" align="center" style={{ marginTop: '200px' }}>
+            There are currently no events scheduled.
           </Typography>
         </Paper>
 
