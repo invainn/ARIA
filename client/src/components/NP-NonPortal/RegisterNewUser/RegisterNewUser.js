@@ -4,9 +4,9 @@ import {
     Typography,
     Grid,
     TextField,
-    Icon,
     Button,
 } from '@material-ui/core';
+import classNames from 'classnames';
 
 import Bow from './bow.jpg';
 import Shell from '../Shell/Shell';
@@ -14,11 +14,14 @@ import Shell from '../Shell/Shell';
 const styles = theme => ({
     landing: {
         background: `url(${Bow}) no-repeat center center`,
-        backgroundSize: 'cover',
+        backgroundSize: '100% 100%',
 
         height: '100vh',
         width: '100%',
         position: 'relative',
+
+        // Needed to offset the AppBar
+        marginTop: -100,
     },
 
     landingContent: {
@@ -26,141 +29,126 @@ const styles = theme => ({
         border: '3px solid brown',
         backgroundSize: 'contain',
         transition: 'all 1s',
-        width: '40%',
+        width: '35%',
         padding: 20,
-
-        // Needed to offset the AppBar
-        marginTop: 100,
+        float: 'left',
+        position: 'absolute',
+        transform: 'translateY(-50%) translateX(-50%)',
+        top: '59%',
+        left: '50%',
     },
 
     landingCaption: {
         marginTop: 15,
-        color: theme.palette.primary.contrastText,
+        color: '#FFFFFF',
     },
 
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
+    margin: {
+        margin: theme.spacing.unit,
         color: theme.palette.primary.contrastText,
-        width: '100%',
     },
 
     button: {
-        marginTop: 25,
-        marginLeft: 20,
-        color: theme.palette.primary.contrastText,
+        color: '#FFFFFF',
+        textAlign: 'center',
+        width: '41%',
+        display: 'block',
+        verticalAlign: 'text-top',
+        height: '100%',
     },
 
     loginIcons: {
         color: theme.palette.primary.contrastText,
     },
 
-    iconTextHeight: {
-        lineHeight: '75px',
-        height: '85px',
+    fieldText: {
+        color: theme.palette.primary.contrastText,
+    },
+    infoMessageStyles: {
+        width: ' 80%',
+        textAlign: 'center',
+    },
+    emailInputfieldStyles: {
+        marginTop: '10px',
+        marginBottom: '10px',
+        padding: '10px 0px 10px 0px',
+        width: '80%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    },
+    placeHolderStyles: {
+        color: '#FFFFFF',
     },
 });
 
 
-const RegisterNewUser = ({ classes }) => (
-    <Shell>
-        <Grid className={classes.landing} container justify="center" alignItems="center">
-            <Grid className={classes.landingContent} container direction="column" justify="center" alignItems="center">
+class ForgotPassword extends React.Component {
+    state = {
+        username: '',
+        password: '',
+    };
 
-                <div className={classes.iconTextHeight}>
-                    <Typography variant="title" align="center" color="textPrimary" className={classes.landingCaption}>
-                        Northern Nevada Music Teacher Association
-                    </Typography>
+    handleChange = name => (event) => {
+        this.setState({ [name]: event.target.value });
+    };
 
-                    <Typography variant="body1" align="center" className={classes.landingCaption}>
-                        Welcome to Account Registration!
-                    </Typography>
-                </div>
+    render() {
+        const { classes } = this.props;
 
-                <div className={classes.iconTextHeight}>
-                    <Grid container spacing={12} alignItems="center" justify="space-evenly">
-                        <Grid item xs={5}>
-                            <TextField
-                              label="First Name"
-                              variant="outlined"
-                              className={classes.textField}
-                            />
-                        </Grid>
-                        <Grid item xs={5}>
-                            <TextField
-                              label="Last Name"
-                              variant="outlined"
-                              className={classes.textField}
-                            />
+        return (
+            <Shell>
+                <Grid className={classes.landing} container justify="center" alignItems="center">
+                    <Grid className={classes.landingContent} container direction="column" justify="center" alignItems="center">
+                        <Typography variant="title" align="center" className={classes.landingCaption}>
+                            Northern Nevada Music Teacher Association (NNMTA)
+                        </Typography>
+                        <Typography variant="body1" align="center" className={classNames({[classes.landingCaption]: true, [classes.infoMessageStyles]: true})}>
+                            Create an account to manage all of your future performances in one easy place!
+                        </Typography>
+                        <Grid container justify="center" align="center">
+                            <Grid xs={12}>
+                                <TextField
+                                    id="outlined-email-input"
+                                    label="Email Address"
+                                    className={classNames({[classes.textField]: true, [classes.emailInputfieldStyles]: true})}
+                                    type="email"
+                                    name="email"
+                                    autoComplete="email"
+                                    variant="outlined"
+                                />
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Password"
+                                    className={classNames({[classes.textField]: true, [classes.emailInputfieldStyles]: true})}
+                                    type="password"
+                                    name="password"
+                                    autoComplete="password"
+                                    variant="outlined"
+                                />
+                                <TextField
+                                    id="customer-first-name"
+                                    label="First Name"
+                                    className={classNames({[classes.textField]: true, [classes.emailInputfieldStyles]: true})}
+                                    variant="outlined"
+                                />
+                                <TextField
+                                    id="customer-last-name"
+                                    label="Last Name"
+                                    className={classNames({[classes.textField]: true, [classes.emailInputfieldStyles]: true})}
+                                    variant="outlined"
+                                />
+                            </Grid>
+                            <Grid xs={12} alignItems="center">
+                                <Button variant="contained" color="primary" className={classes.button}>
+                                    Create Account
+                                </Button>
+                            </Grid>
                         </Grid>
                     </Grid>
-                </div>
+                </Grid>
+            </Shell>
+        );
+    }
+}
 
-                <div className={classes.iconTextHeight}>
-                    <Grid container spacing={8} alignItems="flex-end">
-                        <Grid item>
-                            <Icon className={classes.loginIcons}>account_circle</Icon>
-                        </Grid>
-                        <Grid item>
-                            <TextField
-                              id="input-with-icon-grid"
-                              label="Email"
-                              autoComplete="email"
-                              type="email"
-                              variant="outlined"
-                              helperText="Required *"
-                              className={classes.textField}
-                            />
-                        </Grid>
-                    </Grid>
-                </div>
-
-                <div className={classes.iconTextHeight}>
-                    <Grid container spacing={12} alignItems="center" justify="space-evenly">
-                        <Grid item xs={1}>
-                            <Icon className={classes.loginIcons}>vpn_key</Icon>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                              id="input-with-icon-grid"
-                              className={classes.textField}
-                              label="Password"
-                              type="password"
-                              variant="outlined"
-                              helperText="Required *"
-                            />
-                        </Grid>
-                        <Grid item xs={5}>
-                            <TextField
-                              id="input-with-icon-grid"
-                              className={classes.textField}
-                              label="Verify Password"
-                              type="password"
-                              variant="outlined"
-                              helperText="Required *"
-                            />
-                        </Grid>
-                    </Grid>
-                </div>
-
-                <div>
-                    <Grid container spacing={12} alignItems="flex-end">
-                        <Grid item xs={6}>
-                            <Button className={classes.button}>
-                                Submit
-                            </Button>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Button className={classes.button}>
-                                Cancel
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </div>
-
-            </Grid>
-        </Grid>
-    </Shell>
-);
-
-export default withStyles(styles)(RegisterNewUser);
+export default withStyles(styles)(ForgotPassword);

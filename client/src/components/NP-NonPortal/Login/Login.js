@@ -9,6 +9,7 @@ import {
     Icon,
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
 import Music from './music.jpg';
 import Shell from '../Shell/Shell';
@@ -16,14 +17,14 @@ import Shell from '../Shell/Shell';
 const styles = theme => ({
     landing: {
         background: `url(${Music}) no-repeat center center`,
-        backgroundSize: 'cover',
+        backgroundSize: '100% 100%',
 
         height: '100vh',
         width: '100%',
         position: 'relative',
 
         // Needed to offset the AppBar
-        marginTop: -74,
+        marginTop: -100,
     },
 
     landingContent: {
@@ -33,6 +34,11 @@ const styles = theme => ({
         transition: 'all 1s',
         width: '25%',
         padding: 20,
+        float: 'left',
+        position: 'absolute',
+        transform: 'translateY(-50%) translateX(-50%)',
+        top: '59%',
+        left: '50%',
     },
 
     landingCaption: {
@@ -49,6 +55,7 @@ const styles = theme => ({
         margin: theme.spacing.unit,
         color: '#FFFFFF',
         textAlign: 'center',
+        width: '100%',
     },
 
     loginIcons: {
@@ -58,6 +65,21 @@ const styles = theme => ({
     fieldText: {
         color: theme.palette.primary.contrastText,
     },
+    fieldTextTwo: {
+        display: 'inline-block',
+        margin: '10px',
+        alignItems: 'center',
+        textAlign: 'center',
+    },
+    fieldTextThree: {
+        textAlign: 'center',
+        alignItems: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    },
+    placeHolderStyles: {
+        color: '#FFFFFF',
+    }
 });
 
 
@@ -79,7 +101,7 @@ class Login extends React.Component {
                 <Grid className={classes.landing} container justify="center" alignItems="center">
                     <Grid className={classes.landingContent} container direction="column" justify="center" alignItems="center">
                         <Typography variant="title" align="center" className={classes.landingCaption}>
-                            Northern Nevada Music Teacher Association
+                            Northern Nevada Music Teacher Association (NNMTA)
                         </Typography>
 
                         <form autoComplete="off">
@@ -114,20 +136,18 @@ class Login extends React.Component {
                             </div>
 
                             <div>
-                                <Typography className={classes.fieldText}>
-                                    New User?
-                                    <Button component={Link} to="/register" className={classes.button}>
-                                            Click here to register!
-                                    </Button>
+                                <Typography className={classNames({[classes.fieldText]: true, [classes.fieldTextTwo]: true})}>
+                                    New to ARIA?
+                                </Typography>
+                                <Typography className={classNames({[classes.fieldText]: true, [classes.fieldTextTwo]: true})} component={Link} to="/register">
+                                    Create an account.
                                 </Typography>
                             </div>
 
                             <div>
-                                <Button component={Link} to="/forgot-password">
-                                    <Typography variant="caption" className={classes.fieldText}>
-                                        Forgot your password?
-                                    </Typography>
-                                </Button>
+                                <Typography component={Link} to="/forgot-password" className={classNames({[classes.fieldText]: true, [classes.fieldTextThree]: true})}>
+                                    Forgot your password?
+                                </Typography>
                             </div>
                         </form>
                     </Grid>
