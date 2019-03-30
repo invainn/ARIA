@@ -12,6 +12,10 @@ import getTheme from '../../theme';
 import CreateAnEvent from '../AP-AdminPortal/CreateAnEvent/CreateAnEvent';
 import ScheduleAnEvent from '../AP-AdminPortal/ScheduleAnEvent/ScheduleAnEvent';
 import ModifyAnEvent from '../AP-AdminPortal/ModifyAnEvent/ModifyAnEvent';
+import ScheduleCommandPerformance
+    from '../AP-AdminPortal/ScheduleCommandPerformance/ScheduleCommandPerformance';
+import ViewModifyCommandPerformance
+    from '../AP-AdminPortal/ViewModifyCommandPerformance/ViewModifyCommandPerformance';
 import GenerateDocuments from '../AP-AdminPortal/GenerateDocuments/GenerateDocuments';
 import UploadMusic from '../AP-AdminPortal/UploadMusic/UploadMusic';
 import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
@@ -58,8 +62,8 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/admin/create-an-event" component={CreateAnEvent} />
                 <Route exact path="/admin/schedule-an-event" component={ScheduleAnEvent} />
                 <Route exact path="/admin/edit-an-event" component={ModifyAnEvent} />
-                {/* <Route exact path="/admin/schedule-command-performance" component={ScheduleCommandPerformance} /> */}
-                {/* <Route exact path="/admin/edit-command-performance" component={ViewModifiyCommandPerformance} /> */}
+                <Route exact path="/admin/schedule-command-performance" component={ScheduleCommandPerformance} />
+                <Route exact path="/admin/edit-command-performance" component={ViewModifyCommandPerformance} />
                 <Route exact path="/admin/add-a-teacher" component={AddATeacher} />
                 <Route exact path="/admin/generate-documents" component={GenerateDocuments} />
                 {/* <Route exact path="/admin/print-documents" component={PrintDocuments} /> */}
