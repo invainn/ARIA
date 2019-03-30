@@ -65,8 +65,8 @@ class GenerateDocuments extends Component {
       activeStep: 0,
   };
 
-  handleChange = form => ({ event }) => {
-    this.setState({ [form]: event.target.checked });
+  handleAdjudicationChange = () => ({ event }) => {
+    this.setState({ adjudication: event.target.checked });
   };
 
   walkStep() {
@@ -132,7 +132,7 @@ class GenerateDocuments extends Component {
                   <FormGroup>
                     <FormControlLabel
                       control={
-                        <Checkbox checked={adjudication} onChange={this.handleChange('adjudication')} value="adjudication" />
+                        <Checkbox checked={adjudication} onChange={this.handleAdjudicationChange('adjudication')} value="adjudication" />
                       }
                       label="Adjudication Forms"
                     />
