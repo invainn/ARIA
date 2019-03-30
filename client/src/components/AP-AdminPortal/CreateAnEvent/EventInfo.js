@@ -31,9 +31,6 @@ const styles = () => ({
     marginRight: 'auto',
     padding: '20px 20px 20px 20px',
   },
-  text: {
-
-  },
   forms: {
     display: 'block',
     margin: '15px 15px 15px 0px',
