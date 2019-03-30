@@ -14,7 +14,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 // Do not do this
-const drawerWidth = 301;
+const drawerWidth = 300;
 
 const styles = theme => ({
   portalDrawer: {
@@ -39,8 +39,8 @@ const styles = theme => ({
     }),
   },
   menuButton: {
-    marginLeft: 12,
-    marginRight: 36,
+    marginLeft: 16,
+    marginRight: 40,
   },
   hide: {
     display: 'none',
@@ -123,25 +123,25 @@ class PortalDrawer extends Component {
           </ListItem>
           <ListItem button component={Link} to="/admin/create-an-event" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>account_box</Icon>
+              <Icon>create</Icon>
             </ListItemIcon>
-            <ListItemText primary="Create an Event" />
+            <ListItemText primary="Create An Event" />
           </ListItem>
           <ListItem button component={Link} to="/admin/schedule-an-event" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>schedule</Icon>
             </ListItemIcon>
-            <ListItemText primary="Schedule an Event" />
+            <ListItemText primary="Schedule An Event" />
           </ListItem>
           <ListItem button component={Link} to="/admin/edit-an-event" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>assignment</Icon>
+              <Icon>event_note</Icon>
             </ListItemIcon>
-            <ListItemText primary="Modify an Event" />
+            <ListItemText primary="View/Modify An Event" />
           </ListItem>
           <ListItem button component={Link} to="/admin/schedule-command-performance" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>av_timer</Icon>
+              <Icon>schedule</Icon>
             </ListItemIcon>
             <ListItemText primary="Schedule Command Performance" />
           </ListItem>
@@ -149,7 +149,7 @@ class PortalDrawer extends Component {
             <ListItemIcon>
               <Icon>event_note</Icon>
             </ListItemIcon>
-            <ListItemText primary="Modify Command Performance" />
+            <ListItemText primary="View/Modify Command Performance" />
           </ListItem>
           <ListItem button component={Link} to="/admin/add-a-teacher" onClick={this.switchOptionHandler}>
             <ListItemIcon>
@@ -177,7 +177,7 @@ class PortalDrawer extends Component {
           </ListItem>
           <ListItem button component={Link} to="/admin/upload-music" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>library_music</Icon>
+              <Icon>cloud_upload</Icon>
             </ListItemIcon>
             <ListItemText primary="Upload Music" />
           </ListItem>
@@ -207,39 +207,39 @@ class PortalDrawer extends Component {
           </ListItem>
           <ListItem button component={Link} to="/admin/publish-command-performance-schedule" onClick={this.switchOptionHandler}>
             <ListItemIcon>
-              <Icon>publish</Icon>
+              <Icon>date_range</Icon>
             </ListItemIcon>
-            <ListItemText primary="Publish Command Performance" />
+            <ListItemText primary="Publish Command Performance Schedule" />
           </ListItem>
           <ListItem button component={Link} to="/admin/edit-event-calender" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>calendar_today</Icon>
             </ListItemIcon>
-            <ListItemText primary="Modify Events Calender" />
+            <ListItemText primary="View/Modify Events Calendar" />
           </ListItem>
           <ListItem button component={Link} to="/admin/edit-faq" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>help_outline</Icon>
             </ListItemIcon>
-            <ListItemText primary="Modify FAQ Page" />
+            <ListItemText primary="View/Modify FAQ" />
           </ListItem>
           <ListItem button component={Link} to="/admin/edit-about-us" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>music_note</Icon>
             </ListItemIcon>
-            <ListItemText primary="Modify About Us Page" />
+            <ListItemText primary="View/Modify About Us" />
           </ListItem>
           <ListItem button component={Link} to="/admin/notifications" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>notification_important</Icon>
             </ListItemIcon>
-            <ListItemText primary="Create & Send A Notification" />
+            <ListItemText primary="Create/Send A Notification" />
           </ListItem>
           <ListItem button component={Link} to="/admin/news" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>subtitles</Icon>
             </ListItemIcon>
-            <ListItemText primary="Modify NNMTA News Page" />
+            <ListItemText primary="View/Modify News" />
           </ListItem>
         </div>
       );
