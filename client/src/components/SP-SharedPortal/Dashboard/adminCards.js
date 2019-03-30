@@ -5,7 +5,7 @@ const adminCards = [
       description: 'Create new NNMTA events here. Event details such as festival chairman email, '
       + 'the event name, event start date, event end date, event location, and more are required to create an event.',
       link: '/admin/create-an-event',
-      buttonName: 'Create A New Event',
+      buttonName: 'Create An Event',
       icon: 'create',
     },
     {
@@ -14,7 +14,7 @@ const adminCards = [
       description: 'Schedule events here after they have been created. Scheduling an event requires the date(s) '
       + 'of the event to be known, the number of timeblocks, the length of each time block, etc.',
       link: '/admin/schedule-an-event',
-      buttonName: 'Edit Participants',
+      buttonName: 'Schedule An Event',
       icon: 'schedule',
     },
     {
@@ -23,7 +23,7 @@ const adminCards = [
       description: 'Events that have been successfully scheduled appear here. These events can be accessed, '
       + 'and if necessary, modified by an administrator.',
       link: '/admin/edit-an-event',
-      buttonName: 'Register Now',
+      buttonName: 'View/Modify An Event',
       icon: 'event_note',
     },
     {
@@ -33,7 +33,7 @@ const adminCards = [
       + 'events to be created. Once again, scheduling a command performance event requires the date(s) of the'
       + 'event to be known, the number of timeblocks, the length of each time block, etc.',
       link: '/admin/schedule-command-performance',
-      buttonName: 'View Enrollments',
+      buttonName: 'Schedule Command Performance',
       icon: 'schedule',
     },
     {
@@ -42,7 +42,7 @@ const adminCards = [
       description: 'Command performance events that have been successfully schedule appear here. These events can be accessed, '
       + 'and if necessary, modified by an administrator.',
       link: '/admin/edit-command-performance',
-      buttonName: 'View Calendar',
+      buttonName: 'View/Modify Command Performance',
       icon: 'event_note',
     },
     {
@@ -51,7 +51,7 @@ const adminCards = [
       description: 'Manually add a new teacher using this feature. The teacher\'s first and last name, email, '
       + 'and phone number will need be be entered for a successful addition.',
       link: '/admin/add-a-teacher',
-      buttonName: 'FAQ',
+      buttonName: 'Add A Teacher',
       icon: 'person_add',
     },
     {
@@ -60,7 +60,7 @@ const adminCards = [
       description: 'Generate adjudication forms, results sheets, room schedules, teacher lists, master schedules, '
       + 'session files, and many more documents through this feature.',
       link: '/admin/generate-documents',
-      buttonName: 'Who We Are',
+      buttonName: 'Generate Documents',
       icon: 'note_add',
     },
     {
@@ -69,7 +69,7 @@ const adminCards = [
       description: 'NNMTA documents can be printed here such as adjudication forms, results sheets, '
       + 'announcing sheets, room schedules, theory scores, etc.',
       link: '/admin/print-documents',
-      buttonName: 'Message Us',
+      buttonName: 'Print Documents',
       icon: 'print',
     },
     {
@@ -77,7 +77,7 @@ const adminCards = [
       title: 'Upload Documents',
       description: 'Upload documents to the server as backups to local files.',
       link: '/admin/upload-documents',
-      buttonName: 'Message Us',
+      buttonName: 'Upload Documents',
       icon: 'cloud_upload',
     },
     {
@@ -85,7 +85,7 @@ const adminCards = [
       title: 'Upload Music',
       description: 'Upload the NNMTA music library here in .CSV format.',
       link: '/admin/upload-music',
-      buttonName: 'Message Us',
+      buttonName: 'Upload Music',
       icon: 'cloud_upload',
     },
     {
@@ -94,7 +94,7 @@ const adminCards = [
       description: 'View active, published events here. This feature will display details such as the event name, '
       + 'facilitator email, event date(s), event location(s), and options.',
       link: '/admin/events',
-      buttonName: 'Message Us',
+      buttonName: 'Events',
       icon: 'event',
     },
     {
@@ -104,7 +104,7 @@ const adminCards = [
       + 'first name, last name, contact information (phone number and email), and the number of students registered '
       + 'with that teacher.',
       link: '/admin/teachers',
-      buttonName: 'Message Us',
+      buttonName: 'Teachers',
       icon: 'school',
     },
     {
@@ -114,7 +114,7 @@ const adminCards = [
       + 'first name, last name, level, teacher (includes their full name, email address, and phone number), payment status '
       + 'and registration status.',
       link: '/admin/students',
-      buttonName: 'Message Us',
+      buttonName: 'Students',
       icon: 'people',
     },
     {
@@ -122,7 +122,7 @@ const adminCards = [
       title: 'Publish Schedule',
       description: 'Publishes the schedule.',
       link: '/admin/publish-schedule',
-      buttonName: 'Message Us',
+      buttonName: 'Publish Schedule',
       icon: 'date_range',
     },
     {
@@ -130,34 +130,34 @@ const adminCards = [
       title: 'Publish Command Performance Schedule',
       description: 'Publishes the command performance schedule.',
       link: '/admin/publish-command-performance-schedule',
-      buttonName: 'View Command Performance Schedule',
+      buttonName: 'Publish Command Performance Schedule',
       icon: 'date_range',
     },
     {
       id: 16,
-      title: 'View/Modify The Events Calendar',
+      title: 'View/Modify Events Calendar',
       description: 'Allows the Google Calendar for NNMTA which appears in the Customer and Teacher portals to be viewed, '
       + 'and if necessary, modified by an administrator.',
       link: '/admin/edit-events-calendar',
-      buttonName: 'View/Edit Google Calendar',
+      buttonName: 'View/Modify Events Calendar',
       icon: 'calendar_today',
     },
     {
       id: 17,
-      title: 'View/Modify The FAQ Page',
+      title: 'View/Modify FAQ',
       description: 'Allows the Frequently Asked Questions page which appears in the Customer and Teacher portals to be viewed, '
       + 'and if necessary, modified by an administrator.',
       link: '/admin/edit-faq',
-      buttonName: 'View/Edit FAQ',
+      buttonName: 'View/Modify FAQ',
       icon: 'help_outline',
     },
     {
       id: 18,
-      title: 'View/Modify The About Us Page',
+      title: 'View/Modify About Us ',
       description: 'Allows the About Us page which appears in the Customer and Teacher portals to be viewed, and if necessary, '
       + 'modified by an administrator.',
       link: '/admin/edit-about-us',
-      buttonName: 'View/Edit About Us',
+      buttonName: 'View/Modify About Us',
       icon: 'music_note',
     },
     {
@@ -166,15 +166,15 @@ const adminCards = [
       description: 'Allows an administrator to send notifications to customers and/or teachers through the portal directly. This feature '
       + ' is meant to provide a second means of communication from NNMTA staff regarding important events.',
       link: '/admin/notifications',
-      buttonName: 'View/Edit About Us',
+      buttonName: 'Create/Send A Notification',
       icon: 'notification_important',
     },
     {
       id: 20,
-      title: 'View/Modify The NNMTA News Page',
+      title: 'View/Modify News',
       description: 'Allows an administrator to publish news about upcoming events to customers and teachers through the portal.',
       link: '/admin/news',
-      buttonName: 'View/Edit About Us',
+      buttonName: 'View/Modify News',
       icon: 'subtitles',
     },
   ];
