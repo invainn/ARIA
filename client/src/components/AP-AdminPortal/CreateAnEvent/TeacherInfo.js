@@ -12,6 +12,7 @@ import {
   Typography,
   Paper,
   TextField,
+  Divider,
   Grid,
   FormControlLabel,
   FormControl,
@@ -22,11 +23,10 @@ import {
 const styles = () => ({
   root: {
     width: '100%',
-  },
-  text: {
-    paddingTop: '7px',
-    paddingLeft: '10px',
-    paddingBottom: '7px',
+    maxWidth: '750px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '20px 20px 20px 20px',
   },
   buttons: {
     paddingBottom: '4px',
@@ -34,18 +34,14 @@ const styles = () => ({
     paddingTop: '4px',
   },
   forms: {
-    paddingTop: '4px',
-    marginLeft: '7px',
-    paddingBottom: '15px',
+    display: 'block',
+    margin: '15px 15px 15px 0px',
   },
   pageTitle: {
     width: '100%',
     textDecoration: 'underline',
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
-  },
-  spacing: {
-      marginBottom: '5px',
   },
 });
 
@@ -59,10 +55,12 @@ class StudentInfo extends Component {
     return (
             <Paper className={classes.root}>
                 <div>
-                    <Typography className={classes.text} variant="h6">
+                    <Typography variant="h6">
                         Please enter the information about teacher registrations.
                         All fields are required.
                     </Typography>
+
+                    <Divider />
 
                     {/* Begin fields here */}
                     <Grid
@@ -71,7 +69,7 @@ class StudentInfo extends Component {
                       justify="flex-start"
                       alignItems="center"
                     >
-                        <Grid xs={2} className={classes.spacing}>
+                        <Grid xs={4}>
                             <TextField
                               autoFocus
                               label="Registration Start Date"
@@ -80,7 +78,7 @@ class StudentInfo extends Component {
                               className={classes.forms}
                             />
                         </Grid>
-                        <Grid xs={10} className={classes.spacing}>
+                        <Grid xs={8}>
                             <TextField
                               label="Registration End Date"
                               type="date"
@@ -89,12 +87,12 @@ class StudentInfo extends Component {
                             />
                         </Grid>
 
-                        <Grid xs={12} style={{ marginLeft: '7px', paddingTop: '15px' }}>
+                        <Grid xs={12}>
                             <Typography>
                                 Please select all options within the list.
                             </Typography>
                         </Grid>
-                        <Grid xs={11} className={classes.spacing}>
+                        <Grid xs={11}>
                             <TextField
                               id="teacher-volunteer-options"
                               label="Teacher Volunteer Options"
@@ -105,17 +103,13 @@ class StudentInfo extends Component {
                             />
                         </Grid>
 
-                            <Grid
-                              xs={10}
-                              className={classes.spacing}
-                              style={{ marginLeft: 7, marginTop: 20 }}
-                            >
-                            <Typography>
-                                Enter a time range below for volunteer options
-                                for both Saturday and Sunday.
-                            </Typography>
+                            <Grid xs={10}>
+                              <Typography>
+                                  Enter a time range below for volunteer options
+                                  for both Saturday and Sunday.
+                              </Typography>
                             </Grid>
-                            <Grid xs={2} className={classes.spacing}>
+                            <Grid xs={4}>
                             <TextField
                               label="Saturday Begin Time"
                               type="time"
@@ -129,7 +123,7 @@ class StudentInfo extends Component {
                                 }}
                             />
                             </Grid>
-                            <Grid xs={10} className={classes.spacing}>
+                            <Grid xs={8}>
                             <TextField
                               label="Saturday End Time"
                               type="time"
@@ -143,7 +137,7 @@ class StudentInfo extends Component {
                                 }}
                             />
                             </Grid>
-                            <Grid xs={2} className={classes.spacing}>
+                            <Grid xs={4}>
                             <TextField
                               label="Sunday Begin Time"
                               type="time"
@@ -157,7 +151,7 @@ class StudentInfo extends Component {
                                 }}
                             />
                             </Grid>
-                            <Grid xs={10} className={classes.spacing}>
+                            <Grid xs={8}>
                             <TextField
                               label="Sunday End Time"
                               type="time"

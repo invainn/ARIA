@@ -64,7 +64,7 @@ class CreateAnEvent extends Component {
             <CustomerPortalContainer>
                 <div className={classes.pageTitle}>
                     <Typography component="h2" variant="h2" gutterBottom align="center">
-                        Register for an Event
+                        Create an Event
                     </Typography>
                 </div>
                 <Grid container alignItems="center" justify="center">
@@ -92,7 +92,6 @@ class CreateAnEvent extends Component {
                         <AccountFields label="State/Province/Region" placeholder="Enter your state/province/region here" />
                         <AccountFields label="Zip Code" placeholder="Enter your zip code here" />
                         */}
-                        <Grid container>
                         { activeStep > 0 && (
                             <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkBackStep.bind(this)}>
                                 Go Back
@@ -101,13 +100,9 @@ class CreateAnEvent extends Component {
                         {
 
                         }
-                            <Grid item xs={9} />
-                            <Grid item xs={3}>
-                                <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkStep.bind(this)}>
-                                    Next
-                                </Button>
-                            </Grid>
-                        </Grid>
+                        <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkStep.bind(this)}>
+                            Next
+                        </Button>
                     </Grid>
                 </Grid>
             </CustomerPortalContainer>

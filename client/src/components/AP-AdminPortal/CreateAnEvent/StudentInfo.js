@@ -17,16 +17,16 @@ import {
   FormControl,
   Radio,
   RadioGroup,
+  Divider,
 } from '@material-ui/core/';
 
 const styles = () => ({
   root: {
     width: '100%',
-  },
-  text: {
-    paddingTop: '7px',
-    paddingLeft: '10px',
-    paddingBottom: '7px',
+    maxWidth: '725px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '20px 20px 20px 20px',
   },
   buttons: {
     paddingBottom: '4px',
@@ -34,18 +34,14 @@ const styles = () => ({
     paddingTop: '4px',
   },
   forms: {
-    paddingTop: '4px',
-    marginLeft: '7px',
-    paddingBottom: '15px',
+    display: 'block',
+    margin: '15px 15px 15px 0px',
   },
   pageTitle: {
     width: '100%',
     textDecoration: 'underline',
     textDecorationColor: '#FFFFFF',
     paddingBottom: '15px',
-  },
-  spacing: {
-      marginBottom: '5px',
   },
 });
 
@@ -87,6 +83,8 @@ class StudentInfo extends Component {
                         All fields are required.
                     </Typography>
 
+                    <Divider />
+
                     {/* Begin fields here */}
                     <Grid
                       container
@@ -94,7 +92,7 @@ class StudentInfo extends Component {
                       justify="flex-start"
                       alignItems="center"
                     >
-                        <Grid xs={2} className={classes.spacing}>
+                        <Grid item xs={4}>
                             <TextField
                               autoFocus
                               label="Registration Start Date"
@@ -103,7 +101,7 @@ class StudentInfo extends Component {
                               className={classes.forms}
                             />
                         </Grid>
-                        <Grid xs={10} className={classes.spacing}>
+                        <Grid item xs={8}>
                             <TextField
                               label="Registration End Date"
                               type="date"
@@ -116,12 +114,12 @@ class StudentInfo extends Component {
                             ? Someone help
                              TODO: Add the option to name the command performance
                         */ }
-                        <Grid xs={12} className={classes.spacing} style={{ marginLeft: '7px' }}>
+                        <Grid xs={12}>
                           <Typography>
                             Will there be a command performance for this event?
                           </Typography>
                         </Grid>
-                        <Grid xs={12} className={classes.spacing} />
+                        <Grid xs={12} />
                             <FormControl component="fieldset" className={classes.buttons}>
                                 <RadioGroup
                                   aria-label="performance-answer1"
@@ -135,12 +133,12 @@ class StudentInfo extends Component {
                                 </RadioGroup>
                             </FormControl>
 
-                        <Grid xs={12} className={classes.spacing} style={{ marginLeft: '7px' }}>
+                        <Grid xs={12}>
                           <Typography>
                             Can a student register for multiple categories / levels?
                           </Typography>
                         </Grid>
-                        <Grid xs={12} className={classes.spacing} />
+                        <Grid xs={12} />
                             <FormControl component="fieldset" className={classes.buttons}>
                                 <RadioGroup
                                   aria-label="performance-answer2"
@@ -154,12 +152,12 @@ class StudentInfo extends Component {
                                 </RadioGroup>
                             </FormControl>
 
-                        <Grid xs={12} className={classes.spacing} style={{ marginLeft: '7px' }}>
+                        <Grid xs={12}>
                           <Typography>
                             Will this event require scores?
                           </Typography>
                         </Grid>
-                        <Grid xs={12} className={classes.spacing} />
+                        <Grid xs={12} />
                             <FormControl component="fieldset" className={classes.buttons}>
                                 <RadioGroup
                                   aria-label="performance-answer3"
