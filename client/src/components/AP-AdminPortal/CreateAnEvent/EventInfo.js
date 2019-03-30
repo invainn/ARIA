@@ -31,9 +31,6 @@ const styles = () => ({
     marginRight: 'auto',
     padding: '20px 20px 20px 20px',
   },
-  text: {
-
-  },
   forms: {
     display: 'block',
     margin: '15px 15px 15px 0px',
@@ -72,7 +69,7 @@ class EventInfo extends Component {
     return (
             <Paper className={classes.root}>
                 <div>
-                    <Typography className={classes.text} variant="h6">
+                    <Typography className={classes.text} variant="h6" align="center">
                         Please enter the information about general event information.
                         All fields are required.
                     </Typography>

@@ -40,6 +40,11 @@ const styles = ({ palette }) => ({
     },
     registerStepper: {
         borderRadius: '5px',
+        width: '100%',
+        maxWidth: '790px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        padding: '20px 20px 20px 20px',
     },
 });
 
