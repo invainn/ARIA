@@ -23,7 +23,7 @@ import {
 const styles = () => ({
   root: {
     width: '100%',
-    maxWidth: '750px',
+    maxWidth: '790px',
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: '20px 20px 20px 20px',
@@ -55,7 +55,7 @@ class StudentInfo extends Component {
     return (
             <Paper className={classes.root}>
                 <div>
-                    <Typography variant="h6">
+                    <Typography variant="h6" align="center">
                         Please enter the information about teacher registrations.
                         All fields are required.
                     </Typography>

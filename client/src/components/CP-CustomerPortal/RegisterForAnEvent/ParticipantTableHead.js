@@ -32,6 +32,9 @@ class ParticipantTableHead extends Component {
         id: 'lastName', numeric: false, disablePadding: false, label: 'Last Name',
         },
         {
+        id: 'age', numeric: false, disablePadding: false, label: 'Age',
+        },
+        {
         id: 'musicLevel', numeric: false, disablePadding: false, label: 'Music Level',
         },
         {
