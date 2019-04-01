@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unused-state */
+// eslint-disable-next-line import/no-unresolved
 import React from 'react';
 import {
     withStyles,
@@ -7,7 +8,11 @@ import {
     TextField,
     Button,
     Icon,
+// eslint-disable-next-line import/no-unresolved
 } from '@material-ui/core';
+// eslint-disable-next-line import/no-unresolved
+import classNames from 'classnames';
+// eslint-disable-next-line import/no-unresolved
 import { Link } from 'react-router-dom';
 
 import Music from './music.jpg';
@@ -16,14 +21,14 @@ import Shell from '../Shell/Shell';
 const styles = theme => ({
     landing: {
         background: `url(${Music}) no-repeat center center`,
-        backgroundSize: 'cover',
+        backgroundSize: '100% 100%',
 
         height: '100vh',
         width: '100%',
         position: 'relative',
 
         // Needed to offset the AppBar
-        marginTop: -74,
+        marginTop: -100,
     },
 
     landingContent: {
@@ -33,6 +38,11 @@ const styles = theme => ({
         transition: 'all 1s',
         width: '25%',
         padding: 20,
+        float: 'left',
+        position: 'absolute',
+        transform: 'translateY(-50%) translateX(-50%)',
+        top: '59%',
+        left: '50%',
     },
 
     landingCaption: {
@@ -46,9 +56,11 @@ const styles = theme => ({
     },
 
     button: {
-        margin: theme.spacing.unit,
+        margin: '12px auto 5px auto',
         color: '#FFFFFF',
         textAlign: 'center',
+        width: '100%',
+        maxWidth: '233.27px',
     },
 
     loginIcons: {
@@ -57,6 +69,21 @@ const styles = theme => ({
 
     fieldText: {
         color: theme.palette.primary.contrastText,
+    },
+    fieldTextTwo: {
+        display: 'inline-block',
+        margin: '10px',
+        alignItems: 'center',
+        textAlign: 'center',
+    },
+    fieldTextThree: {
+        textAlign: 'center',
+        alignItems: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    },
+    placeHolderStyles: {
+        color: '#FFFFFF',
     },
 });
 
@@ -79,7 +106,7 @@ class Login extends React.Component {
                 <Grid className={classes.landing} container justify="center" alignItems="center">
                     <Grid className={classes.landingContent} container direction="column" justify="center" alignItems="center">
                         <Typography variant="title" align="center" className={classes.landingCaption}>
-                            Northern Nevada Music Teacher Association
+                            Northern Nevada Music Teacher Association (NNMTA)
                         </Typography>
 
                         <form autoComplete="off">
@@ -114,20 +141,23 @@ class Login extends React.Component {
                             </div>
 
                             <div>
-                                <Typography className={classes.fieldText}>
-                                    New User?
-                                    <Button component={Link} to="/register" className={classes.button}>
-                                            Click here to register!
-                                    </Button>
+                                <Typography className={
+                                                classNames({
+                                                    [classes.fieldText]: true,
+                                                    [classes.fieldTextTwo]: true,
+                                                })}
+                                >
+                                    New to ARIA?
+                                </Typography>
+                                <Typography className={classNames({ [classes.fieldText]: true, [classes.fieldTextTwo]: true })} component={Link} to="/register">
+                                    Create an account.
                                 </Typography>
                             </div>
 
                             <div>
-                                <Button component={Link} to="/forgot-password">
-                                    <Typography variant="caption" className={classes.fieldText}>
-                                        Forgot your password?
-                                    </Typography>
-                                </Button>
+                                <Typography component={Link} to="/forgot-password" className={classNames({ [classes.fieldText]: true, [classes.fieldTextThree]: true })}>
+                                    Forgot your password?
+                                </Typography>
                             </div>
                         </form>
                     </Grid>
