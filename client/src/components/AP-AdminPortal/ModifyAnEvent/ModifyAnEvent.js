@@ -32,7 +32,7 @@ const styles = theme => ({
   pageTitle: {
     width: '100%',
     textDecoration: 'underline',
-    textDecorationColor: '#FFFFFF',
+    textDecorationColor: (theme.palette.type === 'light') ? '#000000' : '#FFFFFF',
     paddingBottom: '15px',
   },
 });
@@ -52,7 +52,7 @@ class ModifyAnEvent extends Component {
       <CustomerPortalContainer userType={0}>
         <div className={classes.pageTitle}>
           <Typography component="h2" variant="h2" gutterBottom align="center">
-              Edit an Event
+              View/Modify An Event
           </Typography>
         </div>
         <Paper className={classes.root}>

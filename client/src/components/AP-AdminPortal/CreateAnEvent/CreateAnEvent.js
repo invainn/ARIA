@@ -16,7 +16,7 @@ import StudentInfo from './StudentInfo';
 import TeacherInfo from './TeacherInfo';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
-const styles = ({ palette }) => ({
+const styles = theme => ({
     eventRegistrationField: {
         padding: '10px',
         width: '90%',
@@ -35,7 +35,7 @@ const styles = ({ palette }) => ({
     pageTitle: {
         width: '100%',
         textDecoration: 'underline',
-        textDecorationColor: (palette.type === 'light') ? '#000000' : '#FFFFFF',
+        textDecorationColor: (theme.palette.type === 'light') ? '#000000' : '#FFFFFF',
         paddingBottom: '15px',
     },
     registerStepper: {

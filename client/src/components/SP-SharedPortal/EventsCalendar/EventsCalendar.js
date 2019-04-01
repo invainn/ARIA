@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
-const styles = () => ({
+const styles = theme => ({
     eventsCalendarContainer: {
         width: '100%',
         height: '85%',
@@ -17,7 +17,7 @@ const styles = () => ({
     pageTitle: {
         width: '100%',
         textDecoration: 'underline',
-        textDecorationColor: '#FFFFFF',
+        textDecorationColor: (theme.palette.type === 'light') ? '#000000' : '#FFFFFF',
         paddingBottom: '15px',
       },
 });

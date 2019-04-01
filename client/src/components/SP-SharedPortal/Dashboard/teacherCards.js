@@ -25,8 +25,8 @@ const teacherCards = [
     },
     {
       id: 4,
-      title: 'Volunteer for an Event',
-      description: 'Select volunteer duties that you would prefer to fulfill and view '
+      title: 'Tasks',
+      description: 'View your volunteer duties and select preferential duties for upcoming events. '
       + 'your assigned volunteer responsibilities here.',
       link: '/teacher/volunteer-tasks',
       buttonName: 'View Volunteer Duties',

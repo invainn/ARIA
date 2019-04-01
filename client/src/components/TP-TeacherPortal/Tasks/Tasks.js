@@ -68,7 +68,7 @@ const createData = (name, calories, fat, carbs, protein) => {
     createData('Christmas Play-A-Thon', 'mm/dd/yyyy', 'Cleanup', '5:30 PM', '8:0 PM'),
   ];
 
-const VolunteerTasks = (props) => {
+const Tasks = (props) => {
   const { classes } = props;
 
   return (
@@ -109,4 +109,4 @@ const VolunteerTasks = (props) => {
 };
 
 
-export default withStyles(styles)(VolunteerTasks);
+export default withStyles(styles)(Tasks);
