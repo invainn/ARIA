@@ -1,3 +1,8 @@
+/**
+ *  TODO: This page is entirely todo, to the understanding of the stakeholder needs
+ */
+
+
 /* eslint eqeqeq:0 */
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
@@ -10,15 +15,17 @@ import {
   MenuItem,
   Select,
   Input,
+  Divider,
 } from '@material-ui/core';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
 const styles = theme => ({
   root: {
-    flexGrow: 2,
-    width: '75%%',
-    backgroundColor: theme.palette.background.paper,
-    borderRadius: '5px',
+    width: '100%',
+    maxWidth: '800px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '20px 20px 20px 20px',
   },
   button: {
     margin: theme.spacing.unit,
@@ -41,10 +48,9 @@ const styles = theme => ({
     marginTop: 5,
     height: '100%',
   },
-  margin: {
-    marginLeft: 7,
-    justifyContent: 'center',
-    alignItems: 'center',
+  forms: {
+    display: 'block',
+    margin: '15px 15px 15px 0px',
   },
 });
 
@@ -101,53 +107,40 @@ class ScheduleAnEvent extends Component {
               Schedule An Event
           </Typography>
         </div>
-        <Paper className={classes.root}>
-          <Typography variant="h6" align="center">
-              Timeblock Minutes: <br />
-              <Typography>
-              NOTE: This should include time for students to perform, for judges to take notes
-              after each student performs, for proctors to introduce the judge(s), and for
-              any other section-related events to take place. For traditional sections, 70% of
-              the time entered will be reserved for performances, e.g. 60 minutes entered
-              results in 42 minutes of performance time. The remaining time is alotted for
-              judging, transitioning performers, etc. For masterclass sections, 90% will be
-              alotted for performances.
-              </Typography>
-          </Typography>
-        </Paper>
 
         <div className={classes.test}>
-          <Paper className={classes.document}>
+          <Paper className={classes.root}>
+
+          <Typography variant="h6">
+          Please enter the allotted time for performances and the amount of time for judging.
+          </Typography>
+
+          <Divider />
+
             <Grid
               container
               direction="column"
               justify="space-evenly"
               alignItems="flex-start"
             >
-              <Grid item xs={2} className={classes.margin}>
+              <Grid item xs={12} className={classes.forms}>
                 <TextField
                   required
                   label="Timeblock Minutes"
                 />
               </Grid>
-              <Grid item xs={2} className={classes.margin}>
+              <Grid item xs={12} className={classes.forms}>
                 <TextField
                   required
-                  label="Saturday timeblock #"
+                  label="Judging Time"
                 />
               </Grid>
-              <Grid item xs={2} className={classes.margin}>
-                <TextField
-                  required
-                  label="Sunday timeblock #"
-                />
-              </Grid>
-              <Grid item xs={2} className={classes.margin}>
+              <Grid item xs={12} className={classes.forms}>
                 <Typography>
                     Select timeblock starting times:
                 </Typography>
               </Grid>
-              <Grid item xs={2} className={classes.margin}>
+              <Grid item xs={12} className={classes.forms}>
                 <InputLabel htmlFor="select-multiple">Times</InputLabel>
                 <Select
                   multiple

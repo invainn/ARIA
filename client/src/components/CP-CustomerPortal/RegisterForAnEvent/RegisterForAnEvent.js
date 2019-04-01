@@ -71,8 +71,8 @@ class RegisterForAnEvent extends Component {
                     <Grid item className={classes.eventGridItem}>
                         <Stepper activeStep={activeStep} className={classes.registerStepper}>
                         {[
-                            'Select Event',
                             'Select Participants',
+                            'Select Event',
                             'Command Performance Options',
                             'Review/Edit Order',
                             'Payment',
@@ -85,8 +85,8 @@ class RegisterForAnEvent extends Component {
                         </Stepper>
                     </Grid>
                     <Grid item className={classes.eventRegistrationField}>
-                        { activeStep === 0 && <SelectEvent /> }
-                        { activeStep === 1 && <SelectParticipants /> }
+                        { activeStep === 0 && <SelectParticipants /> }
+                        { activeStep === 1 && <SelectEvent /> }
                         { activeStep === 2 && <CommandPerformance /> }
                         {/* <AccountFields label="First Name" placeholder="Student's First Name" />
                         <AccountFields label="Last Name" placeholder="Student's Last Name" />

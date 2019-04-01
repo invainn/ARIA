@@ -1,5 +1,5 @@
 /**
- * TODO: This page requires the scheduler to be implemented so we can pull it and modify
+ * TODO: This page requires event creation to actually work
  */
 
 import React, { Component } from 'react';
@@ -15,8 +15,8 @@ const styles = theme => ({
   root: {
     width: '100%',
     height: '100%',
-    maxWidth: '1300px',
-    maxHeight: '900px',
+    maxWidth: '720px',
+    maxHeight: '450px',
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: '20px 20px 20px 20px',
@@ -37,7 +37,7 @@ const styles = theme => ({
   },
 });
 
-class ModifyAnEvent extends Component {
+class ViewModifyCommandPerformance extends Component {
   state = {
   };
 
@@ -52,18 +52,18 @@ class ModifyAnEvent extends Component {
       <CustomerPortalContainer userType={0}>
         <div className={classes.pageTitle}>
           <Typography component="h2" variant="h2" gutterBottom align="center">
-              Edit an Event
+              Modify Command Performance
           </Typography>
         </div>
         <Paper className={classes.root}>
           <Typography variant="h6" align="center">
-              Edit changes as necessary to an existing schedule.
+              Modify details about the command performance for a selected event.
           </Typography>
 
           <Divider />
 
-          <Typography variant="h4" align="center" style={{ marginTop: '200px' }}>
-            There are currently no events scheduled.
+          <Typography variant="h4" align="center" style={{ marginTop: '150px' }}>
+            There are currently no events scheduled to choose from.
           </Typography>
         </Paper>
 
@@ -72,4 +72,4 @@ class ModifyAnEvent extends Component {
   }
 }
 
-export default withStyles(styles)(ModifyAnEvent);
+export default withStyles(styles)(ViewModifyCommandPerformance);
