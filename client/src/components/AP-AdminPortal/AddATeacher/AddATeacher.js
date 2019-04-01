@@ -3,31 +3,37 @@ import { withStyles } from '@material-ui/core/styles';
 import {
   Button,
   Paper,
+  Grid,
   Typography,
-  ListItemIcon,
+  // ListItemIcon,
   Icon,
+  Divider,
 } from '@material-ui/core';
 
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
 const styles = theme => ({
   root: {
-    flexGrow: 2,
-    width: '75%%',
-    backgroundColor: theme.palette.background.paper,
-    borderRadius: '5px',
+    width: '100%',
+    height: '100%',
+    maxWidth: '720px',
+    maxHeight: '250px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '20px 20px 20px 20px',
+  },
+  div: {
+    paddingBottom: '20px',
+  },
+  icon: {
+    display: 'inline-block',
+    marginRight: '7px',
   },
   button: {
     margin: theme.spacing.unit,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: '47%',
-    paddingRight: '14px',
-  },
-  secondaryButton: {
-    margin: theme.spacing.unit,
-    justifyContent: 'center',
-    marginLeft: '44%',
+    width: '60%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   rightIcon: {
     marginLeft: theme.spacing.unit,
@@ -39,7 +45,6 @@ const styles = theme => ({
     paddingBottom: '15px',
   },
   document: {
-    marginLeft: 7,
     marginTop: 5,
   },
 });
@@ -62,40 +67,39 @@ class AddATeacher extends Component {
               Add A Teacher
           </Typography>
         </div>
-        <Paper className={classes.root}>
-          <Typography variant="h6" align="center">
-              Please upload a CSV file containing the list of participating teachers.
-          </Typography>
-        </Paper>
 
-        <Paper className={classes.document}>
-          <div>
-              <Typography variant="h5" align="center">
-                  CSV Music File*
-              </Typography>
-              <Typography variant="body6" align="center">
-                  The CSV file should be in the following format: <br />
-                  Last Name, First Name, School
-              </Typography>
+        <Paper className={classes.root}>
+          <div className={classes.div}>
+            <Typography variant="h6" align="center">
+                Please upload a CSV file containing the list of participating teachers.
+            </Typography>
+
+            <Divider />
+
+            <Typography variant="h5" align="center" className={classes.document}>
+                CSV Music File*
+            </Typography>
+            <Typography variant="body6" align="center">
+                The CSV file should be in the following format: <br />
+                Last Name, First Name, School
+            </Typography>
           </div>
 
-          <div>
+          <Grid container align="center">
+            <Grid item xs={12}>
               <Button variant="contained" color="default" className={classes.button}>
+                  <Icon className={classes.icon}>cloud_upload</Icon>
                   Upload
               </Button>
+            </Grid>
+            <Grid item xs={12}>
               <Button variant="contained" color="default" className={classes.button}>
+                  <Icon className={classes.icon}>cloud_download</Icon>
                   Download
               </Button>
-          </div>
+            </Grid>
+          </Grid>
 
-          <div>
-              <Button variant="contained" className={classes.secondaryButton} color="primary">
-                  <ListItemIcon>
-                  <Icon>save</Icon>
-                  </ListItemIcon>
-                      Save Changes
-              </Button>
-          </div>
         </Paper>
 
       </CustomerPortalContainer>

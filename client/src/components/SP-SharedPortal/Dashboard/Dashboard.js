@@ -26,7 +26,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   heroContent: {
-    maxWidth: 900,
+    maxWidth: '90%',
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
@@ -35,35 +35,36 @@ const styles = theme => ({
   },
   layout: {
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(1920 + theme.spacing.unit * 3 * 2)]: {
-      width: 1920,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   cardGrid: {
-    padding: `${theme.spacing.unit * 10}px 0`,
+    padding: '40px 0px 0px 0px',
   },
   card: {
-    maxHeight: '500px',
-    maxWidth: '350px',
+    minWidth: '380px',
+    maxWidth: '380px',
+    width: '100%',
+    minHeight: '280px',
+    maxHeight: '280px',
+    height: '100%',
     display: 'flex',
+    alignItems: 'center',
     alignContent: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
+    padding: '0px 0px 0px 0px',
+    margin: '0px 0px 0px 0px',
     '&:hover': {
       transform: 'scale(1.10);',
       transition: 'all 1s',
     },
-    padding: '10px 10px 10px 10px',
   },
   cardContent: {
     flexGrow: 1,
     textAlign: 'center',
     justifyContent: 'left',
-    padding: '10px 0px 0px 0px',
+    padding: '0px 0px 0px 0px',
     marginBottom: '0px',
   },
   buttonStyle: {
@@ -71,7 +72,9 @@ const styles = theme => ({
     textAlign: 'center',
     margin: '0 auto',
     width: '100%',
-    minHeight: '85px',
+    minWidth: '480px',
+    height: '100%',
+    minHeight: '65px',
     padding: '0px auto',
     marginBottom: '0px',
   },
@@ -79,11 +82,14 @@ const styles = theme => ({
     textDecoration: 'underline',
   },
   cardTitle: {
+    paddingTop: '10px',
+    paddingBottom: '0px',
     textDecoration: 'underline',
-    minHeight: '85px',
+    minHeight: '72px',
   },
   descriptionStyles: {
     minHeight: '110px',
+    padding: '0px 10px 0px 10px',
     height: '100%',
   },
 });
@@ -136,7 +142,7 @@ function Dashboard(props) {
             {/* End hero unit */}
             <Grid container spacing={40} alignItems="center">
               {adminCards.map(adminCard => (
-                <Grid item key={adminCard.id} sm={12} md={6} lg={4} xl={3}>
+                <Grid item key={adminCard.id} sm={12} md={6} lg={4} xl={3} align="center">
                   <Card className={classes.card}>
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
@@ -213,14 +219,14 @@ function Dashboard(props) {
             {/* End hero unit */}
             <Grid container spacing={40} alignItems="center">
               {teacherCards.map(teacherCard => (
-                <Grid item key={teacherCard.id} sm={12} md={6} lg={4} xl={3}>
+                <Grid item key={teacherCard.id} sm={12} md={6} lg={4} xl={3} align="center">
                   <Card className={classes.card}>
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
                         {teacherCard.title}
                       </Typography>
                       <br />
-                      <Typography>
+                      <Typography className={classes.descriptionStyles}>
                       {teacherCard.description}
                       </Typography>
                     </CardContent>
@@ -289,14 +295,14 @@ function Dashboard(props) {
           {/* End hero unit */}
           <Grid container spacing={40} alignItems="center">
             {customerCards.map(customerCard => (
-              <Grid item key={customerCard.id} sm={12} md={6} lg={4} xl={3}>
+              <Grid item key={customerCard.id} sm={12} md={6} lg={4} xl={3} align="center">
                 <Card className={classes.card}>
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
                       {customerCard.title}
                     </Typography>
                     <br />
-                    <Typography>
+                    <Typography className={classes.descriptionStyles}>
                     {customerCard.description}
                     </Typography>
                   </CardContent>
