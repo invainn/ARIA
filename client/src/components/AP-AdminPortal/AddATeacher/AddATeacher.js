@@ -6,7 +6,7 @@ import {
   Grid,
   Typography,
   // ListItemIcon,
-  // Icon,
+  Icon,
   Divider,
 } from '@material-ui/core';
 
@@ -24,6 +24,10 @@ const styles = theme => ({
   },
   div: {
     paddingBottom: '20px',
+  },
+  icon: {
+    display: 'inline-block',
+    marginRight: '7px',
   },
   button: {
     margin: theme.spacing.unit,
@@ -84,11 +88,13 @@ class AddATeacher extends Component {
           <Grid container align="center">
             <Grid item xs={12}>
               <Button variant="contained" color="default" className={classes.button}>
+                  <Icon className={classes.icon}>cloud_upload</Icon>
                   Upload
               </Button>
             </Grid>
             <Grid item xs={12}>
               <Button variant="contained" color="default" className={classes.button}>
+                  <Icon className={classes.icon}>cloud_download</Icon>
                   Download
               </Button>
             </Grid>
