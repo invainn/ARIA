@@ -273,11 +273,11 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Student Registrations" />
           </ListItem>
-          <ListItem button component={Link} to="/teacher/volunteer-tasks" onClick={this.switchOptionHandler}>
+          <ListItem button component={Link} to="/teacher/tasks" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>event</Icon>
             </ListItemIcon>
-            <ListItemText primary="Volunteer for an Event" />
+            <ListItemText primary="Tasks" />
           </ListItem>
           <ListItem button component={Link} to="/teacher/events-calendar" onClick={this.switchOptionHandler}>
               <ListItemIcon>

@@ -43,7 +43,7 @@ import AboutNNMTA from '../SP-SharedPortal/AboutNNMTA/AboutNNMTA';
 import TeacherAccount from '../TP-TeacherPortal/TeacherAccount/TeacherAccount';
 import MyStudents from '../TP-TeacherPortal/MyStudents/MyStudents';
 import StudentRegistrations from '../TP-TeacherPortal/StudentRegistrations/StudentRegistrations';
-import VolunteerTasks from '../TP-TeacherPortal/VolunteerTasks/VolunteerTasks';
+import Tasks from '../TP-TeacherPortal/Tasks/Tasks';
 
 
 const styles = () => ({
@@ -90,7 +90,7 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/teacher/account" component={TeacherAccount} />
                 <Route exact path="/teacher/my-students" component={MyStudents} />
                 <Route exact path="/teacher/student-registrations" component={StudentRegistrations} />
-                <Route exact path="/teacher/volunteer-tasks" component={VolunteerTasks} />
+                <Route exact path="/teacher/tasks" component={Tasks} />
 
                 { /* NON-PORTAL */ }
                 <Route exact path="/register" component={RegisterNewUser} />

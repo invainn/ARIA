@@ -40,7 +40,7 @@ const styles = theme => ({
   pageTitle: {
     width: '100%',
     textDecoration: 'underline',
-    textDecorationColor: '#FFFFFF',
+    textDecorationColor: (theme.palette.type === 'light') ? '#000000' : '#FFFFFF',
     paddingBottom: '15px',
   },
 });

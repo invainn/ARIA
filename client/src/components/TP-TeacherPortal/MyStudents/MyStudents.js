@@ -20,7 +20,7 @@ import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalCon
 // Do not do this, fix this
 let counter = 0;
 
-const styles = () => ({
+const styles = theme => ({
   root: {
     width: '100%',
   },
@@ -33,7 +33,7 @@ const styles = () => ({
   pageTitle: {
     width: '100%',
     textDecoration: 'underline',
-    textDecorationColor: '#FFFFFF',
+    textDecorationColor: (theme.palette.type === 'light') ? '#000000' : '#FFFFFF',
     paddingBottom: '15px',
   },
 });
