@@ -8,6 +8,7 @@ import {
   Paper,
   Typography,
   Divider,
+  Grid,
 } from '@material-ui/core';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
@@ -60,7 +61,9 @@ class ScheduleCommandPerformance extends Component {
               Enter details about the command performance for a selected event.
           </Typography>
 
-          <Divider />
+          <Grid xs={12} style={{ paddingTop: '20px' }}>
+            <Divider />
+          </Grid>
 
           <Typography variant="h4" align="center" style={{ marginTop: '150px' }}>
             There are currently no events scheduled to choose from.

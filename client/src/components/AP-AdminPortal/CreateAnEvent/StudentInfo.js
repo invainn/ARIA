@@ -83,7 +83,9 @@ class StudentInfo extends Component {
                         All fields are required.
                     </Typography>
 
-                    <Divider />
+                    <Grid xs={12} style={{ paddingTop: '20px' }}>
+                      <Divider />
+                    </Grid>
 
                     {/* Begin fields here */}
                     <Grid

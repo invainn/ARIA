@@ -8,6 +8,7 @@ import {
   Paper,
   Typography,
   Divider,
+  Grid,
 } from '@material-ui/core';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
@@ -60,7 +61,9 @@ class ModifyAnEvent extends Component {
               Edit changes as necessary to an existing schedule.
           </Typography>
 
-          <Divider />
+          <Grid xs={12} style={{ paddingTop: '20px' }}>
+            <Divider />
+          </Grid>
 
           <Typography variant="h4" align="center" style={{ marginTop: '200px' }}>
             There are currently no events scheduled.

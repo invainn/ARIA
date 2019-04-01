@@ -73,7 +73,7 @@ class EventInfo extends Component {
                         Please enter the information about general event information.
                         All fields are required.
                     </Typography>
-                    <Grid xs={12}>
+                    <Grid xs={12} style={{ paddingTop: '20px' }}>
                       <Divider />
                     </Grid>
 
