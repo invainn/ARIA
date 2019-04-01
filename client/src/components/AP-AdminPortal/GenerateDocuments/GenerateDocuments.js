@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 
 import SelectDocuments from './SelectDocuments';
-import SelectFile from './SelectFile';
+import SelectFileType from './SelectFileType';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
 const styles = ({ palette }) => ({
@@ -23,6 +23,10 @@ const styles = ({ palette }) => ({
     },
     eventDividerPadding: {
         margin: '5px',
+    },
+    button: {
+        marginTop: '20px',
+        marginLeft: '5px',
     },
     pageTitle: {
         width: '100%',
@@ -59,10 +63,10 @@ class GenerateDocuments extends Component {
         const { activeStep } = this.state;
 
         return (
-            <CustomerPortalContainer>
+            <CustomerPortalContainer userType={0}>
                 <div className={classes.pageTitle}>
                     <Typography component="h2" variant="h2" gutterBottom align="center">
-                        Create an Event
+                        Generate Documents
                     </Typography>
                 </div>
                 <Grid container alignItems="center" justify="center">
@@ -71,7 +75,6 @@ class GenerateDocuments extends Component {
                         {[
                             'Select Forms',
                             'Select File Type',
-                            'Generate Documents',
                         ].map(item => (
                                 <Step>
                                     <StepLabel>{item}</StepLabel>
@@ -81,17 +84,18 @@ class GenerateDocuments extends Component {
                     </Grid>
                     <Grid item>
                         { activeStep === 0 && <SelectDocuments /> }
-                        { activeStep === 1 && <SelectFile /> }
-                        {/* { activeStep === 2 && <TeacherInfo /> } */}
+                        { activeStep === 1 && <SelectFileType /> }
                         { activeStep > 0 && (
-                            <Button variant="contained" color="primary" onClick={this.walkBackStep}>
+                            // eslint-disable-next-line react/jsx-no-bind
+                            <Button variant="contained" className={classes.button} color="primary" onClick={this.walkBackStep.bind(this)}>
                                 Go Back
                             </Button>
                         )}
                         {
 
                         }
-                        <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkStep}>
+                        { /* eslint-disable-next-line react/jsx-no-bind */ }
+                        <Button variant="contained" className={classes.button} color="primary" onClick={this.walkStep.bind(this)}>
                             Next
                         </Button>
                     </Grid>

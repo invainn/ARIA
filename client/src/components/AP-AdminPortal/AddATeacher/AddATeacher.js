@@ -12,13 +12,10 @@ import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalCon
 
 const styles = theme => ({
   root: {
-    width: '100%',
-    height: '100%',
-    maxWidth: '720px',
-    maxHeight: '500px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    padding: '20px 20px 20px 20px',
+    flexGrow: 2,
+    width: '75%%',
+    backgroundColor: theme.palette.background.paper,
+    borderRadius: '5px',
   },
   button: {
     margin: theme.spacing.unit,

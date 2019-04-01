@@ -17,13 +17,25 @@ const styles = () => ({
   root: {
     width: '100%',
     maxWidth: '790px',
+    minWidth: '790px',
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: '20px 20px 20px 20px',
   },
+  formGroup: {
+    width: '100%',
+    display: 'inline-block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
   forms: {
-    display: 'block',
+    display: 'auto',
     margin: '15px 15px 15px 0px',
+    alignItems: 'left',
+    textAlign: 'left',
+    maxWidth: '25%',
+    width: '25%',
   },
   pageTitle: {
     width: '100%',
@@ -39,16 +51,16 @@ const styles = () => ({
 class SelectDocuments extends Component {
   state = {
     adjudication: true,
-    // results: false,
-    // announcing: false,
-    // teacherMaster: false,
-    // sessionAssignments: false,
-    // room: false,
-    // master: false,
-    // simplified: false,
-    // teacherList: false,
-    // theory: false,
-    // sessionFiles: false,
+    results: false,
+    announcing: false,
+    teacherMaster: true,
+    sessionAssignments: false,
+    room: true,
+    master: false,
+    simplified: false,
+    teacherList: false,
+    theory: true,
+    sessionFiles: false,
 };
 
 handleChange = formType => ({ event }) => {
@@ -59,16 +71,16 @@ handleChange = formType => ({ event }) => {
     const { classes } = this.props;
     const {
     adjudication,
-    // results,
-    // announcing,
-    // teacherMaster,
-    // sessionAssignments,
-    // room,
-    // master,
-    // simplified,
-    // teacherList,
-    // theory,
-    // sessionFiles,
+    results,
+    announcing,
+    teacherMaster,
+    sessionAssignments,
+    room,
+    master,
+    simplified,
+    teacherList,
+    theory,
+    sessionFiles,
   } = this.state;
 
     return (
@@ -77,27 +89,96 @@ handleChange = formType => ({ event }) => {
                     <Typography className={classes.text} variant="h6" align="center">
                         Please select the forms you would like to generate.
                     </Typography>
-                    <Grid xs={12}>
+                    { /*
+                        ! Fix this on every single other page in existence
+                    */ }
+                    <Grid xs={12} style={{ paddingTop: '20px' }}>
                       <Divider />
                     </Grid>
 
-                    <Grid
-                      container
-                      direction="row"
-                      justify="space-evenly"
-                      alignItems="center"
-                    >
-                        <FormControl component="fieldset">
-                            <FormGroup>
+                    <div className={classes.formGroup}>
+                        <FormControl component="fieldset" className={classes.formGroup}>
+                            <FormGroup className={classes.formGroup}>
                                 <FormControlLabel
                                   control={
                                         <Checkbox checked={adjudication} onChange={this.handleChange} value="adjudication" />
                                     }
                                   label="Adjudication Forms"
+                                  className={classes.forms}
+                                />
+                                <FormControlLabel
+                                  control={
+                                        <Checkbox checked={results} onChange={this.handleChange} value="results" />
+                                    }
+                                  label="Results Sheets"
+                                  className={classes.forms}
+                                />
+                                <FormControlLabel
+                                  control={
+                                        <Checkbox checked={announcing} onChange={this.handleChange} value="announcing" />
+                                    }
+                                  label="Announcing Sheets"
+                                  className={classes.forms}
+                                />
+                                <FormControlLabel
+                                  control={
+                                        <Checkbox checked={teacherMaster} onChange={this.handleChange} value="teacherMaster" />
+                                }
+                                  label="Teacher Master"
+                                  className={classes.forms}
+                                />
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox checked={sessionAssignments} onChange={this.handleChange} value="sessionAssignments" />
+                                }
+                                  label="Session Assignments"
+                                  className={classes.forms}
+                                />
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox checked={room} onChange={this.handleChange} value="room" />
+                                }
+                                  label="Room Schedules"
+                                  className={classes.forms}
+                                />
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox checked={master} onChange={this.handleChange} value="master" />
+                                }
+                                  label="Master Schedule"
+                                  className={classes.forms}
+                                />
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox checked={simplified} onChange={this.handleChange} value="simplified" />
+                                }
+                                  label="Simplified Schedule"
+                                  className={classes.forms}
+                                />
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox checked={teacherList} onChange={this.handleChange} value="teacherList" />
+                                }
+                                  label="Teacher List"
+                                  className={classes.forms}
+                                />
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox checked={theory} onChange={this.handleChange} value="theory" />
+                                }
+                                  label="Theory Scores"
+                                  className={classes.forms}
+                                />
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox checked={sessionFiles} onChange={this.handleChange} value="sessionFiles" />
+                                }
+                                  label="Session Files"
+                                  className={classes.forms}
                                 />
                             </FormGroup>
                         </FormControl>
-                    </Grid>
+                    </div>
                 </div>
             </Paper>
     );
