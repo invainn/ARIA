@@ -66,7 +66,7 @@ class CreateAnEvent extends Component {
         const { activeStep } = this.state;
 
         return (
-            <CustomerPortalContainer>
+            <CustomerPortalContainer userType={0}>
                 <div className={classes.pageTitle}>
                     <Typography component="h2" variant="h2" gutterBottom align="center">
                         Create an Event

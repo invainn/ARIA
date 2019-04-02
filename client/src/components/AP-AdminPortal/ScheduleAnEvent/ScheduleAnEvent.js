@@ -115,7 +115,9 @@ class ScheduleAnEvent extends Component {
           Please enter the allotted time for performances and the amount of time for judging.
           </Typography>
 
-          <Divider />
+          <Grid xs={12} style={{ paddingTop: '20px' }}>
+            <Divider />
+          </Grid>
 
             <Grid
               container
