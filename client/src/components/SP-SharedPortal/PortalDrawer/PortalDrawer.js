@@ -14,7 +14,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 // Do not do this
-const drawerWidth = 300;
+const drawerWidth = 400;
 
 const styles = theme => ({
   portalDrawer: {

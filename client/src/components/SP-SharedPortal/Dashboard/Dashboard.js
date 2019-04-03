@@ -42,7 +42,7 @@ const styles = theme => ({
     padding: '40px 0px 0px 0px',
   },
   card: {
-    minWidth: '380px',
+    minWidth: '250px',
     maxWidth: '380px',
     width: '100%',
     minHeight: '280px',

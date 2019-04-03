@@ -39,7 +39,7 @@ const styles = theme => ({
     },
     appBarShift: {
       marginLeft: 300,
-      width: `calc(100% - ${300}px)`,
+      width: `calc(100% - ${400}px)`,
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
