@@ -3,26 +3,37 @@ import { withStyles } from '@material-ui/core/styles';
 import {
   Button,
   Paper,
+  Grid,
   Typography,
-  ListItemIcon,
+  // ListItemIcon,
   Icon,
+  Divider,
 } from '@material-ui/core';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
 
 const styles = theme => ({
   root: {
-    flexGrow: 2,
-    width: '75%%',
-    backgroundColor: theme.palette.background.paper,
-    borderRadius: '5px',
+    width: '100%',
+    height: '100%',
+    maxWidth: '800px',
+    maxHeight: '220px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '20px 20px 20px 20px',
+  },
+  div: {
+    paddingBottom: '20px',
+  },
+  icon: {
+    display: 'inline-block',
+    marginRight: '7px',
   },
   button: {
     margin: theme.spacing.unit,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: '43%',
+    width: '60%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   rightIcon: {
     marginLeft: theme.spacing.unit,
@@ -34,7 +45,6 @@ const styles = theme => ({
     paddingBottom: '15px',
   },
   document: {
-    marginLeft: 7,
     marginTop: 5,
   },
 });
@@ -57,38 +67,35 @@ class UploadMusic extends Component {
               Upload Music
           </Typography>
         </div>
+
         <Paper className={classes.root}>
-          <Typography variant="h6" align="center">
-              Please upload a CSV file containing the music you wish to upload.
-          </Typography>
-        </Paper>
+          <div className={classes.div}>
+            <Typography variant="h6" align="center">
+                Please upload a CSV file containing music details such as period, composer, title,
+                etc.
+                Note: This information is not static and may change per event.
+            </Typography>
 
-        <Paper className={classes.document}>
-          <div>
-              <Typography variant="h5" align="center">
-                  CSV Music File*
-              </Typography>
-              <Typography variant="body6" align="center">
-                  The CSV file should be in the following format: <br />
-                  Level(1-11), Period(1-4), Composer, Title, Opus/Catalog Number
-              </Typography>
+            <Grid xs={12} style={{ paddingTop: '20px' }}>
+              <Divider />
+            </Grid>
           </div>
 
-          <div className={classes.button}>
-              <Button variant="contained" color="default">
+          <Grid container align="center">
+            <Grid item xs={12}>
+              <Button variant="contained" color="default" className={classes.button}>
+                  <Icon className={classes.icon}>cloud_upload</Icon>
                   Upload
-                  <CloudUploadIcon className={classes.rightIcon} />
               </Button>
-          </div>
+            </Grid>
+            <Grid item xs={12}>
+              <Button variant="contained" color="default" className={classes.button}>
+                  <Icon className={classes.icon}>cloud_download</Icon>
+                  Download
+              </Button>
+            </Grid>
+          </Grid>
 
-          <div>
-              <Button variant="contained" className={classes.button} color="primary">
-                  <ListItemIcon>
-                  <Icon>save</Icon>
-                  </ListItemIcon>
-                      Save Changes
-              </Button>
-          </div>
         </Paper>
 
       </CustomerPortalContainer>
