@@ -71,20 +71,14 @@ class AddATeacher extends Component {
         <Paper className={classes.root}>
           <div className={classes.div}>
             <Typography variant="h6" align="center">
-                Please upload a CSV file containing the list of participating teachers.
+                Please upload a CSV file containing the list of participating teachers. <br />
+                It should be in the following format: <br />
+                Last Name, First Name, School
             </Typography>
 
             <Grid xs={12} style={{ paddingTop: '20px' }}>
               <Divider />
             </Grid>
-
-            <Typography variant="h5" align="center" className={classes.document}>
-                CSV Music File*
-            </Typography>
-            <Typography variant="body6" align="center">
-                The CSV file should be in the following format: <br />
-                Last Name, First Name, School
-            </Typography>
           </div>
 
           <Grid container align="center">
