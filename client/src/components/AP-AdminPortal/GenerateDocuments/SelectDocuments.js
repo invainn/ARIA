@@ -36,6 +36,7 @@ const styles = () => ({
     textAlign: 'left',
     maxWidth: '25%',
     width: '25%',
+    borderBottom: '1px solid #000000',
   },
   pageTitle: {
     width: '100%',
@@ -89,9 +90,6 @@ handleChange = formType => ({ event }) => {
                     <Typography className={classes.text} variant="h6" align="center">
                         Please select the forms you would like to generate.
                     </Typography>
-                    { /*
-                        ! Fix this on every single other page in existence
-                    */ }
                     <Grid xs={12} style={{ paddingTop: '20px' }}>
                       <Divider />
                     </Grid>
