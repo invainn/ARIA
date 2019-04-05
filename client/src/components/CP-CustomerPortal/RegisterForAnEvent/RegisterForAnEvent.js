@@ -11,6 +11,7 @@ import {
     Button,
 } from '@material-ui/core';
 
+import EventPayment from './EventPayment';
 import SelectEvent from './SelectAnEvent';
 import SelectParticipants from './SelectParticipants';
 import CommandPerformance from './CommandPerformance';
@@ -88,6 +89,7 @@ class RegisterForAnEvent extends Component {
                         { activeStep === 0 && <SelectParticipants /> }
                         { activeStep === 1 && <SelectEvent /> }
                         { activeStep === 2 && <CommandPerformance /> }
+                        { activeStep === 4 && <EventPayment /> }
                         {/* <AccountFields label="First Name" placeholder="Student's First Name" />
                         <AccountFields label="Last Name" placeholder="Student's Last Name" />
                         <Divider className={classes.eventDividerPadding} />
