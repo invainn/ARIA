@@ -22,7 +22,8 @@ const styles = theme => ({
         width: '90%',
     },
     eventRegistrationButton: {
-        margin: '8px',
+        paddingLeft: '5px',
+        marginTop: '1%',
     },
 
     eventGridItem: {
@@ -97,17 +98,27 @@ class CreateAnEvent extends Component {
                         <AccountFields label="State/Province/Region" placeholder="Enter your state/province/region here" />
                         <AccountFields label="Zip Code" placeholder="Enter your zip code here" />
                         */}
-                        { activeStep > 0 && (
-                            <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkBackStep.bind(this)}>
-                                Go Back
-                            </Button>
-                        )}
-                        {
+                        <Grid container align="right" justify="flex-end">
+                            { activeStep > 0 && (
+                                <Grid item className={classes.eventRegistrationButton}>
+                                    <Button variant="contained" color="primary" onClick={this.walkBackStep.bind(this)}>
+                                        Go Back
+                                    </Button>
+                                </Grid>
+                            )}
+                            {
 
-                        }
-                        <Button variant="contained" className={classes.eventRegistrationButton} color="primary" onClick={this.walkStep.bind(this)}>
-                            Next
-                        </Button>
+                            }
+                            { /*
+                                TODO: Fix the styling so that the buttons are WITHIN the paper of the elements
+                                TODO:   as well as taking out the static inline styling below.
+                            */ }
+                            <Grid item className={classes.eventRegistrationButton} style={{ marginRight: '18%' }}>
+                                <Button variant="contained" color="primary" onClick={this.walkStep.bind(this)}>
+                                    Next
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </CustomerPortalContainer>
