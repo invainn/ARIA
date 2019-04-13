@@ -7,6 +7,7 @@ import {
     TextField,
     Button,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Shell from '../Shell/Shell';
 import Keyboard from './keyboard.jpg';
@@ -25,22 +26,17 @@ const styles = theme => ({
     },
 
     landingContent: {
-        background: 'rgba(55, 71, 79)',
+        background: '#FFFFFF',
         border: '3px solid brown',
         backgroundSize: 'contain',
         transition: 'all 1s',
-        width: '35%',
+        width: '450px',
         padding: 20,
-        float: 'left',
-        position: 'absolute',
-        transform: 'translateY(-50%) translateX(-50%)',
-        top: '59%',
-        left: '50%',
+        marginTop: '21.5vh',
     },
 
     landingCaption: {
         marginTop: 15,
-        color: '#FFFFFF',
     },
 
     margin: {
@@ -49,20 +45,11 @@ const styles = theme => ({
     },
 
     button: {
-        color: '#FFFFFF',
         textAlign: 'center',
         width: '44%',
         display: 'block',
-        margin: '0px auto 0px auto',
-        maxWidth: '233.27px',
-    },
-
-    loginIcons: {
-        color: theme.palette.primary.contrastText,
-    },
-
-    fieldText: {
-        color: theme.palette.primary.contrastText,
+        margin: '0px auto 10px auto',
+        maxWidth: '150px',
     },
     infoMessageStyles: {
         width: ' 70%',
@@ -75,9 +62,6 @@ const styles = theme => ({
         width: '70%',
         marginLeft: 'auto',
         marginRight: 'auto',
-    },
-    placeHolderStyles: {
-        color: '#FFFFFF',
     },
 });
 
@@ -141,13 +125,17 @@ class ForgotPassword extends React.Component {
                                   type="email"
                                   name="email"
                                   autoComplete="email"
-                                  variant="outlined"
                                 />
                             </Grid>
                             <Grid xs={12} alignItems="center">
                                 <Button variant="contained" color="primary" className={classes.button}>
                                     Submit
                                 </Button>
+                                <Link to="/">
+                                    <Button color="secondary" variant="contained" className={classes.button}>
+                                        Go Back
+                                    </Button>
+                                </Link>
                             </Grid>
                         </Grid>
                     </Grid>

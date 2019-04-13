@@ -6,6 +6,7 @@ import {
     TextField,
     Button,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import Bow from './bow.jpg';
@@ -25,22 +26,17 @@ const styles = theme => ({
     },
 
     landingContent: {
-        background: 'rgba(55, 71, 79)',
+        background: '#FFFFFF',
         border: '3px solid brown',
         backgroundSize: 'contain',
         transition: 'all 1s',
-        width: '35%',
-        padding: 20,
-        float: 'left',
-        position: 'absolute',
-        transform: 'translateY(-50%) translateX(-50%)',
-        top: '59%',
-        left: '50%',
+        width: '400px',
+        padding: '15px',
+        marginTop: '21vh',
     },
 
     landingCaption: {
         marginTop: 15,
-        color: '#FFFFFF',
     },
 
     margin: {
@@ -49,37 +45,23 @@ const styles = theme => ({
     },
 
     button: {
-        color: '#FFFFFF',
         textAlign: 'center',
         width: '44%',
         display: 'block',
         verticalAlign: 'text-top',
-        height: '100%',
-        margin: '0px auto 0px auto',
+        margin: '10px auto 10px auto',
         maxWidth: '233.27px',
-    },
-
-    loginIcons: {
-        color: theme.palette.primary.contrastText,
-    },
-
-    fieldText: {
-        color: theme.palette.primary.contrastText,
     },
     infoMessageStyles: {
         width: ' 80%',
         textAlign: 'center',
     },
     emailInputfieldStyles: {
-        marginTop: '10px',
-        marginBottom: '10px',
-        padding: '10px 0px 10px 0px',
-        width: '80%',
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        width: '65%',
+        margin: '5px auto 5px auto',
     },
-    placeHolderStyles: {
-        color: '#FFFFFF',
+    buttonGroup: {
+        marginTop: '15px',
     },
 });
 
@@ -123,49 +105,44 @@ class RegisterNewUser extends React.Component {
                                   id="outlined-email-input"
                                   label="Email Address"
                                   className={classNames({
-                                      [classes.textField]: true,
                                       [classes.emailInputfieldStyles]: true,
                                     })}
                                   type="email"
                                   name="email"
                                   autoComplete="email"
-                                  variant="outlined"
                                 />
                                 <TextField
                                   id="outlined-password-input"
                                   label="Password"
                                   className={classNames({
-                                      [classes.textField]: true,
                                     [classes.emailInputfieldStyles]: true,
                                 })}
                                   type="password"
                                   name="password"
                                   autoComplete="password"
-                                  variant="outlined"
                                 />
                                 <TextField
                                   id="customer-first-name"
                                   label="First Name"
                                   className={classNames({
-                                      [classes.textField]: true,
                                       [classes.emailInputfieldStyles]: true,
                                     })}
-                                  variant="outlined"
                                 />
                                 <TextField
                                   id="customer-last-name"
+                                  className={classes.emailInputfieldStyles}
                                   label="Last Name"
-                                  className={classNames({
-                                      [classes.textField]: true,
-                                      [classes.emailInputfieldStyles]: true,
-                                    })}
-                                  variant="outlined"
                                 />
                             </Grid>
-                            <Grid xs={12} alignItems="center">
+                            <Grid xs={12} alignItems="center" className={classes.buttonGroup}>
                                 <Button variant="contained" color="primary" className={classes.button}>
                                     Create Account
                                 </Button>
+                                <Link to="/">
+                                    <Button color="secondary" variant="contained" className={classes.button}>
+                                        Go Back
+                                    </Button>
+                                </Link>
                             </Grid>
                         </Grid>
                     </Grid>
