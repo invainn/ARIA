@@ -32,7 +32,8 @@ const styles = theme => ({
     },
 
     landingContent: {
-        background: 'rgba(55, 71, 79)',
+        // background: 'rgba(55, 71, 79)',
+        background: '#FFFFFF',
         border: '3px solid brown',
         backgroundSize: 'contain',
         transition: 'all 1s',
@@ -47,7 +48,6 @@ const styles = theme => ({
 
     landingCaption: {
         marginTop: 15,
-        color: '#FFFFFF',
     },
 
     margin: {
@@ -57,18 +57,17 @@ const styles = theme => ({
 
     button: {
         margin: '12px auto 5px auto',
-        color: '#FFFFFF',
         textAlign: 'center',
         width: '100%',
         maxWidth: '233.27px',
     },
 
     loginIcons: {
-        color: theme.palette.primary.contrastText,
+        // color: theme.palette.primary.contrastText,
     },
 
     fieldText: {
-        color: theme.palette.primary.contrastText,
+        // color: theme.palette.primary.contrastText,
     },
     fieldTextTwo: {
         display: 'inline-block',
@@ -83,7 +82,6 @@ const styles = theme => ({
         marginRight: 'auto',
     },
     placeHolderStyles: {
-        color: '#FFFFFF',
     },
 });
 
