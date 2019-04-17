@@ -30,7 +30,7 @@ const EventPayment = ({ classes }) => (
         </div>
 
         <div className={classes.tooltips}>
-            <Typography className={classes.text}>
+            <Typography className={classes.text} variant="caption">
                 What is BrainTree? BrainTree is a service offered by PayPal so it is the same
                 interface NNMTA members currently use. <br />
                 <a href="https://www.braintreepayments.com/features/fraud-protection" rel="noopener noreferrer" target="_blank">If you would like to find out more!</a>
