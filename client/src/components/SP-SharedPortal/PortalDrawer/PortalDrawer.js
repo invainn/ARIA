@@ -163,12 +163,6 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Generate Documents" />
           </ListItem>
-          <ListItem button component={Link} to="/admin/print-documents" onClick={this.switchOptionHandler}>
-            <ListItemIcon>
-              <Icon>print</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Print Documents" />
-          </ListItem>
           <ListItem button component={Link} to="/admin/upload-documents" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>cloud_upload</Icon>

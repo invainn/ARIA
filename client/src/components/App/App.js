@@ -66,7 +66,6 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/admin/edit-command-performance" component={ViewModifyCommandPerformance} />
                 <Route exact path="/admin/add-a-teacher" component={AddATeacher} />
                 <Route exact path="/admin/generate-documents" component={GenerateAndPrintDocuments} />
-                {/* <Route exact path="/admin/print-documents" component={PrintDocuments} /> */}
                 {/* <Route exact path="/admin/upload-documents" component={UploadDocuments} /> */}
                 <Route exact path="/admin/upload-music" component={UploadMusic} />
                 {/* <Route exact path="/admin/events" component={Events} /> */}
