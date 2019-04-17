@@ -46,6 +46,12 @@ class SelectFileType extends Component {
                         Download
                     </Button>
                 </Grid>
+                <Grid item xs={12} align="center">
+                    <Button variant="contained" color="default" className={classes.button}>
+                        <Icon className={classes.icon}>print</Icon>
+                        Print
+                    </Button>
+                </Grid>
             </Paper>
         );
     }
