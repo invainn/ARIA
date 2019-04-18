@@ -193,18 +193,6 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Students" />
           </ListItem>
-          <ListItem button component={Link} to="/admin/publish-schedule" onClick={this.switchOptionHandler}>
-            <ListItemIcon>
-              <Icon>date_range</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Publish Schedule" />
-          </ListItem>
-          <ListItem button component={Link} to="/admin/publish-command-performance-schedule" onClick={this.switchOptionHandler}>
-            <ListItemIcon>
-              <Icon>date_range</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Publish Command Performance Schedule" />
-          </ListItem>
           <ListItem button component={Link} to="/admin/edit-event-calender" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>calendar_today</Icon>

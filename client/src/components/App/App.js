@@ -70,9 +70,7 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/admin/upload-music" component={UploadMusic} />
                 {/* <Route exact path="/admin/events" component={Events} /> */}
                 {/* <Route exact path="/admin/teachers" component={Teachers} /> */}
-                {/* <Route exact path="/admin/students" component={Students} /> */}
-                {/* <Route exact path="/admin/publish-schedule" component={PublishSchedule} /> */}
-                {/* <Route exact path="/admin/publish-command-performance-schedule" component={PublishCommandPerformanceSchedule} /> */}
+                {/* <Route exact path="/admin/students" component={Students} /> */} */}
                 {/* <Route exact path="/admin/edit-events-calender" component={ViewModifiyEventsCalender} /> */}
                 {/* <Route exact path="/admin/edit-faq" component={ViewModifyFAQ} /> */}
                 {/* <Route exact path="/admin/edit-about-us" component={ViewModifiyAboutUs} /> */}
