@@ -18,6 +18,7 @@ import ViewModifyCommandPerformance
     from '../AP-AdminPortal/ViewModifyCommandPerformance/ViewModifyCommandPerformance';
 import GenerateAndPrintDocuments from '../AP-AdminPortal/GenerateAndPrintDocuments/GenerateAndPrintDocuments';
 import UploadMusic from '../AP-AdminPortal/UploadMusic/UploadMusic';
+import UploadDocuments from '../AP-AdminPortal/UploadDocuments/UploadDocuments';
 import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
 import ViewModifyEventsCalender from '../AP-AdminPortal/ViewModifyEventsCalender/ViewModifyEventsCalender';
 
@@ -67,7 +68,7 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/admin/edit-command-performance" component={ViewModifyCommandPerformance} />
                 <Route exact path="/admin/add-a-teacher" component={AddATeacher} />
                 <Route exact path="/admin/generate-documents" component={GenerateAndPrintDocuments} />
-                {/* <Route exact path="/admin/upload-documents" component={UploadDocuments} /> */}
+                <Route exact path="/admin/upload-documents" component={UploadDocuments} />
                 <Route exact path="/admin/upload-music" component={UploadMusic} />
                 {/* <Route exact path="/admin/events" component={Events} /> */}
                 {/* <Route exact path="/admin/teachers" component={Teachers} /> */}
