@@ -20,6 +20,7 @@ import GenerateAndPrintDocuments from '../AP-AdminPortal/GenerateAndPrintDocumen
 import UploadMusic from '../AP-AdminPortal/UploadMusic/UploadMusic';
 import UploadDocuments from '../AP-AdminPortal/UploadDocuments/UploadDocuments';
 import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
+import Events from '../AP-AdminPortal/Events/Events';
 import ViewModifyEventsCalender from '../AP-AdminPortal/ViewModifyEventsCalender/ViewModifyEventsCalender';
 
 // CUSTOMER-PORTAL COMPONENTS
@@ -70,7 +71,7 @@ const App = ({ themeChoice }) => (
                 <Route exact path="/admin/generate-documents" component={GenerateAndPrintDocuments} />
                 <Route exact path="/admin/upload-documents" component={UploadDocuments} />
                 <Route exact path="/admin/upload-music" component={UploadMusic} />
-                {/* <Route exact path="/admin/events" component={Events} /> */}
+                <Route exact path="/admin/events" component={Events} />
                 {/* <Route exact path="/admin/teachers" component={Teachers} /> */}
                 {/* <Route exact path="/admin/students" component={Students} /> */}
                 {/* <Route exact path="/admin/publish-schedule" component={PublishSchedule} /> */}
