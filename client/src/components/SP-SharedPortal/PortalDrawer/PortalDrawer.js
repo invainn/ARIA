@@ -205,7 +205,7 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Publish Command Performance Schedule" />
           </ListItem>
-          <ListItem button component={Link} to="/admin/edit-event-calender" onClick={this.switchOptionHandler}>
+          <ListItem button component={Link} to="/admin/edit-events-calender" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>calendar_today</Icon>
             </ListItemIcon>

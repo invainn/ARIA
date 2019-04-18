@@ -19,6 +19,7 @@ import ViewModifyCommandPerformance
 import GenerateAndPrintDocuments from '../AP-AdminPortal/GenerateAndPrintDocuments/GenerateAndPrintDocuments';
 import UploadMusic from '../AP-AdminPortal/UploadMusic/UploadMusic';
 import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
+import ViewModifyEventsCalender from '../AP-AdminPortal/ViewModifyEventsCalender/ViewModifyEventsCalender';
 
 // CUSTOMER-PORTAL COMPONENTS
 import CustomerAccount from '../CP-CustomerPortal/CustomerAccount/CustomerAccount';
@@ -73,7 +74,7 @@ const App = ({ themeChoice }) => (
                 {/* <Route exact path="/admin/students" component={Students} /> */}
                 {/* <Route exact path="/admin/publish-schedule" component={PublishSchedule} /> */}
                 {/* <Route exact path="/admin/publish-command-performance-schedule" component={PublishCommandPerformanceSchedule} /> */}
-                {/* <Route exact path="/admin/edit-events-calender" component={ViewModifiyEventsCalender} /> */}
+                <Route exact path="/admin/edit-events-calender" component={ViewModifyEventsCalender} />
                 {/* <Route exact path="/admin/edit-faq" component={ViewModifyFAQ} /> */}
                 {/* <Route exact path="/admin/edit-about-us" component={ViewModifiyAboutUs} /> */}
                 {/* <Route exact path="/admin/notifications" component={CreateSendNotification} /> */}
