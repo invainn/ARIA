@@ -21,6 +21,10 @@ import UploadMusic from '../AP-AdminPortal/UploadMusic/UploadMusic';
 import UploadDocuments from '../AP-AdminPortal/UploadDocuments/UploadDocuments';
 import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
 import ViewModifyEventsCalender from '../AP-AdminPortal/ViewModifyEventsCalender/ViewModifyEventsCalender';
+import ViewModifyAboutUs from '../AP-AdminPortal/ViewModifyAboutUs/ViewModifyAboutUs';
+import ViewModifyFAQ from '../AP-AdminPortal/ViewModifyFAQ/ViewModifyFAQ';
+import ViewModifyNNMTANews from '../AP-AdminPortal/ViewModifyNNMTANews/ViewModifyNNMTANews';
+import CreateSendNotification from '../AP-AdminPortal/CreateSendNotification/CreateSendNotification';
 
 // CUSTOMER-PORTAL COMPONENTS
 import CustomerAccount from '../CP-CustomerPortal/CustomerAccount/CustomerAccount';
@@ -76,10 +80,10 @@ const App = ({ themeChoice }) => (
                 {/* <Route exact path="/admin/publish-schedule" component={PublishSchedule} /> */}
                 {/* <Route exact path="/admin/publish-command-performance-schedule" component={PublishCommandPerformanceSchedule} /> */}
                 <Route exact path="/admin/edit-events-calender" component={ViewModifyEventsCalender} />
-                {/* <Route exact path="/admin/edit-faq" component={ViewModifyFAQ} /> */}
-                {/* <Route exact path="/admin/edit-about-us" component={ViewModifiyAboutUs} /> */}
-                {/* <Route exact path="/admin/notifications" component={CreateSendNotification} /> */}
-                {/* <Route exact path="/admin/news" component={ViewModifyNNMTANews} /> */}
+                <Route exact path="/admin/edit-faq" component={ViewModifyFAQ} />
+                <Route exact path="/admin/edit-about-us" component={ViewModifyAboutUs} />
+                <Route exact path="/admin/notifications" component={CreateSendNotification} />
+                <Route exact path="/admin/news" component={ViewModifyNNMTANews} />
 
                 { /* CUSTOMER-PORTAL */ }
                 <Route exact path="/customer/account" component={CustomerAccount} />
