@@ -119,22 +119,6 @@ const adminCards = [
     },
     {
       id: 14,
-      title: 'Publish Schedule',
-      description: 'Publishes the schedule.',
-      link: '/admin/publish-schedule',
-      buttonName: 'Publish Schedule',
-      icon: 'date_range',
-    },
-    {
-      id: 15,
-      title: 'Publish Command Performance Schedule',
-      description: 'Publishes the command performance schedule.',
-      link: '/admin/publish-command-performance-schedule',
-      buttonName: 'Publish Command Performance Schedule',
-      icon: 'date_range',
-    },
-    {
-      id: 16,
       title: 'View/Modify Events Calendar',
       description: 'Allows the Google Calendar for NNMTA which appears in the Customer and Teacher portals to be viewed, '
       + 'and if necessary, modified by an administrator.',
@@ -143,7 +127,7 @@ const adminCards = [
       icon: 'calendar_today',
     },
     {
-      id: 17,
+      id: 15,
       title: 'View/Modify FAQ',
       description: 'Allows the Frequently Asked Questions page which appears in the Customer and Teacher portals to be viewed, '
       + 'and if necessary, modified by an administrator.',
@@ -152,7 +136,7 @@ const adminCards = [
       icon: 'help_outline',
     },
     {
-      id: 18,
+      id: 16,
       title: 'View/Modify About Us ',
       description: 'Allows the About Us page which appears in the Customer and Teacher portals to be viewed, and if necessary, '
       + 'modified by an administrator.',
@@ -161,7 +145,7 @@ const adminCards = [
       icon: 'music_note',
     },
     {
-      id: 19,
+      id: 17,
       title: 'Create/Send A Notification',
       description: 'Allows an administrator to send notifications to customers and/or teachers through the portal directly. This feature '
       + ' is meant to provide a second means of communication from NNMTA staff regarding important events.',
@@ -170,7 +154,7 @@ const adminCards = [
       icon: 'notification_important',
     },
     {
-      id: 20,
+      id: 18,
       title: 'View/Modify News',
       description: 'Allows an administrator to publish news about upcoming events to customers and teachers through the portal.',
       link: '/admin/news',
