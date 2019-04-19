@@ -31,6 +31,7 @@ import RegisterForAnEvent from '../CP-CustomerPortal/RegisterForAnEvent/Register
 
 // NON-PORTAL COMPONENTS
 import Login from '../NP-NonPortal/Login/Login';
+import ForbiddenAccess403Error from '../NP-NonPortal/Misc/HTML5ErrorPages/ForbiddenAccess403Error/ForbiddenAccess403Error';
 import NotFound404Error from '../NP-NonPortal/Misc/HTML5ErrorPages/NotFound404Error/NotFound404Error';
 import RegisterNewUser from '../NP-NonPortal/RegisterNewUser/RegisterNewUser';
 import ForgotPassword from '../NP-NonPortal/ForgotPassword/ForgotPassword';
@@ -125,6 +126,7 @@ const App = ({ themeChoice }) => (
 
                 { /* HTML5 ERRORS */ }
                 <Route path="*" component={NotFound404Error} />
+                <Route exact path="*" component={ForbiddenAccess403Error} />
             </Switch>
         </BrowserRouter>
     </MuiThemeProvider>
