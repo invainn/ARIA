@@ -168,12 +168,6 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Generate Documents" />
           </ListItem>
-          <ListItem button component={Link} to="/admin/print-documents" onClick={this.switchOptionHandler}>
-            <ListItemIcon>
-              <Icon>print</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Print Documents" />
-          </ListItem>
           <ListItem button component={Link} to="/admin/upload-documents" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>cloud_upload</Icon>
@@ -216,7 +210,7 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Publish Command Performance Schedule" />
           </ListItem>
-          <ListItem button component={Link} to="/admin/edit-event-calender" onClick={this.switchOptionHandler}>
+          <ListItem button component={Link} to="/admin/edit-events-calender" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>calendar_today</Icon>
             </ListItemIcon>

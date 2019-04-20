@@ -45,7 +45,7 @@ const styles = ({ palette }) => ({
     },
 });
 
-class GenerateDocuments extends Component {
+class GenerateAndPrintDocuments extends Component {
     state = {
         activeStep: 0,
     };
@@ -66,7 +66,7 @@ class GenerateDocuments extends Component {
             <CustomerPortalContainer userType={2}>
                 <div className={classes.pageTitle}>
                     <Typography component="h2" variant="h2" gutterBottom align="center">
-                        Generate Documents
+                        Generate & Print Documents
                     </Typography>
                 </div>
                 <Grid container alignItems="center" justify="center">
@@ -105,4 +105,4 @@ class GenerateDocuments extends Component {
     }
 }
 
-export default withStyles(styles)(GenerateDocuments);
+export default withStyles(styles)(GenerateAndPrintDocuments);

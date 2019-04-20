@@ -18,9 +18,11 @@ import ScheduleCommandPerformance
     from '../AP-AdminPortal/ScheduleCommandPerformance/ScheduleCommandPerformance';
 import ViewModifyCommandPerformance
     from '../AP-AdminPortal/ViewModifyCommandPerformance/ViewModifyCommandPerformance';
-import GenerateDocuments from '../AP-AdminPortal/GenerateDocuments/GenerateDocuments';
+import GenerateAndPrintDocuments from '../AP-AdminPortal/GenerateAndPrintDocuments/GenerateAndPrintDocuments';
 import UploadMusic from '../AP-AdminPortal/UploadMusic/UploadMusic';
+import UploadDocuments from '../AP-AdminPortal/UploadDocuments/UploadDocuments';
 import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
+import ViewModifyEventsCalender from '../AP-AdminPortal/ViewModifyEventsCalender/ViewModifyEventsCalender';
 
 // CUSTOMER-PORTAL COMPONENTS
 import CustomerAccount from '../CP-CustomerPortal/CustomerAccount/CustomerAccount';
@@ -97,16 +99,15 @@ class App extends Component {
                         <Route exact path="/admin/schedule-command-performance" component={ScheduleCommandPerformance} />
                         <Route exact path="/admin/edit-command-performance" component={ViewModifyCommandPerformance} />
                         <Route exact path="/admin/add-a-teacher" component={AddATeacher} />
-                        <Route exact path="/admin/generate-documents" component={GenerateDocuments} />
-                        {/* <Route exact path="/admin/print-documents" component={PrintDocuments} /> */}
-                        {/* <Route exact path="/admin/upload-documents" component={UploadDocuments} /> */}
+                        <Route exact path="/admin/generate-documents" component={GenerateAndPrintDocuments} />
+                        <Route exact path="/admin/upload-documents" component={UploadDocuments} />
                         <Route exact path="/admin/upload-music" component={UploadMusic} />
                         {/* <Route exact path="/admin/events" component={Events} /> */}
                         {/* <Route exact path="/admin/teachers" component={Teachers} /> */}
                         {/* <Route exact path="/admin/students" component={Students} /> */}
                         {/* <Route exact path="/admin/publish-schedule" component={PublishSchedule} /> */}
                         {/* <Route exact path="/admin/publish-command-performance-schedule" component={PublishCommandPerformanceSchedule} /> */}
-                        {/* <Route exact path="/admin/edit-events-calender" component={ViewModifiyEventsCalender} /> */}
+                        <Route exact path="/admin/edit-events-calender" component={ViewModifyEventsCalender} />
                         {/* <Route exact path="/admin/edit-faq" component={ViewModifyFAQ} /> */}
                         {/* <Route exact path="/admin/edit-about-us" component={ViewModifiyAboutUs} /> */}
                         {/* <Route exact path="/admin/notifications" component={CreateSendNotification} /> */}

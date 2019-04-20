@@ -63,6 +63,7 @@ const styles = theme => ({
     },
 
     loginIcons: {
+        color: '#000000',
         // color: theme.palette.primary.contrastText,
     },
 
