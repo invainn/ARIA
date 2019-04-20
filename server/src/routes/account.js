@@ -77,7 +77,7 @@ router.post('/login', (req, res, next) => {
             res.json({ 
                 token, 
                 type: user.type,
-                name: `${req.user.first_name} ${req.user.last_name}`,
+                name: `${user.first_name} ${user.last_name}`,
             });
         });
     })(req, res, next);

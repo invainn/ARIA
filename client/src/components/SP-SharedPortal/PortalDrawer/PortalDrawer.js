@@ -382,7 +382,7 @@ class PortalDrawer extends Component {
                     <ListItemIcon>
                       <Icon>exit_to_app</Icon>
                     </ListItemIcon>
-                    <ListItemText primary="About Us" />
+                    <ListItemText primary="Log Out" />
                   </ListItem>
             </Drawer>
     );

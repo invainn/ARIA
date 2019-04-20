@@ -41,6 +41,10 @@ export const meFromTokenNoAuth = () => ({
     type: ME_FROM_TOKEN_NO_AUTH,
 });
 
-export const resetToken = () => ({
-    type: RESET_TOKEN,
-});
+export const resetToken = () => {
+    localStorage.removeItem('jwtToken');
+
+    return {
+        type: RESET_TOKEN,
+    };
+};
