@@ -30,7 +30,7 @@ db.raw('SELECT 1+1 AS result')
 });
 
 // Routes
-app.use('/protected', passport.authenticate('jwt', { session: false }), require('./routes/app'));
+app.use('/', require('./routes/app'));
 app.use('/account', require('./routes/account'));
 
 app.listen(PORT, HOST);
