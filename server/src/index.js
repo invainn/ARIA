@@ -25,8 +25,8 @@ db.raw('SELECT 1+1 AS result')
 .then(() => {
     console.log('Connection to DB successful!');
 })
-.catch(() => {
-    console.error('Connection to DB failed');
+.catch((err) => {
+    console.error('Connection to DB failed', err);
 });
 
 // Routes
