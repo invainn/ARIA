@@ -3,4 +3,3 @@ const app = require('../src/routes/app');
 test('should pass test', (done) => {
     done();
 });
-*/
