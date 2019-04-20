@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import ShellFooter from '../NP-NonPortal/Shell/ShellFooter/ShellFooter';
 import ShellHeader from '../../containers/Shell/ShellHeader/ShellHeader';
-import CustomerDrawer from '../SP-SharedPortal/PortalDrawer/PortalDrawer';
+import CustomerDrawer from '../../containers/SP-SharedPortal/PortalDrawer/PortalDrawerContainer';
 
 const styles = theme => ({
   root: {

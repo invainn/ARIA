@@ -50,7 +50,7 @@ class ViewModifyCommandPerformance extends Component {
     const { classes } = this.props;
 
     return (
-      <CustomerPortalContainer userType={0}>
+      <CustomerPortalContainer userType={2}>
         <div className={classes.pageTitle}>
           <Typography component="h2" variant="h2" gutterBottom align="center">
               View/Modify Command Performance

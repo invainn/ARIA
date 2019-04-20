@@ -1,17 +1,13 @@
-const app = require('express')();
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
-app.use(cors());
+const router = require('express').Router();
 
 // Routes should be declared in their separate files
 // This is just an example route
-app.get('/', (req, res, next) => {
-  const obj = {
-    data: 'we did it'
-  };
-
-  res.status(200).send(obj);
+router.get('/', (req, res, next) => {
+  if(req.user.type === 0) {
+    res.status(200).send(req.user);
+  } else {
+    res.status(401).send('Unauthorized');
+  }
 });
 
-module.exports = app;
+module.exports = router;

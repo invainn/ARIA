@@ -1,5 +1,5 @@
 # base image
-FROM node:8.11.4
+FROM node:10.15.3
 
 WORKDIR /usr/app
 

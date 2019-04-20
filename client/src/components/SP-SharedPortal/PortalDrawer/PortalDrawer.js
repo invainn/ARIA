@@ -110,8 +110,13 @@ class PortalDrawer extends Component {
     };
   }
 
+  onLogout = () => {
+    const { resetToken } = this.props;
+    resetToken();
+  };
+
   renderList(userType) {
-    if (userType === 0) {
+    if (userType === 2) {
       return (
         <div>
           { /* ADMIN */ }
@@ -245,7 +250,7 @@ class PortalDrawer extends Component {
       );
     }
 
-    if (userType === 2) {
+    if (userType === 1) {
       return (
         <div>
           { /* TEACHER */ }
@@ -338,7 +343,7 @@ class PortalDrawer extends Component {
       theme,
       open,
       togglePortalDrawer,
-      userType = 1,
+      userType,
     } = this.props;
 
     const { something } = this.state;
@@ -379,6 +384,12 @@ class PortalDrawer extends Component {
                 </div>
               </List>
             <Divider />
+                  <ListItem button onClick={this.onLogout}>
+                    <ListItemIcon>
+                      <Icon>exit_to_app</Icon>
+                    </ListItemIcon>
+                    <ListItemText primary="About Us" />
+                  </ListItem>
             </Drawer>
     );
   }

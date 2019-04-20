@@ -13,7 +13,7 @@ import {
 // eslint-disable-next-line import/no-unresolved
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-unresolved
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import Music from './music.jpg';
 import Shell from '../Shell/Shell';
@@ -88,7 +88,7 @@ const styles = theme => ({
 
 class Login extends React.Component {
     state = {
-        username: '',
+        email: '',
         password: '',
     };
 
@@ -96,8 +96,22 @@ class Login extends React.Component {
         this.setState({ [name]: event.target.value });
     };
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Execute some action to login the user.
+        // Through redux, store the resulting token inside of the store.
+        const { loginUser } = this.props;
+
+        loginUser({ ...this.state });
+    };
+
     render() {
-        const { classes } = this.props;
+        const { classes, authenticated } = this.props;
+
+        if (authenticated) {
+            return <Redirect to="/customer/dashboard" />;
+        }
 
         return (
             <Shell>
@@ -107,14 +121,14 @@ class Login extends React.Component {
                             Northern Nevada Music Teacher Association (NNMTA)
                         </Typography>
 
-                        <form autoComplete="off">
+                        <form autoComplete="off" onSubmit={this.handleSubmit.bind(this)}>
                             <div className={classes.margin}>
                                 <Grid container spacing={8} alignItems="flex-end">
                                     <Grid item>
                                         <Icon className={classes.loginIcons}>account_circle</Icon>
                                     </Grid>
                                     <Grid item className={classes.fieldText}>
-                                        <TextField id="input-with-icon-grid" label="Username" className={classes.fieldText} onChange={this.handleChange('username')} required />
+                                        <TextField id="input-with-icon-grid" label="Username" className={classes.fieldText} onChange={this.handleChange('email')} required />
                                     </Grid>
                                 </Grid>
                             </div>
@@ -132,7 +146,7 @@ class Login extends React.Component {
 
                             <div className={classes.margin}>
                                 <Grid container spacing={8} alignItems="flex-end">
-                                    <Button variant="contained" color="primary" className={classes.button}>
+                                    <Button variant="contained" color="primary" className={classes.button} type="submit">
                                         Sign In
                                     </Button>
                                 </Grid>
