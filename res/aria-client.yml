@@ -16,7 +16,7 @@ kind: Deployment
 metadata:
   name: aria-client
 spec:
-  replicas: 2
+  replicas: 1 
   minReadySeconds: 15
   strategy:
     type: RollingUpdate
