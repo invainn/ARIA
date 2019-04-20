@@ -226,7 +226,7 @@ class EnhancedTable extends React.Component {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-        <CustomerPortalContainer userType={2}>
+        <CustomerPortalContainer userType={1}>
           <div className={classes.pageTitle}>
             <Typography component="h2" variant="h2" gutterBottom align="center">
               My Students

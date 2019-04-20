@@ -55,6 +55,7 @@ const styles = theme => ({
 });
 
 // Bad i know
+// Then why did you let this happen :(
 const time = [
     '9:00 a.m.',
     '9:30 a.m.',
@@ -92,7 +93,7 @@ class ScheduleAnEvent extends Component {
     times: [],
   };
 
-  handleChange = ({ event }) => { // eslint-disable-line no-use-before-define
+  handleChange = (event) => { // eslint-disable-line no-use-before-define
     this.setState({ times: event.target.value }); // eslint-disable-line no-use-before-define
   };
 
@@ -101,7 +102,7 @@ class ScheduleAnEvent extends Component {
 
 
     return (
-      <CustomerPortalContainer userType={0}>
+      <CustomerPortalContainer userType={2}>
         <div className={classes.pageTitle}>
           <Typography component="h2" variant="h2" gutterBottom align="center">
               Schedule An Event
