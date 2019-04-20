@@ -96,25 +96,24 @@ const styles = theme => ({
 
 
 function Dashboard(props) {
-  const { classes, userType = 1 } = props;
+  const { classes, type, name } = props;
 
   // Stop doing global variables
   // Everything should be in a function or import
 
   /* ADMIN-PORTAL */
-  if (userType === 0) {
+  if (type === 2) {
     return (
-      <CustomerPortalContainer userType={userType}>
+      <CustomerPortalContainer userType={type}>
         <main>
           {/* Hero unit */}
           <div className={classes.heroUnit}>
             <div className={classes.heroContent}>
               <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom className={classes.dashboardTitle}>
-              Welcome &lt;Admin&apos;s Name&gt;
+                {`Welcome, ${name}`}
               </Typography>
               <Typography variant="h6" align="center" color="textSecondary" paragraph>
-                Something short and leading about NNMTA. Brief but interesting
-                so folks don&apos;t simply skip over it entirely.
+                Very interesting statement
               </Typography>
               <div className={classes.heroButtons}>
                 <Grid container spacing={16} justify="center">
@@ -179,15 +178,15 @@ function Dashboard(props) {
   }
 
   /*  TEACHER-PORTAL */
-  if (userType === 2) {
+  if (type === 1) {
     return (
-      <CustomerPortalContainer userType={userType}>
+      <CustomerPortalContainer userType={type}>
         <main>
           {/* Hero unit */}
           <div className={classes.heroUnit}>
             <div className={classes.heroContent}>
               <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom className={classes.dashboardTitle}>
-              Welcome &lt;Teacher&apos;s Name&gt;
+                {`Welcome, ${name}`}
               </Typography>
               <Typography variant="h6" align="center" color="textSecondary" paragraph>
                 Something short and leading about NNMTA. Brief but interesting
@@ -257,13 +256,13 @@ function Dashboard(props) {
 
   /* CUSTOMER-PORTAL */
   return (
-    <CustomerPortalContainer userType={userType}>
+    <CustomerPortalContainer userType={0}>
       <main>
         {/* Hero unit */}
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom className={classes.dashboardTitle}>
-              Welcome &lt;Customer&apos;s Name&gt;
+              {`Welcome, ${name}`}
             </Typography>
             <Typography variant="h6" align="center" color="textSecondary" paragraph>
               Something short and leading about NNMTA. Brief but interesting
