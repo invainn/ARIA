@@ -1,6 +1,6 @@
 // This is where the ENV variables will be switched during production
+// eslint-disable-next-line import/no-mutable-exports
 let ARIA_SERVER_URL;
-
 
 switch (process.env.NODE_ENV) {
     case 'production':
@@ -13,4 +13,4 @@ switch (process.env.NODE_ENV) {
         throw Error('Invalid NODE_ENV specified');
 }
 
-export default { ARIA_SERVER_URL };
+export default ARIA_SERVER_URL;
