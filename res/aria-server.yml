@@ -16,7 +16,7 @@ kind: Deployment
 metadata:
   name: aria-server
 spec:
-  replicas: 2
+  replicas: 1 
   minReadySeconds: 15
   strategy:
     type: RollingUpdate
@@ -32,6 +32,27 @@ spec:
       - image: gcr.io/aria-nnmta/aria-server:${CIRCLE_SHA1} 
         imagePullPolicy: Always
         name: aria-server
+        env:
+        - name: "JWT_SECRET"
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: jwt_secret
+        - name: "DB_USER"
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: db_user
+        - name: "DB_PASS"
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: db_pass 
+        - name: "DB_HOST"
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: db_host 
         ports:
           - containerPort: 8080
         readinessProbe:

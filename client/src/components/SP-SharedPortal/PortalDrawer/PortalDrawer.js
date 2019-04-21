@@ -110,8 +110,13 @@ class PortalDrawer extends Component {
     };
   }
 
+  onLogout = () => {
+    const { resetToken } = this.props;
+    resetToken();
+  };
+
   renderList(userType) {
-    if (userType === 0) {
+    if (userType === 2) {
       return (
         <div>
           { /* ADMIN */ }
@@ -193,18 +198,6 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Students" />
           </ListItem>
-          <ListItem button component={Link} to="/admin/publish-schedule" onClick={this.switchOptionHandler}>
-            <ListItemIcon>
-              <Icon>date_range</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Publish Schedule" />
-          </ListItem>
-          <ListItem button component={Link} to="/admin/publish-command-performance-schedule" onClick={this.switchOptionHandler}>
-            <ListItemIcon>
-              <Icon>date_range</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Publish Command Performance Schedule" />
-          </ListItem>
           <ListItem button component={Link} to="/admin/edit-events-calender" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>calendar_today</Icon>
@@ -239,7 +232,7 @@ class PortalDrawer extends Component {
       );
     }
 
-    if (userType === 2) {
+    if (userType === 1) {
       return (
         <div>
           { /* TEACHER */ }
@@ -332,7 +325,7 @@ class PortalDrawer extends Component {
       theme,
       open,
       togglePortalDrawer,
-      userType = 1,
+      userType,
     } = this.props;
 
     const { something } = this.state;
@@ -373,6 +366,12 @@ class PortalDrawer extends Component {
                 </div>
               </List>
             <Divider />
+                  <ListItem button onClick={this.onLogout}>
+                    <ListItemIcon>
+                      <Icon>exit_to_app</Icon>
+                    </ListItemIcon>
+                    <ListItemText primary="Log Out" />
+                  </ListItem>
             </Drawer>
     );
   }
