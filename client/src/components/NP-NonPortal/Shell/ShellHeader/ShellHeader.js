@@ -16,7 +16,6 @@ import {
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'; // STOP IT
 
 import logo from '../logo-header.png';
-import ShellHeaderOptions from './ShellHeaderOptions/ShellHeaderOptions';
 
 const styles = theme => ({
     root: {
@@ -153,11 +152,6 @@ const ShellHeader = ({
         container
         spacing={40}
       >
-        { portal && (
-          <span className={classes.optionsButtonStyles}>
-            <ShellHeaderOptions />
-          </span>
-        )}
         { portal && (
           <Button component={Link} to="/" className={classes.signOutButtonStyles}>
             <Typography variant="body2" style={{ color: '#FFFFFF' }}>
