@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 
 import ARIA_SERVER_URL from '../config';
@@ -10,12 +11,16 @@ export const EMAIL_EXISTS = 'EMAIL_EXISTS';
 export const REGISTER_RESET = 'REGISTER_RESET';
 
 
-export const registerUser = user => async (dispatch) => {
+export const registerUser = ({
+    email, password, first_name, last_name,
+}) => async (dispatch) => {
     try {
-        await axios.post(`${ARIA_SERVER_URL}/account/email`, { email: user.email });
+        await axios.post(`${ARIA_SERVER_URL}/account/email`, { email });
 
         try {
-            await axios.post(`${ARIA_SERVER_URL}/account/register`, user);
+            await axios.post(`${ARIA_SERVER_URL}/account/register`, {
+                email, password, first_name, last_name,
+            });
 
             dispatch({
                 type: REGISTER_USER_SUCCESS,
