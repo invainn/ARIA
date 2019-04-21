@@ -72,7 +72,7 @@ const Tasks = (props) => {
   const { classes } = props;
 
   return (
-      <CustomerPortalContainer userType={2}>
+      <CustomerPortalContainer userType={1}>
           <div className={classes.pageTitle}>
               <Typography component="h2" variant="h2" gutterBottom align="center">
                   Tasks

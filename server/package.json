@@ -10,13 +10,21 @@
     "coverage": "jest --collectCoverageFrom=src/**.js --coverage ."
   },
   "devDependencies": {
+    "dotenv": "^7.0.0",
     "jest": "^23.5.0",
     "nodemon": "^1.18.4",
     "supertest": "^3.1.0"
   },
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.16.5",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.10.0"
   }
 }

@@ -1,5 +1,5 @@
 # base
-FROM node:8.11.4
+FROM node:10.15.3
 
 # setup working dir
 RUN mkdir /usr/app
