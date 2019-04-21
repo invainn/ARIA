@@ -7,10 +7,16 @@ import {
     Grid,
     TextField,
     Button,
+    InputAdornment,
+    IconButton,
+    FormControl,
+    InputLabel,
+    Input,
 } from '@material-ui/core';
 import { Link, Redirect } from 'react-router-dom';
 import classNames from 'classnames';
 
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 import Bow from './bow.jpg';
 import Shell from '../Shell/Shell';
 
@@ -74,10 +80,15 @@ class RegisterNewUser extends React.Component {
         password: '',
         first_name: '',
         last_name: '',
+        showPassword: false,
     };
 
     handleChange = name => (event) => {
         this.setState({ [name]: event.target.value });
+    };
+
+    handleClickShowPassword = () => {
+        this.setState(({ showPassword }) => ({ showPassword: !showPassword }));
     };
 
     onHandleRegistration = (e) => {
@@ -110,6 +121,7 @@ class RegisterNewUser extends React.Component {
 
     render() {
         const { classes, regStatus } = this.props;
+        const { password, showPassword } = this.state;
 
         if (regStatus === 1) {
             return <Redirect to="/" />;
@@ -146,18 +158,28 @@ class RegisterNewUser extends React.Component {
                                   onChange={this.handleChange('email')}
                                   required
                                 />
-                                <TextField
-                                  id="outlined-password-input"
-                                  label="Password"
-                                  className={classNames({
-                                    [classes.emailInputfieldStyles]: true,
-                                })}
-                                  type="password"
-                                  name="password"
-                                  autoComplete="password"
-                                  onChange={this.handleChange('password')}
-                                  required
-                                />
+
+                                <FormControl className={classes.emailInputfieldStyles}>
+                                    <InputLabel htmlFor="adornment-password">Password *</InputLabel>
+                                    <Input
+                                      id="adornment-password"
+                                      type={showPassword ? 'text' : 'password'}
+                                      value={password}
+                                      onChange={this.handleChange('password')}
+                                      endAdornment={(
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                              aria-label="Toggle password visibility"
+                                              onClick={this.handleClickShowPassword}
+                                            >
+                                                {showPassword ? <Visibility /> : <VisibilityOff />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                      )}
+                                      required
+                                    />
+                                </FormControl>
+
                                 <TextField
                                   id="customer-first-name"
                                   label="First Name"
