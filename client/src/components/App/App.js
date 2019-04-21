@@ -30,8 +30,6 @@ import MyParticipants from '../CP-CustomerPortal/MyParticipants/MyParticipants';
 import MyEnrollments from '../CP-CustomerPortal/MyEnrollments/MyEnrollments';
 import RegisterForAnEvent from '../CP-CustomerPortal/RegisterForAnEvent/RegisterForAnEvent';
 // import PaymentHistory from '../CP-CustomerPortal/PaymentHistory/PaymentHistory';
-
-// NON-PORTAL COMPONENTS
 import Login from '../../containers/NP-NonPortal/Login/LoginContainer';
 import NotFound404Error from '../NP-NonPortal/Misc/HTML5ErrorPages/NotFound404Error/NotFound404Error';
 import RegisterNewUser from '../../containers/NP-NonPortal/RegisterNewUser/RegisterNewUserContainer';
