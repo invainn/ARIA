@@ -4,6 +4,7 @@ metadata:
   name: aria-ingress 
   annotations:
     kubernetes.io/ingress.global-static-ip-name: aria-ip 
+    networking.gke.io/managed-certificates: aria-client-certificate, aria-server-certificate
 spec:
   rules:
     - host: api.aria.gishi.tech
