@@ -45,7 +45,7 @@ class CommandPerformance extends Component {
     const { classes } = this.props;
 
     return (
-            <Paper className={classes.root}>
+            <div className={classes.root}>
                 <div>
                     <Typography className={classes.text} variant="h6">
                         Please enter the times best suited for your participant to perform in the
@@ -85,7 +85,7 @@ class CommandPerformance extends Component {
                         />
                     </form>
                 </div>
-            </Paper>
+            </div>
     );
   }
 }
