@@ -108,8 +108,8 @@ jobs:
                     envsubst < ${HOME}/project/res/aria-server.yml > ${HOME}/patched_aria-server.yml
                     kubectl apply -f ${HOME}/patched_aria-server.yml
                     kubectl apply -f ${HOME}/patched_aria-client.yml
-                    kubectl apply -f ${HOME}/aria-client-certificate.yml
-                    kubectl apply -f ${HOME}/aria-server-certificate.yml
+                    kubectl apply -f ${HOME}/project/res/aria-client-certificate.yml
+                    kubectl apply -f ${HOME}/project/res/aria-server-certificate.yml
                     kubectl apply -f ${HOME}/project/res/aria-ingress.yml
                     kubectl rollout status deployment/aria-client
                     kubectl rollout status deployment/aria-server
