@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// eslint-disable-next-line import/no-unresolved
 import DropIn from 'braintree-web-drop-in-react';
 import { withStyles } from '@material-ui/core/styles';
 import {
