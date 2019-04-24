@@ -774,6 +774,10 @@
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-3.0.0.tgz#a0ce629d18d4d435f23a0b880098cff7d99e8bb3"
 
+"@braintree/sanitize-url@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-3.1.0.tgz#8ff71d51053cd5ee4981e5a501d80a536244f7fd"
+
 "@braintree/wrap-promise@1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@braintree/wrap-promise/-/wrap-promise-1.1.1.tgz#d22c76855e6d4b4012610060421fae1a37ec90b0"
@@ -1738,6 +1742,23 @@ braintree-web@3.44.1:
     "@braintree/class-list" "0.1.0"
     "@braintree/iframer" "1.0.3"
     "@braintree/sanitize-url" "3.0.0"
+    "@braintree/wrap-promise" "1.1.1"
+    card-validator "6.1.0"
+    credit-card-type "8.2.0"
+    framebus "3.0.2"
+    inject-stylesheet "1.0.0"
+    promise-polyfill "8.1.0"
+    restricted-input "1.2.7"
+
+braintree-web@^3.44.2:
+  version "3.44.2"
+  resolved "https://registry.yarnpkg.com/braintree-web/-/braintree-web-3.44.2.tgz#87c671ee3739d9af699901e66f438281c143c397"
+  dependencies:
+    "@braintree/asset-loader" "0.2.1"
+    "@braintree/browser-detection" "1.7.0"
+    "@braintree/class-list" "0.1.0"
+    "@braintree/iframer" "1.0.3"
+    "@braintree/sanitize-url" "3.1.0"
     "@braintree/wrap-promise" "1.1.1"
     card-validator "6.1.0"
     credit-card-type "8.2.0"

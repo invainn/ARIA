@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { Menu as MenuIcon } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 import {
   AppBar,
@@ -127,7 +126,6 @@ const ShellHeader = ({
                         classNames(classes.menuButton, open && classes.hide)
                   }
                 >
-                  <MenuIcon />
                   <ChevronRightIcon />
                 </IconButton>
               )}
