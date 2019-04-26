@@ -4,7 +4,7 @@ let ARIA_SERVER_URL;
 
 switch (process.env.NODE_ENV) {
     case 'production':
-        ARIA_SERVER_URL = 'http://api.aria.gishi.tech';
+        ARIA_SERVER_URL = 'https://api.aria.gishi.tech';
         break;
     case 'development':
         ARIA_SERVER_URL = 'http://localhost:8080';

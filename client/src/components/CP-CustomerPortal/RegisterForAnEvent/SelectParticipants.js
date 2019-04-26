@@ -8,13 +8,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
 import ParticipantTableHead from './ParticipantTableHead';
 
 // Do not do this, fix this
@@ -77,16 +71,10 @@ const toolbarStyles = theme => ({
     color: theme.palette.text.primary,
     backgroundColor: theme.palette.primary,
   },
-  highlight:
-    theme.palette.type === 'light'
-      ? {
-          color: theme.palette.primary.main,
-          backgroundColor: lighten(theme.palette.primary.main, 0.75),
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.primary,
-        },
+  highlight: {
+    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.primary,
+  },
   spacer: {
     flex: '1 1 100%',
   },
@@ -108,34 +96,9 @@ let EnhancedTableToolbar = (props) => {
       })}
     >
       <div className={classes.title}>
-        {numSelected > 0 ? (
-          <Typography color="inherit" variant="h6">
-            {numSelected} selected
-          </Typography>
-        ) : (
-          <Typography variant="h6" id="tableTitle">
-            Participants
-          </Typography>
-        )}
-      </div>
-      <div className={classes.spacer} />
-      <div className={classes.actions}>
-        {numSelected > 0 ? (
-          <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
-              <Typography variant="h6" id="tableTitle">
-                Delete
-              </Typography>
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title="Filter list">
-            <IconButton aria-label="Filter list">
-              <FilterListIcon />
-            </IconButton>
-          </Tooltip>
-        )}
+        <Typography variant="h6" id="tableTitle">
+          Select Participants
+        </Typography>
       </div>
     </Toolbar>
   );
@@ -180,17 +143,24 @@ class SelectParticipants extends Component {
   };
 
   handleSelectAllClick = (event) => {
+    const { handleStudents } = this.props;
+    const { data } = this.state;
+
     if (event.target.checked) {
       this.setState(state => ({ selected: state.data.map(n => n.id) }));
+      handleStudents([data.map(n => n)]);
       return;
     }
+    handleStudents([]);
     this.setState({ selected: [] });
   };
 
   handleClick = (event, id) => {
-    const { selected } = this.state;
+    const { handleStudents } = this.props;
+    const { selected, data } = this.state;
     const selectedIndex = selected.indexOf(id);
     let newSelected = [];
+    const newSelectedObjs = [];
 
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, id);
@@ -206,6 +176,13 @@ class SelectParticipants extends Component {
     }
 
     this.setState({ selected: newSelected });
+
+    // Get the actual objects and store them in parent's state
+    newSelected.forEach((index) => {
+      newSelectedObjs.push(data[index]);
+    });
+
+    handleStudents(newSelectedObjs);
   };
 
   handleChangePage = (event, page) => {
@@ -234,7 +211,7 @@ class SelectParticipants extends Component {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-            <Paper className={classes.root}>
+            <div className={classes.root}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <div className={classes.tableWrapper}>
                 <Table className={classes.table} aria-labelledby="tableTitle">
@@ -297,7 +274,7 @@ class SelectParticipants extends Component {
                   onChangePage={this.handleChangePage}
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                 />
-            </Paper>
+            </div>
     );
   }
 }
