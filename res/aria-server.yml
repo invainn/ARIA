@@ -29,7 +29,7 @@ spec:
         app: aria-server
     spec:
       containers:
-      - image: gcr.io/nnmta-aria/aria-server:${CIRCLE_SHA1} 
+      - image: gcr.io/${GOOGLE_PROJECT_ID}/aria-server:${CIRCLE_SHA1} 
         imagePullPolicy: Always
         name: aria-server
         env:

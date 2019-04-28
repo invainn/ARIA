@@ -67,7 +67,7 @@ jobs:
         docker:
             - image: google/cloud-sdk
         environment:
-            - GOOGLE_PROJECT_ID: "nnmta-aria"
+            - GOOGLE_PROJECT_ID: $GCLOUD_PROJECT_ID
             - GOOGLE_COMPUTE_ZONE: "us-central1-a"
             - GOOGLE_CLUSTER_NAME: "standard-cluster-1"
         steps:
