@@ -36,37 +36,37 @@ spec:
         - name: "JWT_SECRET"
           valueFrom:
             secretKeyRef:
-              name: my-secret
+              name: aria-secret
               key: jwt_secret
         - name: "DB_USER"
           valueFrom:
             secretKeyRef:
-              name: my-secret
+              name: aria-secret
               key: db_user
         - name: "DB_PASS"
           valueFrom:
             secretKeyRef:
-              name: my-secret
+              name: aria-secret
               key: db_pass 
         - name: "DB_HOST"
           valueFrom:
             secretKeyRef:
-              name: my-secret
+              name: aria-secret
               key: db_host 
         - name: "BRAINTREE_MERCHANT_ID"
           valueFrom:
             secretKeyRef:
-              name: my-secret
+              name: aria-secret
               key: braintree_merchant_id
         - name: "BRAINTREE_PUBLIC_KEY"
           valueFrom:
             secretKeyRef:
-              name: my-secret
+              name: aria-secret
               key: braintree_public_key
         - name: "BRAINTREE_PRIVATE_KEY"
           valueFrom:
             secretKeyRef:
-              name: my-secret
+              name: aria-secret
               key: braintree_private_key 
         ports:
           - containerPort: 8080
