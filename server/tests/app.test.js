@@ -7,7 +7,7 @@ describe('Test Account routes', () => {
     let email = '';
     let password = '';
 
-    test('Email should not exist', async () => {
+    test('Email should not exist', async (done) => {
         email = casual.email;
 
         const res = await request(app).post('/account/email').set('Accept', 'application/json')
@@ -18,7 +18,7 @@ describe('Test Account routes', () => {
         .expect('Content-Type', /json/);
     });
 
-    test('Register should respond successfully', async () => {
+    test('Register should respond successfully', async (done) => {
         password = casual.password;
 
         const res = await request(app).post('/account/register').set('Accept', 'application/json')
@@ -30,9 +30,10 @@ describe('Test Account routes', () => {
         })
         .expect(201)
         .expect('Content-Type', /html/);
+        done();
     });
 
-    test('Login should respond successfully', async () => {
+    test('Login should respond successfully', async (done) => {
         const res = await request(app).post('/account/login').set('Accept', 'application/json')
         .send({
             email,
@@ -42,12 +43,14 @@ describe('Test Account routes', () => {
         .expect(200);
 
         token = res.body.token;
+        done();
     });
 
-    test('Token should be valid', async () => {
+    test('Token should be valid', async (done) => {
         const response = await request(app).post('/account/token').set('Authorization', `Bearer ${token}`)
         .expect(200)
         .expect('Content-Type', /json/);
+        done();
     });
 
 });
@@ -66,8 +69,10 @@ describe('Test payment routes', () => {
         done();
     });
 
-    test('Should return token for starting payment', async () => {
+    test('Should return token for starting payment', async (done) => {
         const res = await request(app).get('/payment/token').set('Authorization', `Bearer ${token}`)
         .expect(200)
+
+        done();
     });
 });

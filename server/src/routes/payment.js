@@ -10,7 +10,6 @@ const gateway = braintree.connect({
 });
 
 router.get('/token', (req, res) => {
-    console.log('hit');
     gateway.clientToken.generate({}, (err, data) => {
         if (err) {
             return res.status(401).send(err);
