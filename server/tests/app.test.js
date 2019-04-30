@@ -1,6 +1,7 @@
 const request = require('supertest');
 const casual = require('casual');
 const app = require('../src/index');
+const db = require('../src/db');
 
 describe('Test Account routes', () => {
     let token = '';
@@ -76,4 +77,8 @@ describe('Test payment routes', () => {
 
         done();
     });
+});
+
+afterAll(() => {
+    db.destroy();
 });
