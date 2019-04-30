@@ -44,13 +44,13 @@ class ControlledExpansionPanels extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, type } = this.props;
     const { expanded } = this.state;
 
     // TODO: Better indenting
     // TODO: Indent HTML tag children
     return (
-      <CustomerPortalContainer>
+      <CustomerPortalContainer userType={type}>
         <div className={classes.pageTitle}>
           <Typography component="h2" variant="h2" gutterBottom align="center">
               Frequently Asked Questions
