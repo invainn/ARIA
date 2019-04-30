@@ -27,8 +27,8 @@ jobs:
 
         - restore_cache:
             keys:
-                - v1-dependencies-{{ checksum "server/package.json" }}
-                - v1-dependencies-
+                - v2-dependencies-{{ checksum "server/package.json" }}
+                - v2-dependencies-
 
         - run:
             command: pwd && yarn install
@@ -46,7 +46,7 @@ jobs:
                 - client/node_modules
 
         - save_cache:
-            key: v1-dependencies-{{ checksum "server/package.json" }}
+            key: v2-dependencies-{{ checksum "server/package.json" }}
             paths:
                 - server/node_modules
             
