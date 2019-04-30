@@ -34,5 +34,9 @@ app.use('/', require('./routes/app'));
 app.use('/account', require('./routes/account'));
 app.use('/payment', passport.authenticate('jwt', { session: false }), require('./routes/payment'));
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(PORT, HOST);
+    console.log(`Running on http://${HOST}:${PORT}`);
+}
+
+module.exports = app;
