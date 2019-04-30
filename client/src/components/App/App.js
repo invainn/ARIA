@@ -37,10 +37,10 @@ import RegisterNewUser from '../../containers/NP-NonPortal/RegisterNewUser/Regis
 import ForgotPassword from '../NP-NonPortal/ForgotPassword/ForgotPassword';
 
 // SHARED-PORTAL COMPONENTS
-import EventsCalendar from '../SP-SharedPortal/EventsCalendar/EventsCalendar';
+import EventsCalendar from '../../containers/SP-SharedPortal/EventsCalendar/EventsCalendarContainer';
 import Dashboard from '../../containers/SP-SharedPortal/Dashboard/DashboardContainer';
-import FAQ from '../SP-SharedPortal/FAQ/FAQ';
-import AboutNNMTA from '../SP-SharedPortal/AboutNNMTA/AboutNNMTA';
+import FAQ from '../../containers/SP-SharedPortal/FAQ/FAQContainer';
+import AboutNNMTA from '../../containers/SP-SharedPortal/AboutNNMTA/AboutNNMTAContainer';
 
 // TEACHER-PORTAL COMPONENTS
 import TeacherAccount from '../TP-TeacherPortal/TeacherAccount/TeacherAccount';

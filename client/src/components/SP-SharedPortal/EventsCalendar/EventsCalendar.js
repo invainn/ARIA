@@ -22,8 +22,8 @@ const styles = theme => ({
       },
 });
 
-const EventsCalendar = ({ classes }) => (
-    <CustomerPortalContainer>
+const EventsCalendar = ({ classes, type }) => (
+    <CustomerPortalContainer userType={type}>
         <div className={classes.pageTitle}>
           <Typography component="h2" variant="h2" gutterBottom align="center">
               Events Calendar

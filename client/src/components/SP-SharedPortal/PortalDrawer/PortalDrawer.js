@@ -272,6 +272,19 @@ class PortalDrawer extends Component {
               </ListItemIcon>
               <ListItemText primary="Events Calendar" />
           </ListItem>
+          <Divider />
+          <ListItem button component={Link} to="/teacher/faq" onClick={this.switchToFAQHandler}>
+            <ListItemIcon>
+              <Icon>help_outline</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Frequently Asked Questions" />
+          </ListItem>
+          <ListItem button component={Link} to="/teacher/about" onClick={this.switchToAboutUsHandler}>
+            <ListItemIcon>
+              <Icon>music_note</Icon>
+            </ListItemIcon>
+            <ListItemText primary="About Us" />
+          </ListItem>
         </div>
       );
       }
@@ -315,6 +328,19 @@ class PortalDrawer extends Component {
               </ListItemIcon>
               <ListItemText primary="Events Calendar" />
             </ListItem>
+            <Divider />
+            <ListItem button component={Link} to="/customer/faq" onClick={this.switchToFAQHandler}>
+              <ListItemIcon>
+                <Icon>help_outline</Icon>
+              </ListItemIcon>
+              <ListItemText primary="Frequently Asked Questions" />
+            </ListItem>
+            <ListItem button component={Link} to="/customer/about" onClick={this.switchToAboutUsHandler}>
+              <ListItemIcon>
+                <Icon>music_note</Icon>
+              </ListItemIcon>
+              <ListItemText primary="About Us" />
+            </ListItem>
           </div>
         );
   }
@@ -339,39 +365,22 @@ class PortalDrawer extends Component {
               open={open}
             >
             <div className={classes.toolbar}>
-                <IconButton onClick={togglePortalDrawer}>
-                  {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                  {something}
-                </IconButton>
+              <IconButton onClick={togglePortalDrawer}>
+                {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                {something}
+              </IconButton>
             </div>
             <Divider />
               <List>
                 {this.renderList(userType)}
               </List>
             <Divider />
-              <List>
-                <div>
-                  <ListItem button component={Link} to="/customer/faq" onClick={this.switchToFAQHandler}>
-                    <ListItemIcon>
-                      <Icon>help_outline</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="Frequently Asked Questions" />
-                  </ListItem>
-                  <ListItem button component={Link} to="/customer/about" onClick={this.switchToAboutUsHandler}>
-                    <ListItemIcon>
-                      <Icon>music_note</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="About Us" />
-                  </ListItem>
-                </div>
-              </List>
-            <Divider />
-                  <ListItem button onClick={this.onLogout}>
-                    <ListItemIcon>
-                      <Icon>exit_to_app</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="Log Out" />
-                  </ListItem>
+              <ListItem button onClick={this.onLogout}>
+                <ListItemIcon>
+                  <Icon>exit_to_app</Icon>
+                </ListItemIcon>
+                <ListItemText primary="Log Out" />
+              </ListItem>
             </Drawer>
     );
   }
