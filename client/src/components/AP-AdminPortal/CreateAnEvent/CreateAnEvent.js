@@ -9,6 +9,8 @@ import {
     StepLabel,
     Typography,
     Button,
+    Paper,
+    Divider,
 } from '@material-ui/core';
 
 import EventInfo from './EventInfo';
@@ -20,10 +22,10 @@ const styles = theme => ({
     eventRegistrationField: {
         padding: '10px',
         width: '90%',
+        maxWidth: '790px',
     },
     eventRegistrationButton: {
-        paddingLeft: '5px',
-        marginTop: '1%',
+        padding: '10px 5px 5px 0',
     },
 
     eventGridItem: {
@@ -31,7 +33,7 @@ const styles = theme => ({
     },
 
     eventDividerPadding: {
-        margin: '5px',
+        margin: '15px 0 5px 0',
     },
     pageTitle: {
         width: '100%',
@@ -41,8 +43,6 @@ const styles = theme => ({
     },
     registerStepper: {
         borderRadius: '5px',
-        width: '100%',
-        maxWidth: '790px',
         marginLeft: 'auto',
         marginRight: 'auto',
         padding: '20px 20px 20px 20px',
@@ -74,7 +74,7 @@ class CreateAnEvent extends Component {
                     </Typography>
                 </div>
                 <Grid container alignItems="center" justify="center">
-                    <Grid item className={classes.eventGridItem}>
+                    <Grid component={Paper} item className={classes.eventRegistrationField}>
                         <Stepper activeStep={activeStep} className={classes.registerStepper}>
                         {[
                             'Event Information',
@@ -86,8 +86,6 @@ class CreateAnEvent extends Component {
                                 </Step>
                         ))}
                         </Stepper>
-                    </Grid>
-                    <Grid item className={classes.eventRegistrationField}>
                         { activeStep === 0 && <EventInfo /> }
                         { activeStep === 1 && <StudentInfo /> }
                         { activeStep === 2 && <TeacherInfo /> }
@@ -98,7 +96,8 @@ class CreateAnEvent extends Component {
                         <AccountFields label="State/Province/Region" placeholder="Enter your state/province/region here" />
                         <AccountFields label="Zip Code" placeholder="Enter your zip code here" />
                         */}
-                        <Grid container align="right" justify="flex-end">
+                        <Divider className={classes.eventDividerPadding} />
+                        <Grid container justify="flex-end">
                             { activeStep > 0 && (
                                 <Grid item className={classes.eventRegistrationButton}>
                                     <Button variant="contained" color="primary" onClick={this.walkBackStep.bind(this)}>
@@ -113,7 +112,7 @@ class CreateAnEvent extends Component {
                                 TODO: Fix the styling so that the buttons are WITHIN the paper of the elements
                                 TODO:   as well as taking out the static inline styling below.
                             */ }
-                            <Grid item className={classes.eventRegistrationButton} style={{ marginRight: '18%' }}>
+                            <Grid item className={classes.eventRegistrationButton}>
                                 <Button variant="contained" color="primary" onClick={this.walkStep.bind(this)}>
                                     Next
                                 </Button>

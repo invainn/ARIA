@@ -76,7 +76,6 @@ class StudentInfo extends Component {
     } = this.state;
 
     return (
-            <Paper className={classes.root}>
                 <div>
                     <Typography className={classes.text} variant="h6" align="center">
                         Please enter the information about student registrations.
@@ -175,7 +174,6 @@ class StudentInfo extends Component {
 
                     </Grid>
                 </div>
-            </Paper>
     );
   }
 }

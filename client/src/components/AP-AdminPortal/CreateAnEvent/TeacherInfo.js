@@ -53,7 +53,6 @@ class StudentInfo extends Component {
     const { classes } = this.props;
 
     return (
-            <Paper className={classes.root}>
                 <div>
                     <Typography variant="h6" align="center">
                         Please enter the information about teacher registrations.
@@ -170,7 +169,6 @@ class StudentInfo extends Component {
 
                     </Grid>
                 </div>
-            </Paper>
     );
   }
 }
