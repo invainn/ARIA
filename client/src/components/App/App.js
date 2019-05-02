@@ -23,6 +23,7 @@ import GenerateAndPrintDocuments from '../AP-AdminPortal/GenerateAndPrintDocumen
 import UploadMusic from '../AP-AdminPortal/UploadMusic/UploadMusic';
 import UploadDocuments from '../AP-AdminPortal/UploadDocuments/UploadDocuments';
 import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
+import Events from '../AP-AdminPortal/Events/Events';
 import ViewModifyEventsCalender from '../AP-AdminPortal/ViewModifyEventsCalender/ViewModifyEventsCalender';
 
 // CUSTOMER-PORTAL COMPONENTS

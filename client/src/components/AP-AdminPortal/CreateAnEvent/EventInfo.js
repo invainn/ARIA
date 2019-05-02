@@ -26,7 +26,7 @@ import {
 const styles = () => ({
   root: {
     width: '100%',
-    maxWidth: '790px',
+    maxWidth: '250px',
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: '20px 20px 20px 20px',
