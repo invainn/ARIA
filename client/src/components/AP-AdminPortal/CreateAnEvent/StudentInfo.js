@@ -1,17 +1,8 @@
-/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
-// import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-// import { lighten } from '@material-ui/core/styles/colorManipulator';
+import { Field } from 'formik';
 import {
-  // Table,
-  // TableBody,
-  // TableCell,
-  // TableRow,
-  // Toolbar,
   Typography,
-  Paper,
-  TextField,
   Grid,
   FormControlLabel,
   FormControl,
@@ -19,6 +10,8 @@ import {
   RadioGroup,
   Divider,
 } from '@material-ui/core/';
+
+import { DateTimePickerField } from '../../Utils/Pickers';
 
 const styles = () => ({
   root: {
@@ -76,10 +69,9 @@ class StudentInfo extends Component {
     } = this.state;
 
     return (
-                <div>
-                    <Typography className={classes.text} variant="h6" align="center">
-                        Please enter the information about student registrations.
-                        All fields are required.
+                <>
+                    <Typography className={classes.text} variant="h5" align="center">
+                      Student Registrations
                     </Typography>
 
                     <Grid xs={12} style={{ paddingTop: '20px' }}>
@@ -94,19 +86,18 @@ class StudentInfo extends Component {
                       alignItems="center"
                     >
                         <Grid item xs={4}>
-                            <TextField
-                              autoFocus
+                            <Field
                               label="Registration Start Date"
-                              type="date"
-                              InputLabelProps={{ shrink: true }}
+                              name="studentStartDate"
+                              component={DateTimePickerField}
                               className={classes.forms}
                             />
                         </Grid>
                         <Grid item xs={8}>
-                            <TextField
+                            <Field
                               label="Registration End Date"
-                              type="date"
-                              InputLabelProps={{ shrink: true }}
+                              component={DateTimePickerField}
+                              name="studentEndDate"
                               className={classes.forms}
                             />
                         </Grid>
@@ -114,6 +105,7 @@ class StudentInfo extends Component {
                         { /*
                             ? Someone help
                              TODO: Add the option to name the command performance
+                             Okay
                         */ }
                         <Grid xs={12}>
                           <Typography>
@@ -173,7 +165,7 @@ class StudentInfo extends Component {
                             </FormControl>
 
                     </Grid>
-                </div>
+                </>
     );
   }
 }

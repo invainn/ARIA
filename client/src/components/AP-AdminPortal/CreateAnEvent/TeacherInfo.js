@@ -1,24 +1,14 @@
-/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
-// import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-// import { lighten } from '@material-ui/core/styles/colorManipulator';
+import { Field } from 'formik';
 import {
-  // Table,
-  // TableBody,
-  // TableCell,
-  // TableRow,
-  // Toolbar,
   Typography,
-  Paper,
   TextField,
   Divider,
   Grid,
-  FormControlLabel,
-  FormControl,
-  Radio,
-  RadioGroup,
 } from '@material-ui/core/';
+
+import { DateTimePickerField } from '../../Utils/Pickers';
 
 const styles = () => ({
   root: {
@@ -71,19 +61,18 @@ class StudentInfo extends Component {
                       alignItems="center"
                     >
                         <Grid xs={4}>
-                            <TextField
-                              autoFocus
+                            <Field
                               label="Registration Start Date"
-                              type="date"
-                              InputLabelProps={{ shrink: true }}
+                              name="teacherStartDate"
+                              component={DateTimePickerField}
                               className={classes.forms}
                             />
                         </Grid>
                         <Grid xs={8}>
-                            <TextField
+                            <Field
                               label="Registration End Date"
-                              type="date"
-                              InputLabelProps={{ shrink: true }}
+                              name="teacherEndDate"
+                              component={DateTimePickerField}
                               className={classes.forms}
                             />
                         </Grid>

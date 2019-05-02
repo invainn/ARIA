@@ -2,6 +2,11 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import * as Yup from 'yup';
+import {
+    Formik,
+    Form,
+} from 'formik';
 import {
     Stepper,
     Grid,
@@ -49,10 +54,43 @@ const styles = theme => ({
     },
 });
 
+const pages = [EventInfo, StudentInfo, TeacherInfo];
+
+// Validation Schema
+const CreateEventSchema = Yup.object().shape({
+    eventName: Yup.string().required('Required'),
+    eventStartDate: Yup.date().required('Required'),
+    eventEndDate: Yup.date().required('Required'),
+    eventAddress: Yup.string().required('Required'),
+    eventChairEmail: Yup.string().email('Invalid Email').required('Required'),
+    eventCity: Yup.string().required('Required'),
+    eventState: Yup.string().required('Required'),
+    eventZipcode: Yup.number('Must be a number').required('Required'),
+    studentStartDate: Yup.date().required('Required'),
+    studentEndDate: Yup.date().required('Required'),
+});
+
 class CreateAnEvent extends Component {
     state = {
         activeStep: 0,
     };
+
+    initialValues = {
+        eventName: '',
+        eventStartDate: new Date(),
+        eventEndDate: new Date(),
+        eventAddress: '',
+        eventChairEmail: '',
+        eventCity: '',
+        eventState: '',
+        eventZipcode: '',
+        studentStartDate: new Date(),
+        studentEndDate: new Date(),
+        teacherStartDate: new Date(),
+        teacherEndDate: new Date(),
+    };
+
+    onSubmit = () => {};
 
     walkStep() {
         this.setState(({ activeStep }) => ({ activeStep: activeStep + 1 }));
@@ -65,6 +103,7 @@ class CreateAnEvent extends Component {
     render() {
         const { classes } = this.props;
         const { activeStep } = this.state;
+        const ActiveComponent = pages[activeStep];
 
         return (
             <CustomerPortalContainer userType={2}>
@@ -76,48 +115,43 @@ class CreateAnEvent extends Component {
                 <Grid container alignItems="center" justify="center">
                     <Grid component={Paper} item className={classes.eventRegistrationField}>
                         <Stepper activeStep={activeStep} className={classes.registerStepper}>
-                        {[
-                            'Event Information',
-                            'Student Registrations',
-                            'Teacher Registrations',
-                        ].map(item => (
+                            {[
+                                'Event Information',
+                                'Student Registrations',
+                                'Teacher Registrations',
+                            ].map(item => (
                                 <Step>
                                     <StepLabel>{item}</StepLabel>
                                 </Step>
-                        ))}
+                            ))}
                         </Stepper>
-                        { activeStep === 0 && <EventInfo /> }
-                        { activeStep === 1 && <StudentInfo /> }
-                        { activeStep === 2 && <TeacherInfo /> }
-                        {/* <AccountFields label="First Name" placeholder="Student's First Name" />
-                        <AccountFields label="Last Name" placeholder="Student's Last Name" />
-                        <Divider className={classes.eventDividerPadding} />
-                        <AccountFields label="City" placeholder="Enter your city here" />
-                        <AccountFields label="State/Province/Region" placeholder="Enter your state/province/region here" />
-                        <AccountFields label="Zip Code" placeholder="Enter your zip code here" />
-                        */}
-                        <Divider className={classes.eventDividerPadding} />
-                        <Grid container justify="flex-end">
-                            { activeStep > 0 && (
-                                <Grid item className={classes.eventRegistrationButton}>
-                                    <Button variant="contained" color="primary" onClick={this.walkBackStep.bind(this)}>
-                                        Go Back
-                                    </Button>
-                                </Grid>
-                            )}
-                            {
 
-                            }
-                            { /*
-                                TODO: Fix the styling so that the buttons are WITHIN the paper of the elements
-                                TODO:   as well as taking out the static inline styling below.
-                            */ }
-                            <Grid item className={classes.eventRegistrationButton}>
-                                <Button variant="contained" color="primary" onClick={this.walkStep.bind(this)}>
-                                    Next
-                                </Button>
-                            </Grid>
-                        </Grid>
+                        <Formik
+                          initialValues={this.initialValues}
+                          onSubmit={this.onSubmit}
+                          validationSchema={CreateEventSchema}
+                        >
+                            {() => (
+                                <Form>
+                                    <ActiveComponent />
+                                    <Divider className={classes.eventDividerPadding} />
+                                    <Grid container justify="flex-end">
+                                        { activeStep > 0 && (
+                                            <Grid item className={classes.eventRegistrationButton}>
+                                                <Button variant="contained" color="primary" onClick={this.walkBackStep.bind(this)}>
+                                                    Go Back
+                                                </Button>
+                                            </Grid>
+                                        )}
+                                        <Grid item className={classes.eventRegistrationButton}>
+                                            <Button variant="contained" color="primary" onClick={this.walkStep.bind(this)}>
+                                                Next
+                                            </Button>
+                                        </Grid>
+                                    </Grid>
+                                </Form>
+                            )}
+                        </Formik>
                     </Grid>
                 </Grid>
             </CustomerPortalContainer>
