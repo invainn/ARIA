@@ -26,7 +26,7 @@ const styles = theme => ({
     },
 
     landingContent: {
-        background: '#FFFFFF',
+        background: (theme.palette.type === 'dark') ? '#000000' : '#FFFFFF',
         border: '3px solid brown',
         backgroundSize: 'contain',
         transition: 'all 1s',
