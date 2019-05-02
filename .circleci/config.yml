@@ -7,7 +7,7 @@ jobs:
     build_and_test:
         docker:
         # specify the version you desire here
-        - image: circleci/node:8.11.4
+        - image: circleci/node:10.15.3
         
         # Specify service dependencies here if necessary
         # CircleCI maintains a library of pre-built images
@@ -27,8 +27,8 @@ jobs:
 
         - restore_cache:
             keys:
-                - v1-dependencies-{{ checksum "server/package.json" }}
-                - v1-dependencies-
+                - v2-dependencies-{{ checksum "server/package.json" }}
+                - v2-dependencies-
 
         - run:
             command: pwd && yarn install
@@ -46,7 +46,7 @@ jobs:
                 - client/node_modules
 
         - save_cache:
-            key: v1-dependencies-{{ checksum "server/package.json" }}
+            key: v2-dependencies-{{ checksum "server/package.json" }}
             paths:
                 - server/node_modules
             
@@ -67,9 +67,8 @@ jobs:
         docker:
             - image: google/cloud-sdk
         environment:
-            - GOOGLE_PROJECT_ID: "aria-nnmta"
-            - GOOGLE_COMPUTE_ZONE: "us-central1-b"
-            - GOOGLE_CLUSTER_NAME: "cluster-1"
+            - GOOGLE_COMPUTE_ZONE: "us-central1-a"
+            - GOOGLE_CLUSTER_NAME: "standard-cluster-1"
         steps:
             - checkout
             - run:
@@ -108,6 +107,8 @@ jobs:
                     envsubst < ${HOME}/project/res/aria-server.yml > ${HOME}/patched_aria-server.yml
                     kubectl apply -f ${HOME}/patched_aria-server.yml
                     kubectl apply -f ${HOME}/patched_aria-client.yml
+                    kubectl apply -f ${HOME}/project/res/aria-client-certificate.yml
+                    kubectl apply -f ${HOME}/project/res/aria-server-certificate.yml
                     kubectl apply -f ${HOME}/project/res/aria-ingress.yml
                     kubectl rollout status deployment/aria-client
                     kubectl rollout status deployment/aria-server

@@ -124,7 +124,7 @@ class SelectAnEvent extends Component {
   state = {
     order: 'asc',
     orderBy: 'calories',
-    selected: 0,
+    selected: -1,
     // TODO: Create a data file instead of hard coding inside of code for future use
     data: [
       createData(0, 'Some Competition', '01/01/1970', '01/01/1970', '9:00 PM', '11:00 PM', '111 Virginia St.', 'admin@nnmta.org'),
@@ -136,7 +136,11 @@ class SelectAnEvent extends Component {
   };
 
   handleClick = (event, id) => {
+    const { handleEvent } = this.props;
+    const { data } = this.state;
+
     this.setState({ selected: id });
+    handleEvent(data[id]);
   }
 
   isSelected = (id) => {
@@ -157,7 +161,7 @@ class SelectAnEvent extends Component {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     return (
-            <Paper className={classes.root}>
+            <div className={classes.root}>
                 <div className={classes.tableWrapper}>
                 <Table className={classes.table} aria-labelledby="tableTitle">
                     <EventTableHead
@@ -205,7 +209,7 @@ class SelectAnEvent extends Component {
                     </TableBody>
                 </Table>
                 </div>
-            </Paper>
+            </div>
     );
   }
 }

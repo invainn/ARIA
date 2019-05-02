@@ -110,8 +110,13 @@ class PortalDrawer extends Component {
     };
   }
 
+  onLogout = () => {
+    const { resetToken } = this.props;
+    resetToken();
+  };
+
   renderList(userType) {
-    if (userType === 0) {
+    if (userType === 2) {
       return (
         <div>
           { /* ADMIN */ }
@@ -193,18 +198,6 @@ class PortalDrawer extends Component {
             </ListItemIcon>
             <ListItemText primary="Students" />
           </ListItem>
-          <ListItem button component={Link} to="/admin/publish-schedule" onClick={this.switchOptionHandler}>
-            <ListItemIcon>
-              <Icon>date_range</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Publish Schedule" />
-          </ListItem>
-          <ListItem button component={Link} to="/admin/publish-command-performance-schedule" onClick={this.switchOptionHandler}>
-            <ListItemIcon>
-              <Icon>date_range</Icon>
-            </ListItemIcon>
-            <ListItemText primary="Publish Command Performance Schedule" />
-          </ListItem>
           <ListItem button component={Link} to="/admin/edit-events-calender" onClick={this.switchOptionHandler}>
             <ListItemIcon>
               <Icon>calendar_today</Icon>
@@ -239,7 +232,7 @@ class PortalDrawer extends Component {
       );
     }
 
-    if (userType === 2) {
+    if (userType === 1) {
       return (
         <div>
           { /* TEACHER */ }
@@ -278,6 +271,19 @@ class PortalDrawer extends Component {
                 <Icon>calendar_today</Icon>
               </ListItemIcon>
               <ListItemText primary="Events Calendar" />
+          </ListItem>
+          <Divider />
+          <ListItem button component={Link} to="/teacher/faq" onClick={this.switchToFAQHandler}>
+            <ListItemIcon>
+              <Icon>help_outline</Icon>
+            </ListItemIcon>
+            <ListItemText primary="Frequently Asked Questions" />
+          </ListItem>
+          <ListItem button component={Link} to="/teacher/about" onClick={this.switchToAboutUsHandler}>
+            <ListItemIcon>
+              <Icon>music_note</Icon>
+            </ListItemIcon>
+            <ListItemText primary="About Us" />
           </ListItem>
         </div>
       );
@@ -322,6 +328,19 @@ class PortalDrawer extends Component {
               </ListItemIcon>
               <ListItemText primary="Events Calendar" />
             </ListItem>
+            <Divider />
+            <ListItem button component={Link} to="/customer/faq" onClick={this.switchToFAQHandler}>
+              <ListItemIcon>
+                <Icon>help_outline</Icon>
+              </ListItemIcon>
+              <ListItemText primary="Frequently Asked Questions" />
+            </ListItem>
+            <ListItem button component={Link} to="/customer/about" onClick={this.switchToAboutUsHandler}>
+              <ListItemIcon>
+                <Icon>music_note</Icon>
+              </ListItemIcon>
+              <ListItemText primary="About Us" />
+            </ListItem>
           </div>
         );
   }
@@ -332,7 +351,7 @@ class PortalDrawer extends Component {
       theme,
       open,
       togglePortalDrawer,
-      userType = 1,
+      userType,
     } = this.props;
 
     const { something } = this.state;
@@ -346,33 +365,22 @@ class PortalDrawer extends Component {
               open={open}
             >
             <div className={classes.toolbar}>
-                <IconButton onClick={togglePortalDrawer}>
-                  {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                  {something}
-                </IconButton>
+              <IconButton onClick={togglePortalDrawer}>
+                {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                {something}
+              </IconButton>
             </div>
             <Divider />
               <List>
                 {this.renderList(userType)}
               </List>
             <Divider />
-              <List>
-                <div>
-                  <ListItem button component={Link} to="/customer/faq" onClick={this.switchToFAQHandler}>
-                    <ListItemIcon>
-                      <Icon>help_outline</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="Frequently Asked Questions" />
-                  </ListItem>
-                  <ListItem button component={Link} to="/customer/about" onClick={this.switchToAboutUsHandler}>
-                    <ListItemIcon>
-                      <Icon>music_note</Icon>
-                    </ListItemIcon>
-                    <ListItemText primary="About Us" />
-                  </ListItem>
-                </div>
-              </List>
-            <Divider />
+              <ListItem button onClick={this.onLogout}>
+                <ListItemIcon>
+                  <Icon>exit_to_app</Icon>
+                </ListItemIcon>
+                <ListItemText primary="Log Out" />
+              </ListItem>
             </Drawer>
     );
   }

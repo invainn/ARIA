@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 import {
     withStyles,
@@ -5,10 +7,16 @@ import {
     Grid,
     TextField,
     Button,
+    InputAdornment,
+    IconButton,
+    FormControl,
+    InputLabel,
+    Input,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import classNames from 'classnames';
 
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 import Bow from './bow.jpg';
 import Shell from '../Shell/Shell';
 
@@ -68,18 +76,56 @@ const styles = theme => ({
 
 class RegisterNewUser extends React.Component {
     state = {
-        // eslint-disable-next-line react/no-unused-state
-        username: '',
-        // eslint-disable-next-line react/no-unused-state
+        email: '',
         password: '',
+        first_name: '',
+        last_name: '',
+        showPassword: false,
     };
 
     handleChange = name => (event) => {
         this.setState({ [name]: event.target.value });
     };
 
+    handleClickShowPassword = () => {
+        this.setState(({ showPassword }) => ({ showPassword: !showPassword }));
+    };
+
+    onHandleRegistration = (e) => {
+        e.preventDefault();
+
+        const { registerUser } = this.props;
+
+        const {
+            email,
+            password,
+            first_name,
+            last_name,
+        } = this.state;
+
+        registerUser({
+            email,
+            password,
+            first_name,
+            last_name,
+        });
+    };
+
+    // Used to reset the register status so users can access
+    // the register page again if not authenticated
+    componentWillUnmount = () => {
+        const { registerReset } = this.props;
+
+        registerReset();
+    };
+
     render() {
-        const { classes } = this.props;
+        const { classes, regStatus } = this.props;
+        const { password, showPassword } = this.state;
+
+        if (regStatus === 1) {
+            return <Redirect to="/" />;
+        }
 
         return (
             <Shell>
@@ -100,7 +146,6 @@ class RegisterNewUser extends React.Component {
                             future performances in one easy place!
                         </Typography>
                         <Grid container justify="center" align="center">
-                            <Grid xs={12}>
                                 <TextField
                                   id="outlined-email-input"
                                   label="Email Address"
@@ -110,32 +155,51 @@ class RegisterNewUser extends React.Component {
                                   type="email"
                                   name="email"
                                   autoComplete="email"
+                                  onChange={this.handleChange('email')}
+                                  required
                                 />
-                                <TextField
-                                  id="outlined-password-input"
-                                  label="Password"
-                                  className={classNames({
-                                    [classes.emailInputfieldStyles]: true,
-                                })}
-                                  type="password"
-                                  name="password"
-                                  autoComplete="password"
-                                />
+
+                                <FormControl className={classes.emailInputfieldStyles}>
+                                    <InputLabel htmlFor="adornment-password">Password *</InputLabel>
+                                    <Input
+                                      id="adornment-password"
+                                      type={showPassword ? 'text' : 'password'}
+                                      value={password}
+                                      onChange={this.handleChange('password')}
+                                      endAdornment={(
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                              aria-label="Toggle password visibility"
+                                              onClick={this.handleClickShowPassword}
+                                            >
+                                                {showPassword ? <Visibility /> : <VisibilityOff />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                      )}
+                                      required
+                                    />
+                                </FormControl>
+
                                 <TextField
                                   id="customer-first-name"
                                   label="First Name"
                                   className={classNames({
                                       [classes.emailInputfieldStyles]: true,
-                                    })}
+                                  })}
+                                  name="first_name"
+                                  onChange={this.handleChange('first_name')}
+                                  required
                                 />
                                 <TextField
                                   id="customer-last-name"
                                   className={classes.emailInputfieldStyles}
                                   label="Last Name"
+                                  name="last_name"
+                                  onChange={this.handleChange('last_name')}
+                                  required
                                 />
-                            </Grid>
                             <Grid xs={12} alignItems="center" className={classes.buttonGroup}>
-                                <Button variant="contained" color="primary" className={classes.button}>
+                                <Button variant="contained" color="primary" className={classes.button} onClick={this.onHandleRegistration}>
                                     Create Account
                                 </Button>
                                 <Link to="/">

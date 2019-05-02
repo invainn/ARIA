@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { Menu as MenuIcon } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 import {
   AppBar,
@@ -16,7 +15,6 @@ import {
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'; // STOP IT
 
 import logo from '../logo-header.png';
-import ShellHeaderOptions from './ShellHeaderOptions/ShellHeaderOptions';
 
 const styles = theme => ({
     root: {
@@ -128,7 +126,6 @@ const ShellHeader = ({
                         classNames(classes.menuButton, open && classes.hide)
                   }
                 >
-                  <MenuIcon />
                   <ChevronRightIcon />
                 </IconButton>
               )}
@@ -153,11 +150,6 @@ const ShellHeader = ({
         container
         spacing={40}
       >
-        { portal && (
-          <span className={classes.optionsButtonStyles}>
-            <ShellHeaderOptions />
-          </span>
-        )}
         { portal && (
           <Button component={Link} to="/" className={classes.signOutButtonStyles}>
             <Typography variant="body2" style={{ color: '#FFFFFF' }}>
