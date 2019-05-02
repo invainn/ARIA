@@ -69,81 +69,6 @@ const styles = () => ({
     },
 });
 
-<<<<<<< HEAD
-const App = ({ themeChoice }) => (
-    <MuiThemeProvider theme={createMuiTheme({ palette: { ...(getTheme(themeChoice)), type: themeChoice } })}>
-        <BrowserRouter>
-            <Switch>
-                {/* ADMIN-PORTAL */}
-                <Route exact path="/admin/create-an-event" component={CreateAnEvent} />
-                <Route exact path="/admin/schedule-an-event" component={ScheduleAnEvent} />
-                <Route exact path="/admin/edit-an-event" component={ModifyAnEvent} />
-                <Route exact path="/admin/schedule-command-performance" component={ScheduleCommandPerformance} />
-                <Route exact path="/admin/edit-command-performance" component={ViewModifyCommandPerformance} />
-                <Route exact path="/admin/add-a-teacher" component={AddATeacher} />
-                <Route exact path="/admin/generate-documents" component={GenerateAndPrintDocuments} />
-                <Route exact path="/admin/upload-documents" component={UploadDocuments} />
-                <Route exact path="/admin/upload-music" component={UploadMusic} />
-                {/* <Route exact path="/admin/events" component={Events} /> */}
-                {/* <Route exact path="/admin/teachers" component={Teachers} /> */}
-                {/* <Route exact path="/admin/students" component={Students} /> */}
-                {/* <Route exact path="/admin/publish-schedule" component={PublishSchedule} /> */}
-                {/* <Route exact path="/admin/publish-command-performance-schedule" component={PublishCommandPerformanceSchedule} /> */}
-                <Route exact path="/admin/edit-events-calender" component={ViewModifyEventsCalender} />
-                <Route exact path="/admin/edit-faq" component={ViewModifyFAQ} />
-                <Route exact path="/admin/edit-about-us" component={ViewModifyAboutUs} />
-                <Route exact path="/admin/notifications" component={CreateSendNotification} />
-                <Route exact path="/admin/news" component={ViewModifyNNMTANews} />
-
-                { /* CUSTOMER-PORTAL */ }
-                <Route exact path="/customer/account" component={CustomerAccount} />
-                <Route exact path="/customer/participants" component={MyParticipants} />
-                <Route exact path="/customer/register-for-an-event" component={RegisterForAnEvent} />
-                <Route exact path="/customer/my-enrollments" component={MyEnrollments} />
-
-                { /* TEACHER-PORTAL */ }
-                <Route exact path="/teacher/account" component={TeacherAccount} />
-                <Route exact path="/teacher/my-students" component={MyStudents} />
-                <Route exact path="/teacher/student-registrations" component={StudentRegistrations} />
-                <Route exact path="/teacher/tasks" component={Tasks} />
-
-                { /* NON-PORTAL */ }
-                <Route exact path="/register" component={RegisterNewUser} />
-                <Route exact path="/forgot-password" component={ForgotPassword} />
-                <Route exact path="/" component={Login} />
-
-                { /* SHARED-PORTAL */ }
-                { /* ADMIN */ }
-                <Route exact path="/admin/dashboard" render={props => <Dashboard {...props} userType={0} />} />
-                <Route exact path="/admin/events-calendar" component={EventsCalendar} />
-                <Route exact path="/admin/faq" component={FAQ} />
-                <Route exact path="/admin/about" component={AboutNNMTA} />
-
-                { /* CUSTOMER */ }
-                <Route exact path="/customer/dashboard" component={Dashboard} />
-                <Route exact path="/customer/events-calendar" component={EventsCalendar} />
-                <Route exact path="/customer/faq" component={FAQ} />
-                <Route exact path="/customer/about" component={AboutNNMTA} />
-
-                { /* TEACHER */ }
-                <Route exact path="/teacher/dashboard" render={props => <Dashboard {...props} userType={2} />} />
-                <Route exact path="/teacher/events-calendar" component={EventsCalendar} />
-                <Route exact path="/teacher/faq" component={FAQ} />
-                <Route exact path="/teacher/about" component={AboutNNMTA} />
-
-
-                { /* ALTERNATE DASHBOARDS -- NEEDS TO BE IMPLEMENTED AFTER APPLICATION RESTRUCTURING
-                     FOR NOW, THE TWO ROUTES BELOW HAVE BEEN COMMENTED OUT UNTIL THEY ARE UPDATED. */ }
-                {/* <Route exact path="/teacher-portal" render={props => <Dashboard {...props} userType={2} />} /> */}
-                {/* <Route exact path="/admin/portal" render={props => <Dashboard {...props} userType={0} />} /> */}
-
-                { /* HTML5 ERRORS */ }
-                <Route path="*" component={NotFound404Error} />
-            </Switch>
-        </BrowserRouter>
-    </MuiThemeProvider>
-);
-=======
 class App extends Component {
     componentDidMount = () => {
         const { loadUserFromToken } = this.props;
@@ -186,10 +111,10 @@ class App extends Component {
                         {/* <Route exact path="/admin/publish-schedule" component={withAuth(PublishSchedule, 2)} /> */}
                         {/* <Route exact path="/admin/publish-command-performance-schedule" component={withAuth(PublishCommandPerformanceSchedule, 2)} /> */}
                         <Route exact path="/admin/edit-events-calender" component={withAuth(ViewModifyEventsCalender, 2)} />
-                        {/* <Route exact path="/admin/edit-faq" component={withAuth(ViewModifyFAQ, 2)} /> */}
-                        {/* <Route exact path="/admin/edit-about-us" component={withAuth(ViewModifiyAboutUs, 2)} /> */}
-                        {/* <Route exact path="/admin/notifications" component={withAuth(CreateSendNotification, 2)} /> */}
-                        {/* <Route exact path="/admin/news" component={withAuth(ViewModifyNNMTANews, 2)} /> */}
+                        <Route exact path="/admin/edit-faq" component={withAuth(ViewModifyFAQ, 2)} />
+                        <Route exact path="/admin/edit-about-us" component={withAuth(ViewModifyAboutUs, 2)} />
+                        <Route exact path="/admin/notifications" component={withAuth(CreateSendNotification, 2)} />
+                        <Route exact path="/admin/news" component={withAuth(ViewModifyNNMTANews, 2)} />
 
                         { /* CUSTOMER-PORTAL */ }
                         <Route exact path="/customer/account" component={withAuth(CustomerAccount, 0)} />
@@ -241,7 +166,6 @@ class App extends Component {
         );
     }
 }
->>>>>>> master
 
 const mapStateToProps = ({ ShellHeader: { themeChoice } }) => ({ themeChoice });
 
