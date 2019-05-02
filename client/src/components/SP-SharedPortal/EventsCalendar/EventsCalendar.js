@@ -31,12 +31,12 @@ const EventsCalendar = ({ classes, type }) => (
         </div>
         <Grid container justify="center" alignItems="flex-start" className={classes.eventsCalendarContainer}>
         <iframe
-            src="https://calendar.google.com/calendar/embed?src=5iv0jmgrli5q8bounkpqskaoq4%40group.calendar.google.com&ctz=America%2FLos_Angeles"
-            frameborder="1"
-            title="EventsCalendar"
-            scrolling="no"
-            className={classes.eventsCalendar}
-            />
+          src="https://calendar.google.com/calendar/embed?src=5iv0jmgrli5q8bounkpqskaoq4%40group.calendar.google.com&ctz=America%2FLos_Angeles"
+          frameBorder="1"
+          title="EventsCalendar"
+          scrolling="no"
+          className={classes.eventsCalendar}
+        />
         </Grid>
     </CustomerPortalContainer>
 );
