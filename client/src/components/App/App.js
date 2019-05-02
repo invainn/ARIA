@@ -24,6 +24,10 @@ import UploadMusic from '../AP-AdminPortal/UploadMusic/UploadMusic';
 import UploadDocuments from '../AP-AdminPortal/UploadDocuments/UploadDocuments';
 import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
 import ViewModifyEventsCalender from '../AP-AdminPortal/ViewModifyEventsCalender/ViewModifyEventsCalender';
+import ViewModifyAboutUs from '../AP-AdminPortal/ViewModifyAboutUs/ViewModifyAboutUs';
+import ViewModifyFAQ from '../AP-AdminPortal/ViewModifyFAQ/ViewModifyFAQ';
+import ViewModifyNNMTANews from '../AP-AdminPortal/ViewModifyNNMTANews/ViewModifyNNMTANews';
+import CreateSendNotification from '../AP-AdminPortal/CreateSendNotification/CreateSendNotification';
 
 // CUSTOMER-PORTAL COMPONENTS
 import CustomerAccount from '../CP-CustomerPortal/CustomerAccount/CustomerAccount';
@@ -107,10 +111,10 @@ class App extends Component {
                         {/* <Route exact path="/admin/publish-schedule" component={withAuth(PublishSchedule, 2)} /> */}
                         {/* <Route exact path="/admin/publish-command-performance-schedule" component={withAuth(PublishCommandPerformanceSchedule, 2)} /> */}
                         <Route exact path="/admin/edit-events-calender" component={withAuth(ViewModifyEventsCalender, 2)} />
-                        {/* <Route exact path="/admin/edit-faq" component={withAuth(ViewModifyFAQ, 2)} /> */}
-                        {/* <Route exact path="/admin/edit-about-us" component={withAuth(ViewModifiyAboutUs, 2)} /> */}
-                        {/* <Route exact path="/admin/notifications" component={withAuth(CreateSendNotification, 2)} /> */}
-                        {/* <Route exact path="/admin/news" component={withAuth(ViewModifyNNMTANews, 2)} /> */}
+                        <Route exact path="/admin/edit-faq" component={withAuth(ViewModifyFAQ, 2)} />
+                        <Route exact path="/admin/edit-about-us" component={withAuth(ViewModifyAboutUs, 2)} />
+                        <Route exact path="/admin/notifications" component={withAuth(CreateSendNotification, 2)} />
+                        <Route exact path="/admin/news" component={withAuth(ViewModifyNNMTANews, 2)} />
 
                         { /* CUSTOMER-PORTAL */ }
                         <Route exact path="/customer/account" component={withAuth(CustomerAccount, 0)} />
