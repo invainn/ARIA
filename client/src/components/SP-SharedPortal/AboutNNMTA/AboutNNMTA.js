@@ -33,10 +33,10 @@ const styles = theme => ({
 });
 
 const AboutNNMTA = (props) => {
-    const { classes } = props;
+    const { classes, type } = props;
 
     return (
-    <CustomerPortalContainer>
+    <CustomerPortalContainer userType={type}>
       <div className={classes.pageTitle}>
         <Typography component="h2" variant="h2" gutterBottom align="center">
             About Us

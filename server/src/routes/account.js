@@ -45,7 +45,7 @@ router.post('/register', async (req, res, next) => {
 
         await user.Save();
 
-        return res.status(200).send('Successful Registration!');
+        return res.status(201).send('Successful Registration!');
     } catch(err) {
         return res.status(400).send({ error: 'invalid body request' });
     }
@@ -59,7 +59,7 @@ router.post('/register', async (req, res, next) => {
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', { session: false }, (err, user, info) => {
         if (err || !user) {
-            return res.status(401).send();
+            return res.status(401).send({ err });
         }
 
         const payload = {
@@ -78,7 +78,7 @@ router.post('/login', (req, res, next) => {
                 token, 
                 type: user.type,
                 name: `${user.first_name} ${user.last_name}`,
-            });
+            }).status(200);
         });
     })(req, res, next);
 });
