@@ -1,24 +1,18 @@
-/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
-// import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-// import { lighten } from '@material-ui/core/styles/colorManipulator';
+import { Field } from 'formik';
 import {
-  // Table,
-  // TableBody,
-  // TableCell,
-  // TableRow,
-  // Toolbar,
   Typography,
-  Paper,
-  TextField,
   Grid,
-  FormControlLabel,
-  FormControl,
-  Radio,
-  RadioGroup,
   Divider,
 } from '@material-ui/core/';
+
+import {
+  CheckboxWithLabel,
+  TextField,
+} from 'formik-material-ui';
+
+import { DateTimePickerField } from '../../Utils/Pickers';
 
 const styles = () => ({
   root: {
@@ -46,136 +40,85 @@ const styles = () => ({
 });
 
 class StudentInfo extends Component {
-  state = {
-      value: 'true',
-      value2: 'true',
-      value3: 'false',
-  };
-
-  handleRadioChange1 = (event) => {
-    this.setState({ value: event.target.value });
-  };
-
-  handleRadioChange2 = (event) => {
-    this.setState({ value2: event.target.value });
-  };
-
-  handleRadioChange3 = (event) => {
-    this.setState({ value3: event.target.value });
-  };
-
   render() {
     const {
       classes,
+      values,
     } = this.props;
 
-    const {
-      value,
-      value2,
-      value3,
-    } = this.state;
+    const { event } = values;
 
     return (
-            <Paper className={classes.root}>
-                <div>
-                    <Typography className={classes.text} variant="h6" align="center">
-                        Please enter the information about student registrations.
-                        All fields are required.
-                    </Typography>
-
-                    <Grid xs={12} style={{ paddingTop: '20px' }}>
-                      <Divider />
-                    </Grid>
-
-                    {/* Begin fields here */}
-                    <Grid
-                      container
-                      direction="row"
-                      justify="flex-start"
-                      alignItems="center"
-                    >
-                        <Grid item xs={4}>
-                            <TextField
-                              autoFocus
-                              label="Registration Start Date"
-                              type="date"
-                              InputLabelProps={{ shrink: true }}
-                              className={classes.forms}
-                            />
-                        </Grid>
-                        <Grid item xs={8}>
-                            <TextField
-                              label="Registration End Date"
-                              type="date"
-                              InputLabelProps={{ shrink: true }}
-                              className={classes.forms}
-                            />
-                        </Grid>
-
-                        { /*
-                            ? Someone help
-                             TODO: Add the option to name the command performance
-                        */ }
-                        <Grid xs={12}>
-                          <Typography>
-                            Will there be a command performance for this event?
-                          </Typography>
-                        </Grid>
-                        <Grid xs={12} />
-                            <FormControl component="fieldset" className={classes.buttons}>
-                                <RadioGroup
-                                  aria-label="performance-answer1"
-                                  name="answer1"
-                                  className={classes.forms}
-                                  value={value}
-                                  onChange={this.handleRadioChange1}
-                                >
-                                    <FormControlLabel value="true" control={<Radio />} label="Yes" />
-                                    <FormControlLabel value="false" control={<Radio />} label="No" />
-                                </RadioGroup>
-                            </FormControl>
-
-                        <Grid xs={12}>
-                          <Typography>
-                            Can a student register for multiple categories / levels?
-                          </Typography>
-                        </Grid>
-                        <Grid xs={12} />
-                            <FormControl component="fieldset" className={classes.buttons}>
-                                <RadioGroup
-                                  aria-label="performance-answer2"
-                                  name="answer2"
-                                  className={classes.forms}
-                                  value={value2}
-                                  onChange={this.handleRadioChange2}
-                                >
-                                    <FormControlLabel value="true" control={<Radio />} label="Yes" />
-                                    <FormControlLabel value="false" control={<Radio />} label="No" />
-                                </RadioGroup>
-                            </FormControl>
-
-                        <Grid xs={12}>
-                          <Typography>
-                            Will this event require scores?
-                          </Typography>
-                        </Grid>
-                        <Grid xs={12} />
-                            <FormControl component="fieldset" className={classes.buttons}>
-                                <RadioGroup
-                                  aria-label="performance-answer3"
-                                  name="answer3"
-                                  className={classes.forms}
-                                  value={value3}
-                                  onChange={this.handleRadioChange3}
-                                >
-                                    <FormControlLabel value="true" control={<Radio />} label="Yes" />
-                                    <FormControlLabel value="false" control={<Radio />} label="No" />
-                                </RadioGroup>
-                            </FormControl>
-
-                    </Grid>
-                </div>
-            </Paper>
+      <>
+          <Typography className={classes.text} variant="h5" align="center">
+            Student Registrations
+          </Typography>
+          <Grid xs={12} style={{ paddingTop: '20px' }}>
+            <Divider />
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+          >
+              <Grid item xs={4}>
+                  <Field
+                    label="Registration Start Date"
+                    name="event.StudentStartDate"
+                    component={DateTimePickerField}
+                    className={classes.forms}
+                  />
+              </Grid>
+              <Grid item xs={8}>
+                  <Field
+                    label="Registration End Date"
+                    component={DateTimePickerField}
+                    name="event.StudentEndDate"
+                    className={classes.forms}
+                  />
+              </Grid>
+          </Grid>
+          <Grid xs={12} style={{ padding: '10px 0 10px 0' }}>
+            <Divider />
+          </Grid>
+          <Typography variant="h6">
+            Options
+          </Typography>
+          <Grid container align="flex-start" justify="center" direction="column">
+            <Field
+              name="event.HasCommandPerformance"
+              component={CheckboxWithLabel}
+              Label={{ label: 'Command Performance' }}
+            />
+            <Field
+              name="event.StudentMultipleLevels"
+              component={CheckboxWithLabel}
+              Label={{ label: 'Students can select multiple levels' }}
+            />
+            <Field
+              name="event.HasJudging"
+              component={CheckboxWithLabel}
+              Label={{ label: 'Judging' }}
+            />
+          </Grid>
+          { event.HasCommandPerformance && (
+            <>
+              <Grid xs={12} style={{ padding: '10px 0 10px 0' }}>
+                <Divider />
+              </Grid>
+              <Typography variant="h6">
+                Enter Command Performance Name
+              </Typography>
+              <Field
+                name="event.CommandPerformanceName"
+                component={TextField}
+                label="Command Performance Name"
+                style={{ width: '50%' }}
+              />
+            </>
+          )}
+      </>
     );
   }
 }

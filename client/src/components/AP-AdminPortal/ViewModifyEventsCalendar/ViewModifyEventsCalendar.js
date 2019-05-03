@@ -23,7 +23,7 @@ const styles = theme => ({
 });
 
 const ViewModifyEventsCalendar = ({ classes }) => (
-    <CustomerPortalContainer userType={0}>
+    <CustomerPortalContainer userType={2}>
         <div className={classes.pageTitle}>
           <Typography component="h2" variant="h2" gutterBottom align="center">
               Events Calendar
