@@ -27,7 +27,7 @@ const customerCards = [
       id: 4,
       title: 'My Enrollments',
       description: 'View all events you\'ve signed up for.',
-      link: '/customer/active-registrations',
+      link: '/customer/my-enrollments',
       buttonName: 'View Enrollments',
       icon: 'event',
     },
