@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 import * as Yup from 'yup';
 import {
     Formik,
@@ -22,6 +23,8 @@ import EventInfo from './EventInfo';
 import StudentInfo from './StudentInfo';
 import TeacherInfo from './TeacherInfo';
 import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalContainer/CustomerPortalContainer';
+
+import ARIA_SERVER_URL from '../../../config';
 
 const styles = theme => ({
     eventRegistrationField: {
@@ -54,20 +57,40 @@ const styles = theme => ({
     },
 });
 
-const pages = [EventInfo, StudentInfo, TeacherInfo];
+const SuccessComponent = () => (
+    <Grid container justify="center" alignItems="center" style={{ height: '225px' }}>
+        <Typography variant="h5" align="center">
+            Event created successfully!
+        </Typography>
+    </Grid>
+);
+
+const pages = [EventInfo, StudentInfo, TeacherInfo, SuccessComponent];
 
 // Validation Schema
 const CreateEventSchema = Yup.object().shape({
-    eventName: Yup.string().required('Required'),
-    eventStartDate: Yup.date().required('Required'),
-    eventEndDate: Yup.date().required('Required'),
-    eventAddress: Yup.string().required('Required'),
-    eventChairEmail: Yup.string().email('Invalid Email').required('Required'),
-    eventCity: Yup.string().required('Required'),
-    eventState: Yup.string().required('Required'),
-    eventZipcode: Yup.number('Must be a number').required('Required'),
-    studentStartDate: Yup.date().required('Required'),
-    studentEndDate: Yup.date().required('Required'),
+    event: Yup.object().shape({
+        Name: Yup.string().required('Required'),
+        StartDate: Yup.date().required('Required'),
+        EndDate: Yup.date().required('Required'),
+        Address: Yup.string().required('Required'),
+        ChairEmail: Yup.string().email('Invalid Email').required('Required'),
+        City: Yup.string().required('Required'),
+        State: Yup.string().required('Required'),
+        Zipcode: Yup.number('Must be a number').typeError('Must be a number').required('Required'),
+        HasCommandPerformance: Yup.boolean().required('Required'),
+        StudentMultipleLevels: Yup.boolean().required('Required'),
+        HasJudging: Yup.boolean().required('Required'),
+        CommandPerformanceName: Yup.string().when('event.HasCommandPerformance', {
+            is: true,
+            then: Yup.string().required('Required'),
+            else: Yup.string(),
+        }),
+        StudentStartDate: Yup.date().required('Required'),
+        StudentEndDate: Yup.date().required('Required'),
+        TeacherStartDate: Yup.date().required('Required'),
+        TeacherEndDate: Yup.date().required('Required'),
+    }),
 });
 
 class CreateAnEvent extends Component {
@@ -76,21 +99,35 @@ class CreateAnEvent extends Component {
     };
 
     initialValues = {
-        eventName: '',
-        eventStartDate: new Date(),
-        eventEndDate: new Date(),
-        eventAddress: '',
-        eventChairEmail: '',
-        eventCity: '',
-        eventState: '',
-        eventZipcode: '',
-        studentStartDate: new Date(),
-        studentEndDate: new Date(),
-        teacherStartDate: new Date(),
-        teacherEndDate: new Date(),
+        event: {
+            Name: '',
+            StartDate: new Date(),
+            EndDate: new Date(),
+            Address: '',
+            ChairEmail: '',
+            City: '',
+            State: '',
+            Zipcode: '',
+            HasCommandPerformance: false,
+            CommandPerformanceName: '',
+            StudentMultipleLevels: false,
+            HasJudging: false,
+            StudentStartDate: new Date(),
+            StudentEndDate: new Date(),
+            TeacherStartDate: new Date(),
+            TeacherEndDate: new Date(),
+        },
     };
 
-    onSubmit = () => {};
+    onSubmit = async ({ event }) => {
+        await axios.post(`${ARIA_SERVER_URL}/admin/event`, event, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwtToken')}`,
+            },
+        });
+
+        this.setState(({ activeStep }) => ({ activeStep: activeStep + 1 }));
+    };
 
     walkStep() {
         this.setState(({ activeStep }) => ({ activeStep: activeStep + 1 }));
@@ -128,26 +165,37 @@ class CreateAnEvent extends Component {
 
                         <Formik
                           initialValues={this.initialValues}
-                          onSubmit={this.onSubmit}
+                          onSubmit={this.onSubmit.bind(this)}
                           validationSchema={CreateEventSchema}
                         >
-                            {() => (
+                            {({ values, submitForm, isSubmitting }) => (
                                 <Form>
-                                    <ActiveComponent />
-                                    <Divider className={classes.eventDividerPadding} />
+                                    <ActiveComponent values={values} />
                                     <Grid container justify="flex-end">
-                                        { activeStep > 0 && (
+                                        { activeStep > 0 && activeStep < 3 && (
+                                            <>
+                                                <Divider className={classes.eventDividerPadding} />
+                                                <Grid item className={classes.eventRegistrationButton}>
+                                                    <Button variant="contained" color="primary" onClick={this.walkBackStep.bind(this)}>
+                                                        Go Back
+                                                    </Button>
+                                                </Grid>
+                                            </>
+                                        )}
+                                        { (activeStep < 2) && (
                                             <Grid item className={classes.eventRegistrationButton}>
-                                                <Button variant="contained" color="primary" onClick={this.walkBackStep.bind(this)}>
-                                                    Go Back
+                                                <Button variant="contained" color="primary" onClick={this.walkStep.bind(this)}>
+                                                    Next
                                                 </Button>
                                             </Grid>
                                         )}
-                                        <Grid item className={classes.eventRegistrationButton}>
-                                            <Button variant="contained" color="primary" onClick={this.walkStep.bind(this)}>
-                                                Next
-                                            </Button>
-                                        </Grid>
+                                        { (activeStep === 2) && (
+                                            <Grid item className={classes.eventRegistrationButton}>
+                                                <Button variant="contained" color="primary" onClick={submitForm} disabled={isSubmitting}>
+                                                    Submit
+                                                </Button>
+                                            </Grid>
+                                        )}
                                     </Grid>
                                 </Form>
                             )}

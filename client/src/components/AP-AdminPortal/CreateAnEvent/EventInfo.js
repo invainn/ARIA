@@ -60,7 +60,7 @@ class EventInfo extends Component {
             <Grid xs={12} className={classes.spacing}>
                 <Field
                   component={TextField}
-                  name="eventName"
+                  name="event.Name"
                   label="Event Name"
                   margin="dense"
                   fullWidth
@@ -70,14 +70,14 @@ class EventInfo extends Component {
             <Grid container spacing={24}>
               <Grid item>
                 <Field
-                  name="eventStartDate"
+                  name="event.StartDate"
                   component={DateTimePickerField}
                   label="Event Start Date"
                 />
               </Grid>
               <Grid item>
                 <Field
-                  name="eventEndDate"
+                  name="event.EndDate"
                   component={DateTimePickerField}
                   label="Event End Date"
                 />
@@ -87,7 +87,7 @@ class EventInfo extends Component {
             <Field
               component={TextField}
               label="Festival Chair Email"
-              name="eventChairEmail"
+              name="event.ChairEmail"
               fullWidth
             />
 
@@ -101,7 +101,7 @@ class EventInfo extends Component {
               component={TextField}
               margin="dense"
               label="Street Address"
-              name="eventAddress"
+              name="event.Address"
               fullWidth
             />
             <Grid container spacing={24}>
@@ -110,7 +110,7 @@ class EventInfo extends Component {
                   component={TextField}
                   margin="dense"
                   label="City"
-                  name="eventCity"
+                  name="event.City"
                   fullWidth
                 />
               </Grid>
@@ -118,7 +118,7 @@ class EventInfo extends Component {
                 <Field
                   component={TextField}
                   margin="dense"
-                  name="eventState"
+                  name="event.State"
                   label="State"
                 />
               </Grid>
@@ -126,8 +126,7 @@ class EventInfo extends Component {
                 <Field
                   component={TextField}
                   margin="dense"
-                  name="eventZipcode"
-                  type="number"
+                  name="event.Zipcode"
                   label="Zip Code"
                 />
               </Grid>

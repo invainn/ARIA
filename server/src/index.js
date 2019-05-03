@@ -31,6 +31,7 @@ db.raw('SELECT 1+1 AS result')
 
 // Routes
 app.use('/', require('./routes/app'));
+app.use('/admin', passport.authenticate('jwt', { session: false }), require('./routes/admin'));
 app.use('/account', require('./routes/account'));
 app.use('/payment', passport.authenticate('jwt', { session: false }), require('./routes/payment'));
 
