@@ -25,7 +25,7 @@ import GenerateAndPrintDocuments from '../AP-AdminPortal/GenerateAndPrintDocumen
 import UploadMusic from '../AP-AdminPortal/UploadMusic/UploadMusic';
 import UploadDocuments from '../AP-AdminPortal/UploadDocuments/UploadDocuments';
 import AddATeacher from '../AP-AdminPortal/AddATeacher/AddATeacher';
-import ViewModifyEventsCalender from '../AP-AdminPortal/ViewModifyEventsCalender/ViewModifyEventsCalender';
+import ViewModifyEventsCalendar from '../AP-AdminPortal/ViewModifyEventsCalendar/ViewModifyEventsCalendar';
 
 // CUSTOMER-PORTAL COMPONENTS
 import CustomerAccount from '../CP-CustomerPortal/CustomerAccount/CustomerAccount';
@@ -109,7 +109,7 @@ class App extends Component {
                             {/* <Route exact path="/admin/students" component={withAuth(Students, 2)} /> */}
                             {/* <Route exact path="/admin/publish-schedule" component={withAuth(PublishSchedule, 2)} /> */}
                             {/* <Route exact path="/admin/publish-command-performance-schedule" component={withAuth(PublishCommandPerformanceSchedule, 2)} /> */}
-                            <Route exact path="/admin/edit-events-calender" component={withAuth(ViewModifyEventsCalender, 2)} />
+                            <Route exact path="/admin/edit-events-calender" component={withAuth(ViewModifyEventsCalendar, 2)} />
                             {/* <Route exact path="/admin/edit-faq" component={withAuth(ViewModifyFAQ, 2)} /> */}
                             {/* <Route exact path="/admin/edit-about-us" component={withAuth(ViewModifiyAboutUs, 2)} /> */}
                             {/* <Route exact path="/admin/notifications" component={withAuth(CreateSendNotification, 2)} /> */}

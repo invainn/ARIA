@@ -33,7 +33,7 @@ const styles = theme => ({
 
     landingContent: {
         // background: 'rgba(55, 71, 79)',
-        background: '#FFFFFF',
+        background: (theme.palette.type === 'dark') ? '#000000' : '#FFFFFF',
         border: '3px solid brown',
         backgroundSize: 'contain',
         transition: 'all 1s',
@@ -63,12 +63,11 @@ const styles = theme => ({
     },
 
     loginIcons: {
-        color: '#000000',
-        // color: theme.palette.primary.contrastText,
+        color: (theme.palette.type === 'light') ? '#000000' : '#FFFFFF',
     },
 
     fieldText: {
-        // color: theme.palette.primary.contrastText,
+        color: (theme.palette.type === 'light') ? '#000000' : '#FFFFFF',
     },
     fieldTextTwo: {
         display: 'inline-block',

@@ -138,7 +138,7 @@ const adminCards = [
       title: 'View/Modify Events Calendar',
       description: 'Allows the Google Calendar for NNMTA which appears in the Customer and Teacher portals to be viewed, '
       + 'and if necessary, modified by an administrator.',
-      link: '/admin/edit-events-calendar',
+      link: '/admin/events-calendar',
       buttonName: 'View/Modify Events Calendar',
       icon: 'calendar_today',
     },
@@ -147,7 +147,7 @@ const adminCards = [
       title: 'View/Modify FAQ',
       description: 'Allows the Frequently Asked Questions page which appears in the Customer and Teacher portals to be viewed, '
       + 'and if necessary, modified by an administrator.',
-      link: '/admin/edit-faq',
+      link: '/admin/faq',
       buttonName: 'View/Modify FAQ',
       icon: 'help_outline',
     },
@@ -156,7 +156,7 @@ const adminCards = [
       title: 'View/Modify About Us ',
       description: 'Allows the About Us page which appears in the Customer and Teacher portals to be viewed, and if necessary, '
       + 'modified by an administrator.',
-      link: '/admin/edit-about-us',
+      link: '/admin/about',
       buttonName: 'View/Modify About Us',
       icon: 'music_note',
     },
