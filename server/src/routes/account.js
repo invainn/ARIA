@@ -25,6 +25,7 @@ router.post('/token', passport.authenticate('jwt', { session: false }), (req, re
         message: 'token is valid',
         type: req.user.type,
         name: `${req.user.first_name} ${req.user.last_name}`,
+        id: req.user.id,
     });
 });
 
@@ -78,6 +79,7 @@ router.post('/login', (req, res, next) => {
                 token, 
                 type: user.type,
                 name: `${user.first_name} ${user.last_name}`,
+                id: req.user.id,
             }).status(200);
         });
     })(req, res, next);
