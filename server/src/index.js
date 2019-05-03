@@ -34,6 +34,7 @@ app.use('/', require('./routes/app'));
 app.use('/admin', passport.authenticate('jwt', { session: false }), require('./routes/admin'));
 app.use('/account', require('./routes/account'));
 app.use('/payment', passport.authenticate('jwt', { session: false }), require('./routes/payment'));
+app.use('/customer', passport.authenticate('jwt', { session: false }), require('./routes/customer'));
 
 if (process.env.NODE_ENV !== 'test') {
     app.listen(PORT, HOST);

@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
             const res = await dispatch(meFromToken(token));
 
             localStorage.setItem('jwtToken', token);
-            dispatch(meFromTokenSuccess(res.data.type, res.data.name));
+            dispatch(meFromTokenSuccess(res.data.type, res.data.name, res.data.id));
         } catch (error) {
             localStorage.removeItem('jwtToken');
             dispatch(meFromTokenFailure(error));
