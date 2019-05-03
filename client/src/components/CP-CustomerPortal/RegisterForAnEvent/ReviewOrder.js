@@ -40,7 +40,7 @@ const ReviewOrder = (props) => {
             <Divider />
             <List disablePadding>
                 <ListItem className={classes.listItem}>
-                    <ListItemText primary={`${event.eventName} Registration`} secondary={`For ${students.length} students`} />
+                    <ListItemText primary={`${event.Name} Registration`} secondary={`For ${students.length} students`} />
                     <Typography variant="body2">{`$${totalPrice}`}</Typography>
                 </ListItem>
                 <ListItem className={classes.listItem}>

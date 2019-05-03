@@ -19,26 +19,11 @@ class EventTableHead extends Component {
 
     const rows = [
       {
- id: 'eventName', numeric: false, disablePadding: false, label: 'Event Name',
-},
+        id: 'eventName', numeric: false, disablePadding: false, label: 'Event Name',
+      },
       {
- id: 'eventDate', numeric: false, disablePadding: false, label: 'Event Date',
-},
-      {
- id: 'eventDeadline', numeric: false, disablePadding: false, label: 'Event Deadline',
-},
-      {
- id: 'eventStartTime', numeric: false, disablePadding: false, label: 'Event Start Time',
-},
-      {
- id: 'eventEndTime', numeric: false, disablePadding: false, label: 'Event End Time',
-},
-      {
- id: 'eventAddress', numeric: false, disablePadding: false, label: 'Event Address',
-},
-      {
- id: 'email', numeric: false, disablePadding: false, label: 'Facilitator Email',
-},
+        id: 'email', numeric: false, disablePadding: false, label: 'Facilitator Email',
+      },
    ];
 
     return (

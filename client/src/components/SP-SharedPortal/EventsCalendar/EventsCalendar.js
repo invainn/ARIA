@@ -7,7 +7,6 @@ import CustomerPortalContainer from '../../../containers/Shell/CustomerPortalCon
 
 const styles = theme => ({
     eventsCalendarContainer: {
-        width: '90%',
         height: '90%',
     },
     eventsCalendar: {

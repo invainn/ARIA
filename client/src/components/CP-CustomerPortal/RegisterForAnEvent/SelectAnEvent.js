@@ -12,8 +12,13 @@ import {
   Typography,
   Paper,
   Radio,
+  CircularProgress,
 } from '@material-ui/core/';
+import axios from 'axios';
+
 import EventTableHead from './EventTableHead';
+
+import ARIA_SERVER_URL from '../../../config';
 
 const styles = () => ({
   root: {
@@ -122,25 +127,31 @@ EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
 
 class SelectAnEvent extends Component {
   state = {
-    order: 'asc',
-    orderBy: 'calories',
     selected: -1,
-    // TODO: Create a data file instead of hard coding inside of code for future use
-    data: [
-      createData(0, 'Some Competition', '01/01/1970', '01/01/1970', '9:00 PM', '11:00 PM', '111 Virginia St.', 'admin@nnmta.org'),
-      createData(1, 'Some Competition', '01/01/1970', '01/01/1970', '9:00 PM', '11:00 PM', '111 Virginia St.', 'admin@nnmta.org'),
-      createData(2, 'Some Competition', '01/01/1970', '01/01/1970', '9:00 PM', '11:00 PM', '111 Virginia St.', 'admin@nnmta.org'),
-    ],
-    page: 0,
-    rowsPerPage: 3,
+    events: [],
   };
 
-  handleClick = (event, id) => {
-    const { handleEvent } = this.props;
-    const { data } = this.state;
+  componentWillMount = async () => {
+    // Fetch participants related to Customer
+    const req = await axios.get(`${ARIA_SERVER_URL}/customer/event`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwtToken')}`,
+      },
+    });
 
-    this.setState({ selected: id });
-    handleEvent(data[id]);
+    this.setState({ events: [...req.data] });
+  };
+
+  handleClick = (ID) => {
+    const { handleEvent } = this.props;
+    const { events } = this.state;
+
+    this.setState({ selected: ID });
+    events.forEach((event) => {
+      if (event.ID === ID) {
+        handleEvent(event);
+      }
+    });
   }
 
   isSelected = (id) => {
@@ -151,14 +162,15 @@ class SelectAnEvent extends Component {
   render() {
     const { classes } = this.props;
     const {
-        data,
         order,
         orderBy,
         selected,
-        rowsPerPage,
-        page,
+        events,
     } = this.state;
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
+
+    if (events.length === 0) {
+      return <CircularProgress color="primary" />;
+    }
 
     return (
             <div className={classes.root}>
@@ -170,42 +182,29 @@ class SelectAnEvent extends Component {
                       orderBy={orderBy}
                       onSelectAllClick={this.handleSelectAllClick}
                       onRequestSort={this.handleRequestSort}
-                      rowCount={data.length}
                     />
                     <TableBody>
-                    {stableSort(data, getSorting(order, orderBy))
-                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((n) => {
-                        const isSelected = this.isSelected(n.id);
+                    {events.map(({ ID, Name, ChairEmail }) => {
+                        const isSelected = this.isSelected(ID);
                         return [
                           <TableRow
                             hover
-                            onClick={event => this.handleClick(event, n.id)}
+                            onClick={() => this.handleClick(ID)}
                             role="checkbox"
                             aria-checked={isSelected}
                             tabIndex={-1}
-                            key={n.id}
+                            key={ID}
                             selected={isSelected}
                             padding="auto"
                           >
                               <TableCell padding="checkbox">
                                 <Radio color="primary" checked={isSelected} />
                               </TableCell>
-                              <TableCell>{n.eventName}</TableCell>
-                              <TableCell>{n.eventDate}</TableCell>
-                              <TableCell>{n.eventDeadline}</TableCell>
-                              <TableCell>{n.eventStartTime}</TableCell>
-                              <TableCell>{n.eventEndTime}</TableCell>
-                              <TableCell>{n.eventAddress}</TableCell>
-                              <TableCell>{n.email}</TableCell>
+                              <TableCell>{Name}</TableCell>
+                              <TableCell>{ChairEmail}</TableCell>
                           </TableRow>,
                         ];
                         })}
-                    {emptyRows > 0 && (
-                        <TableRow style={{ height: 49 * emptyRows }}>
-                        <TableCell colSpan={6} />
-                        </TableRow>
-                    )}
                     </TableBody>
                 </Table>
                 </div>
