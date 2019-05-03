@@ -103,7 +103,7 @@ class RegisterForAnEvent extends Component {
         this.setState({ orderPlaceDisabled: true });
 
         const { nonce, type } = await this.child.instance.requestPaymentMethod();
-        const { totalPrice } = this.state;
+        const { totalPrice, students, event } = this.state;
 
         let transaction = null;
 
@@ -120,6 +120,12 @@ class RegisterForAnEvent extends Component {
                 },
             });
         }
+
+        await axios.post(`${ARIA_SERVER_URL}/customer/event`, { students, event }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwtToken')}`,
+            },
+        });
 
         this.setState({ transactionDetails: transaction.data });
         this.walkStep();
