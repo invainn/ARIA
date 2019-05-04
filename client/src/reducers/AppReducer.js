@@ -10,7 +10,6 @@ const defaultState = {
     error: '',
     type: null,
     name: '',
-    id: -1,
 };
 
 export default (state = defaultState, action) => {
@@ -24,7 +23,6 @@ export default (state = defaultState, action) => {
                 error: '',
                 type: action.payload.type,
                 name: action.payload.name,
-                id: action.payload.id,
             };
         case ME_FROM_TOKEN_NO_AUTH:
             return { ...state, type: -1 };
