@@ -27,7 +27,7 @@ export const meFromToken = token => dispatch => new Promise(async (resolve, reje
     }
 });
 
-export const meFromTokenSuccess = (type, name, id) => ({
+export const meFromTokenSuccess = (type, name) => ({
     type: ME_FROM_TOKEN_SUCCESS,
     payload: { type, name },
 });
