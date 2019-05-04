@@ -104,13 +104,11 @@ class MyParticipants extends Component {
   };
 
   onSubmit = async ({ FirstName, LastName, Teacher }, { resetForm }) => {
-    const { id } = this.props;
     await axios.post(`${ARIA_SERVER_URL}/customer/participant`,
       {
         FirstName,
         LastName,
         TeacherID: Teacher,
-        CustomerID: id,
       },
       {
       headers: {

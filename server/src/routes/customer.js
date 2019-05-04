@@ -36,9 +36,14 @@ router.post('/participant', async (req, res) => {
         res.status(401).send();
     }
 
-    console.log(req.body);
+    const { FirstName, LastName, TeacherID } =  req.body;
 
-    await (new Student(req.body)).Save();
+    await (new Student({
+        FirstName,
+        LastName,
+        TeacherID,
+        CustomerID: req.user.id,
+    })).Save();
 
     res.status(200).send('Added new participant!');
 });

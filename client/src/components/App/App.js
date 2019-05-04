@@ -29,7 +29,7 @@ import ViewModifyEventsCalendar from '../AP-AdminPortal/ViewModifyEventsCalendar
 
 // CUSTOMER-PORTAL COMPONENTS
 import CustomerAccount from '../CP-CustomerPortal/CustomerAccount/CustomerAccount';
-import MyParticipants from '../../containers/CP-CustomerPortal/MyParticipants/MyParticipantsContainer';
+import MyParticipants from '../CP-CustomerPortal/MyParticipants/MyParticipants';
 import MyEnrollments from '../CP-CustomerPortal/MyEnrollments/MyEnrollments';
 import RegisterForAnEvent from '../CP-CustomerPortal/RegisterForAnEvent/RegisterForAnEvent';
 // import PaymentHistory from '../CP-CustomerPortal/PaymentHistory/PaymentHistory';
