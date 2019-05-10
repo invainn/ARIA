@@ -1,0 +1,66 @@
+{  
+   "documents":{  
+      "adjudicationForm":false,
+      "announcingSheet":true,
+      "certificates":false,
+      "masterJudgeRepertoire":false,
+      "masterJudgeSchedule":false,
+      "resultsSheet":false,
+      "roomSchedules":false,
+      "sessionAssignments":false,
+      "sessionLabels":false,
+      "teacherMaster":false
+   },
+   "announcingSheet":{  
+      "eventName": "2019 Upper Festival",
+      "documentTitle":"Announcing Sheet",
+      "sessions": [
+        {  
+           "day":"Friday",
+           "time":"9:00 am",
+           "sessionNumber":"1",
+           "nameOfRoom":"Recital Hall",
+           "classType":"Master",
+           "levels":"5",
+           "judges": [
+                "name1",
+                "name2",
+                "name3"
+           ],
+           "proctorName":"Sonnet Johnson",
+           "doorMonitorName":"Catherine Lin",
+           "performanceOrder":"Performance Order",
+           "students": [
+              {  
+                 "studentFullName":"Bob White",
+                 "individualLevel":"5",
+                 "songs": [
+                     {
+                        "songName": "Sea Pierce",
+                        "songComposer": "MacDowell"
+                     },
+                     {
+                        "songName": "Sea Pierce",
+                        "songComposer": "MacDowell"
+                     }
+                 ]
+              },
+              {  
+                 "studentFullName":"Bob White",
+                 "individualLevel":"5",
+                 "songs": [
+                     {
+                        "songName": "Sea Pierce",
+                        "songComposer": "MacDowell"
+                     },
+                     {
+                        "songName": "Sea Pierce",
+                        "songComposer": "MacDowell"
+                     }
+                 ]
+              }
+           ]
+         }
+      ]
+   }
+}
