@@ -91,6 +91,7 @@ jobs:
             - run:
                 name: Deploy to portainer
                 command: |
+                    apt-get install curl;
                     curl -X POST ${PORTAINER_HOOK_CLIENT}
                     curl -X POST ${PORTAINER_HOOK_SERVER}
 workflows:
