@@ -10,7 +10,7 @@ RUN yarn install --silent
 # copy stuff in there
 COPY . .
 
-ENTRYPOINT ["env_secrets_expand.sh"]
+ENTRYPOINT ["./env_secrets_expand.sh"]
 
 EXPOSE 8080 
 
