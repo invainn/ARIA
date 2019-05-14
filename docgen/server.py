@@ -1,5 +1,11 @@
+import io
 import os
-import json 
+import json
+import boto3
+
+# .env 
+from dotenv import load_dotenv
+load_dotenv()
 
 from flask import Flask, request
 
@@ -59,6 +65,9 @@ def generateDocuments():
         '''
 
 def createAnnouncingSheet(data):
+    # Amazon S3 Client
+    s3_client = boto3.client('s3')
+
     document = Document()
     announcingSheet = data['announcingSheet']
 
@@ -162,10 +171,18 @@ def createAnnouncingSheet(data):
         # Page break after each session object is processed.
         document.add_page_break()
 
-        # # Write/Save Document
-        document.save('./documents/announcing_sheet.docx')
+        # Write file to stream buffer to prep for writing to S3
+        buffer = io.BytesIO()
+        document.save(buffer)
+
+        # Save leaves the file pointer at end of file, so we restart it at beginning
+        buffer.seek(0)
+
+        # Upload document to S3
+        s3_client.upload_fileobj(buffer, 's3ariannmta', 'announcing_sheet.docx')
 
         return 'document created successfully.'
 
 if __name__ == "__main__":
     app.run(debug=True, port=4321) #run app in debug mode on port 4321
+
