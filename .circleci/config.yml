@@ -65,53 +65,34 @@ jobs:
     
     staging:
         docker:
-            - image: google/cloud-sdk
-        environment:
-            - GOOGLE_COMPUTE_ZONE: "us-central1-a"
-            - GOOGLE_CLUSTER_NAME: "standard-cluster-1"
+            - image: docker:stable
         steps:
             - checkout
             - run:
                 name: Directory
                 command: pwd
-            - run:
-                name: Setup SDK
-                command: |
-                    apt-get install -qq -y gettext
-                    echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
-                    gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
-                    gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
-                    gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
-                    gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
             - setup_remote_docker
             - run:
                 name: Build and push aria-client image 
                 command: |
                     docker build -f Dockerfile-prod -t aria-client .
-                    docker tag aria-client gcr.io/${GOOGLE_PROJECT_ID}/aria-client:${CIRCLE_SHA1}
-                    gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://gcr.io
-                    docker push gcr.io/${GOOGLE_PROJECT_ID}/aria-client:${CIRCLE_SHA1}
+                    docker tag aria-client invainn/aria-client:${CIRCLE_SHA1}
+                    echo "$DOCKERHUB_PASS" | docker login -u $DOCKERHUB_USER --password-stdin
+                    docker push invainn/aria-client:${CIRCLE_SHA1}
                 working_directory: client
             - run:
                 name: Build and push aria-server image 
                 command: |
                     docker build -t aria-server .
-                    docker tag aria-server gcr.io/${GOOGLE_PROJECT_ID}/aria-server:${CIRCLE_SHA1}
-                    gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://gcr.io
-                    docker push gcr.io/${GOOGLE_PROJECT_ID}/aria-server:${CIRCLE_SHA1}
+                    docker tag aria-server invainn/aria-server:${CIRCLE_SHA1}
+                    echo "$DOCKERHUB_PASS" | docker login -u $DOCKERHUB_USER --password-stdin
+                    docker push invainn/aria-server:${CIRCLE_SHA1}
                 working_directory: server 
             - run:
-                name: Deploy to GKE
+                name: Deploy to portainer
                 command: |
-                    envsubst < ${HOME}/project/res/aria-client.yml > ${HOME}/patched_aria-client.yml
-                    envsubst < ${HOME}/project/res/aria-server.yml > ${HOME}/patched_aria-server.yml
-                    kubectl apply -f ${HOME}/patched_aria-server.yml
-                    kubectl apply -f ${HOME}/patched_aria-client.yml
-                    kubectl apply -f ${HOME}/project/res/aria-client-certificate.yml
-                    kubectl apply -f ${HOME}/project/res/aria-server-certificate.yml
-                    kubectl apply -f ${HOME}/project/res/aria-ingress.yml
-                    kubectl rollout status deployment/aria-client
-                    kubectl rollout status deployment/aria-server
+                    curl -X POST ${PORTAINER_HOOK_CLIENT}
+                    curl -X POST ${PORTAINER_HOOK_SERVER}
 workflows:
     version: 2
     build_test_deploy:

@@ -1,0 +1,106 @@
+version: '3.7'
+
+secrets:
+  DB_HOST:
+    external: true
+  DB_USER:
+    external: true
+  DB_PASS:
+    external: true
+  JWT_SECRET:
+    external: true
+  BRAINTREE_MERCHANT_ID:
+    external: true
+  BRAINTREE_PUBLIC_KEY:
+    external: true
+  BRAINTREE_PRIVATE_KEY:
+    external: true
+  AWS_ACCESS_KEY_ID:
+    external: true
+  AWS_SECRET_ACCESS_KEY:
+    external: true
+  AWS_DEFAULT_REGION:
+    external: true
+
+services:
+  traefik:
+    image: traefik
+    networks:
+      - traefik-public
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/traefik/traefik.toml:/etc/traefik/traefik.toml
+      - /etc/traefik/acme.json:/acme.json
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.frontend.rule=Host:traefik.gishi.tech"
+        - "traefik.docker.network=traefik-public"
+        - "traefik.port=8080"
+        - "traefik.protocol=http"
+
+  client:
+    image: invainn/aria-client:latest
+    networks:
+      - traefik-public
+    depends_on:
+      - traefik 
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.port=80"
+        - "traefik.backend=client"
+        - "traefik.docker.network=traefik-public"
+        - "traefik.frontend.rule=Host:aria.gishi.tech"
+        - "traefik.protocol=http"
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  server:
+    image: invainn/aria-server:latest
+    networks:
+      - traefik-public
+      - traefik-private
+    depends_on:
+      - traefik 
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.port=8080"
+        - "traefik.backend=server"
+        - "traefik.docker.network=traefik-public"
+        - "traefik.frontend.rule=Host:api.aria.gishi.tech"
+        - "traefik.protocol=http"
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    environment:
+      DB_HOST:
+      DB_USER:
+      DB_PASS:
+      JWT_SECRET:
+      BRAINTREE_MERCHANT_ID:
+      BRAINTREE_PUBLIC_KEY:
+      BRAINTREE_PRIVATE_KEY:
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      AWS_DEFAULT_REGION:
+
+networks:
+  traefik-public:
+    external: true
+  traefik-private:
+    external: false
