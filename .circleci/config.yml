@@ -67,7 +67,7 @@ jobs:
     # docker tag aria-server invainn/aria-server:${CIRCLE_SHA1}
     staging:
         docker:
-            - image: docker:stable
+            - image: docker:stable 
         steps:
             - checkout
             - run:
@@ -91,7 +91,7 @@ jobs:
             - run:
                 name: Deploy to portainer
                 command: |
-                    apt-get install curl;
+                    apk update && apk add curl;
                     curl -X POST ${PORTAINER_HOOK_CLIENT}
                     curl -X POST ${PORTAINER_HOOK_SERVER}
 workflows:
