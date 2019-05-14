@@ -67,7 +67,7 @@ jobs:
     # docker tag aria-server invainn/aria-server:${CIRCLE_SHA1}
     staging:
         docker:
-            - image: byrneda/alpine-curl 
+            - image: docker:stable 
         steps:
             - checkout
             - run:
