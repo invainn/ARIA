@@ -14,8 +14,10 @@ RUN apk --no-cache --virtual build-dependencies add \
     g++ \
     yarn \
     && yarn install \
-    && apk del build-dependencies
+    && apk del build-dependencies \
+    && chmod +x /usr/app/entrypoint.sh \
+    chmod +x /usr/app/env-secrets-expand.sh
 
 EXPOSE 8080 
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/usr/app/entrypoint.sh"]
