@@ -62,7 +62,9 @@ jobs:
             name: Test aria-server
             command: yarn test
             working_directory: server
-    
+    # add these back in after tagged webhooks are supported
+    # docker tag aria-client invainn/aria-client:${CIRCLE_SHA1}
+    # docker tag aria-server invainn/aria-server:${CIRCLE_SHA1}
     staging:
         docker:
             - image: docker:stable
@@ -76,17 +78,15 @@ jobs:
                 name: Build and push aria-client image 
                 command: |
                     docker build -f Dockerfile-prod -t aria-client .
-                    docker tag aria-client invainn/aria-client:${CIRCLE_SHA1}
                     echo "$DOCKERHUB_PASS" | docker login -u $DOCKERHUB_USER --password-stdin
-                    docker push invainn/aria-client:${CIRCLE_SHA1}
+                    docker push invainn/aria-client:latest
                 working_directory: client
             - run:
                 name: Build and push aria-server image 
                 command: |
                     docker build -t aria-server .
-                    docker tag aria-server invainn/aria-server:${CIRCLE_SHA1}
                     echo "$DOCKERHUB_PASS" | docker login -u $DOCKERHUB_USER --password-stdin
-                    docker push invainn/aria-server:${CIRCLE_SHA1}
+                    docker push invainn/aria-server:latest
                 working_directory: server 
             - run:
                 name: Deploy to portainer
